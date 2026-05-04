@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operations Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Barlow:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#0d0d1a;overflow:hidden}
+body{font-family:'Barlow',sans-serif;display:flex;flex-direction:column}
+
+/* ── HEADER ── */
+.hdr{background:#0a0a14;border-bottom:2px solid #1a1a30;padding:0 20px;height:52px;
+  display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.hdr-logo{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;
+  letter-spacing:3px;text-transform:uppercase;color:#fff}
+.hdr-logo span{color:#00e5ff}
+.hdr-center{display:flex;gap:0}
+.date-btn{padding:0 18px;height:52px;display:flex;align-items:center;
+  font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:#444;cursor:pointer;
+  border-bottom:3px solid transparent;transition:all .2s}
+.date-btn.on{color:#00e5ff;border-bottom-color:#00e5ff}
+.date-btn:hover{color:#888}
+.hdr-right{display:flex;align-items:center;gap:20px}
+.hdr-clock{font-family:'DM Mono',monospace;font-size:18px;color:#00e5ff;letter-spacing:2px}
+.hdr-date{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;
+  letter-spacing:1px;color:#444;text-transform:uppercase}
+.refresh-wrap{display:flex;align-items:center;gap:6px}
+.rdot{width:6px;height:6px;border-radius:50%;background:#00e5ff;animation:pulse 2s infinite}
+.rtime{font-family:'DM Mono',monospace;font-size:11px;color:#333}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── WALLBOARD ── */
+.wb{flex:1;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:auto auto auto;
+  gap:4px;padding:4px;min-height:0;overflow:hidden}
+
+/* ── SECTION ROWS ── */
+.section-bar{grid-column:span 5;background:#0a0a14;display:flex;align-items:center;
+  padding:0 14px;gap:10px;height:26px}
+.section-bar-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:800;
+  letter-spacing:3px;text-transform:uppercase;color:#333}
+.section-bar-line{flex:1;height:1px;background:#1a1a2e}
+.section-bar-source{font-family:'DM Mono',monospace;font-size:9px;color:#222;letter-spacing:1px}
+
+/* ── TILES ── */
+.tile{position:relative;display:flex;flex-direction:column;justify-content:space-between;
+  padding:14px 18px;cursor:pointer;overflow:hidden;transition:filter .15s;min-height:0}
+.tile:hover{filter:brightness(1.12)}
+.tile:active{filter:brightness(.9);transform:scale(.99)}
+
+.t-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.65);line-height:1}
+.t-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;line-height:1;
+  color:#fff;letter-spacing:-2px;font-size:80px;flex:1;display:flex;align-items:center}
+.t-num.md{font-size:60px}
+.t-num.sm{font-size:40px}
+.t-num.xs{font-size:28px;letter-spacing:0;font-weight:700;font-family:'Barlow',sans-serif;line-height:1.3}
+.t-sub{font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,.5);letter-spacing:.5px}
+.t-link{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4);
+  position:absolute;bottom:12px;right:14px}
+
+/* Colour scheme */
+.c-cyan{background:#006080}
+.c-blue{background:#003d8f}
+.c-green{background:#006630}
+.c-teal{background:#005544}
+.c-purple{background:#4a1a7a}
+.c-orange{background:#7a3300}
+.c-amber{background:#7a5500}
+.c-red{background:#7a0022}
+.c-gl{background:#0f3d20}
+.c-gl2{background:#1a5c2e}
+.c-dark{background:#0f0f22}
+.c-alert-ok{background:#004d20}
+.c-alert-warn{background:#7a2200}
+.c-nav{background:#0a0a1a;border:1px solid #1a1a30}
+
+/* ── DETAIL PANEL ── */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:300;
+  align-items:center;justify-content:center;padding:20px}
+.overlay.on{display:flex}
+.panel{background:#0f0f22;border-top:4px solid #00e5ff;border-radius:4px;
+  width:100%;max-width:660px;max-height:88vh;display:flex;flex-direction:column}
+.panel-hdr{display:flex;align-items:center;justify-content:space-between;
+  padding:14px 20px;border-bottom:1px solid #1a1a30;flex-shrink:0}
+.panel-title{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900;
+  letter-spacing:2px;text-transform:uppercase;color:#00e5ff}
+.panel-close{font-size:22px;cursor:pointer;color:#444;background:none;border:none;line-height:1;padding:4px}
+.panel-body{padding:16px 20px;overflow-y:auto;flex:1}
+.p-row{display:flex;align-items:center;justify-content:space-between;
+  padding:10px 0;border-bottom:1px solid #111}
+.p-row:last-child{border-bottom:none}
+.p-lodge{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;
+  letter-spacing:.5px;color:#fff}
+.p-info{font-family:'DM Mono',monospace;font-size:11px;color:#444}
+.p-status{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.s-done{background:#00a651}.s-pending{background:#f4a261}.s-none{background:#222}
+.p-val{font-family:'DM Mono',monospace;font-size:18px;font-weight:700}
+.p-empty{text-align:center;padding:40px;font-family:'Barlow Condensed',sans-serif;
+  font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#333}
+
+/* ── LOADING ── */
+.loader{position:fixed;inset:0;background:#0d0d1a;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:16px;z-index:400}
+.spin{width:44px;height:44px;border:3px solid #1a1a30;border-top-color:#00e5ff;
+  border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.load-txt{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:#333}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .wb{grid-template-columns:repeat(3,1fr)}
+  .section-bar{grid-column:span 3}
+  .t-num{font-size:60px}
+}
+@media(max-width:600px){
+  .wb{grid-template-columns:repeat(2,1fr);gap:3px;padding:3px}
+  .section-bar{grid-column:span 2}
+  .hdr{padding:0 12px}
+  .hdr-date,.hdr-center{display:none}
+  .t-num{font-size:52px}
+  .tile{padding:10px 12px}
+}
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader">
+  <div class="spin"></div>
+  <div class="load-txt">Loading live data...</div>
+</div>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-logo">Ops <span>Live</span></div>
+  <div class="hdr-center">
+    <div class="date-btn" onclick="setDay(-1,this)">Yesterday</div>
+    <div class="date-btn on" onclick="setDay(0,this)">Today</div>
+    <div class="date-btn" onclick="setDay(1,this)">Tomorrow</div>
+    <div class="date-btn" onclick="setDay(2,this)">+2 Days</div>
+  </div>
+  <div class="hdr-right">
+    <div class="refresh-wrap">
+      <div class="rdot"></div>
+      <div class="rtime" id="rtime">--:--</div>
+    </div>
+    <div class="hdr-date" id="hdrDate"></div>
+    <div class="hdr-clock" id="hdrClock"></div>
+  </div>
+</div>
+
+<!-- WALLBOARD -->
+<div class="wb" id="wb"></div>
+
+<!-- DETAIL OVERLAY -->
+<div class="overlay" id="overlay" onclick="closePanel(event)">
+  <div class="panel" id="panel">
+    <div class="panel-hdr">
+      <div class="panel-title" id="panelTitle"></div>
+      <button class="panel-close" onclick="closePanel()">✕</button>
+    </div>
+    <div class="panel-body" id="panelBody"></div>
+  </div>
+</div>
+
+<script>
+const B24_BASE    = 'https://beds24.com/api/v2';
+const B24_REFRESH = 'nZKFYUCHhdGmN+m7k/Wohj2dd4Aye4n7hGQpDay8mMA1zVBuH74FONKmw2TW7HW6SbtCrIiXlzEZ6oybEprrSDuT1tuUWdMToUkaaxOKqlbuu3YEl+j2vuMIuMmzju83tNV59lV/9GUVPp8Ms7kaTPaFuJz25phJx0SmXSazjVs=';
+const SUPA_URL    = 'https://mqjbcxmxodsocxcachmo.supabase.co';
+const SUPA_KEY    = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xamJjeG14b2Rzb2N4Y2FjaG1vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcyMTQwNzYsImV4cCI6MjA5Mjc5MDA3Nn0.IUxftdqiTO4oc2p6_bosA2hccZQibfrOkyxCaoVF-yI';
+const GL_APP_URL  = 'https://cotsret.github.io/gl-linen';
+
+let b24tok=null, dayOff=0;
+let _deps=[], _arrs=[], _glData={};
+
+// Clock
+setInterval(()=>{
+  document.getElementById('hdrClock').textContent =
+    new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+},1000);
+
+// Date helpers
+const isoDate = off => { const d=new Date(); d.setDate(d.getDate()+off); return d.toISOString().split('T')[0]; };
+const fmtLong = off => { const d=new Date(); d.setDate(d.getDate()+off); return d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'}); };
+const fmtShort= off => { const d=new Date(); d.setDate(d.getDate()+off); return d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'}); };
+
+function setDay(off, el){
+  dayOff=off;
+  document.querySelectorAll('.date-btn').forEach(b=>b.classList.remove('on'));
+  if(el) el.classList.add('on');
+  fetchAll();
+}
+
+// ── BEDS24 ────────────────────────────────────────────────────────────────────
+async function getToken(){
+  const r = await fetch(B24_BASE+'/authentication/token',{
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({refreshToken: B24_REFRESH})
+  });
+  b24tok = (await r.json()).token;
+}
+
+async function b24get(path){
+  if(!b24tok) await getToken();
+  const r = await fetch(B24_BASE+path, {headers:{token:b24tok}});
+  if(r.status===401){ await getToken(); return b24get(path); }
+  const d = await r.json();
+  return Array.isArray(d) ? d : (d.data||[]);
+}
+
+async function fetchB24(date){
+  const fields = 'propId,unitName,propName,arrival,departure,numAdult,numChild,status';
+  const [deps, arrs] = await Promise.all([
+    b24get(`/bookings?departureFrom=${date}&departureTo=${date}&includeInfoItems=${fields}`),
+    b24get(`/bookings?arrivalFrom=${date}&arrivalTo=${date}&includeInfoItems=${fields}`)
+  ]);
+  return {deps, arrs};
+}
+
+// ── SUPABASE ──────────────────────────────────────────────────────────────────
+async function fetchGL(){
+  const r = await fetch(`${SUPA_URL}/rest/v1/gl_data?select=key,value`,{
+    headers:{ apikey:SUPA_KEY, Authorization:`Bearer ${SUPA_KEY}` }
+  });
+  const rows = await r.json();
+  const d = {};
+  rows.forEach(x => { d[x.key] = x.value; });
+  return d;
+}
+
+// ── MAIN FETCH ────────────────────────────────────────────────────────────────
+async function fetchAll(){
+  document.getElementById('hdrDate').textContent = fmtLong(dayOff);
+  const date = isoDate(dayOff);
+  try {
+    const [b24, gl] = await Promise.all([fetchB24(date), fetchGL()]);
+    _deps = b24.deps || [];
+    _arrs = b24.arrs || [];
+    _glData = gl;
+  } catch(e) {
+    console.error('Fetch error:', e);
+    _deps=[]; _arrs=[];
+  }
+  document.getElementById('rtime').textContent =
+    new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+  render();
+  document.getElementById('loader').style.display='none';
+}
+
+// ── GL HELPERS ────────────────────────────────────────────────────────────────
+function glAlertStatus(){
+  const counts = _glData.counts || [];
+  const today = isoDate(0);
+  const shorts = counts.filter(c => c.hasShort && c.date === today);
+  return { count: shorts.length, items: shorts };
+}
+
+function glStockHealth(){
+  const shelf = _glData.shelf || {};
+  const key = ['Bath Sheet','Bath Mat','Hand Towel','King D','King S','Single D','Single S','Pillow C'];
+  const vals = key.map(i => shelf[i]||0);
+  const zeros = vals.filter(v=>v===0).length;
+  const lows  = vals.filter(v=>v>0&&v<10).length;
+  if(zeros>2||lows>4) return {label:'CRITICAL', cls:'c-alert-warn', color:'#ff4466'};
+  if(zeros>0||lows>2) return {label:'LOW STOCK', cls:'c-amber', color:'#ffaa00'};
+  return {label:'STOCK OK', cls:'c-alert-ok', color:'#00e676'};
+}
+
+function glForecastToday(){
+  // Use counts to estimate today's need vs shelf
+  const shelf = _glData.shelf || {};
+  const bs = shelf['Bath Sheet'] || 0;
+  return bs;
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+function render(){
+  const deps   = _deps.length;
+  const arrs   = _arrs.length;
+  const guests = _arrs.reduce((s,b)=>s+(b.numAdult||0)+(b.numChild||0),0);
+  const alert  = glAlertStatus();
+  const health = glStockHealth();
+  const watch  = (_glData.watchlist||[]).filter(w=>!w.resolved);
+
+  // Tomorrow counts (we'll show as placeholder if not fetched)
+  const tmrDate = isoDate(dayOff+1);
+
+  document.getElementById('wb').innerHTML = `
+
+    <!-- ── BEDS24 ── -->
+    <div class="section-bar">
+      <div class="section-bar-label">Beds24</div>
+      <div class="section-bar-line"></div>
+      <div class="section-bar-source">LIVE · ${fmtShort(dayOff)}</div>
+    </div>
+
+    <!-- Departures -->
+    <div class="tile c-cyan" onclick="showPanel('deps')">
+      <div class="t-label">Departures</div>
+      <div class="t-num">${deps}</div>
+      <div class="t-sub">checkouts today · tap for list</div>
+    </div>
+
+    <!-- Arrivals -->
+    <div class="tile c-blue" onclick="showPanel('arrs')">
+      <div class="t-label">Arrivals</div>
+      <div class="t-num">${arrs}</div>
+      <div class="t-sub">${guests} guests · tap for list</div>
+    </div>
+
+    <!-- Tomorrow Deps -->
+    <div class="tile c-teal" onclick="showPanel('tmr-deps')">
+      <div class="t-label">Tomorrow Departures</div>
+      <div class="t-num md" id="tmrDeps">—</div>
+      <div class="t-sub">${fmtShort(dayOff+1)} · tap for list</div>
+    </div>
+
+    <!-- Tomorrow Arrs -->
+    <div class="tile c-purple" onclick="showPanel('tmr-arrs')">
+      <div class="t-label">Tomorrow Arrivals</div>
+      <div class="t-num md" id="tmrArrs">—</div>
+      <div class="t-sub">${fmtShort(dayOff+1)} · tap for list</div>
+    </div>
+
+    <!-- Nav tile -->
+    <div class="tile c-nav" onclick="setDay(dayOff+1, null)" style="cursor:pointer">
+      <div class="t-label" style="color:#333">Navigate</div>
+      <div style="font-family:'Barlow Condensed';font-size:36px;font-weight:900;color:#222;flex:1;display:flex;align-items:center">›</div>
+      <div class="t-sub">${fmtShort(dayOff+1)}</div>
+    </div>
+
+    <!-- ── BREEZEWAY ── -->
+    <div class="section-bar">
+      <div class="section-bar-label">Breezeway</div>
+      <div class="section-bar-line"></div>
+      <div class="section-bar-source">CONNECTING SOON</div>
+    </div>
+
+    <div class="tile c-dark" style="opacity:.35;cursor:default">
+      <div class="t-label">Not Started</div>
+      <div class="t-num">—</div>
+      <div class="t-sub">pending api</div>
+    </div>
+
+    <div class="tile c-dark" style="opacity:.35;cursor:default">
+      <div class="t-label">In Progress</div>
+      <div class="t-num" style="color:#f4a261">—</div>
+      <div class="t-sub">pending api</div>
+    </div>
+
+    <div class="tile c-dark" style="opacity:.35;cursor:default">
+      <div class="t-label">Completed</div>
+      <div class="t-num" style="color:#00e676">—</div>
+      <div class="t-sub">pending api</div>
+    </div>
+
+    <div class="tile c-dark" style="opacity:.35;cursor:default">
+      <div class="t-label">Issues</div>
+      <div class="t-num" style="color:#ff4466">—</div>
+      <div class="t-sub">pending api</div>
+    </div>
+
+    <div class="tile c-dark" style="opacity:.35;cursor:default">
+      <div class="t-label">Inspections</div>
+      <div class="t-num sm">— / —</div>
+      <div class="t-sub">pending api</div>
+    </div>
+
+    <!-- ── GL LINEN ── -->
+    <div class="section-bar">
+      <div class="section-bar-label">GL Linen</div>
+      <div class="section-bar-line"></div>
+      <div class="section-bar-source">LIVE · SUPABASE</div>
+    </div>
+
+    <!-- GL Alerts -->
+    <div class="tile ${alert.count>0?'c-alert-warn':'c-alert-ok'}" onclick="showPanel('gl-alerts')">
+      <div class="t-label">GL Alerts</div>
+      <div class="t-num">${alert.count}</div>
+      <div class="t-sub">${alert.count>0?'lodges with missing items · tap':'all clear today'}</div>
+    </div>
+
+    <!-- GL Stock Health -->
+    <div class="tile ${health.cls}" onclick="showPanel('gl-stock')">
+      <div class="t-label">Stock Health</div>
+      <div class="t-num xs" style="color:${health.color}">${health.label}</div>
+      <div class="t-sub">tap for full detail</div>
+    </div>
+
+    <!-- GL Watch List -->
+    <div class="tile ${watch.length>0?'c-alert-warn':'c-gl'}" onclick="showPanel('gl-watch')">
+      <div class="t-label">GL Watch List</div>
+      <div class="t-num md">${watch.length}</div>
+      <div class="t-sub">${watch.length>0?'items owed by GL · tap':'nothing outstanding'}</div>
+    </div>
+
+    <!-- Go to GL App -->
+    <div class="tile c-gl2" onclick="window.open('${GL_APP_URL}','_blank')" style="cursor:pointer">
+      <div class="t-label">GL Linen App</div>
+      <div style="font-family:'Barlow Condensed';font-size:36px;font-weight:900;color:rgba(255,255,255,.3);flex:1;display:flex;align-items:center">→</div>
+      <div class="t-sub">open full app ↗</div>
+    </div>
+
+    <!-- Spacer -->
+    <div class="tile c-dark" style="cursor:default;opacity:.2">
+      <div class="t-label">Coming Soon</div>
+    </div>
+
+  `;
+
+  // Fetch tomorrow's data in background
+  fetchTomorrow(isoDate(dayOff+1));
+}
+
+// ── TOMORROW FETCH ────────────────────────────────────────────────────────────
+let _tmrDeps=[], _tmrArrs=[];
+async function fetchTomorrow(date){
+  try {
+    const {deps, arrs} = await fetchB24(date);
+    _tmrDeps = deps||[];
+    _tmrArrs = arrs||[];
+    const dEl = document.getElementById('tmrDeps');
+    const aEl = document.getElementById('tmrArrs');
+    if(dEl) dEl.textContent = _tmrDeps.length;
+    if(aEl) aEl.textContent = _tmrArrs.length;
+  } catch(e) { console.error('Tomorrow fetch failed:', e); }
+}
+
+// ── DETAIL PANELS ─────────────────────────────────────────────────────────────
+const ITEMS=['Bath Sheet','Bath Mat','Hand Towel','S King D','S King S','King D','King S','Single D','Single S','Pillow C','Oxford','Tea Towel'];
+
+function showPanel(type){
+  const ov = document.getElementById('overlay');
+  const ti = document.getElementById('panelTitle');
+  const bo = document.getElementById('panelBody');
+  const panel = document.getElementById('panel');
+  panel.style.borderTopColor = '#00e5ff';
+
+  const lodgeList = (arr, status='none') => arr.length===0
+    ? `<div class="p-empty">No entries for this day</div>`
+    : arr.map(b => {
+        const g = (b.numAdult||0)+(b.numChild||0);
+        return `<div class="p-row">
+          <div>
+            <div class="p-lodge">${b.unitName||b.propName||'Unknown'}</div>
+            ${g ? `<div class="p-info">${g} guest${g!==1?'s':''}</div>` : ''}
+          </div>
+          <div class="p-status s-${status}"></div>
+        </div>`;
+      }).join('');
+
+  if(type==='deps'){
+    ti.textContent=`Departures — ${fmtShort(dayOff)}`;
+    bo.innerHTML=lodgeList(_deps,'pending');
+  }
+  else if(type==='arrs'){
+    ti.textContent=`Arrivals — ${fmtShort(dayOff)}`;
+    bo.innerHTML=lodgeList(_arrs,'none');
+  }
+  else if(type==='tmr-deps'){
+    ti.textContent=`Tomorrow Departures — ${fmtShort(dayOff+1)}`;
+    bo.innerHTML=_tmrDeps.length===0
+      ?`<div class="p-empty">Loading...</div>`
+      :lodgeList(_tmrDeps,'pending');
+  }
+  else if(type==='tmr-arrs'){
+    ti.textContent=`Tomorrow Arrivals — ${fmtShort(dayOff+1)}`;
+    bo.innerHTML=_tmrArrs.length===0
+      ?`<div class="p-empty">Loading...</div>`
+      :lodgeList(_tmrArrs,'none');
+  }
+  else if(type==='gl-alerts'){
+    ti.textContent='GL Alerts — Today';
+    panel.style.borderTopColor='#ff4466';
+    const alerts = (_glData.counts||[]).filter(c=>c.hasShort&&c.date===isoDate(0));
+    bo.innerHTML = alerts.length===0
+      ? `<div class="p-empty" style="color:#00e676">✓ All clear — no missing items today</div>`
+      : alerts.map(a=>`<div class="p-row">
+          <div>
+            <div class="p-lodge">${a.lodge}</div>
+            <div class="p-info">${a.shorts.join(', ')} missing</div>
+          </div>
+          <div class="p-status s-pending"></div>
+        </div>`).join('');
+  }
+  else if(type==='gl-stock'){
+    ti.textContent='GL Linen — Warehouse Stock';
+    panel.style.borderTopColor='#00a651';
+    const shelf=_glData.shelf||{};
+    bo.innerHTML = ITEMS.map(item=>{
+      const v=shelf[item]||0;
+      const c=v===0?'#ff4466':v<10?'#ffaa00':'#00e676';
+      return `<div class="p-row">
+        <div class="p-lodge">${item}</div>
+        <div class="p-val" style="color:${c}">${v}</div>
+      </div>`;
+    }).join('');
+  }
+  else if(type==='gl-watch'){
+    ti.textContent='GL Watch List — Items Owed';
+    panel.style.borderTopColor='#ffaa00';
+    const w=(_glData.watchlist||[]).filter(x=>!x.resolved);
+    bo.innerHTML = w.length===0
+      ? `<div class="p-empty" style="color:#00e676">✓ Nothing outstanding from GL</div>`
+      : w.map(x=>`<div class="p-row">
+          <div>
+            <div class="p-lodge">${x.item}</div>
+            <div class="p-info">From ${x.fromDate} · sent ${x.sent}, received ${x.received}</div>
+          </div>
+          <div class="p-val" style="color:#ff4466">−${x.short}</div>
+        </div>`).join('');
+  }
+
+  ov.classList.add('on');
+}
+
+function closePanel(e){
+  if(!e||e.target===document.getElementById('overlay'))
+    document.getElementById('overlay').classList.remove('on');
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+fetchAll();
+setInterval(fetchAll, 10*60*1000); // refresh every 10 mins
+</script>
+</body>
+</html>
