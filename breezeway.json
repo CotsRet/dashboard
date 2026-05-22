@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-05-22T12:01:22.997Z",
+  "_generated": "2026-05-22T12:16:13.022Z",
   "_source": "cron",
   "_date": "2026-05-22",
   "_status": {
-    "last_run": "2026-05-22T12:01:22.997Z",
+    "last_run": "2026-05-22T12:16:13.022Z",
     "ok": true,
     "properties_polled": 131,
     "properties_raw_total": 132,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "in_progress": 3,
-      "created": 34,
-      "finished": 57
+      "finished": 64,
+      "created": 28,
+      "in_progress": 2
     },
     "first_task_shape": {
       "keys": [
@@ -39,6 +39,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -76,17 +77,17 @@
       ],
       "sample_type_department": "maintenance",
       "sample_status": {
-        "code": "in_progress",
-        "name": "In Progress",
-        "stage": "in_progress"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 34,
+    "not_started": 28,
     "in_progress": 1,
-    "completed": 57,
-    "issues": 2
+    "completed": 64,
+    "issues": 1
   },
   "total_tasks": 94,
   "properties": [
@@ -95,18 +96,18 @@
       "id": 1328504,
       "total": 1,
       "not_started": 0,
-      "in_progress": 1,
-      "completed": 0,
+      "in_progress": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 148626233,
           "name": "Light switch replacement in twin bedroom ",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-05-22T12:00:09",
-          "finished_at": null,
+          "finished_at": "2026-05-22T12:01:39",
           "scheduled_date": "2026-05-22",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -144,9 +145,9 @@
       "name": "HB Sunflower Lodge WV26",
       "id": 1257495,
       "total": 3,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 2,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -169,11 +170,11 @@
         {
           "id": 142603955,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-22T12:08:38",
+          "finished_at": "2026-05-22T12:08:39",
           "scheduled_date": "2026-05-22",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -390,9 +391,9 @@
       "name": "HB Kingfisher Lodge - ND25",
       "id": 1152471,
       "total": 3,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 2,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -414,11 +415,11 @@
         {
           "id": 139134443,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-22T12:04:26",
+          "finished_at": "2026-05-22T12:04:27",
           "scheduled_date": "2026-05-22",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -984,10 +985,10 @@
       "name": "HB The Boat House WLM20",
       "id": 641768,
       "total": 5,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 3,
-      "issues": 1,
+      "completed": 5,
+      "issues": 0,
       "tasks": [
         {
           "id": 142265213,
@@ -1027,13 +1028,13 @@
         {
           "id": 147742189,
           "name": "Banging noise",
-          "classification": "issues",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-05-18T11:10:49",
-          "finished_at": null,
+          "finished_at": "2026-05-22T12:04:28",
           "scheduled_date": "2026-05-22",
-          "paused": true,
+          "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
@@ -1045,11 +1046,11 @@
         {
           "id": 148105071,
           "name": "Ensuit loo found broken ",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-22T12:03:31",
+          "finished_at": "2026-05-22T12:04:15",
           "scheduled_date": "2026-05-22",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1312,18 +1313,18 @@
       "name": "LP Oak Lodge LP11",
       "id": 352654,
       "total": 2,
-      "not_started": 2,
-      "in_progress": 0,
+      "not_started": 1,
+      "in_progress": 1,
       "completed": 0,
       "issues": 0,
       "tasks": [
         {
           "id": 139134398,
           "name": "Guest Arrival check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-05-22T12:14:33",
           "finished_at": null,
           "scheduled_date": "2026-05-22",
           "paused": false,
@@ -1705,19 +1706,19 @@
       "name": "LP Maple LP1",
       "id": 282422,
       "total": 2,
-      "not_started": 2,
+      "not_started": 1,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 139134386,
           "name": "Guest Arrival check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-22T12:03:55",
+          "finished_at": "2026-05-22T12:10:04",
           "scheduled_date": "2026-05-22",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1955,9 +1956,9 @@
       "name": "HB Cotswold WV47",
       "id": 282402,
       "total": 3,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 2,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -1980,11 +1981,11 @@
         {
           "id": 139385136,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-22T12:15:53",
+          "finished_at": "2026-05-22T12:15:55",
           "scheduled_date": "2026-05-22",
           "paused": false,
           "assignedTo": "Lee Kelly",
