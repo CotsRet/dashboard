@@ -1,209 +1,253 @@
 {
-  "_generated": "2026-05-22T23:46:07.808Z",
+  "_generated": "2026-05-23T00:15:31.225Z",
   "_source": "cron",
-  "_date": "2026-05-22",
+  "_date": "2026-05-23",
   "_status": {
-    "last_run": "2026-05-23T00:00:49.980Z",
-    "ok": false,
-    "error": "BW auth failed: 429"
+    "last_run": "2026-05-23T00:15:31.225Z",
+    "ok": true,
+    "properties_polled": 131,
+    "properties_raw_total": 132,
+    "status_counts": {
+      "active": 70,
+      "inactive": 62
+    },
+    "api_count": null,
+    "page_debug": [
+      {
+        "page": 1,
+        "returned": 100,
+        "has_next": false
+      },
+      {
+        "page": 2,
+        "returned": 32,
+        "has_next": false
+      }
+    ],
+    "errors": [],
+    "stages_seen": {
+      "created": 57,
+      "finished": 11,
+      "in_progress": 1
+    },
+    "first_task_shape": {
+      "keys": [
+        "assignments",
+        "bill_to",
+        "costs",
+        "created_at",
+        "created_by",
+        "description",
+        "finished_at",
+        "home_id",
+        "id",
+        "linked_reservation",
+        "name",
+        "paused",
+        "photos",
+        "rate_paid",
+        "rate_type",
+        "reference_property_id",
+        "report_url",
+        "requested_by",
+        "scheduled_date",
+        "scheduled_time",
+        "started_at",
+        "summary",
+        "supplies",
+        "tags",
+        "task_tags",
+        "template_id",
+        "total_time",
+        "type_department",
+        "type_priority",
+        "type_task_status",
+        "updated_at"
+      ],
+      "sample_assignments": [
+        {
+          "assignee_id": 310046,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 188883454,
+          "name": "Rachel Gaazen",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 324278,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 188883455,
+          "name": "Karen  Rand",
+          "type_task_user_status": "assigned"
+        }
+      ],
+      "sample_type_department": "inspection",
+      "sample_status": {
+        "code": "created",
+        "name": "Created",
+        "stage": "new"
+      }
+    }
   },
   "summary": {
-    "not_started": 4,
+    "not_started": 57,
     "in_progress": 0,
-    "completed": 89,
+    "completed": 11,
     "issues": 1
   },
-  "total_tasks": 94,
+  "total_tasks": 69,
   "properties": [
     {
-      "name": "HB Our Happy Place ND13",
-      "id": 1328504,
-      "total": 1,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 1,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 148626233,
-          "name": "Light switch replacement in twin bedroom ",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T12:00:09",
-          "finished_at": "2026-05-22T12:01:39",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Minety Lake 29 - Minety Lake 29 - ML29",
-      "id": 1328503,
-      "total": 1,
-      "not_started": 1,
+      "name": "HB Bunnys Burrow ST138",
+      "id": 1234148,
+      "total": 8,
+      "not_started": 8,
       "in_progress": 0,
       "completed": 0,
       "issues": 0,
       "tasks": [
         {
-          "id": 146261537,
-          "name": "Bed making",
+          "id": 139290978,
+          "name": "Guest Arrival check",
           "classification": "not_started",
           "status_code": "created",
           "department": "",
           "started_at": null,
           "finished_at": null,
-          "scheduled_date": "2026-05-22",
+          "scheduled_date": "2026-05-23",
           "paused": false,
-          "assignedTo": null,
-          "assignedToList": []
-        }
-      ]
-    },
-    {
-      "name": "HB Sunflower Lodge WV26",
-      "id": 1257495,
-      "total": 3,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 3,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 142603954,
-          "name": "Guest Arrival check",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T09:26:19",
-          "finished_at": "2026-05-22T09:31:52",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
+          "assignedTo": "Rachel Gaazen",
           "assignedToList": [
-            "Lee Kelly",
             "Rachel Gaazen",
             "Karen  Rand"
           ]
         },
         {
-          "id": 142603955,
+          "id": 139290988,
           "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
+          "classification": "not_started",
+          "status_code": "created",
           "department": "",
-          "started_at": "2026-05-22T12:08:38",
-          "finished_at": "2026-05-22T12:08:39",
-          "scheduled_date": "2026-05-22",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
             "Darren Smith",
-            "Ashley Smith",
             "Peter Milligan"
           ]
         },
         {
-          "id": 148470090,
-          "name": "Add fan",
-          "classification": "completed",
-          "status_code": "finished",
+          "id": 145214349,
+          "name": "CHECK SOFA BED LINEN",
+          "classification": "not_started",
+          "status_code": "created",
           "department": "",
-          "started_at": "2026-05-22T10:52:08",
-          "finished_at": "2026-05-22T10:52:09",
-          "scheduled_date": "2026-05-22",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
-            "Melanie Thomson",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "LME Daisy Chain CW26",
-      "id": 1234295,
-      "total": 4,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 3,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 141968637,
-          "name": "Guest checked out",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T10:21:43",
-          "finished_at": "2026-05-22T10:21:44",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
+            "Kate Hammond",
             "Rachel Gaazen",
-            "Karen  Rand"
+            "Karen  Rand",
+            "Peter Milligan"
           ]
         },
         {
-          "id": 141968640,
+          "id": 147210586,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Tracey Kelly",
+          "assignedToList": [
+            "Tracey Kelly",
+            "Lee Kelly",
+            "Janet Smith",
+            "Kate Hammond",
+            "Melanie Thomson",
+            "Rachel Gaazen",
+            "Karen  Rand",
+            "Peter Milligan"
+          ]
+        },
+        {
+          "id": 147210595,
           "name": "Linen Pick Up /Drop Off",
           "classification": "not_started",
           "status_code": "created",
           "department": "",
           "started_at": null,
           "finished_at": null,
-          "scheduled_date": "2026-05-22",
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
             "Kate Hammond",
-            "Rachel Gaazen"
+            "Peter Milligan"
           ]
         },
         {
-          "id": 141968642,
+          "id": 147210603,
           "name": "Turn around clean",
-          "classification": "completed",
-          "status_code": "finished",
+          "classification": "not_started",
+          "status_code": "created",
           "department": "",
-          "started_at": "2026-05-22T08:54:26",
-          "finished_at": "2026-05-22T10:18:26",
-          "scheduled_date": "2026-05-22",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
             "Rachel Gaazen",
-            "Karen  Rand",
-            "Shinead Brazil",
-            "Angie Brazil"
+            "Karen  Rand"
           ]
         },
         {
-          "id": 141968643,
+          "id": 147210612,
           "name": "Cleaning check",
-          "classification": "completed",
-          "status_code": "finished",
+          "classification": "not_started",
+          "status_code": "created",
           "department": "",
-          "started_at": "2026-05-22T15:14:37",
-          "finished_at": "2026-05-22T15:15:55",
-          "scheduled_date": "2026-05-22",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Rachel Gaazen",
           "assignedToList": [
             "Rachel Gaazen",
             "Karen  Rand"
+          ]
+        },
+        {
+          "id": 148281098,
+          "name": "Add Bed Guard",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Kate Hammond",
+            "Darren Smith",
+            "Ashley Smith",
+            "Peter Milligan"
           ]
         }
       ]
@@ -211,21 +255,327 @@
     {
       "name": "HB Charlie's Retreat CR28",
       "id": 1233969,
-      "total": 1,
-      "not_started": 0,
+      "total": 3,
+      "not_started": 3,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 139290963,
+          "name": "Guest Arrival check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Rachel Gaazen",
+          "assignedToList": [
+            "Rachel Gaazen",
+            "Karen  Rand"
+          ]
+        },
+        {
+          "id": 139290968,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Peter Milligan"
+          ]
+        },
+        {
+          "id": 145214345,
+          "name": "CHECK SOFA BED LINEN",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Kate Hammond",
+            "Rachel Gaazen",
+            "Karen  Rand",
+            "Peter Milligan"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HB Coconuts Retreat ST16",
+      "id": 1233968,
+      "total": 2,
+      "not_started": 1,
       "in_progress": 0,
       "completed": 1,
       "issues": 0,
       "tasks": [
         {
-          "id": 148471647,
-          "name": "Add fan",
+          "id": 139290966,
+          "name": "Guest Arrival check",
           "classification": "completed",
           "status_code": "finished",
           "department": "",
-          "started_at": "2026-05-22T10:50:25",
-          "finished_at": "2026-05-22T10:50:26",
-          "scheduled_date": "2026-05-22",
+          "started_at": "2026-05-22T13:52:40",
+          "finished_at": "2026-05-22T14:02:22",
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Rachel Gaazen",
+          "assignedToList": [
+            "Rachel Gaazen",
+            "Karen  Rand"
+          ]
+        },
+        {
+          "id": 139290974,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Peter Milligan"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HB Duckling View - ST61",
+      "id": 1127222,
+      "total": 6,
+      "not_started": 6,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 139290936,
+          "name": "Guest Arrival check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen  Rand"
+          ]
+        },
+        {
+          "id": 139290937,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith"
+          ]
+        },
+        {
+          "id": 146502318,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Tracey Kelly",
+          "assignedToList": [
+            "Tracey Kelly",
+            "Lee Kelly",
+            "Janet Smith",
+            "Kate Hammond",
+            "Melanie Thomson",
+            "Rachel Gaazen",
+            "Karen  Rand",
+            "Peter Milligan"
+          ]
+        },
+        {
+          "id": 146502321,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Kate Hammond",
+            "Peter Milligan"
+          ]
+        },
+        {
+          "id": 146502322,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen  Rand"
+          ]
+        },
+        {
+          "id": 146502323,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen  Rand"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WR Elouera, 21 Isis Lake IS21",
+      "id": 1109167,
+      "total": 2,
+      "not_started": 2,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 139290939,
+          "name": "Guest Arrival check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen  Rand"
+          ]
+        },
+        {
+          "id": 139290940,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Peter Milligan"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HB Cotswold Reach CR79",
+      "id": 1081812,
+      "total": 3,
+      "not_started": 3,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 139290930,
+          "name": "Guest Arrival check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen  Rand"
+          ]
+        },
+        {
+          "id": 139290931,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Peter Milligan"
+          ]
+        },
+        {
+          "id": 148471217,
+          "name": "Add fan",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
@@ -237,291 +587,153 @@
       ]
     },
     {
-      "name": "HB Poppy Meadow SM13",
-      "id": 1165393,
-      "total": 4,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 4,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 139134448,
-          "name": "Guest Arrival check",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T10:00:41",
-          "finished_at": "2026-05-22T10:00:51",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen",
-          "assignedToList": [
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 139134451,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T21:44:41",
-          "finished_at": "2026-05-22T21:44:42",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 139134459,
-          "name": "Guest Arrival check Hot Tub",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T10:00:56",
-          "finished_at": "2026-05-22T10:06:33",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen",
-          "assignedToList": [
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 139134466,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T21:44:47",
-          "finished_at": "2026-05-22T21:44:48",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "HB Kingfisher Lodge - ND25",
-      "id": 1152471,
-      "total": 3,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 3,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 139134432,
-          "name": "Guest Arrival check",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T09:17:04",
-          "finished_at": "2026-05-22T09:20:26",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen",
-          "assignedToList": [
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 139134443,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T12:04:26",
-          "finished_at": "2026-05-22T12:04:27",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 147330878,
-          "name": "Please stack beds in twin room closest to main bedroom",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T11:54:51",
-          "finished_at": "2026-05-22T11:55:08",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "HB Highland Lodge  HV62",
-      "id": 1038869,
+      "name": "Somerford Lake House - Somerford Lake House - WR15",
+      "id": 954047,
       "total": 2,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 2,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 139134439,
-          "name": "Guest Arrival check",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T12:56:20",
-          "finished_at": "2026-05-22T12:59:58",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 139134449,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-11T10:04:28",
-          "finished_at": "2026-05-11T10:19:00",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "HB Woodpecker Lodge HV63",
-      "id": 966831,
-      "total": 4,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 4,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 139134422,
-          "name": "Guest Arrival check",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T12:51:24",
-          "finished_at": "2026-05-22T12:54:43",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 139134428,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T09:12:38",
-          "finished_at": "2026-05-22T09:12:40",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 144667951,
-          "name": "Add Bed Guard",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T08:04:14",
-          "finished_at": "2026-05-22T08:04:14",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Kate Hammond",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 144667956,
-          "name": "Add Travel Cot",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T08:04:21",
-          "finished_at": "2026-05-22T08:04:22",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Kate Hammond",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Barnsley, Turret House - Barnsley, Turret 33 Windrush - WR33",
-      "id": 954006,
-      "total": 1,
-      "not_started": 1,
+      "not_started": 2,
       "in_progress": 0,
       "completed": 0,
       "issues": 0,
       "tasks": [
         {
-          "id": 148281207,
+          "id": 148717006,
+          "name": "Add Booster Seat",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Kate Hammond",
+            "Darren Smith",
+            "Ashley Smith",
+            "Peter Milligan"
+          ]
+        },
+        {
+          "id": 148717010,
+          "name": "Add Travel Cot",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Kate Hammond",
+            "Darren Smith",
+            "Ashley Smith",
+            "Peter Milligan"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HB Lake Retreat ST39",
+      "id": 927282,
+      "total": 2,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 1,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 139290956,
+          "name": "Guest Arrival check",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-05-22T14:05:43",
+          "finished_at": "2026-05-22T14:11:51",
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen  Rand"
+          ]
+        },
+        {
+          "id": 139290965,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Peter Milligan"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HB Wine Down Retreat WLM38",
+      "id": 801256,
+      "total": 3,
+      "not_started": 2,
+      "in_progress": 0,
+      "completed": 1,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 139290959,
+          "name": "Guest Arrival check",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-05-22T14:54:41",
+          "finished_at": "2026-05-22T14:58:03",
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen  Rand"
+          ]
+        },
+        {
+          "id": 139290962,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Peter Milligan"
+          ]
+        },
+        {
+          "id": 148450171,
           "name": "Early Check-in 1pm - confirmed 48 hrs before arrival",
           "classification": "not_started",
           "status_code": "created",
           "department": "",
           "started_at": null,
           "finished_at": null,
-          "scheduled_date": "2026-05-22",
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Tracey Kelly",
           "assignedToList": [
@@ -540,23 +752,69 @@
       ]
     },
     {
-      "name": "HB Sunset Lodge ND21",
-      "id": 942947,
+      "name": "WR Somerford House WR15",
+      "id": 790224,
       "total": 2,
-      "not_started": 0,
+      "not_started": 2,
       "in_progress": 0,
-      "completed": 2,
+      "completed": 0,
       "issues": 0,
       "tasks": [
         {
-          "id": 139134501,
+          "id": 139354925,
+          "name": "Guest Arrival check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen  Rand"
+          ]
+        },
+        {
+          "id": 139354928,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Peter Milligan"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HB Drakes View ST69",
+      "id": 706122,
+      "total": 2,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 1,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 139291001,
           "name": "Guest Arrival check",
           "classification": "completed",
           "status_code": "finished",
           "department": "",
-          "started_at": "2026-05-22T09:11:56",
-          "finished_at": "2026-05-22T09:16:19",
-          "scheduled_date": "2026-05-22",
+          "started_at": "2026-05-22T13:34:13",
+          "finished_at": "2026-05-22T13:36:20",
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
@@ -566,436 +824,14 @@
           ]
         },
         {
-          "id": 139134507,
+          "id": 139291006,
           "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
+          "classification": "not_started",
+          "status_code": "created",
           "department": "",
-          "started_at": "2026-05-22T11:45:27",
-          "finished_at": "2026-05-22T11:45:31",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "HB Wide Water Lodge HV15",
-      "id": 930300,
-      "total": 2,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 2,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 141107093,
-          "name": "Guest Arrival check",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T12:36:43",
-          "finished_at": "2026-05-22T12:40:20",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 141107097,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T08:46:02",
-          "finished_at": "2026-05-22T09:03:31",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "HB Busy Bees BD3",
-      "id": 927235,
-      "total": 2,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 2,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 142419471,
-          "name": "Guest Arrival check",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T09:46:45",
-          "finished_at": "2026-05-22T09:52:29",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 142419473,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-18T12:25:32",
-          "finished_at": "2026-05-18T12:36:01",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "HB The Cosy Cabin HV73",
-      "id": 927230,
-      "total": 2,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 2,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 139385131,
-          "name": "Guest Arrival check",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T13:12:12",
-          "finished_at": "2026-05-22T13:15:52",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 139385141,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-11T10:34:19",
-          "finished_at": "2026-05-11T10:52:46",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "HB The Bathing House HV24",
-      "id": 927225,
-      "total": 2,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 2,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 145388912,
-          "name": "Guest Arrival check",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T12:41:48",
-          "finished_at": "2026-05-22T12:48:19",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 145388923,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-11T09:22:17",
-          "finished_at": "2026-05-11T10:00:06",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "HB Paws Lodge WLM19",
-      "id": 790813,
-      "total": 2,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 2,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 139134401,
-          "name": "Guest Arrival check Hot Tub",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T11:18:59",
-          "finished_at": "2026-05-22T11:21:09",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 139134414,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T09:13:11",
-          "finished_at": "2026-05-22T09:13:12",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "HB Sweet Pea ST86",
-      "id": 720665,
-      "total": 2,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 2,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 147800832,
-          "name": "Guest Arrival check",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T09:02:40",
-          "finished_at": "2026-05-22T09:06:19",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 147800840,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T12:24:22",
-          "finished_at": "2026-05-22T12:24:23",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "WR Cerney House WR3",
-      "id": 708469,
-      "total": 2,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 2,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 139134452,
-          "name": "Guest Arrival check",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T11:48:47",
-          "finished_at": "2026-05-22T11:53:50",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 139134461,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T12:59:47",
-          "finished_at": "2026-05-22T12:59:54",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "HB The Boat House WLM20",
-      "id": 641768,
-      "total": 5,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 5,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 142265213,
-          "name": "Guest Arrival check Hot Tub",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T11:21:20",
-          "finished_at": "2026-05-22T11:32:46",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 142265215,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T09:13:21",
-          "finished_at": "2026-05-22T09:13:22",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 147742189,
-          "name": "Banging noise",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-18T11:10:49",
-          "finished_at": "2026-05-22T12:04:28",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 148105071,
-          "name": "Ensuit loo found broken ",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T12:03:31",
-          "finished_at": "2026-05-22T12:04:15",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 148621220,
-          "name": "New toilet brush",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T11:33:15",
-          "finished_at": "2026-05-22T11:33:15",
-          "scheduled_date": "2026-05-22",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
@@ -1010,26 +846,44 @@
     {
       "name": "HB Bluebell RM6",
       "id": 641766,
-      "total": 1,
-      "not_started": 0,
+      "total": 2,
+      "not_started": 1,
       "in_progress": 0,
       "completed": 1,
       "issues": 0,
       "tasks": [
         {
-          "id": 148471314,
-          "name": "Add fan",
+          "id": 139291072,
+          "name": "Guest Arrival check",
           "classification": "completed",
           "status_code": "finished",
           "department": "",
-          "started_at": "2026-05-22T10:49:54",
-          "finished_at": "2026-05-22T10:49:55",
-          "scheduled_date": "2026-05-22",
+          "started_at": "2026-05-22T14:27:30",
+          "finished_at": "2026-05-22T14:31:55",
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
-            "Melanie Thomson",
+            "Rachel Gaazen",
+            "Karen  Rand"
+          ]
+        },
+        {
+          "id": 139291081,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
             "Peter Milligan"
           ]
         }
@@ -1038,50 +892,21 @@
     {
       "name": "HB The Lighthouse WLM9",
       "id": 540019,
-      "total": 1,
-      "not_started": 1,
+      "total": 9,
+      "not_started": 9,
       "in_progress": 0,
       "completed": 0,
       "issues": 0,
       "tasks": [
         {
-          "id": 148296531,
-          "name": "Build outdoor furniture",
+          "id": 139290984,
+          "name": "Guest Arrival check",
           "classification": "not_started",
           "status_code": "created",
           "department": "",
           "started_at": null,
           "finished_at": null,
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "HB Meadow View OM23",
-      "id": 472121,
-      "total": 3,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 3,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 139134425,
-          "name": "Guest Arrival check Hot Tub",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T10:57:08",
-          "finished_at": "2026-05-22T11:01:30",
-          "scheduled_date": "2026-05-22",
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
@@ -1091,14 +916,14 @@
           ]
         },
         {
-          "id": 139134429,
+          "id": 139290991,
           "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
+          "classification": "not_started",
+          "status_code": "created",
           "department": "",
-          "started_at": "2026-05-22T09:16:24",
-          "finished_at": "2026-05-22T09:16:25",
-          "scheduled_date": "2026-05-22",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
@@ -1109,96 +934,33 @@
           ]
         },
         {
-          "id": 148470633,
-          "name": "Add fan",
-          "classification": "completed",
-          "status_code": "finished",
+          "id": 145214337,
+          "name": "CHECK SOFA BED LINEN",
+          "classification": "not_started",
+          "status_code": "created",
           "department": "",
-          "started_at": "2026-05-22T10:51:47",
-          "finished_at": "2026-05-22T10:51:48",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Melanie Thomson",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "HB Wyndham Lodge WLM4",
-      "id": 395494,
-      "total": 5,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 5,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 139134431,
-          "name": "Guest Arrival check",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T11:05:50",
-          "finished_at": "2026-05-22T11:09:11",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 139134442,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T09:15:15",
-          "finished_at": "2026-05-22T09:15:17",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 146594768,
-          "name": "Add Booster Seat",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T08:17:41",
-          "finished_at": "2026-05-22T08:17:42",
-          "scheduled_date": "2026-05-22",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
             "Kate Hammond",
-            "Darren Smith",
-            "Ashley Smith",
+            "Rachel Gaazen",
+            "Karen  Rand",
             "Peter Milligan"
           ]
         },
         {
-          "id": 148281174,
-          "name": "Early Check-in 1pm - confirmed 48 hrs before arrival",
-          "classification": "completed",
-          "status_code": "finished",
+          "id": 146127682,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
           "department": "",
-          "started_at": "2026-05-22T12:36:31",
-          "finished_at": "2026-05-22T12:36:32",
-          "scheduled_date": "2026-05-22",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Tracey Kelly",
           "assignedToList": [
@@ -1207,27 +969,92 @@
             "Janet Smith",
             "Kate Hammond",
             "Melanie Thomson",
-            "Darren Smith",
-            "Ashley Smith",
             "Rachel Gaazen",
             "Karen  Rand",
             "Peter Milligan"
           ]
         },
         {
-          "id": 148620468,
-          "name": "Add Bed Guard",
-          "classification": "completed",
-          "status_code": "finished",
+          "id": 146127687,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
           "department": "",
-          "started_at": "2026-05-22T11:25:07",
-          "finished_at": "2026-05-22T11:25:08",
-          "scheduled_date": "2026-05-22",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
             "Kate Hammond",
+            "Peter Milligan"
+          ]
+        },
+        {
+          "id": 146127690,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen  Rand"
+          ]
+        },
+        {
+          "id": 146127691,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen  Rand"
+          ]
+        },
+        {
+          "id": 148280064,
+          "name": "Add supplies two pillows twin room  ",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen  Rand"
+          ]
+        },
+        {
+          "id": 148644362,
+          "name": "Add fan x 2",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
             "Darren Smith",
             "Ashley Smith",
             "Peter Milligan"
@@ -1236,23 +1063,23 @@
       ]
     },
     {
-      "name": "LP Oak Lodge LP11",
-      "id": 352654,
+      "name": "WR Bourton WR49",
+      "id": 509635,
       "total": 2,
-      "not_started": 0,
+      "not_started": 2,
       "in_progress": 0,
-      "completed": 2,
+      "completed": 0,
       "issues": 0,
       "tasks": [
         {
-          "id": 139134398,
+          "id": 139291012,
           "name": "Guest Arrival check",
-          "classification": "completed",
-          "status_code": "finished",
+          "classification": "not_started",
+          "status_code": "created",
           "department": "",
-          "started_at": "2026-05-22T12:14:33",
-          "finished_at": "2026-05-22T12:28:44",
-          "scheduled_date": "2026-05-22",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
@@ -1262,14 +1089,14 @@
           ]
         },
         {
-          "id": 139134407,
+          "id": 139291015,
           "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
+          "classification": "not_started",
+          "status_code": "created",
           "department": "",
-          "started_at": "2026-05-22T13:07:16",
-          "finished_at": "2026-05-22T13:07:17",
-          "scheduled_date": "2026-05-22",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
@@ -1282,370 +1109,151 @@
       ]
     },
     {
-      "name": "HB Wildflower WLM11",
-      "id": 282437,
+      "name": "HB Spring View WLM12",
+      "id": 492638,
       "total": 2,
       "not_started": 0,
       "in_progress": 0,
-      "completed": 2,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 139134418,
-          "name": "Guest Arrival check Hot Tub",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T11:11:36",
-          "finished_at": "2026-05-22T11:14:53",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 139134420,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T09:13:35",
-          "finished_at": "2026-05-22T09:13:37",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "HB Thumper Lodge SM9",
-      "id": 282435,
-      "total": 3,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 3,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 139134483,
-          "name": "Guest Arrival check Hot Tub",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T10:07:02",
-          "finished_at": "2026-05-22T10:13:59",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 139134487,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T12:37:47",
-          "finished_at": "2026-05-22T12:47:43",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 148471006,
-          "name": "Add fan",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T10:52:18",
-          "finished_at": "2026-05-22T10:52:18",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Melanie Thomson",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "HB The Warren SM21",
-      "id": 282434,
-      "total": 3,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 3,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 139134440,
-          "name": "Guest Arrival check Hot Tub",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T10:22:06",
-          "finished_at": "2026-05-22T10:25:41",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 139134450,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T13:40:33",
-          "finished_at": "2026-05-22T13:40:34",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 148474364,
-          "name": "Outside tap",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T13:41:50",
-          "finished_at": "2026-05-22T13:41:51",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "HB Spring Lodge SM12",
-      "id": 282428,
-      "total": 4,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 3,
+      "completed": 1,
       "issues": 1,
       "tasks": [
         {
-          "id": 146443977,
+          "id": 142625889,
           "name": "Guest Arrival check Hot Tub",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T09:56:36",
-          "finished_at": "2026-05-22T10:00:33",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 146444009,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T12:48:03",
-          "finished_at": "2026-05-22T12:59:32",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 147013135,
-          "name": "Guttering is leaking slowly",
           "classification": "issues",
           "status_code": "in_progress",
           "department": "",
-          "started_at": "2026-05-18T12:11:36",
+          "started_at": "2026-05-22T14:43:29",
           "finished_at": null,
-          "scheduled_date": "2026-05-22",
+          "scheduled_date": "2026-05-23",
           "paused": true,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
-            "Darren Smith",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 148280867,
-          "name": "Early Check-in 1pm - confirmed 48 hrs before arrival",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T10:31:07",
-          "finished_at": "2026-05-22T10:31:09",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Tracey Kelly",
-          "assignedToList": [
-            "Tracey Kelly",
-            "Lee Kelly",
-            "Janet Smith",
-            "Kate Hammond",
-            "Melanie Thomson",
-            "Darren Smith",
-            "Ashley Smith",
-            "Rachel Gaazen",
-            "Karen  Rand",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "HB Puddleducks OM4",
-      "id": 282426,
-      "total": 4,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 4,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 139134436,
-          "name": "Guest Arrival check Hot Tub",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T10:41:36",
-          "finished_at": "2026-05-22T10:46:48",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
             "Rachel Gaazen",
             "Karen  Rand"
           ]
         },
         {
-          "id": 139134445,
+          "id": 142625892,
           "name": "External Inspection",
           "classification": "completed",
           "status_code": "finished",
           "department": "",
-          "started_at": "2026-05-22T09:16:35",
-          "finished_at": "2026-05-22T09:16:36",
-          "scheduled_date": "2026-05-22",
+          "started_at": "2026-05-22T11:42:05",
+          "finished_at": "2026-05-22T11:52:35",
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
             "Darren Smith",
             "Ashley Smith",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 148281120,
-          "name": "Early Check-in 1pm - confirmed 48 hrs before arrival",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T10:41:19",
-          "finished_at": "2026-05-22T10:41:21",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Tracey Kelly",
-          "assignedToList": [
-            "Tracey Kelly",
-            "Lee Kelly",
-            "Janet Smith",
-            "Kate Hammond",
-            "Melanie Thomson",
-            "Darren Smith",
-            "Ashley Smith",
-            "Rachel Gaazen",
-            "Karen  Rand",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 148470971,
-          "name": "Add fan",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T10:51:56",
-          "finished_at": "2026-05-22T10:51:57",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Melanie Thomson",
             "Peter Milligan"
           ]
         }
       ]
     },
     {
-      "name": "LP Maple LP1",
-      "id": 282422,
+      "name": "LP Tufty LP9",
+      "id": 282436,
       "total": 2,
-      "not_started": 0,
+      "not_started": 2,
       "in_progress": 0,
-      "completed": 2,
+      "completed": 0,
       "issues": 0,
       "tasks": [
         {
-          "id": 139134386,
+          "id": 142443787,
+          "name": "Guest Arrival check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Anne Vinall",
+          "assignedToList": [
+            "Anne Vinall"
+          ]
+        },
+        {
+          "id": 142443791,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Anne Vinall",
+          "assignedToList": [
+            "Anne Vinall"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LP Reeds LP8",
+      "id": 282427,
+      "total": 2,
+      "not_started": 2,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 139290915,
+          "name": "Guest Arrival check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Anne Vinall",
+          "assignedToList": [
+            "Anne Vinall"
+          ]
+        },
+        {
+          "id": 139290917,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Anne Vinall",
+          "assignedToList": [
+            "Anne Vinall"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LP Lilly LP2",
+      "id": 282419,
+      "total": 2,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 1,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 143975853,
           "name": "Guest Arrival check",
           "classification": "completed",
           "status_code": "finished",
           "department": "",
-          "started_at": "2026-05-22T12:03:55",
-          "finished_at": "2026-05-22T12:10:04",
-          "scheduled_date": "2026-05-22",
+          "started_at": "2026-05-22T12:13:42",
+          "finished_at": "2026-05-22T12:13:49",
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
@@ -1655,14 +1263,14 @@
           ]
         },
         {
-          "id": 139134389,
+          "id": 143975864,
           "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
+          "classification": "not_started",
+          "status_code": "created",
           "department": "",
-          "started_at": "2026-05-22T13:12:43",
-          "finished_at": "2026-05-22T13:12:44",
-          "scheduled_date": "2026-05-22",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
@@ -1675,81 +1283,23 @@
       ]
     },
     {
-      "name": "HB Lavender ST59",
-      "id": 282418,
-      "total": 6,
-      "not_started": 0,
+      "name": "HB Lilly Pad ST83",
+      "id": 282420,
+      "total": 2,
+      "not_started": 1,
       "in_progress": 0,
-      "completed": 6,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
-          "id": 139134419,
-          "name": "Guest checked out",
+          "id": 139290897,
+          "name": "Guest Arrival check",
           "classification": "completed",
           "status_code": "finished",
           "department": "",
-          "started_at": "2026-05-21T13:38:18",
-          "finished_at": "2026-05-21T13:38:19",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Tracey Kelly",
-          "assignedToList": [
-            "Tracey Kelly",
-            "Lee Kelly",
-            "Janet Smith",
-            "Kate Hammond",
-            "Melanie Thomson",
-            "Rachel Gaazen",
-            "Karen  Rand",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 139134421,
-          "name": "Linen Pick Up /Drop Off",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T07:57:54",
-          "finished_at": "2026-05-22T07:57:55",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Kate Hammond",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 139134423,
-          "name": "Turn around clean",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T10:59:55",
-          "finished_at": "2026-05-22T11:27:06",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand",
-            "Shinead Brazil",
-            "Angie Brazil"
-          ]
-        },
-        {
-          "id": 139134430,
-          "name": "Cleaning check",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T13:16:39",
-          "finished_at": "2026-05-22T13:16:42",
-          "scheduled_date": "2026-05-22",
+          "started_at": "2026-05-22T13:40:08",
+          "finished_at": "2026-05-22T13:47:35",
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
@@ -1759,14 +1309,14 @@
           ]
         },
         {
-          "id": 147332557,
+          "id": 139290900,
           "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
+          "classification": "not_started",
+          "status_code": "created",
           "department": "",
-          "started_at": "2026-05-22T12:34:02",
-          "finished_at": "2026-05-22T12:34:03",
-          "scheduled_date": "2026-05-22",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
@@ -1774,64 +1324,74 @@
             "Darren Smith",
             "Ashley Smith",
             "Peter Milligan"
-          ]
-        },
-        {
-          "id": 147332567,
-          "name": "Guest Arrival check",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T13:19:01",
-          "finished_at": "2026-05-22T13:22:19",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
           ]
         }
       ]
     },
     {
-      "name": "HB Honeysuckle OM2",
-      "id": 282410,
-      "total": 4,
-      "not_started": 0,
+      "name": "HB Goosewing ND18",
+      "id": 282408,
+      "total": 2,
+      "not_started": 1,
       "in_progress": 0,
-      "completed": 4,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
-          "id": 130265410,
-          "name": "Add Booster Seat",
+          "id": 140039220,
+          "name": "Guest Arrival check",
           "classification": "completed",
           "status_code": "finished",
           "department": "",
-          "started_at": "2026-05-22T09:23:39",
-          "finished_at": "2026-05-22T09:23:39",
-          "scheduled_date": "2026-05-22",
+          "started_at": "2026-05-22T14:20:11",
+          "finished_at": "2026-05-22T14:23:00",
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
-            "Kate Hammond",
+            "Rachel Gaazen",
+            "Karen  Rand"
+          ]
+        },
+        {
+          "id": 140039221,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
             "Darren Smith",
             "Ashley Smith",
             "Peter Milligan"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "name": "HB Cottontail SM2",
+      "id": 282403,
+      "total": 2,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 1,
+      "issues": 0,
+      "tasks": [
         {
-          "id": 139134433,
+          "id": 139290961,
           "name": "Guest Arrival check Hot Tub",
           "classification": "completed",
           "status_code": "finished",
           "department": "",
-          "started_at": "2026-05-22T10:49:24",
-          "finished_at": "2026-05-22T10:54:43",
-          "scheduled_date": "2026-05-22",
+          "started_at": "2026-05-22T14:35:48",
+          "finished_at": "2026-05-22T14:40:02",
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
@@ -1841,224 +1401,43 @@
           ]
         },
         {
-          "id": 139134437,
+          "id": 139290970,
           "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
+          "classification": "not_started",
+          "status_code": "created",
           "department": "",
-          "started_at": "2026-05-11T11:20:51",
-          "finished_at": "2026-05-11T11:31:26",
-          "scheduled_date": "2026-05-22",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
             "Darren Smith",
             "Ashley Smith",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 143973938,
-          "name": "Decorations paid for by guest",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T12:35:07",
-          "finished_at": "2026-05-22T12:36:19",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Melanie Thomson",
-          "assignedToList": [
-            "Melanie Thomson",
-            "Karen  Rand",
-            "Shinead Brazil",
-            "Angie Brazil"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "HB Cotswold WV47",
-      "id": 282402,
-      "total": 3,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 3,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 139385118,
-          "name": "Guest Arrival check",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T09:35:26",
-          "finished_at": "2026-05-22T09:42:23",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 139385136,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T12:15:53",
-          "finished_at": "2026-05-22T12:15:55",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 148469879,
-          "name": "Add fan",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T10:51:36",
-          "finished_at": "2026-05-22T10:51:37",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Melanie Thomson",
             "Peter Milligan"
           ]
         }
       ]
     },
     {
-      "name": "HB Hares Haven SM1",
-      "id": 282395,
-      "total": 3,
-      "not_started": 0,
+      "name": "HB Clearwater ND15",
+      "id": 282401,
+      "total": 4,
+      "not_started": 4,
       "in_progress": 0,
-      "completed": 3,
+      "completed": 0,
       "issues": 0,
       "tasks": [
         {
-          "id": 139385146,
-          "name": "Guest Arrival check",
-          "classification": "completed",
-          "status_code": "finished",
+          "id": 142596373,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
           "department": "",
-          "started_at": "2026-05-22T10:28:13",
-          "finished_at": "2026-05-22T10:30:55",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 139385163,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T12:23:54",
-          "finished_at": "2026-05-22T12:35:48",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 145214304,
-          "name": "CHECK SOFA BED LINEN",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T10:28:01",
-          "finished_at": "2026-05-22T10:28:03",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Kate Hammond",
-            "Rachel Gaazen",
-            "Karen  Rand",
-            "Peter Milligan"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "WR Barnsley WR33",
-      "id": 282392,
-      "total": 3,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 3,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 139134388,
-          "name": "Guest Arrival check",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T11:40:38",
-          "finished_at": "2026-05-22T11:45:24",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen  Rand"
-          ]
-        },
-        {
-          "id": 139134403,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T13:00:06",
-          "finished_at": "2026-05-22T13:00:06",
-          "scheduled_date": "2026-05-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        },
-        {
-          "id": 148611083,
-          "name": "Early Check in (1pm)",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-05-22T12:37:19",
-          "finished_at": "2026-05-22T12:37:20",
-          "scheduled_date": "2026-05-22",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
           "paused": false,
           "assignedTo": "Tracey Kelly",
           "assignedToList": [
@@ -2068,7 +1447,129 @@
             "Kate Hammond",
             "Melanie Thomson",
             "Rachel Gaazen",
+            "Karen  Rand",
+            "Peter Milligan"
+          ]
+        },
+        {
+          "id": 142596378,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Kate Hammond",
+            "Peter Milligan"
+          ]
+        },
+        {
+          "id": 142596380,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
             "Karen  Rand"
+          ]
+        },
+        {
+          "id": 142596382,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen  Rand"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HB Burford WLM17",
+      "id": 282398,
+      "total": 3,
+      "not_started": 2,
+      "in_progress": 0,
+      "completed": 1,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 139290927,
+          "name": "Guest Arrival check Hot Tub",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-05-22T14:49:11",
+          "finished_at": "2026-05-22T14:52:34",
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen  Rand"
+          ]
+        },
+        {
+          "id": 139290932,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Peter Milligan"
+          ]
+        },
+        {
+          "id": 148450136,
+          "name": "Early Check-in 1pm - confirmed 48 hrs before arrival",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-23",
+          "paused": false,
+          "assignedTo": "Tracey Kelly",
+          "assignedToList": [
+            "Tracey Kelly",
+            "Lee Kelly",
+            "Janet Smith",
+            "Kate Hammond",
+            "Melanie Thomson",
+            "Darren Smith",
+            "Ashley Smith",
+            "Rachel Gaazen",
+            "Karen  Rand",
+            "Peter Milligan"
           ]
         }
       ]
