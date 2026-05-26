@@ -1,17 +1,109 @@
 {
-  "_generated": "2026-05-26T12:46:15.866Z",
+  "_generated": "2026-05-26T13:16:14.323Z",
   "_source": "cron",
   "_date": "2026-05-26",
   "_status": {
-    "last_run": "2026-05-26T13:00:42.032Z",
-    "ok": false,
-    "error": "BW auth failed: 429"
+    "last_run": "2026-05-26T13:16:14.323Z",
+    "ok": true,
+    "properties_polled": 131,
+    "properties_raw_total": 132,
+    "status_counts": {
+      "active": 70,
+      "inactive": 62
+    },
+    "api_count": null,
+    "page_debug": [
+      {
+        "page": 1,
+        "returned": 100,
+        "has_next": false
+      },
+      {
+        "page": 2,
+        "returned": 32,
+        "has_next": false
+      }
+    ],
+    "errors": [],
+    "stages_seen": {
+      "finished": 75,
+      "created": 46,
+      "in_progress": 3
+    },
+    "first_task_shape": {
+      "keys": [
+        "assignments",
+        "bill_to",
+        "costs",
+        "created_at",
+        "created_by",
+        "description",
+        "finished_at",
+        "finished_by",
+        "home_id",
+        "id",
+        "linked_reservation",
+        "name",
+        "paused",
+        "photos",
+        "rate_paid",
+        "rate_type",
+        "reference_property_id",
+        "report_url",
+        "requested_by",
+        "scheduled_date",
+        "scheduled_time",
+        "started_at",
+        "summary",
+        "supplies",
+        "tags",
+        "task_tags",
+        "template_id",
+        "total_time",
+        "type_department",
+        "type_priority",
+        "type_task_status",
+        "updated_at"
+      ],
+      "sample_assignments": [
+        {
+          "assignee_id": 89951,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 198318142,
+          "name": "Lee Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 310046,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 198318144,
+          "name": "Rachel Gaazen",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 324278,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 198318145,
+          "name": "Karen  Rand",
+          "type_task_user_status": "assigned"
+        }
+      ],
+      "sample_type_department": "inspection",
+      "sample_status": {
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
+      }
+    }
   },
   "summary": {
-    "not_started": 53,
-    "in_progress": 4,
-    "completed": 66,
-    "issues": 1
+    "not_started": 46,
+    "in_progress": 3,
+    "completed": 75,
+    "issues": 0
   },
   "total_tasks": 124,
   "properties": [
@@ -242,8 +334,8 @@
       "id": 1233968,
       "total": 4,
       "not_started": 1,
-      "in_progress": 1,
-      "completed": 2,
+      "in_progress": 0,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -288,11 +380,11 @@
         {
           "id": 139791060,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-05-26T12:13:00",
-          "finished_at": null,
+          "finished_at": "2026-05-26T12:48:32",
           "scheduled_date": "2026-05-26",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -782,8 +874,8 @@
       "id": 1081812,
       "total": 6,
       "not_started": 3,
-      "in_progress": 1,
-      "completed": 2,
+      "in_progress": 0,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -828,11 +920,11 @@
         {
           "id": 139791072,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-05-26T12:16:14",
-          "finished_at": null,
+          "finished_at": "2026-05-26T13:10:37",
           "scheduled_date": "2026-05-26",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -948,9 +1040,9 @@
       "name": "HB Lake Retreat ST39",
       "id": 927282,
       "total": 6,
-      "not_started": 2,
-      "in_progress": 1,
-      "completed": 3,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 5,
       "issues": 0,
       "tasks": [
         {
@@ -1013,11 +1105,11 @@
         {
           "id": 139791033,
           "name": "Cleaning check",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-05-26T12:41:56",
-          "finished_at": null,
+          "finished_at": "2026-05-26T12:53:27",
           "scheduled_date": "2026-05-26",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1048,11 +1140,11 @@
         {
           "id": 139791043,
           "name": "Guest Arrival check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-26T12:53:32",
+          "finished_at": "2026-05-26T12:54:28",
           "scheduled_date": "2026-05-26",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1501,8 +1593,8 @@
       "name": "WR Bourton WR49",
       "id": 509635,
       "total": 5,
-      "not_started": 3,
-      "in_progress": 0,
+      "not_started": 2,
+      "in_progress": 1,
       "completed": 2,
       "issues": 0,
       "tasks": [
@@ -1548,10 +1640,10 @@
         {
           "id": 139791189,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-05-26T13:11:42",
           "finished_at": null,
           "scheduled_date": "2026-05-26",
           "paused": false,
@@ -1684,8 +1776,8 @@
       "name": "HB Thumper Lodge SM9",
       "id": 282435,
       "total": 4,
-      "not_started": 2,
-      "in_progress": 0,
+      "not_started": 1,
+      "in_progress": 1,
       "completed": 2,
       "issues": 0,
       "tasks": [
@@ -1731,10 +1823,10 @@
         {
           "id": 139791053,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-05-26T13:12:14",
           "finished_at": null,
           "scheduled_date": "2026-05-26",
           "paused": false,
@@ -1832,10 +1924,10 @@
       "name": "HB Lilly Pad ST83",
       "id": 282420,
       "total": 6,
-      "not_started": 2,
-      "in_progress": 1,
-      "completed": 2,
-      "issues": 1,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 5,
+      "issues": 0,
       "tasks": [
         {
           "id": 139791035,
@@ -1879,11 +1971,11 @@
         {
           "id": 139791046,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-05-26T12:05:54",
-          "finished_at": null,
+          "finished_at": "2026-05-26T12:49:00",
           "scheduled_date": "2026-05-26",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1897,13 +1989,13 @@
         {
           "id": 139791047,
           "name": "Cleaning check",
-          "classification": "issues",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-05-26T12:10:56",
-          "finished_at": null,
+          "finished_at": "2026-05-26T13:10:54",
           "scheduled_date": "2026-05-26",
-          "paused": true,
+          "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
@@ -1932,11 +2024,11 @@
         {
           "id": 143608606,
           "name": "Guest Arrival check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-26T13:11:14",
+          "finished_at": "2026-05-26T13:11:32",
           "scheduled_date": "2026-05-26",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -2101,8 +2193,8 @@
       "name": "HB Cotswold WV47",
       "id": 282402,
       "total": 6,
-      "not_started": 3,
-      "in_progress": 0,
+      "not_started": 2,
+      "in_progress": 1,
       "completed": 3,
       "issues": 0,
       "tasks": [
@@ -2166,10 +2258,10 @@
         {
           "id": 139791148,
           "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-05-26T13:12:53",
           "finished_at": null,
           "scheduled_date": "2026-05-26",
           "paused": false,
@@ -2359,9 +2451,9 @@
       "name": "HB Hares Haven SM1",
       "id": 282395,
       "total": 8,
-      "not_started": 2,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 6,
+      "completed": 8,
       "issues": 0,
       "tasks": [
         {
@@ -2460,11 +2552,11 @@
         {
           "id": 148432207,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-26T13:13:15",
+          "finished_at": "2026-05-26T13:13:20",
           "scheduled_date": "2026-05-26",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -2495,11 +2587,11 @@
         {
           "id": 148589541,
           "name": "Add Booster Seat",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-26T13:13:30",
+          "finished_at": "2026-05-26T13:13:31",
           "scheduled_date": "2026-05-26",
           "paused": false,
           "assignedTo": "Lee Kelly",
