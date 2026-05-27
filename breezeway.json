@@ -1,16 +1,148 @@
 {
-  "_generated": "2026-05-27T12:46:07.641Z",
+  "_generated": "2026-05-27T13:16:20.201Z",
   "_source": "cron",
   "_date": "2026-05-27",
   "_status": {
-    "last_run": "2026-05-27T13:00:40.365Z",
-    "ok": false,
-    "error": "BW auth failed: 429"
+    "last_run": "2026-05-27T13:16:20.201Z",
+    "ok": true,
+    "properties_polled": 131,
+    "properties_raw_total": 132,
+    "status_counts": {
+      "active": 70,
+      "inactive": 62
+    },
+    "api_count": null,
+    "page_debug": [
+      {
+        "page": 1,
+        "returned": 100,
+        "has_next": false
+      },
+      {
+        "page": 2,
+        "returned": 32,
+        "has_next": false
+      }
+    ],
+    "errors": [],
+    "stages_seen": {
+      "finished": 30,
+      "created": 11,
+      "in_progress": 2
+    },
+    "first_task_shape": {
+      "keys": [
+        "assignments",
+        "bill_to",
+        "costs",
+        "created_at",
+        "created_by",
+        "description",
+        "finished_at",
+        "finished_by",
+        "home_id",
+        "id",
+        "linked_reservation",
+        "name",
+        "paused",
+        "photos",
+        "rate_paid",
+        "rate_type",
+        "reference_property_id",
+        "report_url",
+        "requested_by",
+        "scheduled_date",
+        "scheduled_time",
+        "started_at",
+        "summary",
+        "supplies",
+        "tags",
+        "task_tags",
+        "template_id",
+        "total_time",
+        "type_department",
+        "type_priority",
+        "type_task_status",
+        "updated_at"
+      ],
+      "sample_assignments": [
+        {
+          "assignee_id": 85859,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 195477350,
+          "name": "Tracey Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 89951,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 195477352,
+          "name": "Lee Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 149092,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 195477357,
+          "name": "Janet Smith",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 204277,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 195477358,
+          "name": "Kate Hammond",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 272395,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 195477359,
+          "name": "Melanie Thomson",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 310046,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 195477360,
+          "name": "Rachel Gaazen",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 324278,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 195477362,
+          "name": "Karen  Rand",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 330598,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 195477364,
+          "name": "Peter Milligan",
+          "type_task_user_status": "assigned"
+        }
+      ],
+      "sample_type_department": "housekeeping",
+      "sample_status": {
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
+      }
+    }
   },
   "summary": {
-    "not_started": 19,
-    "in_progress": 1,
-    "completed": 23,
+    "not_started": 11,
+    "in_progress": 2,
+    "completed": 30,
     "issues": 0
   },
   "total_tasks": 43,
@@ -19,9 +151,9 @@
       "name": "HB Sunflower Lodge WV26",
       "id": 1257495,
       "total": 7,
-      "not_started": 2,
+      "not_started": 1,
       "in_progress": 0,
-      "completed": 5,
+      "completed": 6,
       "issues": 0,
       "tasks": [
         {
@@ -137,11 +269,11 @@
         {
           "id": 149220474,
           "name": "Fix en-suite shelf",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-27T13:05:16",
+          "finished_at": "2026-05-27T13:05:48",
           "scheduled_date": "2026-05-27",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -239,8 +371,8 @@
       "name": "WR Elouera, 21 Isis Lake IS21",
       "id": 1109167,
       "total": 6,
-      "not_started": 3,
-      "in_progress": 0,
+      "not_started": 2,
+      "in_progress": 1,
       "completed": 3,
       "issues": 0,
       "tasks": [
@@ -286,10 +418,10 @@
         {
           "id": 147345166,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-05-27T12:59:29",
           "finished_at": null,
           "scheduled_date": "2026-05-27",
           "paused": false,
@@ -297,7 +429,9 @@
           "assignedToList": [
             "Lee Kelly",
             "Rachel Gaazen",
-            "Karen  Rand"
+            "Karen  Rand",
+            "Shinead Brazil",
+            "Angie Brazil"
           ]
         },
         {
@@ -546,8 +680,8 @@
       "id": 720665,
       "total": 4,
       "not_started": 0,
-      "in_progress": 1,
-      "completed": 3,
+      "in_progress": 0,
+      "completed": 4,
       "issues": 0,
       "tasks": [
         {
@@ -611,11 +745,11 @@
         {
           "id": 139943094,
           "name": "Cleaning check",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-05-27T12:45:20",
-          "finished_at": null,
+          "finished_at": "2026-05-27T12:52:33",
           "scheduled_date": "2026-05-27",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -631,18 +765,18 @@
       "name": "WR Bourton WR49",
       "id": 509635,
       "total": 3,
-      "not_started": 3,
-      "in_progress": 0,
+      "not_started": 2,
+      "in_progress": 1,
       "completed": 0,
       "issues": 0,
       "tasks": [
         {
           "id": 139791193,
           "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-05-27T13:00:51",
           "finished_at": null,
           "scheduled_date": "2026-05-27",
           "paused": false,
@@ -694,19 +828,19 @@
       "name": "LP Tufty LP9",
       "id": 282436,
       "total": 7,
-      "not_started": 5,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 2,
+      "completed": 7,
       "issues": 0,
       "tasks": [
         {
           "id": 139943088,
           "name": "Guest Arrival check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-27T13:00:54",
+          "finished_at": "2026-05-27T13:01:23",
           "scheduled_date": "2026-05-27",
           "paused": false,
           "assignedTo": "Anne Vinall",
@@ -717,11 +851,11 @@
         {
           "id": 139943091,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-27T12:59:59",
+          "finished_at": "2026-05-27T13:00:00",
           "scheduled_date": "2026-05-27",
           "paused": false,
           "assignedTo": "Anne Vinall",
@@ -771,11 +905,11 @@
         {
           "id": 148126011,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-27T13:00:05",
+          "finished_at": "2026-05-27T13:00:38",
           "scheduled_date": "2026-05-27",
           "paused": false,
           "assignedTo": "Anne Vinall",
@@ -786,11 +920,11 @@
         {
           "id": 148126018,
           "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-27T13:00:44",
+          "finished_at": "2026-05-27T13:00:47",
           "scheduled_date": "2026-05-27",
           "paused": false,
           "assignedTo": "Anne Vinall",
@@ -801,11 +935,11 @@
         {
           "id": 149253678,
           "name": "Pillow Protector",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-27T13:04:59",
+          "finished_at": "2026-05-27T13:05:00",
           "scheduled_date": "2026-05-27",
           "paused": false,
           "assignedTo": "Lee Kelly",
