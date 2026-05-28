@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-05-28T09:46:05.318Z",
+  "_generated": "2026-05-28T10:01:29.726Z",
   "_source": "cron",
   "_date": "2026-05-28",
   "_status": {
-    "last_run": "2026-05-28T09:46:05.318Z",
+    "last_run": "2026-05-28T10:01:29.726Z",
     "ok": true,
     "properties_polled": 131,
     "properties_raw_total": 132,
@@ -26,8 +26,8 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 83,
-      "finished": 14,
+      "finished": 20,
+      "created": 78,
       "in_progress": 3
     },
     "first_task_shape": {
@@ -39,6 +39,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -132,37 +133,37 @@
       ],
       "sample_type_department": "housekeeping",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 83,
+    "not_started": 78,
     "in_progress": 3,
-    "completed": 14,
+    "completed": 20,
     "issues": 0
   },
-  "total_tasks": 100,
+  "total_tasks": 101,
   "properties": [
     {
       "name": "HB Bear's Cabin HV51",
       "id": 1343498,
       "total": 8,
-      "not_started": 8,
+      "not_started": 6,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
           "id": 145540480,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-28T09:59:26",
+          "finished_at": "2026-05-28T09:59:27",
           "scheduled_date": "2026-05-28",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -180,11 +181,11 @@
         {
           "id": 145540482,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-28T09:59:32",
+          "finished_at": "2026-05-28T09:59:34",
           "scheduled_date": "2026-05-28",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -207,8 +208,11 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
+            "Becky Malgarin",
+            "Ella Curtis",
             "Rachel Gaazen",
-            "Karen  Rand"
+            "Karen  Rand",
+            "Emily Curtis"
           ]
         },
         {
@@ -620,8 +624,8 @@
     {
       "name": "HB Wine Down Retreat WLM38",
       "id": 801256,
-      "total": 6,
-      "not_started": 6,
+      "total": 7,
+      "not_started": 7,
       "in_progress": 0,
       "completed": 0,
       "issues": 0,
@@ -723,6 +727,24 @@
         {
           "id": 149605427,
           "name": "Parasol needs fixing ",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-05-28",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Peter Milligan"
+          ]
+        },
+        {
+          "id": 149623000,
+          "name": "New remote batteries ",
           "classification": "not_started",
           "status_code": "created",
           "department": "",
@@ -947,9 +969,9 @@
       "name": "WR Cerney House WR3",
       "id": 708469,
       "total": 8,
-      "not_started": 8,
+      "not_started": 7,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
@@ -990,11 +1012,11 @@
         {
           "id": 140088345,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-28T09:49:22",
+          "finished_at": "2026-05-28T09:49:22",
           "scheduled_date": "2026-05-28",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -1102,9 +1124,9 @@
       "name": "HB Bluebell RM6",
       "id": 641766,
       "total": 6,
-      "not_started": 6,
+      "not_started": 4,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
@@ -1145,11 +1167,11 @@
         {
           "id": 145219957,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-28T09:47:03",
+          "finished_at": "2026-05-28T09:47:04",
           "scheduled_date": "2026-05-28",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -1167,11 +1189,11 @@
         {
           "id": 145219958,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-05-28T09:47:09",
+          "finished_at": "2026-05-28T09:47:11",
           "scheduled_date": "2026-05-28",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1195,7 +1217,8 @@
           "assignedToList": [
             "Lee Kelly",
             "Rachel Gaazen",
-            "Karen  Rand"
+            "Karen  Rand",
+            "Lopes Cleaning Services"
           ]
         },
         {
@@ -1443,8 +1466,8 @@
       "name": "HB Honeysuckle OM2",
       "id": 282410,
       "total": 6,
-      "not_started": 4,
-      "in_progress": 0,
+      "not_started": 3,
+      "in_progress": 1,
       "completed": 2,
       "issues": 0,
       "tasks": [
@@ -1490,10 +1513,10 @@
         {
           "id": 141127908,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-05-28T09:57:21",
           "finished_at": null,
           "scheduled_date": "2026-05-28",
           "paused": false,
@@ -1622,8 +1645,10 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
+            "Lydia Dilley",
             "Rachel Gaazen",
-            "Karen  Rand"
+            "Karen  Rand",
+            "Kael  Hicks"
           ]
         },
         {
@@ -2002,8 +2027,8 @@
       "id": 282395,
       "total": 9,
       "not_started": 3,
-      "in_progress": 1,
-      "completed": 5,
+      "in_progress": 0,
+      "completed": 6,
       "issues": 0,
       "tasks": [
         {
@@ -2102,11 +2127,11 @@
         {
           "id": 148432267,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-05-28T09:12:18",
-          "finished_at": null,
+          "finished_at": "2026-05-28T09:54:03",
           "scheduled_date": "2026-05-28",
           "paused": false,
           "assignedTo": "Lee Kelly",
