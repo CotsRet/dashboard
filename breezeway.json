@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-06-02T12:16:18.178Z",
+  "_generated": "2026-06-02T12:32:57.275Z",
   "_source": "cron",
   "_date": "2026-06-02",
   "_status": {
-    "last_run": "2026-06-02T12:16:18.178Z",
+    "last_run": "2026-06-02T12:32:57.275Z",
     "ok": true,
     "properties_polled": 131,
     "properties_raw_total": 132,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 44,
-      "finished": 16,
-      "in_progress": 4
+      "finished": 19,
+      "in_progress": 4,
+      "created": 39
     },
     "first_task_shape": {
       "keys": [
@@ -39,6 +39,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -66,81 +67,95 @@
       ],
       "sample_assignments": [
         {
+          "assignee_id": 85859,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 204210047,
+          "name": "Tracey Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
           "assignee_id": 89951,
           "employee_code": null,
           "expires_at": null,
-          "id": 203878595,
+          "id": 204210048,
           "name": "Lee Kelly",
           "type_task_user_status": "assigned"
         },
         {
-          "assignee_id": 274021,
+          "assignee_id": 149092,
           "employee_code": null,
           "expires_at": null,
-          "id": 203878594,
-          "name": "Darren Smith",
+          "id": 204210049,
+          "name": "Janet Smith",
           "type_task_user_status": "assigned"
         },
         {
-          "assignee_id": 299742,
+          "assignee_id": 204277,
           "employee_code": null,
           "expires_at": null,
-          "id": 203878593,
-          "name": "Ashley Smith",
+          "id": 204210050,
+          "name": "Kate Hammond",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 272395,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 204210052,
+          "name": "Melanie Thomson",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 310046,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 204210053,
+          "name": "Rachel Gaazen",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 324278,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 204210055,
+          "name": "Karen  Rand",
           "type_task_user_status": "assigned"
         },
         {
           "assignee_id": 330598,
           "employee_code": null,
           "expires_at": null,
-          "id": 203878596,
+          "id": 204210057,
           "name": "Peter Milligan",
           "type_task_user_status": "assigned"
         }
       ],
-      "sample_type_department": "maintenance",
+      "sample_type_department": "housekeeping",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 44,
+    "not_started": 39,
     "in_progress": 2,
-    "completed": 16,
+    "completed": 19,
     "issues": 2
   },
-  "total_tasks": 64,
+  "total_tasks": 62,
   "properties": [
     {
       "name": "HB Bear's Cabin HV51",
       "id": 1343498,
-      "total": 6,
-      "not_started": 3,
+      "total": 5,
+      "not_started": 1,
       "in_progress": 1,
-      "completed": 2,
+      "completed": 3,
       "issues": 0,
       "tasks": [
-        {
-          "id": 149254889,
-          "name": "Fire extinguisher away from bracket on the wall",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-02",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
-          ]
-        },
         {
           "id": 149466023,
           "name": "Guest checked out",
@@ -218,11 +233,11 @@
         {
           "id": 150360436,
           "name": "Issues reported by guest.",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-02T12:21:33",
+          "finished_at": "2026-06-02T12:21:35",
           "scheduled_date": "2026-06-02",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -891,8 +906,8 @@
     {
       "name": "HB Drakes View ST69",
       "id": 706122,
-      "total": 6,
-      "not_started": 3,
+      "total": 5,
+      "not_started": 2,
       "in_progress": 0,
       "completed": 3,
       "issues": 0,
@@ -969,24 +984,6 @@
             "Lee Kelly",
             "Rachel Gaazen",
             "Karen  Rand"
-          ]
-        },
-        {
-          "id": 150157614,
-          "name": "Guest cannot lock patio",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-02",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan"
           ]
         },
         {
@@ -1177,8 +1174,8 @@
       "id": 282434,
       "total": 2,
       "not_started": 0,
-      "in_progress": 1,
-      "completed": 1,
+      "in_progress": 0,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
@@ -1202,11 +1199,11 @@
         {
           "id": 146715287,
           "name": "Cleaning check",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-06-02T12:14:39",
-          "finished_at": null,
+          "finished_at": "2026-06-02T12:22:42",
           "scheduled_date": "2026-06-02",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1450,9 +1447,9 @@
       "name": "HB Cottontail SM2",
       "id": 282403,
       "total": 4,
-      "not_started": 2,
+      "not_started": 1,
       "in_progress": 0,
-      "completed": 2,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -1497,11 +1494,11 @@
         {
           "id": 140879315,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-02T12:27:14",
+          "finished_at": "2026-06-02T12:32:48",
           "scheduled_date": "2026-06-02",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1563,18 +1560,18 @@
       "name": "HB Burford WLM17",
       "id": 282398,
       "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
+      "not_started": 0,
+      "in_progress": 1,
       "completed": 0,
       "issues": 0,
       "tasks": [
         {
           "id": 149427106,
           "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-06-02T12:32:31",
           "finished_at": null,
           "scheduled_date": "2026-06-02",
           "paused": false,
