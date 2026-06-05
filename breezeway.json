@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-06-05T12:15:35.416Z",
+  "_generated": "2026-06-05T12:31:22.542Z",
   "_source": "cron",
   "_date": "2026-06-05",
   "_status": {
-    "last_run": "2026-06-05T12:15:35.416Z",
+    "last_run": "2026-06-05T12:31:22.542Z",
     "ok": true,
     "properties_polled": 131,
     "properties_raw_total": 132,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "in_progress": 7,
-      "finished": 73,
-      "created": 57
+      "finished": 85,
+      "created": 45,
+      "in_progress": 7
     },
     "first_task_shape": {
       "keys": [
@@ -39,6 +39,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -100,16 +101,16 @@
       ],
       "sample_type_department": "maintenance",
       "sample_status": {
-        "code": "in_progress",
-        "name": "In Progress",
-        "stage": "in_progress"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 57,
+    "not_started": 45,
     "in_progress": 5,
-    "completed": 73,
+    "completed": 85,
     "issues": 2
   },
   "total_tasks": 137,
@@ -119,18 +120,18 @@
       "id": 1343498,
       "total": 2,
       "not_started": 0,
-      "in_progress": 1,
-      "completed": 1,
+      "in_progress": 0,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
           "id": 149254889,
           "name": "Fire extinguisher away from bracket on the wall",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-06-05T11:47:52",
-          "finished_at": null,
+          "finished_at": "2026-06-05T12:25:05",
           "scheduled_date": "2026-06-05",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -331,8 +332,8 @@
       "id": 1233968,
       "total": 3,
       "not_started": 1,
-      "in_progress": 1,
-      "completed": 1,
+      "in_progress": 0,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
@@ -350,11 +351,11 @@
         {
           "id": 141262844,
           "name": "External Inspection",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-06-05T12:11:01",
-          "finished_at": null,
+          "finished_at": "2026-06-05T12:23:29",
           "scheduled_date": "2026-06-05",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -507,8 +508,8 @@
       "name": "HB Kingfisher Lodge - ND25",
       "id": 1152471,
       "total": 3,
-      "not_started": 1,
-      "in_progress": 0,
+      "not_started": 0,
+      "in_progress": 1,
       "completed": 2,
       "issues": 0,
       "tasks": [
@@ -539,10 +540,10 @@
         {
           "id": 147189234,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-06-05T12:27:34",
           "finished_at": null,
           "scheduled_date": "2026-06-05",
           "paused": false,
@@ -554,18 +555,18 @@
       "name": "HB Duckling View - ST61",
       "id": 1127222,
       "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
+      "not_started": 0,
+      "in_progress": 1,
       "completed": 0,
       "issues": 0,
       "tasks": [
         {
           "id": 150891002,
           "name": "Check Fire Alarms",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-06-05T12:27:31",
           "finished_at": null,
           "scheduled_date": "2026-06-05",
           "paused": false,
@@ -577,9 +578,9 @@
       "name": "WR Elouera, 21 Isis Lake IS21",
       "id": 1109167,
       "total": 3,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 2,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -609,11 +610,11 @@
         {
           "id": 141262829,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-05T12:16:15",
+          "finished_at": "2026-06-05T12:16:16",
           "scheduled_date": "2026-06-05",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1009,19 +1010,19 @@
       "name": "HB Wine Down Retreat WLM38",
       "id": 801256,
       "total": 2,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 1,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
           "id": 147675112,
           "name": "Guest Arrival check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-05T12:24:15",
+          "finished_at": "2026-06-05T12:24:53",
           "scheduled_date": "2026-06-05",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1079,9 +1080,9 @@
       "name": "WR Somerford House WR15",
       "id": 790224,
       "total": 4,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 3,
+      "completed": 4,
       "issues": 0,
       "tasks": [
         {
@@ -1123,11 +1124,11 @@
         {
           "id": 151045702,
           "name": "Early Check in (1pm)",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-05T12:26:53",
+          "finished_at": "2026-06-05T12:26:53",
           "scheduled_date": "2026-06-05",
           "paused": false,
           "assignedTo": "Tracey Kelly"
@@ -1138,8 +1139,8 @@
       "name": "HB The Bee Hive WLM39",
       "id": 778191,
       "total": 9,
-      "not_started": 4,
-      "in_progress": 0,
+      "not_started": 3,
+      "in_progress": 1,
       "completed": 5,
       "issues": 0,
       "tasks": [
@@ -1170,10 +1171,10 @@
         {
           "id": 140717184,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-06-05T12:16:07",
           "finished_at": null,
           "scheduled_date": "2026-06-05",
           "paused": false,
@@ -1375,18 +1376,18 @@
       "id": 641768,
       "total": 3,
       "not_started": 1,
-      "in_progress": 1,
-      "completed": 1,
+      "in_progress": 0,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
           "id": 148933151,
           "name": "Guest Arrival check Hot Tub",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-06-05T12:05:37",
-          "finished_at": null,
+          "finished_at": "2026-06-05T12:15:57",
           "scheduled_date": "2026-06-05",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1515,9 +1516,9 @@
       "name": "WR Bourton WR49",
       "id": 509635,
       "total": 4,
-      "not_started": 2,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 2,
+      "completed": 4,
       "issues": 0,
       "tasks": [
         {
@@ -1547,11 +1548,11 @@
         {
           "id": 141262805,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-05T12:15:52",
+          "finished_at": "2026-06-05T12:15:53",
           "scheduled_date": "2026-06-05",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1559,11 +1560,11 @@
         {
           "id": 151045728,
           "name": "Early Check in (1pm)",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-05T12:26:43",
+          "finished_at": "2026-06-05T12:26:43",
           "scheduled_date": "2026-06-05",
           "paused": false,
           "assignedTo": "Tracey Kelly"
@@ -1866,19 +1867,19 @@
       "name": "LP Maple LP1",
       "id": 282422,
       "total": 2,
-      "not_started": 2,
+      "not_started": 1,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 141262776,
           "name": "Guest Arrival check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-05T12:25:32",
+          "finished_at": "2026-06-05T12:27:53",
           "scheduled_date": "2026-06-05",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -2112,9 +2113,9 @@
       "name": "HB Cottontail SM2",
       "id": 282403,
       "total": 3,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 2,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -2144,11 +2145,11 @@
         {
           "id": 150771501,
           "name": "Early Check-in 1pm - confirmed 48 hrs before arrival",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-05T12:27:16",
+          "finished_at": "2026-06-05T12:27:17",
           "scheduled_date": "2026-06-05",
           "paused": false,
           "assignedTo": "Tracey Kelly"
@@ -2206,9 +2207,9 @@
       "name": "HB Burford WLM17",
       "id": 282398,
       "total": 3,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 2,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -2238,11 +2239,11 @@
         {
           "id": 150770376,
           "name": "Early Check-in 1pm - confirmed 48 hrs before arrival",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-05T12:27:04",
+          "finished_at": "2026-06-05T12:27:05",
           "scheduled_date": "2026-06-05",
           "paused": false,
           "assignedTo": "Tracey Kelly"
@@ -2276,9 +2277,9 @@
       "name": "WR Barnsley WR33",
       "id": 282392,
       "total": 3,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 2,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -2308,11 +2309,11 @@
         {
           "id": 141262826,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-05T12:20:07",
+          "finished_at": "2026-06-05T12:20:10",
           "scheduled_date": "2026-06-05",
           "paused": false,
           "assignedTo": "Lee Kelly"
