@@ -1,13 +1,149 @@
 {
-  "_generated": "2026-06-07T08:48:46.251684",
+  "_generated": "2026-06-07T08:15:53.580Z",
+  "_source": "cron",
   "_date": "2026-06-07",
+  "_status": {
+    "last_run": "2026-06-07T08:15:53.580Z",
+    "ok": true,
+    "properties_polled": 131,
+    "properties_raw_total": 132,
+    "status_counts": {
+      "active": 70,
+      "inactive": 62
+    },
+    "api_count": null,
+    "page_debug": [
+      {
+        "page": 1,
+        "returned": 100,
+        "has_next": false
+      },
+      {
+        "page": 2,
+        "returned": 32,
+        "has_next": false
+      }
+    ],
+    "errors": [],
+    "stages_seen": {
+      "created": 148,
+      "finished": 1
+    },
+    "first_task_shape": {
+      "keys": [
+        "assignments",
+        "bill_to",
+        "costs",
+        "created_at",
+        "created_by",
+        "description",
+        "finished_at",
+        "home_id",
+        "id",
+        "linked_reservation",
+        "name",
+        "paused",
+        "photos",
+        "rate_paid",
+        "rate_type",
+        "reference_property_id",
+        "report_url",
+        "requested_by",
+        "scheduled_date",
+        "scheduled_time",
+        "started_at",
+        "summary",
+        "supplies",
+        "tags",
+        "task_tags",
+        "template_id",
+        "total_time",
+        "type_department",
+        "type_priority",
+        "type_task_status",
+        "updated_at"
+      ],
+      "sample_assignments": [
+        {
+          "assignee_id": 85859,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 201304720,
+          "name": "Tracey Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 89951,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 201304721,
+          "name": "Lee Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 149092,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 201304722,
+          "name": "Janet Smith",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 204277,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 201304723,
+          "name": "Kate Hammond",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 272395,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 201304724,
+          "name": "Melanie Thomson",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 310046,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 201304725,
+          "name": "Rachel Gaazen",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 324278,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 201304726,
+          "name": "Karen  Rand",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 330598,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 201304727,
+          "name": "Peter Milligan",
+          "type_task_user_status": "assigned"
+        }
+      ],
+      "sample_type_department": "housekeeping",
+      "sample_status": {
+        "code": "created",
+        "name": "Created",
+        "stage": "new"
+      }
+    }
+  },
   "summary": {
-    "not_started": 33,
+    "not_started": 148,
     "in_progress": 0,
-    "completed": 0,
+    "completed": 1,
     "issues": 0
   },
-  "total_tasks": 33,
+  "total_tasks": 149,
   "properties": [
     {
       "name": "HB Our Happy Place ND13",
@@ -16,7 +152,69 @@
       "not_started": 5,
       "in_progress": 0,
       "completed": 0,
-      "issues": 0
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 147538108,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 147538123,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 147538134,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 147538147,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150891048,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
     },
     {
       "name": "Hareside - Hareside - 1",
@@ -25,7 +223,57 @@
       "not_started": 4,
       "in_progress": 0,
       "completed": 0,
-      "issues": 0
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 141585607,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Rachel Gaazen"
+        },
+        {
+          "id": 141585609,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585613,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Rachel Gaazen"
+        },
+        {
+          "id": 141585617,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
     },
     {
       "name": "HB Charlie's Retreat CR28",
@@ -34,7 +282,69 @@
       "not_started": 5,
       "in_progress": 0,
       "completed": 0,
-      "issues": 0
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 148925505,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 148925507,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 148925508,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 148925512,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 148925515,
+          "name": "CHECK SOFA BED LINEN",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
     },
     {
       "name": "HB Coconuts Retreat ST16",
@@ -43,7 +353,93 @@
       "not_started": 7,
       "in_progress": 0,
       "completed": 0,
-      "issues": 0
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 141585493,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 141585496,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585501,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585503,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150891039,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151263343,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151263348,
+          "name": "Guest Arrival check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
     },
     {
       "name": "HB Poppy Meadow SM13",
@@ -52,7 +448,69 @@
       "not_started": 5,
       "in_progress": 0,
       "completed": 0,
-      "issues": 0
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 141585479,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 141585484,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585491,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585495,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150890953,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
     },
     {
       "name": "LME Howells mere HM29",
@@ -61,7 +519,140 @@
       "not_started": 5,
       "in_progress": 0,
       "completed": 0,
-      "issues": 0
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 151302160,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151302166,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151302169,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151302178,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151302180,
+          "name": "LOG BURNER CLEAN - DELETE TASK IF NOT USED",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Cotswold Reach CR79",
+      "id": 1081812,
+      "total": 5,
+      "not_started": 5,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 150172571,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 150172621,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150172711,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150172771,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150890988,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
     },
     {
       "name": "Somerford Lake House - Somerford Lake House - WR15",
@@ -70,7 +661,21 @@
       "not_started": 1,
       "in_progress": 0,
       "completed": 0,
-      "issues": 0
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 150695359,
+          "name": "Late Check-out 1pm - subject to availibility - confirmed 24 hrs before departure",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
     },
     {
       "name": "Bourton House - Bourton House, 49 Windrush - WR49",
@@ -79,13 +684,1585 @@
       "not_started": 1,
       "in_progress": 0,
       "completed": 0,
-      "issues": 0
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 150695351,
+          "name": "Late Check-out 1pm - subject to availibility - confirmed 24 hrs before departure",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Lake Retreat ST39",
+      "id": 927282,
+      "total": 2,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 1,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 141585505,
+          "name": "Guest Arrival check",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-05T14:05:23",
+          "finished_at": "2026-06-05T14:18:19",
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585511,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Paws Lodge WLM19",
+      "id": 790813,
+      "total": 5,
+      "not_started": 5,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 147546942,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 147546946,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 147546955,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 147546959,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150890983,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "WR Somerford House WR15",
+      "id": 790224,
+      "total": 7,
+      "not_started": 7,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 141585455,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 141585463,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585482,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585487,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585499,
+          "name": "Barbeque Clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150890940,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151284719,
+          "name": "Late Check out Paid for 1pm",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB The Bee Hive WLM39",
+      "id": 778191,
+      "total": 4,
+      "not_started": 4,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 141585453,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 141585454,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585456,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585459,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "WR Cerney House WR3",
+      "id": 708469,
+      "total": 6,
+      "not_started": 6,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 141585462,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 141585483,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585489,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585500,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585510,
+          "name": "Barbeque Clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150890935,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB The Boat House WLM20",
+      "id": 641768,
+      "total": 6,
+      "not_started": 6,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 148933156,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 148933159,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 148933163,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 148933164,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150694418,
+          "name": "Late Check-out 1pm - subject to availibility - confirmed 24 hrs before departure",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150890912,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Bluebell RM6",
+      "id": 641766,
+      "total": 5,
+      "not_started": 5,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 147118341,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 147118354,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 147118362,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 147118367,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150890897,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB The Lighthouse WLM9",
+      "id": 540019,
+      "total": 6,
+      "not_started": 6,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 150170363,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 150170394,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150170398,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150170404,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150170407,
+          "name": "CHECK SOFA BED LINEN",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150890928,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "WR Bourton WR49",
+      "id": 509635,
+      "total": 7,
+      "not_started": 7,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 141585600,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 141585602,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585604,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585605,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585606,
+          "name": "Barbeque Clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150890973,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151285178,
+          "name": "Late Check out Paid for 1pm",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Spring View WLM12",
+      "id": 492638,
+      "total": 5,
+      "not_started": 5,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 150496009,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 150496017,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150496022,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150496032,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150890906,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "LP Oak Lodge LP11",
+      "id": 352654,
+      "total": 6,
+      "not_started": 6,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 141585460,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 141585466,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585470,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585474,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585477,
+          "name": "Barbeque Clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150890865,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "Why Not",
+      "id": 318781,
+      "total": 2,
+      "not_started": 2,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 141585457,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585464,
+          "name": "Stow Checkout",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Wildflower WLM11",
+      "id": 282437,
+      "total": 5,
+      "not_started": 5,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 141585544,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 141585560,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585563,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585571,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150891075,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Thumper Lodge SM9",
+      "id": 282435,
+      "total": 5,
+      "not_started": 5,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 141585430,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 141585433,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585438,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585441,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150890875,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Spring Lodge SM12",
+      "id": 282428,
+      "total": 5,
+      "not_started": 5,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 141585476,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 141585488,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585509,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585514,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150890860,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "LP Reeds LP8",
+      "id": 282427,
+      "total": 5,
+      "not_started": 5,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 141585461,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 141585468,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585471,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Anne Vinall"
+        },
+        {
+          "id": 141585472,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Anne Vinall"
+        },
+        {
+          "id": 150890907,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Anne Vinall"
+        }
+      ]
+    },
+    {
+      "name": "HB Honeysuckle OM2",
+      "id": 282410,
+      "total": 5,
+      "not_started": 5,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 150182987,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 150182988,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150182989,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150182990,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150694131,
+          "name": "Late Check-out 1pm - subject to availibility - confirmed 24 hrs before departure",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Cottontail SM2",
+      "id": 282403,
+      "total": 8,
+      "not_started": 8,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 141585436,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 141585443,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585444,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585445,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585448,
+          "name": "Guest Arrival check Hot Tub",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585451,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 149232911,
+          "name": "Add Dog Welcome pack",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150891015,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Cotswold WV47",
+      "id": 282402,
+      "total": 6,
+      "not_started": 6,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 141585352,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 141585357,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585359,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585360,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150695005,
+          "name": "Late Check-out 1pm - subject to availibility - confirmed 24 hrs before departure",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150890847,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Burford WLM17",
+      "id": 282398,
+      "total": 5,
+      "not_started": 5,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 150497594,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 150497595,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150497596,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150497597,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150890878,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "WR Barnsley WR33",
+      "id": 282392,
+      "total": 6,
+      "not_started": 6,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 141585774,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 141585790,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585820,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585830,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 141585848,
+          "name": "Barbeque Clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150891014,
+          "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-07",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
     }
   ],
-  "bw_app_url": "https://app.breezeway.io",
-  "_status": {
-    "last_run": "2026-06-07T08:00:27.544Z",
-    "ok": false,
-    "error": "BW auth failed: 429"
-  }
+  "bw_app_url": "https://app.breezeway.io"
 }
