@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-06-09T14:13:46.487Z",
-  "_source": "webhook",
+  "_generated": "2026-06-09T14:15:54.460Z",
+  "_source": "cron",
   "_date": "2026-06-09",
   "_status": {
-    "last_run": "2026-06-09T14:01:08.892Z",
+    "last_run": "2026-06-09T14:15:54.460Z",
     "ok": true,
     "properties_polled": 132,
     "properties_raw_total": 133,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 6,
-      "in_progress": 1,
-      "finished": 14
+      "closed": 1,
+      "finished": 15,
+      "created": 5
     },
     "first_task_shape": {
       "keys": [
@@ -76,16 +76,16 @@
       ],
       "sample_type_department": "maintenance",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "closed",
+        "name": "Closed",
+        "stage": "finished"
       }
     }
   },
   "summary": {
     "not_started": 5,
-    "in_progress": 1,
-    "completed": 15,
+    "in_progress": 0,
+    "completed": 16,
     "issues": 0
   },
   "total_tasks": 21,
@@ -118,18 +118,18 @@
       "id": 1109167,
       "total": 1,
       "not_started": 0,
-      "in_progress": 1,
-      "completed": 0,
+      "in_progress": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 141738268,
           "name": "Cleaning check",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-06-09T13:58:06",
-          "finished_at": null,
+          "finished_at": "2026-06-09T14:09:26",
           "scheduled_date": "2026-06-09",
           "paused": false,
           "assignedTo": "Lee Kelly"
