@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-06-10T05:16:53.573Z",
+  "_generated": "2026-06-10T05:41:36.640Z",
   "_source": "cron",
   "_date": "2026-06-10",
   "_status": {
-    "last_run": "2026-06-10T05:16:53.573Z",
+    "last_run": "2026-06-10T05:41:36.640Z",
     "ok": true,
     "properties_polled": 132,
     "properties_raw_total": 133,
@@ -24,9 +24,25 @@
         "has_next": false
       }
     ],
-    "errors": [],
+    "errors": [
+      {
+        "id": 1234295,
+        "name": "LME Daisy Chain CW26",
+        "error": "HTTP 500"
+      },
+      {
+        "id": 1225826,
+        "name": "LME Howells mere 92 Wishbone  - HM92",
+        "error": "HTTP 525"
+      },
+      {
+        "id": 1127222,
+        "name": "HB Duckling View - ST61",
+        "error": "HTTP 520"
+      }
+    ],
     "stages_seen": {
-      "created": 19,
+      "created": 15,
       "in_progress": 3
     },
     "first_task_shape": {
@@ -98,12 +114,12 @@
     }
   },
   "summary": {
-    "not_started": 19,
+    "not_started": 15,
     "in_progress": 0,
     "completed": 0,
     "issues": 3
   },
-  "total_tasks": 22,
+  "total_tasks": 18,
   "properties": [
     {
       "name": "LME Howells mere HM29",
@@ -165,65 +181,6 @@
         {
           "id": 151843645,
           "name": "LOG BURNER CLEAN - DELETE TASK IF NOT USED",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        }
-      ]
-    },
-    {
-      "name": "HB Duckling View - ST61",
-      "id": 1127222,
-      "total": 4,
-      "not_started": 4,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 144579494,
-          "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-10",
-          "paused": false,
-          "assignedTo": "Tracey Kelly"
-        },
-        {
-          "id": 144579495,
-          "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        },
-        {
-          "id": 144579497,
-          "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        },
-        {
-          "id": 144579500,
-          "name": "Cleaning check",
           "classification": "not_started",
           "status_code": "created",
           "department": "",
