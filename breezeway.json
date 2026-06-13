@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-06-13T12:01:40.595Z",
+  "_generated": "2026-06-13T12:16:06.466Z",
   "_source": "cron",
   "_date": "2026-06-13",
   "_status": {
-    "last_run": "2026-06-13T12:01:40.595Z",
+    "last_run": "2026-06-13T12:16:06.466Z",
     "ok": true,
     "properties_polled": 102,
     "properties_raw_total": 133,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 15,
-      "finished": 17,
-      "in_progress": 2
+      "finished": 19,
+      "created": 14,
+      "in_progress": 1
     },
     "first_task_shape": {
       "keys": [
@@ -39,6 +39,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -92,16 +93,16 @@
       ],
       "sample_type_department": "housekeeping",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 15,
-    "in_progress": 2,
-    "completed": 17,
+    "not_started": 14,
+    "in_progress": 1,
+    "completed": 19,
     "issues": 0
   },
   "total_tasks": 34,
@@ -110,19 +111,19 @@
       "name": "HB Sunflower Lodge WV26",
       "id": 1257495,
       "total": 1,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 152309944,
           "name": "Dust and Check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-13T12:13:55",
+          "finished_at": "2026-06-13T12:13:59",
           "scheduled_date": "2026-06-13",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -227,8 +228,8 @@
       "id": 942947,
       "total": 7,
       "not_started": 2,
-      "in_progress": 1,
-      "completed": 4,
+      "in_progress": 0,
+      "completed": 5,
       "issues": 0,
       "tasks": [
         {
@@ -306,11 +307,11 @@
         {
           "id": 152280931,
           "name": "Guest Arrival check",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-06-13T11:54:19",
-          "finished_at": null,
+          "finished_at": "2026-06-13T12:02:11",
           "scheduled_date": "2026-06-13",
           "paused": false,
           "assignedTo": "Lee Kelly"
