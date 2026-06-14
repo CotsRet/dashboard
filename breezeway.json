@@ -1,13 +1,143 @@
 {
-  "_generated": "2026-06-14T15:18:52.348421",
+  "_generated": "2026-06-14T14:31:31.368Z",
+  "_source": "cron",
   "_date": "2026-06-14",
+  "_status": {
+    "last_run": "2026-06-14T14:31:31.368Z",
+    "ok": true,
+    "properties_polled": 102,
+    "properties_raw_total": 133,
+    "status_counts": {
+      "active": 71,
+      "inactive": 62
+    },
+    "api_count": null,
+    "page_debug": [
+      {
+        "page": 1,
+        "returned": 100,
+        "has_next": false
+      },
+      {
+        "page": 2,
+        "returned": 33,
+        "has_next": false
+      }
+    ],
+    "errors": [],
+    "stages_seen": {
+      "finished": 86,
+      "created": 11,
+      "in_progress": 1
+    },
+    "first_task_shape": {
+      "keys": [
+        "assignments",
+        "bill_to",
+        "costs",
+        "created_at",
+        "created_by",
+        "description",
+        "finished_at",
+        "finished_by",
+        "home_id",
+        "id",
+        "linked_reservation",
+        "name",
+        "paused",
+        "photos",
+        "rate_paid",
+        "rate_type",
+        "reference_property_id",
+        "report_url",
+        "requested_by",
+        "scheduled_date",
+        "scheduled_time",
+        "started_at",
+        "summary",
+        "supplies",
+        "tags",
+        "task_tags",
+        "template_id",
+        "total_time",
+        "type_department",
+        "type_priority",
+        "type_task_status",
+        "updated_at"
+      ],
+      "sample_assignments": [
+        {
+          "assignee_id": 85859,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 208437183,
+          "name": "Tracey Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 89951,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 207579875,
+          "name": "Lee Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 149092,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 208437184,
+          "name": "Janet Smith",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 204277,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 208437185,
+          "name": "Kate Hammond",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 272395,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 208437186,
+          "name": "Melanie Thomson",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 310046,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 207579876,
+          "name": "Rachel Gaazen",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 330598,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 208437187,
+          "name": "Peter Milligan",
+          "type_task_user_status": "assigned"
+        }
+      ],
+      "sample_type_department": "housekeeping",
+      "sample_status": {
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
+      }
+    }
+  },
   "summary": {
-    "not_started": 14,
-    "in_progress": 0,
-    "completed": 10,
+    "not_started": 11,
+    "in_progress": 1,
+    "completed": 86,
     "issues": 0
   },
-  "total_tasks": 24,
+  "total_tasks": 98,
   "properties": [
     {
       "name": "HV2 Cleaning  - HV2",
@@ -16,16 +146,92 @@
       "not_started": 0,
       "in_progress": 0,
       "completed": 4,
-      "issues": 0
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 151729802,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:13:54",
+          "finished_at": "2026-06-14T12:13:54",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 151729805,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:14:00",
+          "finished_at": "2026-06-14T12:14:04",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151729807,
+          "name": "Turn around clean",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T11:38:56",
+          "finished_at": "2026-06-14T12:29:25",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151729809,
+          "name": "Cleaning check",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T13:24:49",
+          "finished_at": "2026-06-14T13:25:20",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
     },
     {
       "name": "LME - Minety Lake ML29",
       "id": 1328503,
-      "total": 4,
-      "not_started": 4,
+      "total": 2,
+      "not_started": 2,
       "in_progress": 0,
       "completed": 0,
-      "issues": 0
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 150683618,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150683619,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
     },
     {
       "name": "Hareside - Hareside - 1",
@@ -34,7 +240,69 @@
       "not_started": 3,
       "in_progress": 0,
       "completed": 2,
-      "issues": 0
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 142773832,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Rachel Gaazen"
+        },
+        {
+          "id": 142773839,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T13:38:29",
+          "finished_at": "2026-06-14T13:38:34",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 142773843,
+          "name": "Turn around clean",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T10:24:41",
+          "finished_at": "2026-06-14T11:56:22",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Nicola Biggs"
+        },
+        {
+          "id": 142773849,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 149900934,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
     },
     {
       "name": "HB Bunnys Burrow ST138",
@@ -43,43 +311,1328 @@
       "not_started": 0,
       "in_progress": 0,
       "completed": 4,
-      "issues": 0
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 151824112,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T13:00:01",
+          "finished_at": "2026-06-14T13:00:02",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 151824115,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T13:00:32",
+          "finished_at": "2026-06-14T13:00:35",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151824118,
+          "name": "CHECK SOFA BED LINEN",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T13:00:11",
+          "finished_at": "2026-06-14T13:00:14",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 152589950,
+          "name": "Late Check-out 1pm - subject to availibility - confirmed 24 hrs before departure",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T13:00:46",
+          "finished_at": "2026-06-14T13:00:47",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
     },
     {
-      "name": "Somerford Lake House - Somerford Lake House - WR15",
-      "id": 954047,
-      "total": 1,
+      "name": "HB Kingfisher Lodge - ND25",
+      "id": 1152471,
+      "total": 4,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 4,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 149664585,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T08:03:21",
+          "finished_at": "2026-06-14T08:03:22",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 149664588,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:08:25",
+          "finished_at": "2026-06-14T09:08:28",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 149664590,
+          "name": "Turn around clean",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T10:38:29",
+          "finished_at": "2026-06-14T12:08:44",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 149664592,
+          "name": "Cleaning check",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:29:02",
+          "finished_at": "2026-06-14T12:29:05",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Duckling View - ST61",
+      "id": 1127222,
+      "total": 3,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 3,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 146307231,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:29:49",
+          "finished_at": "2026-06-14T12:29:50",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 146307235,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:30:03",
+          "finished_at": "2026-06-14T12:30:05",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 152590872,
+          "name": "Late Check-out 1pm - subject to availibility - confirmed 24 hrs before departure",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:30:11",
+          "finished_at": "2026-06-14T12:30:12",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "WR Elouera, 21 Isis Lake IS21",
+      "id": 1109167,
+      "total": 4,
       "not_started": 1,
       "in_progress": 0,
-      "completed": 0,
-      "issues": 0
+      "completed": 3,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 142773814,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T10:49:06",
+          "finished_at": "2026-06-14T10:49:08",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 142773831,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T10:49:21",
+          "finished_at": "2026-06-14T10:49:24",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 142773836,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 142773848,
+          "name": "Barbeque Clean",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T13:42:18",
+          "finished_at": "2026-06-14T13:42:20",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
     },
     {
-      "name": "The Boat House - The Boat House - WLM20",
-      "id": 954045,
-      "total": 1,
+      "name": "HB Lake Retreat ST39",
+      "id": 927282,
+      "total": 2,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 2,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 142773676,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T08:56:20",
+          "finished_at": "2026-06-14T08:56:20",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 142773688,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:49:31",
+          "finished_at": "2026-06-14T12:49:34",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB The Cosy Cabin HV73",
+      "id": 927230,
+      "total": 2,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 2,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 143804822,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:18:49",
+          "finished_at": "2026-06-14T12:18:49",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 143804829,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:18:55",
+          "finished_at": "2026-06-14T12:18:57",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Paws Lodge WLM19",
+      "id": 790813,
+      "total": 3,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 3,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 150026100,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T08:54:56",
+          "finished_at": "2026-06-14T08:54:56",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 150026101,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T10:19:24",
+          "finished_at": "2026-06-14T10:19:27",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150026102,
+          "name": "Turn around clean",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T13:38:30",
+          "finished_at": "2026-06-14T14:20:41",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "WR Somerford House WR15",
+      "id": 790224,
+      "total": 4,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 4,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 142757819,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T11:05:11",
+          "finished_at": "2026-06-14T11:05:12",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 142757820,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T11:05:25",
+          "finished_at": "2026-06-14T11:05:28",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 142757826,
+          "name": "Barbeque Clean",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T13:43:00",
+          "finished_at": "2026-06-14T13:43:02",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151922266,
+          "name": "Remove travel cot",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T11:05:36",
+          "finished_at": "2026-06-14T11:05:37",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB The Bee Hive WLM39",
+      "id": 778191,
+      "total": 4,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 4,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 143957912,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T08:39:15",
+          "finished_at": "2026-06-14T08:39:16",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 143957913,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:36:23",
+          "finished_at": "2026-06-14T09:36:26",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 143957914,
+          "name": "Turn around clean",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:25:50",
+          "finished_at": "2026-06-14T10:08:15",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 143957915,
+          "name": "Cleaning check",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:35:38",
+          "finished_at": "2026-06-14T12:39:22",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "WR Cerney House WR3",
+      "id": 708469,
+      "total": 3,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 3,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 142773642,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T11:32:18",
+          "finished_at": "2026-06-14T11:32:19",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 142773653,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T11:32:28",
+          "finished_at": "2026-06-14T11:32:31",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 142773672,
+          "name": "Barbeque Clean",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T13:43:14",
+          "finished_at": "2026-06-14T13:43:15",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB The Boat House WLM20",
+      "id": 641768,
+      "total": 4,
+      "not_started": 0,
+      "in_progress": 1,
+      "completed": 3,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 151432894,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T08:54:02",
+          "finished_at": "2026-06-14T08:54:03",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 151432897,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T10:19:47",
+          "finished_at": "2026-06-14T10:19:49",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151432900,
+          "name": "Turn around clean",
+          "classification": "in_progress",
+          "status_code": "in_progress",
+          "department": "",
+          "started_at": "2026-06-14T14:23:35",
+          "finished_at": null,
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151535405,
+          "name": "Remove travel cot",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T10:20:08",
+          "finished_at": "2026-06-14T10:20:10",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Bluebell RM6",
+      "id": 641766,
+      "total": 2,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 2,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 142773626,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T10:24:07",
+          "finished_at": "2026-06-14T10:24:08",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 142773630,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T10:24:15",
+          "finished_at": "2026-06-14T10:24:17",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB The Lighthouse WLM9",
+      "id": 540019,
+      "total": 6,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 6,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 142773619,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:53:34",
+          "finished_at": "2026-06-14T09:53:34",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 142773627,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:53:54",
+          "finished_at": "2026-06-14T09:53:56",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 142773633,
+          "name": "Turn around clean",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:42:26",
+          "finished_at": "2026-06-14T13:33:22",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 144668089,
+          "name": "Remove Booster Seat",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:54:11",
+          "finished_at": "2026-06-14T09:54:13",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 145331372,
+          "name": "CHECK SOFA BED LINEN",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:53:40",
+          "finished_at": "2026-06-14T09:53:43",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150953458,
+          "name": "Remove Bed Guard",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:54:04",
+          "finished_at": "2026-06-14T09:54:05",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "WR Bourton WR49",
+      "id": 509635,
+      "total": 4,
       "not_started": 1,
       "in_progress": 0,
-      "completed": 0,
-      "issues": 0
+      "completed": 3,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 142773797,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T10:58:25",
+          "finished_at": "2026-06-14T10:58:25",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 142773809,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T10:58:39",
+          "finished_at": "2026-06-14T10:58:37",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 142773833,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 142773842,
+          "name": "Barbeque Clean",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T13:42:39",
+          "finished_at": "2026-06-14T13:42:41",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
     },
     {
-      "name": "The Lighthouse - The Lighthouse - WLM9",
-      "id": 954042,
+      "name": "HB Spring View WLM12",
+      "id": 492638,
+      "total": 3,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 2,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 151923090,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:50:09",
+          "finished_at": "2026-06-14T12:50:10",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 151923091,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:50:30",
+          "finished_at": "2026-06-14T12:50:35",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151939871,
+          "name": "Late Check out Paid for 1pm",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Wyndham Lodge WLM4",
+      "id": 395494,
+      "total": 3,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 3,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 148448196,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:04:22",
+          "finished_at": "2026-06-14T09:04:23",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 148448199,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:43:30",
+          "finished_at": "2026-06-14T09:43:32",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 148448203,
+          "name": "Turn around clean",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:17:54",
+          "finished_at": "2026-06-14T13:54:18",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "LP Oak Lodge LP11",
+      "id": 352654,
+      "total": 2,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 2,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 148522674,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T13:21:15",
+          "finished_at": "2026-06-14T13:21:16",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 148522677,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T13:21:33",
+          "finished_at": "2026-06-14T13:21:35",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "Why Not",
+      "id": 318781,
       "total": 2,
       "not_started": 2,
       "in_progress": 0,
       "completed": 0,
-      "issues": 0
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 142773680,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 142773686,
+          "name": "Stow Checkout",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        }
+      ]
     },
     {
-      "name": "Clearwater - Clearwater - ND15",
-      "id": 954011,
-      "total": 3,
-      "not_started": 3,
+      "name": "LP Maple LP1",
+      "id": 282422,
+      "total": 2,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 0,
-      "issues": 0
+      "completed": 2,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 144711123,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T13:38:03",
+          "finished_at": "2026-06-14T13:38:04",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 144711135,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T13:38:18",
+          "finished_at": "2026-06-14T13:38:21",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "LP Lilly LP2",
+      "id": 282419,
+      "total": 3,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 3,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 151569408,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T13:32:53",
+          "finished_at": "2026-06-14T13:32:55",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 151569410,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T13:33:04",
+          "finished_at": "2026-06-14T13:33:08",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151569416,
+          "name": "Barbeque Clean",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T13:47:39",
+          "finished_at": "2026-06-14T13:47:53",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Honeysuckle OM2",
+      "id": 282410,
+      "total": 1,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 1,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 152469507,
+          "name": "Broken parasol",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:36:40",
+          "finished_at": "2026-06-14T09:36:41",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Cottontail SM2",
+      "id": 282403,
+      "total": 5,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 4,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 142773681,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:35:49",
+          "finished_at": "2026-06-14T09:35:50",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 142773698,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:35:56",
+          "finished_at": "2026-06-14T09:35:59",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 142773745,
+          "name": "Turn around clean",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T10:13:20",
+          "finished_at": "2026-06-14T11:10:14",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 142773756,
+          "name": "Cleaning check",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:50:57",
+          "finished_at": "2026-06-14T12:56:52",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 152602030,
+          "name": "Lee to swap TV",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Clearwater ND15",
+      "id": 282401,
+      "total": 7,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 7,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 143466876,
+          "name": "Guest Arrival check",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T10:44:43",
+          "finished_at": "2026-06-14T10:59:24",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 143466877,
+          "name": "External Inspection",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:49:47",
+          "finished_at": "2026-06-14T12:49:48",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 144183241,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T08:03:11",
+          "finished_at": "2026-06-14T08:03:12",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 144183244,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T08:50:38",
+          "finished_at": "2026-06-14T08:50:40",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 144183246,
+          "name": "Turn around clean",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:12:51",
+          "finished_at": "2026-06-14T10:35:24",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 144183256,
+          "name": "Cleaning check",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T10:44:32",
+          "finished_at": "2026-06-14T10:44:36",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 144240368,
+          "name": "Remove Booster Seat",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T08:50:47",
+          "finished_at": "2026-06-14T08:50:49",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Cotswold WV47",
+      "id": 282402,
+      "total": 2,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 2,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 151521560,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:29:19",
+          "finished_at": "2026-06-14T12:29:20",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 151521564,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:29:27",
+          "finished_at": "2026-06-14T12:29:30",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Burford WLM17",
+      "id": 282398,
+      "total": 3,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 3,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 150896217,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:58:58",
+          "finished_at": "2026-06-14T09:58:58",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 150896225,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:59:05",
+          "finished_at": "2026-06-14T09:59:09",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150896233,
+          "name": "Turn around clean",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:11:50",
+          "finished_at": "2026-06-14T13:06:58",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Hares Haven SM1",
+      "id": 282395,
+      "total": 5,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 5,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 151302143,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T08:54:33",
+          "finished_at": "2026-06-14T08:54:34",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 151302146,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:08:42",
+          "finished_at": "2026-06-14T09:08:45",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151302149,
+          "name": "Turn around clean",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:27:36",
+          "finished_at": "2026-06-14T10:02:23",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151302150,
+          "name": "Cleaning check",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T12:41:52",
+          "finished_at": "2026-06-14T12:49:43",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 151302151,
+          "name": "CHECK SOFA BED LINEN",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-06-14T09:15:54",
+          "finished_at": "2026-06-14T09:15:57",
+          "scheduled_date": "2026-06-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
     }
   ],
   "bw_app_url": "https://app.breezeway.io"
