@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-06-14T12:01:42.453Z",
+  "_generated": "2026-06-14T12:16:20.136Z",
   "_source": "cron",
   "_date": "2026-06-14",
   "_status": {
-    "last_run": "2026-06-14T12:01:42.453Z",
+    "last_run": "2026-06-14T12:16:20.136Z",
     "ok": true,
     "properties_polled": 102,
     "properties_raw_total": 133,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 87,
+      "finished": 49,
       "in_progress": 2,
-      "finished": 46
+      "created": 84
     },
     "first_task_shape": {
       "keys": [
@@ -39,6 +39,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -124,16 +125,16 @@
       ],
       "sample_type_department": "housekeeping",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 87,
+    "not_started": 84,
     "in_progress": 2,
-    "completed": 46,
+    "completed": 49,
     "issues": 0
   },
   "total_tasks": 135,
@@ -142,19 +143,19 @@
       "name": "HV2 Cleaning  - HV2",
       "id": 1393779,
       "total": 4,
-      "not_started": 3,
+      "not_started": 1,
       "in_progress": 1,
-      "completed": 0,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
           "id": 151729802,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-14T12:13:54",
+          "finished_at": "2026-06-14T12:13:54",
           "scheduled_date": "2026-06-14",
           "paused": false,
           "assignedTo": "Tracey Kelly"
@@ -162,11 +163,11 @@
         {
           "id": 151729805,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-14T12:14:00",
+          "finished_at": "2026-06-14T12:14:04",
           "scheduled_date": "2026-06-14",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -439,8 +440,8 @@
       "id": 1152471,
       "total": 4,
       "not_started": 1,
-      "in_progress": 1,
-      "completed": 2,
+      "in_progress": 0,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -470,11 +471,11 @@
         {
           "id": 149664590,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-06-14T10:38:29",
-          "finished_at": null,
+          "finished_at": "2026-06-14T12:08:44",
           "scheduled_date": "2026-06-14",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1962,8 +1963,8 @@
       "name": "HB Burford WLM17",
       "id": 282398,
       "total": 4,
-      "not_started": 2,
-      "in_progress": 0,
+      "not_started": 1,
+      "in_progress": 1,
       "completed": 2,
       "issues": 0,
       "tasks": [
@@ -1994,10 +1995,10 @@
         {
           "id": 150896233,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-06-14T12:11:50",
           "finished_at": null,
           "scheduled_date": "2026-06-14",
           "paused": false,
