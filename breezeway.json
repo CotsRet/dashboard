@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-06-15T09:45:38.717Z",
+  "_generated": "2026-06-15T10:01:09.208Z",
   "_source": "cron",
   "_date": "2026-06-15",
   "_status": {
-    "last_run": "2026-06-15T09:45:38.717Z",
+    "last_run": "2026-06-15T10:01:09.208Z",
     "ok": true,
     "properties_polled": 103,
     "properties_raw_total": 135,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "in_progress": 9,
-      "finished": 26,
-      "created": 130
+      "finished": 32,
+      "created": 125,
+      "in_progress": 8
     },
     "first_task_shape": {
       "keys": [
@@ -39,6 +39,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -100,16 +101,16 @@
       ],
       "sample_type_department": "maintenance",
       "sample_status": {
-        "code": "in_progress",
-        "name": "In Progress",
-        "stage": "in_progress"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 130,
-    "in_progress": 7,
-    "completed": 26,
+    "not_started": 125,
+    "in_progress": 6,
+    "completed": 32,
     "issues": 2
   },
   "total_tasks": 165,
@@ -119,18 +120,18 @@
       "id": 1393779,
       "total": 1,
       "not_started": 0,
-      "in_progress": 1,
-      "completed": 0,
+      "in_progress": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 151746096,
           "name": "External Inspection",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-06-15T09:43:14",
-          "finished_at": null,
+          "finished_at": "2026-06-15T09:53:07",
           "scheduled_date": "2026-06-15",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -990,9 +991,9 @@
       "name": "HB Highland Lodge  HV62",
       "id": 1038869,
       "total": 2,
-      "not_started": 2,
+      "not_started": 1,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
@@ -1010,11 +1011,11 @@
         {
           "id": 144049179,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-15T09:53:16",
+          "finished_at": "2026-06-15T09:56:16",
           "scheduled_date": "2026-06-15",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1296,8 +1297,8 @@
       "name": "HB The Bathing House HV24",
       "id": 927225,
       "total": 2,
-      "not_started": 2,
-      "in_progress": 0,
+      "not_started": 1,
+      "in_progress": 1,
       "completed": 0,
       "issues": 0,
       "tasks": [
@@ -1316,10 +1317,10 @@
         {
           "id": 151746430,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-06-15T09:56:44",
           "finished_at": null,
           "scheduled_date": "2026-06-15",
           "paused": false,
@@ -1331,19 +1332,19 @@
       "name": "HB Paws Lodge WLM19",
       "id": 790813,
       "total": 2,
-      "not_started": 2,
+      "not_started": 1,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 150026105,
           "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-15T09:52:16",
+          "finished_at": "2026-06-15T09:55:59",
           "scheduled_date": "2026-06-15",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1613,18 +1614,18 @@
       "name": "HB The Boat House WLM20",
       "id": 641768,
       "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
+      "not_started": 0,
+      "in_progress": 1,
       "completed": 0,
       "issues": 0,
       "tasks": [
         {
           "id": 151432901,
           "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-06-15T09:57:05",
           "finished_at": null,
           "scheduled_date": "2026-06-15",
           "paused": false,
@@ -1637,18 +1638,18 @@
       "id": 641766,
       "total": 2,
       "not_started": 1,
-      "in_progress": 1,
-      "completed": 0,
+      "in_progress": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 142773634,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-06-15T08:56:53",
-          "finished_at": null,
+          "finished_at": "2026-06-15T09:54:45",
           "scheduled_date": "2026-06-15",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1754,18 +1755,18 @@
       "id": 492638,
       "total": 1,
       "not_started": 0,
-      "in_progress": 1,
-      "completed": 0,
+      "in_progress": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 151923093,
           "name": "Cleaning check",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-06-15T09:44:08",
-          "finished_at": null,
+          "finished_at": "2026-06-15T09:47:27",
           "scheduled_date": "2026-06-15",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -2095,18 +2096,18 @@
       "name": "LP Maple LP1",
       "id": 282422,
       "total": 3,
-      "not_started": 3,
-      "in_progress": 0,
+      "not_started": 2,
+      "in_progress": 1,
       "completed": 0,
       "issues": 0,
       "tasks": [
         {
           "id": 144711145,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-06-15T09:55:08",
           "finished_at": null,
           "scheduled_date": "2026-06-15",
           "paused": false,
@@ -2143,8 +2144,8 @@
       "id": 282419,
       "total": 5,
       "not_started": 4,
-      "in_progress": 1,
-      "completed": 0,
+      "in_progress": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
@@ -2174,11 +2175,11 @@
         {
           "id": 151569412,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-06-15T09:16:24",
-          "finished_at": null,
+          "finished_at": "2026-06-15T09:53:00",
           "scheduled_date": "2026-06-15",
           "paused": false,
           "assignedTo": "Lee Kelly"
