@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-06-18T14:45:37.872Z",
+  "_generated": "2026-06-18T15:00:52.143Z",
   "_source": "cron",
   "_date": "2026-06-18",
   "_status": {
-    "last_run": "2026-06-18T14:45:37.872Z",
+    "last_run": "2026-06-18T15:00:52.143Z",
     "ok": true,
     "properties_polled": 103,
     "properties_raw_total": 135,
@@ -26,9 +26,8 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 6,
-      "finished": 14,
-      "in_progress": 1
+      "finished": 15,
+      "created": 5
     },
     "first_task_shape": {
       "keys": [
@@ -39,6 +38,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -69,15 +69,31 @@
           "assignee_id": 89951,
           "employee_code": null,
           "expires_at": null,
-          "id": 209444578,
+          "id": 209726237,
           "name": "Lee Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 303882,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 209726239,
+          "name": "Becky Malgarin",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 308392,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 209968953,
+          "name": "Ella Curtis",
           "type_task_user_status": "assigned"
         },
         {
           "assignee_id": 310046,
           "employee_code": null,
           "expires_at": null,
-          "id": 209444579,
+          "id": 209726238,
           "name": "Rachel Gaazen",
           "type_task_user_status": "assigned"
         },
@@ -85,48 +101,36 @@
           "assignee_id": 324278,
           "employee_code": null,
           "expires_at": null,
-          "id": 209444580,
+          "id": 209726236,
           "name": "Karen  Rand",
           "type_task_user_status": "assigned"
         }
       ],
       "sample_type_department": "housekeeping",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 6,
-    "in_progress": 1,
-    "completed": 14,
+    "not_started": 5,
+    "in_progress": 0,
+    "completed": 15,
     "issues": 0
   },
-  "total_tasks": 21,
+  "total_tasks": 20,
   "properties": [
     {
       "name": "HB Our Happy Place ND13",
       "id": 1328504,
-      "total": 2,
-      "not_started": 1,
+      "total": 1,
+      "not_started": 0,
       "in_progress": 0,
       "completed": 1,
       "issues": 0,
       "tasks": [
-        {
-          "id": 152975097,
-          "name": "Add supplies",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-18",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        },
         {
           "id": 153166452,
           "name": "Salt and oil missing ",
@@ -146,18 +150,18 @@
       "id": 1328503,
       "total": 1,
       "not_started": 0,
-      "in_progress": 1,
-      "completed": 0,
+      "in_progress": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 150683621,
           "name": "Cleaning check",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-06-18T14:44:11",
-          "finished_at": null,
+          "finished_at": "2026-06-18T14:47:10",
           "scheduled_date": "2026-06-18",
           "paused": false,
           "assignedTo": "Lee Kelly"
