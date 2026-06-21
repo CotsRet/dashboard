@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-06-21T10:15:44.026Z",
+  "_generated": "2026-06-21T10:32:12.373Z",
   "_source": "cron",
   "_date": "2026-06-21",
   "_status": {
-    "last_run": "2026-06-21T10:15:44.026Z",
+    "last_run": "2026-06-21T10:32:12.373Z",
     "ok": true,
     "properties_polled": 103,
     "properties_raw_total": 135,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 112,
-      "finished": 18,
-      "in_progress": 2
+      "finished": 22,
+      "created": 108,
+      "in_progress": 3
     },
     "first_task_shape": {
       "keys": [
@@ -39,6 +39,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -156,37 +157,37 @@
       ],
       "sample_type_department": "housekeeping",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 112,
-    "in_progress": 1,
-    "completed": 18,
+    "not_started": 108,
+    "in_progress": 2,
+    "completed": 22,
     "issues": 1
   },
-  "total_tasks": 132,
+  "total_tasks": 133,
   "properties": [
     {
       "name": "HB Our Happy Place ND13",
       "id": 1328504,
       "total": 4,
-      "not_started": 3,
+      "not_started": 2,
       "in_progress": 0,
-      "completed": 1,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
           "id": 147598916,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-21T10:17:53",
+          "finished_at": "2026-06-21T10:17:54",
           "scheduled_date": "2026-06-21",
           "paused": false,
           "assignedTo": "Tracey Kelly"
@@ -894,19 +895,19 @@
       "name": "HB The Waterfront ND3",
       "id": 719511,
       "total": 5,
-      "not_started": 5,
+      "not_started": 2,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
           "id": 146726864,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-21T10:24:55",
+          "finished_at": "2026-06-21T10:24:56",
           "scheduled_date": "2026-06-21",
           "paused": false,
           "assignedTo": "Tracey Kelly"
@@ -914,11 +915,11 @@
         {
           "id": 146726869,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-21T10:21:39",
+          "finished_at": "2026-06-21T10:24:43",
           "scheduled_date": "2026-06-21",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -950,11 +951,11 @@
         {
           "id": 146726884,
           "name": "CHECK SOFA BED LINEN",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-21T10:25:25",
+          "finished_at": "2026-06-21T10:25:33",
           "scheduled_date": "2026-06-21",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1343,8 +1344,8 @@
     {
       "name": "HB Spring Lodge SM12",
       "id": 282428,
-      "total": 8,
-      "not_started": 3,
+      "total": 9,
+      "not_started": 4,
       "in_progress": 0,
       "completed": 5,
       "issues": 0,
@@ -1441,6 +1442,18 @@
           "department": "",
           "started_at": "2026-06-21T09:22:17",
           "finished_at": "2026-06-21T09:22:18",
+          "scheduled_date": "2026-06-21",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 153852416,
+          "name": "Curtain in main bedroom ",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
           "scheduled_date": "2026-06-21",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1747,8 +1760,8 @@
       "name": "HB Cottontail SM2",
       "id": 282403,
       "total": 6,
-      "not_started": 5,
-      "in_progress": 0,
+      "not_started": 4,
+      "in_progress": 1,
       "completed": 0,
       "issues": 1,
       "tasks": [
@@ -1779,10 +1792,10 @@
         {
           "id": 143896303,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-06-21T10:20:01",
           "finished_at": null,
           "scheduled_date": "2026-06-21",
           "paused": false,
