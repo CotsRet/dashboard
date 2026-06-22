@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-06-22T18:16:45.651Z",
+  "_generated": "2026-06-22T18:44:29.016Z",
   "_source": "cron",
   "_date": "2026-06-22",
   "_status": {
-    "last_run": "2026-06-22T18:16:45.651Z",
+    "last_run": "2026-06-22T18:44:29.016Z",
     "ok": true,
     "properties_polled": 103,
     "properties_raw_total": 135,
@@ -24,10 +24,16 @@
         "has_next": false
       }
     ],
-    "errors": [],
+    "errors": [
+      {
+        "id": 1225826,
+        "name": "LME Howells mere 92 Wishbone  - HM92",
+        "error": "HTTP 502"
+      }
+    ],
     "stages_seen": {
-      "finished": 109,
-      "created": 32,
+      "finished": 107,
+      "created": 31,
       "closed": 2,
       "in_progress": 1
     },
@@ -133,12 +139,12 @@
     }
   },
   "summary": {
-    "not_started": 32,
+    "not_started": 31,
     "in_progress": 0,
-    "completed": 111,
+    "completed": 109,
     "issues": 1
   },
-  "total_tasks": 144,
+  "total_tasks": 141,
   "properties": [
     {
       "name": "HB HV2 Cleaning  - HV2",
@@ -525,53 +531,6 @@
           "scheduled_date": "2026-06-22",
           "paused": false,
           "assignedTo": "Lee Kelly"
-        }
-      ]
-    },
-    {
-      "name": "LME Howells mere 92 Wishbone  - HM92",
-      "id": 1225826,
-      "total": 3,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 2,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 143896335,
-          "name": "Linen Pick Up /Drop Off",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-06-21T11:57:02",
-          "finished_at": "2026-06-22T12:04:28",
-          "scheduled_date": "2026-06-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        },
-        {
-          "id": 143896336,
-          "name": "Turn around clean",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "",
-          "started_at": "2026-06-22T08:39:42",
-          "finished_at": "2026-06-22T10:22:56",
-          "scheduled_date": "2026-06-22",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        },
-        {
-          "id": 143896338,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-22",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen"
         }
       ]
     },
