@@ -1,19 +1,110 @@
 {
-  "_generated": "2026-06-23T12:46:05.783Z",
+  "_generated": "2026-06-23T13:16:17.314Z",
   "_source": "cron",
   "_date": "2026-06-23",
   "_status": {
-    "last_run": "2026-06-23T13:00:26.063Z",
-    "ok": false,
-    "error": "BW auth failed: 429"
+    "last_run": "2026-06-23T13:16:17.314Z",
+    "ok": true,
+    "properties_polled": 103,
+    "properties_raw_total": 135,
+    "status_counts": {
+      "active": 73,
+      "inactive": 62
+    },
+    "api_count": null,
+    "page_debug": [
+      {
+        "page": 1,
+        "returned": 100,
+        "has_next": false
+      },
+      {
+        "page": 2,
+        "returned": 35,
+        "has_next": false
+      }
+    ],
+    "errors": [],
+    "stages_seen": {
+      "created": 20,
+      "finished": 20,
+      "in_progress": 3
+    },
+    "first_task_shape": {
+      "keys": [
+        "assignments",
+        "bill_to",
+        "costs",
+        "created_at",
+        "created_by",
+        "description",
+        "finished_at",
+        "home_id",
+        "id",
+        "linked_reservation",
+        "name",
+        "paused",
+        "photos",
+        "rate_paid",
+        "rate_type",
+        "reference_property_id",
+        "report_url",
+        "requested_by",
+        "scheduled_date",
+        "scheduled_time",
+        "started_at",
+        "summary",
+        "supplies",
+        "tags",
+        "task_tags",
+        "template_id",
+        "total_time",
+        "type_department",
+        "type_priority",
+        "type_task_status",
+        "updated_at"
+      ],
+      "sample_assignments": [
+        {
+          "assignee_id": 89951,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 207579939,
+          "name": "Lee Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 310046,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 207579943,
+          "name": "Rachel Gaazen",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 324278,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 207579945,
+          "name": "Karen  Rand",
+          "type_task_user_status": "assigned"
+        }
+      ],
+      "sample_type_department": "inspection",
+      "sample_status": {
+        "code": "created",
+        "name": "Created",
+        "stage": "new"
+      }
+    }
   },
   "summary": {
-    "not_started": 23,
+    "not_started": 20,
     "in_progress": 2,
-    "completed": 19,
+    "completed": 20,
     "issues": 1
   },
-  "total_tasks": 45,
+  "total_tasks": 43,
   "properties": [
     {
       "name": "HB HV2 Cleaning  - HV2",
@@ -148,18 +239,18 @@
       "id": 1233968,
       "total": 1,
       "not_started": 0,
-      "in_progress": 1,
-      "completed": 0,
+      "in_progress": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 144049213,
           "name": "Cleaning check",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-06-23T12:33:39",
-          "finished_at": null,
+          "finished_at": "2026-06-23T12:50:15",
           "scheduled_date": "2026-06-23",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -427,8 +518,8 @@
     {
       "name": "HB Woodpecker Lodge HV63",
       "id": 966831,
-      "total": 2,
-      "not_started": 1,
+      "total": 1,
+      "not_started": 0,
       "in_progress": 0,
       "completed": 0,
       "issues": 1,
@@ -443,18 +534,6 @@
           "finished_at": null,
           "scheduled_date": "2026-06-23",
           "paused": true,
-          "assignedTo": "Lee Kelly"
-        },
-        {
-          "id": 153974275,
-          "name": "dishwasher flooded ",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-23",
-          "paused": false,
           "assignedTo": "Lee Kelly"
         }
       ]
@@ -645,29 +724,6 @@
       ]
     },
     {
-      "name": "HB Spring View WLM12",
-      "id": 492638,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 153975760,
-          "name": "Dishwasher blocked",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-23",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        }
-      ]
-    },
-    {
       "name": "HB Wyndham Lodge WLM4",
       "id": 395494,
       "total": 1,
@@ -694,18 +750,18 @@
       "name": "HB Wildflower WLM11",
       "id": 282437,
       "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
+      "not_started": 0,
+      "in_progress": 1,
       "completed": 0,
       "issues": 0,
       "tasks": [
         {
           "id": 144174403,
           "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-06-23T13:01:37",
           "finished_at": null,
           "scheduled_date": "2026-06-23",
           "paused": false,
