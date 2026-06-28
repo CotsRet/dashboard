@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-06-28T12:31:46.719Z",
+  "_generated": "2026-06-28T12:46:44.589Z",
   "_source": "cron",
   "_date": "2026-06-28",
   "_status": {
-    "last_run": "2026-06-28T12:31:46.719Z",
+    "last_run": "2026-06-28T12:46:44.589Z",
     "ok": true,
     "properties_polled": 103,
     "properties_raw_total": 134,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 127,
-      "in_progress": 9,
-      "finished": 69
+      "finished": 85,
+      "in_progress": 7,
+      "created": 113
     },
     "first_task_shape": {
       "keys": [
@@ -39,6 +39,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -156,17 +157,17 @@
       ],
       "sample_type_department": "housekeeping",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 127,
-    "in_progress": 4,
-    "completed": 69,
-    "issues": 5
+    "not_started": 113,
+    "in_progress": 3,
+    "completed": 85,
+    "issues": 4
   },
   "total_tasks": 205,
   "properties": [
@@ -174,19 +175,19 @@
       "name": "HB Our Happy Place ND13",
       "id": 1328504,
       "total": 5,
-      "not_started": 4,
+      "not_started": 2,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 2,
       "issues": 1,
       "tasks": [
         {
           "id": 148800817,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-28T12:43:38",
+          "finished_at": "2026-06-28T12:43:39",
           "scheduled_date": "2026-06-28",
           "paused": false,
           "assignedTo": "Tracey Kelly"
@@ -230,11 +231,11 @@
         {
           "id": 154954452,
           "name": "Late Check-out 1pm - subject to availibility - confirmed 24 hrs before departure",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-28T12:44:11",
+          "finished_at": "2026-06-28T12:44:12",
           "scheduled_date": "2026-06-28",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1142,9 +1143,9 @@
       "name": "HB Busy Bees BD3",
       "id": 927235,
       "total": 5,
-      "not_started": 3,
+      "not_started": 2,
       "in_progress": 0,
-      "completed": 1,
+      "completed": 2,
       "issues": 1,
       "tasks": [
         {
@@ -1198,11 +1199,11 @@
         {
           "id": 154954460,
           "name": "Late Check-out 1pm - subject to availibility - confirmed 24 hrs before departure",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-28T12:33:04",
+          "finished_at": "2026-06-28T12:33:04",
           "scheduled_date": "2026-06-28",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1591,19 +1592,19 @@
       "name": "HB Bluebell RM6",
       "id": 641766,
       "total": 6,
-      "not_started": 5,
+      "not_started": 3,
       "in_progress": 0,
-      "completed": 0,
-      "issues": 1,
+      "completed": 3,
+      "issues": 0,
       "tasks": [
         {
           "id": 146135713,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-28T12:43:26",
+          "finished_at": "2026-06-28T12:43:27",
           "scheduled_date": "2026-06-28",
           "paused": false,
           "assignedTo": "Tracey Kelly"
@@ -1611,13 +1612,13 @@
         {
           "id": 146135719,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "issues",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-06-22T11:04:58",
-          "finished_at": null,
+          "finished_at": "2026-06-28T12:43:20",
           "scheduled_date": "2026-06-28",
-          "paused": true,
+          "paused": false,
           "assignedTo": "Lee Kelly"
         },
         {
@@ -1647,11 +1648,11 @@
         {
           "id": 154276567,
           "name": "Late Check-out 1pm - subject to availibility - confirmed 24 hrs before departure",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-28T12:44:04",
+          "finished_at": "2026-06-28T12:44:05",
           "scheduled_date": "2026-06-28",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1757,9 +1758,9 @@
       "name": "HB Spring View WLM12",
       "id": 492638,
       "total": 7,
-      "not_started": 2,
-      "in_progress": 1,
-      "completed": 4,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 6,
       "issues": 0,
       "tasks": [
         {
@@ -1801,11 +1802,11 @@
         {
           "id": 151611623,
           "name": "Cleaning check",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-06-28T12:19:28",
-          "finished_at": null,
+          "finished_at": "2026-06-28T12:33:33",
           "scheduled_date": "2026-06-28",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1813,11 +1814,11 @@
         {
           "id": 154953626,
           "name": "Guest Arrival check Hot Tub",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-28T12:33:50",
+          "finished_at": "2026-06-28T12:35:23",
           "scheduled_date": "2026-06-28",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1852,9 +1853,9 @@
       "name": "HB Wyndham Lodge WLM4",
       "id": 395494,
       "total": 6,
-      "not_started": 3,
+      "not_started": 1,
       "in_progress": 0,
-      "completed": 3,
+      "completed": 5,
       "issues": 0,
       "tasks": [
         {
@@ -1896,11 +1897,11 @@
         {
           "id": 144906961,
           "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-28T12:39:37",
+          "finished_at": "2026-06-28T12:43:43",
           "scheduled_date": "2026-06-28",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1920,11 +1921,11 @@
         {
           "id": 155014839,
           "name": "Guest Arrival check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-28T12:44:05",
+          "finished_at": "2026-06-28T12:44:59",
           "scheduled_date": "2026-06-28",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -2195,19 +2196,19 @@
       "name": "HB Thumper Lodge SM9",
       "id": 282435,
       "total": 5,
-      "not_started": 5,
+      "not_started": 2,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
           "id": 144906962,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-28T12:36:50",
+          "finished_at": "2026-06-28T12:36:51",
           "scheduled_date": "2026-06-28",
           "paused": false,
           "assignedTo": "Tracey Kelly"
@@ -2215,11 +2216,11 @@
         {
           "id": 144906981,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-28T12:35:31",
+          "finished_at": "2026-06-28T12:36:33",
           "scheduled_date": "2026-06-28",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -2251,11 +2252,11 @@
         {
           "id": 154194599,
           "name": "Late Check-out 1pm - subject to availibility - confirmed 24 hrs before departure",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-28T12:33:12",
+          "finished_at": "2026-06-28T12:33:13",
           "scheduled_date": "2026-06-28",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -2432,9 +2433,9 @@
       "name": "LP Reeds LP8",
       "id": 282427,
       "total": 6,
-      "not_started": 4,
+      "not_started": 1,
       "in_progress": 0,
-      "completed": 2,
+      "completed": 5,
       "issues": 0,
       "tasks": [
         {
@@ -2464,11 +2465,11 @@
         {
           "id": 147160094,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-28T12:32:27",
+          "finished_at": "2026-06-28T12:32:49",
           "scheduled_date": "2026-06-28",
           "paused": false,
           "assignedTo": "Anne Vinall"
@@ -2476,11 +2477,11 @@
         {
           "id": 147160097,
           "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-28T12:32:58",
+          "finished_at": "2026-06-28T12:33:00",
           "scheduled_date": "2026-06-28",
           "paused": false,
           "assignedTo": "Anne Vinall"
@@ -2488,11 +2489,11 @@
         {
           "id": 154822966,
           "name": "Guest Arrival check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-06-28T12:33:06",
+          "finished_at": "2026-06-28T12:33:25",
           "scheduled_date": "2026-06-28",
           "paused": false,
           "assignedTo": "Anne Vinall"
