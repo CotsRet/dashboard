@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-06-30T20:46:35.535Z",
+  "_generated": "2026-06-30T22:46:01.065Z",
   "_source": "cron",
   "_date": "2026-06-30",
   "_status": {
-    "last_run": "2026-06-30T20:46:35.535Z",
+    "last_run": "2026-06-30T22:46:01.065Z",
     "ok": true,
     "properties_polled": 103,
     "properties_raw_total": 134,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 20,
       "finished": 37,
-      "closed": 1
+      "closed": 1,
+      "created": 7
     },
     "first_task_shape": {
       "keys": [
@@ -39,6 +39,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -69,15 +70,23 @@
           "assignee_id": 89951,
           "employee_code": null,
           "expires_at": null,
-          "id": 197687214,
+          "id": 213291394,
           "name": "Lee Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 140390,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 213291397,
+          "name": "Lydia Dilley",
           "type_task_user_status": "assigned"
         },
         {
           "assignee_id": 310046,
           "employee_code": null,
           "expires_at": null,
-          "id": 197687215,
+          "id": 213291395,
           "name": "Rachel Gaazen",
           "type_task_user_status": "assigned"
         },
@@ -85,71 +94,44 @@
           "assignee_id": 324278,
           "employee_code": null,
           "expires_at": null,
-          "id": 197687216,
+          "id": 213291396,
           "name": "Karen  Rand",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 328298,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 213291398,
+          "name": "Kian Dilley",
           "type_task_user_status": "assigned"
         }
       ],
-      "sample_type_department": "inspection",
+      "sample_type_department": "housekeeping",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 20,
+    "not_started": 7,
     "in_progress": 0,
     "completed": 38,
     "issues": 0
   },
-  "total_tasks": 58,
+  "total_tasks": 45,
   "properties": [
-    {
-      "name": "LME Howells mere HM108",
-      "id": 1258934,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 145092913,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-30",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        }
-      ]
-    },
     {
       "name": "LME Howells mere 92 Wishbone  - HM92",
       "id": 1225826,
-      "total": 2,
-      "not_started": 1,
+      "total": 1,
+      "not_started": 0,
       "in_progress": 0,
       "completed": 1,
       "issues": 0,
       "tasks": [
-        {
-          "id": 144907032,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-30",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen"
-        },
         {
           "id": 155433883,
           "name": "Make beds ",
@@ -158,52 +140,6 @@
           "department": "",
           "started_at": "2026-06-30T08:42:54",
           "finished_at": "2026-06-30T09:24:43",
-          "scheduled_date": "2026-06-30",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        }
-      ]
-    },
-    {
-      "name": "LME Howells mere HM29",
-      "id": 1163933,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 154428397,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-30",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        }
-      ]
-    },
-    {
-      "name": "HB Kingfisher Lodge - ND25",
-      "id": 1152471,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 149289105,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
           "scheduled_date": "2026-06-30",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -284,8 +220,8 @@
     {
       "name": "WR Elouera, 21 Isis Lake IS21",
       "id": 1109167,
-      "total": 5,
-      "not_started": 1,
+      "total": 4,
+      "not_started": 0,
       "in_progress": 0,
       "completed": 4,
       "issues": 0,
@@ -327,18 +263,6 @@
           "assignedTo": "Lee Kelly"
         },
         {
-          "id": 145092972,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-30",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        },
-        {
           "id": 145092992,
           "name": "Barbeque Clean",
           "classification": "completed",
@@ -353,33 +277,10 @@
       ]
     },
     {
-      "name": "HB Cotswold Reach CR79",
-      "id": 1081812,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 155136334,
-          "name": "Lost property ",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-30",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        }
-      ]
-    },
-    {
       "name": "LME Lagoon Villa  CW03",
       "id": 1046360,
-      "total": 2,
-      "not_started": 1,
+      "total": 1,
+      "not_started": 0,
       "in_progress": 0,
       "completed": 1,
       "issues": 0,
@@ -395,26 +296,14 @@
           "scheduled_date": "2026-06-30",
           "paused": false,
           "assignedTo": "Lee Kelly"
-        },
-        {
-          "id": 153139799,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-30",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen"
         }
       ]
     },
     {
       "name": "LME Minety Dawn ML14",
       "id": 1046353,
-      "total": 2,
-      "not_started": 1,
+      "total": 1,
+      "not_started": 0,
       "in_progress": 0,
       "completed": 1,
       "issues": 0,
@@ -430,54 +319,18 @@
           "scheduled_date": "2026-06-30",
           "paused": false,
           "assignedTo": "Lee Kelly"
-        },
-        {
-          "id": 144907022,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-30",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen"
         }
       ]
     },
     {
       "name": "HB Woodpecker Lodge HV63",
       "id": 966831,
-      "total": 6,
-      "not_started": 3,
+      "total": 3,
+      "not_started": 0,
       "in_progress": 0,
       "completed": 3,
       "issues": 0,
       "tasks": [
-        {
-          "id": 154356407,
-          "name": "Seal around the bath ",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-30",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        },
-        {
-          "id": 154586782,
-          "name": "Check freezer as per Darren's comment ",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-30",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        },
         {
           "id": 154764630,
           "name": "Guest checked out",
@@ -510,53 +363,6 @@
           "department": "",
           "started_at": "2026-06-30T10:03:37",
           "finished_at": "2026-06-30T11:09:36",
-          "scheduled_date": "2026-06-30",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        },
-        {
-          "id": 154764633,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-30",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        }
-      ]
-    },
-    {
-      "name": "HB Wide Water Lodge HV15",
-      "id": 930300,
-      "total": 2,
-      "not_started": 2,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 154540004,
-          "name": "Wet kitchen floor and can't get TV to work",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-06-30",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        },
-        {
-          "id": 155281508,
-          "name": "Bathroom needs cleaning and kitchen sink ",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
           "scheduled_date": "2026-06-30",
           "paused": false,
           "assignedTo": "Lee Kelly"
