@@ -1,16 +1,108 @@
 {
-  "_generated": "2026-07-01T12:45:55.196Z",
+  "_generated": "2026-07-01T13:15:55.999Z",
   "_source": "cron",
   "_date": "2026-07-01",
   "_status": {
-    "last_run": "2026-07-01T13:00:26.854Z",
-    "ok": false,
-    "error": "BW auth failed: 429"
+    "last_run": "2026-07-01T13:15:55.999Z",
+    "ok": true,
+    "properties_polled": 103,
+    "properties_raw_total": 134,
+    "status_counts": {
+      "active": 72,
+      "inactive": 62
+    },
+    "api_count": null,
+    "page_debug": [
+      {
+        "page": 1,
+        "returned": 100,
+        "has_next": false
+      },
+      {
+        "page": 2,
+        "returned": 34,
+        "has_next": false
+      }
+    ],
+    "errors": [],
+    "stages_seen": {
+      "finished": 20,
+      "created": 27,
+      "in_progress": 3
+    },
+    "first_task_shape": {
+      "keys": [
+        "assignments",
+        "bill_to",
+        "costs",
+        "created_at",
+        "created_by",
+        "description",
+        "finished_at",
+        "finished_by",
+        "home_id",
+        "id",
+        "linked_reservation",
+        "name",
+        "paused",
+        "photos",
+        "rate_paid",
+        "rate_type",
+        "reference_property_id",
+        "report_url",
+        "requested_by",
+        "scheduled_date",
+        "scheduled_time",
+        "started_at",
+        "summary",
+        "supplies",
+        "tags",
+        "task_tags",
+        "template_id",
+        "total_time",
+        "type_department",
+        "type_priority",
+        "type_task_status",
+        "updated_at"
+      ],
+      "sample_assignments": [
+        {
+          "assignee_id": 89951,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 209127848,
+          "name": "Lee Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 310046,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 209127849,
+          "name": "Rachel Gaazen",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 324278,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 209127850,
+          "name": "Karen  Rand",
+          "type_task_user_status": "assigned"
+        }
+      ],
+      "sample_type_department": "inspection",
+      "sample_status": {
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
+      }
+    }
   },
   "summary": {
-    "not_started": 29,
+    "not_started": 27,
     "in_progress": 2,
-    "completed": 18,
+    "completed": 20,
     "issues": 1
   },
   "total_tasks": 50,
@@ -753,18 +845,18 @@
       "name": "LP Oak Lodge LP11",
       "id": 352654,
       "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
+      "not_started": 0,
+      "in_progress": 1,
       "completed": 0,
       "issues": 0,
       "tasks": [
         {
           "id": 146603032,
           "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-07-01T12:51:20",
           "finished_at": null,
           "scheduled_date": "2026-07-01",
           "paused": false,
@@ -776,19 +868,19 @@
       "name": "LP Tufty LP9",
       "id": 282436,
       "total": 2,
-      "not_started": 2,
+      "not_started": 1,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 155474852,
           "name": "Guest Arrival check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-01T12:51:32",
+          "finished_at": "2026-07-01T12:51:52",
           "scheduled_date": "2026-07-01",
           "paused": false,
           "assignedTo": "Anne Vinall"
@@ -835,8 +927,8 @@
       "id": 282422,
       "total": 5,
       "not_started": 1,
-      "in_progress": 1,
-      "completed": 3,
+      "in_progress": 0,
+      "completed": 4,
       "issues": 0,
       "tasks": [
         {
@@ -878,11 +970,11 @@
         {
           "id": 145427678,
           "name": "Cleaning check",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-07-01T12:37:12",
-          "finished_at": null,
+          "finished_at": "2026-07-01T12:51:05",
           "scheduled_date": "2026-07-01",
           "paused": false,
           "assignedTo": "Lee Kelly"
