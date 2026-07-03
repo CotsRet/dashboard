@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-07-03T09:16:29.263Z",
+  "_generated": "2026-07-03T09:31:45.931Z",
   "_source": "cron",
   "_date": "2026-07-03",
   "_status": {
-    "last_run": "2026-07-03T09:16:29.263Z",
+    "last_run": "2026-07-03T09:31:45.931Z",
     "ok": true,
     "properties_polled": 103,
     "properties_raw_total": 134,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 187,
-      "finished": 30,
-      "in_progress": 4
+      "finished": 38,
+      "created": 177,
+      "in_progress": 6
     },
     "first_task_shape": {
       "keys": [
@@ -39,6 +39,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -69,7 +70,7 @@
           "assignee_id": 89951,
           "employee_code": null,
           "expires_at": null,
-          "id": 209351450,
+          "id": 207598595,
           "name": "Lee Kelly",
           "type_task_user_status": "assigned"
         },
@@ -77,7 +78,7 @@
           "assignee_id": 274021,
           "employee_code": null,
           "expires_at": null,
-          "id": 209351454,
+          "id": 207598596,
           "name": "Darren Smith",
           "type_task_user_status": "assigned"
         },
@@ -85,7 +86,7 @@
           "assignee_id": 299742,
           "employee_code": null,
           "expires_at": null,
-          "id": 209351455,
+          "id": 207598597,
           "name": "Ashley Smith",
           "type_task_user_status": "assigned"
         },
@@ -93,58 +94,27 @@
           "assignee_id": 330598,
           "employee_code": null,
           "expires_at": null,
-          "id": 209351457,
+          "id": 207598598,
           "name": "Peter Milligan",
-          "type_task_user_status": "assigned"
-        },
-        {
-          "assignee_id": 450362,
-          "employee_code": null,
-          "expires_at": null,
-          "id": 210039591,
-          "name": "Ryan Adams",
           "type_task_user_status": "assigned"
         }
       ],
       "sample_type_department": "maintenance",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 187,
-    "in_progress": 4,
-    "completed": 30,
+    "not_started": 177,
+    "in_progress": 6,
+    "completed": 38,
     "issues": 0
   },
   "total_tasks": 221,
   "properties": [
-    {
-      "name": "HB Lakewood Lodge  ND2",
-      "id": 1419456,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 152884604,
-          "name": "Check Fire Alarms",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-03",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        }
-      ]
-    },
     {
       "name": "HB HV2 Cleaning  - HV2",
       "id": 1393779,
@@ -172,9 +142,9 @@
       "name": "HB Our Happy Place ND13",
       "id": 1328504,
       "total": 7,
-      "not_started": 7,
+      "not_started": 6,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
@@ -252,11 +222,11 @@
         {
           "id": 150891053,
           "name": "Check Fire Alarms",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-03T09:21:26",
+          "finished_at": "2026-07-03T09:26:24",
           "scheduled_date": "2026-07-03",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1103,8 +1073,8 @@
       "id": 1038869,
       "total": 2,
       "not_started": 1,
-      "in_progress": 1,
-      "completed": 0,
+      "in_progress": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
@@ -1122,11 +1092,11 @@
         {
           "id": 145703083,
           "name": "External Inspection",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
           "started_at": "2026-07-03T09:10:11",
-          "finished_at": null,
+          "finished_at": "2026-07-03T09:19:59",
           "scheduled_date": "2026-07-03",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1420,20 +1390,20 @@
     {
       "name": "HB Busy Bees BD3",
       "id": 927235,
-      "total": 3,
-      "not_started": 2,
+      "total": 4,
+      "not_started": 1,
       "in_progress": 0,
-      "completed": 1,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
           "id": 145703068,
           "name": "Guest Arrival check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-03T09:20:27",
+          "finished_at": "2026-07-03T09:27:16",
           "scheduled_date": "2026-07-03",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -1461,6 +1431,18 @@
           "scheduled_date": "2026-07-03",
           "paused": false,
           "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 156060082,
+          "name": "Handful of ants under fridge on floor",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": null,
+          "finished_at": "2026-07-03T09:28:07",
+          "scheduled_date": "2026-07-03",
+          "paused": false,
+          "assignedTo": "Karen  Rand"
         }
       ]
     },
@@ -1762,8 +1744,8 @@
       "name": "HB The Waterfront ND3",
       "id": 719511,
       "total": 6,
-      "not_started": 6,
-      "in_progress": 0,
+      "not_started": 5,
+      "in_progress": 1,
       "completed": 0,
       "issues": 0,
       "tasks": [
@@ -1830,10 +1812,10 @@
         {
           "id": 155258735,
           "name": "Check Fire Alarms",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-07-03T09:27:54",
           "finished_at": null,
           "scheduled_date": "2026-07-03",
           "paused": false,
@@ -1952,9 +1934,9 @@
       "name": "HB Drakes View ST69",
       "id": 706122,
       "total": 7,
-      "not_started": 5,
+      "not_started": 4,
       "in_progress": 1,
-      "completed": 1,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
@@ -1996,11 +1978,11 @@
         {
           "id": 154953619,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-03T09:31:26",
+          "finished_at": "2026-07-03T09:31:27",
           "scheduled_date": "2026-07-03",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -2177,9 +2159,9 @@
       "name": "HB The Lighthouse WLM9",
       "id": 540019,
       "total": 8,
-      "not_started": 8,
+      "not_started": 7,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
@@ -2233,11 +2215,11 @@
         {
           "id": 155318671,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-03T09:26:05",
+          "finished_at": "2026-07-03T09:26:06",
           "scheduled_date": "2026-07-03",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -2696,8 +2678,8 @@
       "name": "HB Puddleducks OM4",
       "id": 282426,
       "total": 2,
-      "not_started": 1,
-      "in_progress": 0,
+      "not_started": 0,
+      "in_progress": 1,
       "completed": 1,
       "issues": 0,
       "tasks": [
@@ -2716,10 +2698,10 @@
         {
           "id": 145703107,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-07-03T09:29:23",
           "finished_at": null,
           "scheduled_date": "2026-07-03",
           "paused": false,
@@ -2966,9 +2948,9 @@
       "name": "HB Honeysuckle OM2",
       "id": 282410,
       "total": 3,
-      "not_started": 2,
+      "not_started": 1,
       "in_progress": 0,
-      "completed": 1,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
@@ -2986,11 +2968,11 @@
         {
           "id": 145703061,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-03T09:21:37",
+          "finished_at": "2026-07-03T09:29:12",
           "scheduled_date": "2026-07-03",
           "paused": false,
           "assignedTo": "Lee Kelly"
@@ -3048,8 +3030,8 @@
       "name": "HB Clearwater ND15",
       "id": 282401,
       "total": 7,
-      "not_started": 6,
-      "in_progress": 0,
+      "not_started": 5,
+      "in_progress": 1,
       "completed": 1,
       "issues": 0,
       "tasks": [
@@ -3080,10 +3062,10 @@
         {
           "id": 146254318,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-07-03T09:18:08",
           "finished_at": null,
           "scheduled_date": "2026-07-03",
           "paused": false,
@@ -3166,9 +3148,9 @@
       "name": "HB Burford WLM17",
       "id": 282398,
       "total": 7,
-      "not_started": 5,
+      "not_started": 4,
       "in_progress": 1,
-      "completed": 1,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
@@ -3186,11 +3168,11 @@
         {
           "id": 147830711,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-03T09:22:25",
+          "finished_at": "2026-07-03T09:22:27",
           "scheduled_date": "2026-07-03",
           "paused": false,
           "assignedTo": "Lee Kelly"
