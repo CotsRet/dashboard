@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-07-04T20:46:31.973Z",
+  "_generated": "2026-07-04T22:46:22.802Z",
   "_source": "cron",
   "_date": "2026-07-04",
   "_status": {
-    "last_run": "2026-07-04T20:46:31.973Z",
+    "last_run": "2026-07-04T22:46:22.802Z",
     "ok": true,
     "properties_polled": 103,
     "properties_raw_total": 134,
@@ -26,9 +26,8 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 14,
-      "in_progress": 1,
-      "finished": 6
+      "finished": 6,
+      "created": 7
     },
     "first_task_shape": {
       "keys": [
@@ -39,6 +38,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -69,129 +69,43 @@
           "assignee_id": 89951,
           "employee_code": null,
           "expires_at": null,
-          "id": 197211466,
+          "id": 198821005,
           "name": "Lee Kelly",
           "type_task_user_status": "assigned"
         },
         {
-          "assignee_id": 274021,
+          "assignee_id": 310046,
           "employee_code": null,
           "expires_at": null,
-          "id": 209514794,
-          "name": "Darren Smith",
+          "id": 198821006,
+          "name": "Rachel Gaazen",
           "type_task_user_status": "assigned"
         },
         {
-          "assignee_id": 299742,
+          "assignee_id": 324278,
           "employee_code": null,
           "expires_at": null,
-          "id": 210039621,
-          "name": "Ashley Smith",
-          "type_task_user_status": "assigned"
-        },
-        {
-          "assignee_id": 330598,
-          "employee_code": null,
-          "expires_at": null,
-          "id": 197211467,
-          "name": "Peter Milligan",
-          "type_task_user_status": "assigned"
-        },
-        {
-          "assignee_id": 450362,
-          "employee_code": null,
-          "expires_at": null,
-          "id": 210039631,
-          "name": "Ryan Adams",
+          "id": 198821007,
+          "name": "Karen  Rand",
           "type_task_user_status": "assigned"
         }
       ],
-      "sample_type_department": "maintenance",
+      "sample_type_department": "inspection",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 14,
+    "not_started": 7,
     "in_progress": 0,
     "completed": 6,
-    "issues": 1
+    "issues": 0
   },
-  "total_tasks": 21,
+  "total_tasks": 13,
   "properties": [
-    {
-      "name": "HB Poppy Meadow SM13",
-      "id": 1165393,
-      "total": 3,
-      "not_started": 2,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 1,
-      "tasks": [
-        {
-          "id": 144821511,
-          "name": "Add heating info to boiler ",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-04",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        },
-        {
-          "id": 152624881,
-          "name": "Nest Control to be Installed.",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-04",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        },
-        {
-          "id": 154356189,
-          "name": "Twin room blind ripped ",
-          "classification": "issues",
-          "status_code": "in_progress",
-          "department": "",
-          "started_at": "2026-07-03T12:34:09",
-          "finished_at": null,
-          "scheduled_date": "2026-07-04",
-          "paused": true,
-          "assignedTo": "Lee Kelly"
-        }
-      ]
-    },
-    {
-      "name": "LME Chiff Chaff - CW72",
-      "id": 1123640,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 145703164,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-04",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen"
-        }
-      ]
-    },
     {
       "name": "WR Elouera, 21 Isis Lake IS21",
       "id": 1109167,
@@ -230,8 +144,8 @@
     {
       "name": "HB Cotswold Reach CR79",
       "id": 1081812,
-      "total": 3,
-      "not_started": 2,
+      "total": 2,
+      "not_started": 1,
       "in_progress": 0,
       "completed": 1,
       "issues": 0,
@@ -251,87 +165,6 @@
         {
           "id": 151095878,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-04",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        },
-        {
-          "id": 155136334,
-          "name": "Lost property ",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-04",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        }
-      ]
-    },
-    {
-      "name": "HB Woodpecker Lodge HV63",
-      "id": 966831,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 154586782,
-          "name": "Check freezer as per Darren's comment ",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-04",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        }
-      ]
-    },
-    {
-      "name": "HB Wide Water Lodge HV15",
-      "id": 930300,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 155281508,
-          "name": "Bathroom needs cleaning and kitchen sink ",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-04",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        }
-      ]
-    },
-    {
-      "name": "HB Busy Bees BD3",
-      "id": 927235,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 156061310,
-          "name": "More ant treatment ",
           "classification": "not_started",
           "status_code": "created",
           "department": "",
