@@ -1,19 +1,118 @@
 {
-  "_generated": "2026-07-07T08:31:06.663Z",
+  "_generated": "2026-07-07T09:02:20.513Z",
   "_source": "cron",
   "_date": "2026-07-07",
   "_status": {
-    "last_run": "2026-07-07T08:46:13.398Z",
-    "ok": false,
-    "error": "BW auth failed: 429"
+    "last_run": "2026-07-07T09:02:20.513Z",
+    "ok": true,
+    "properties_polled": 103,
+    "properties_raw_total": 134,
+    "status_counts": {
+      "active": 72,
+      "inactive": 62
+    },
+    "api_count": null,
+    "page_debug": [
+      {
+        "page": 1,
+        "returned": 100,
+        "has_next": false
+      },
+      {
+        "page": 2,
+        "returned": 34,
+        "has_next": false
+      }
+    ],
+    "errors": [],
+    "stages_seen": {
+      "created": 69,
+      "in_progress": 2,
+      "finished": 1
+    },
+    "first_task_shape": {
+      "keys": [
+        "assignments",
+        "bill_to",
+        "costs",
+        "created_at",
+        "created_by",
+        "description",
+        "finished_at",
+        "home_id",
+        "id",
+        "linked_reservation",
+        "name",
+        "paused",
+        "photos",
+        "rate_paid",
+        "rate_type",
+        "reference_property_id",
+        "report_url",
+        "requested_by",
+        "scheduled_date",
+        "scheduled_time",
+        "started_at",
+        "summary",
+        "supplies",
+        "tags",
+        "task_tags",
+        "template_id",
+        "total_time",
+        "type_department",
+        "type_priority",
+        "type_task_status",
+        "updated_at"
+      ],
+      "sample_assignments": [
+        {
+          "assignee_id": 89951,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 213036998,
+          "name": "Lee Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 274021,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 213036999,
+          "name": "Darren Smith",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 299742,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 213037000,
+          "name": "Ashley Smith",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 330598,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 213037001,
+          "name": "Peter Milligan",
+          "type_task_user_status": "assigned"
+        }
+      ],
+      "sample_type_department": "maintenance",
+      "sample_status": {
+        "code": "created",
+        "name": "Created",
+        "stage": "new"
+      }
+    }
   },
   "summary": {
-    "not_started": 70,
+    "not_started": 69,
     "in_progress": 0,
-    "completed": 0,
-    "issues": 1
+    "completed": 1,
+    "issues": 2
   },
-  "total_tasks": 71,
+  "total_tasks": 72,
   "properties": [
     {
       "name": "HB HV2 Cleaning  - HV2",
@@ -228,10 +327,10 @@
       "name": "HB Coconuts Retreat ST16",
       "id": 1233968,
       "total": 6,
-      "not_started": 6,
+      "not_started": 5,
       "in_progress": 0,
       "completed": 0,
-      "issues": 0,
+      "issues": 1,
       "tasks": [
         {
           "id": 147008569,
@@ -296,13 +395,13 @@
         {
           "id": 156554494,
           "name": "Late Check out Paid for 1pm",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "issues",
+          "status_code": "in_progress",
           "department": "",
-          "started_at": null,
+          "started_at": "2026-07-07T08:33:34",
           "finished_at": null,
           "scheduled_date": "2026-07-07",
-          "paused": false,
+          "paused": true,
           "assignedTo": "Tracey Kelly"
         }
       ]
@@ -729,6 +828,29 @@
       ]
     },
     {
+      "name": "HB Wine Down Retreat WLM38",
+      "id": 801256,
+      "total": 1,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 156714693,
+          "name": "Lost property dog period pants ",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-07",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        }
+      ]
+    },
+    {
       "name": "HB Sweet Pea ST86",
       "id": 720665,
       "total": 2,
@@ -802,9 +924,9 @@
       "name": "HB Spring View WLM12",
       "id": 492638,
       "total": 6,
-      "not_started": 6,
+      "not_started": 5,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
@@ -834,11 +956,11 @@
         {
           "id": 155734964,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-07T08:48:37",
+          "finished_at": "2026-07-07T08:48:37",
           "scheduled_date": "2026-07-07",
           "paused": false,
           "assignedTo": "Tracey Kelly"
