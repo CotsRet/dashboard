@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-07-08T15:01:55.018Z",
+  "_generated": "2026-07-08T15:15:52.091Z",
   "_source": "cron",
   "_date": "2026-07-08",
   "_status": {
-    "last_run": "2026-07-08T15:01:55.018Z",
+    "last_run": "2026-07-08T15:15:52.091Z",
     "ok": true,
     "properties_polled": 103,
     "properties_raw_total": 134,
@@ -26,8 +26,8 @@
     ],
     "errors": [],
     "stages_seen": {
+      "finished": 32,
       "created": 26,
-      "finished": 30,
       "in_progress": 2
     },
     "first_task_shape": {
@@ -39,6 +39,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -124,37 +125,37 @@
       ],
       "sample_type_department": "housekeeping",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
     "not_started": 26,
     "in_progress": 0,
-    "completed": 30,
+    "completed": 32,
     "issues": 2
   },
-  "total_tasks": 58,
+  "total_tasks": 60,
   "properties": [
     {
       "name": "HB HV2 Cleaning  - HV2",
       "id": 1393779,
       "total": 5,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 4,
+      "completed": 5,
       "issues": 0,
       "tasks": [
         {
           "id": 151730012,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-08T15:11:13",
+          "finished_at": "2026-07-08T15:11:14",
           "scheduled_date": "2026-07-08",
           "paused": false,
           "assignedTo": "Tracey Kelly"
@@ -387,8 +388,8 @@
     {
       "name": "HB Coconuts Retreat ST16",
       "id": 1233968,
-      "total": 3,
-      "not_started": 1,
+      "total": 5,
+      "not_started": 3,
       "in_progress": 0,
       "completed": 2,
       "issues": 0,
@@ -420,6 +421,30 @@
         {
           "id": 150891046,
           "name": "Check Fire Alarms",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-08",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 156910637,
+          "name": "Guest Arrival check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-08",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 156910638,
+          "name": "External Inspection",
           "classification": "not_started",
           "status_code": "created",
           "department": "",
@@ -586,19 +611,19 @@
       "name": "HB Highland Lodge  HV62",
       "id": 1038869,
       "total": 3,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 2,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
           "id": 156069180,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-08T15:11:08",
+          "finished_at": "2026-07-08T15:11:08",
           "scheduled_date": "2026-07-08",
           "paused": false,
           "assignedTo": "Tracey Kelly"
