@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-07-11T21:15:05.059Z",
-  "_source": "webhook",
+  "_generated": "2026-07-11T22:46:07.238Z",
+  "_source": "cron",
   "_date": "2026-07-11",
   "_status": {
-    "last_run": "2026-07-11T20:46:54.170Z",
+    "last_run": "2026-07-11T22:46:07.238Z",
     "ok": true,
     "properties_polled": 103,
     "properties_raw_total": 134,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 16,
+      "closed": 6,
       "finished": 4,
-      "in_progress": 1
+      "created": 5
     },
     "first_task_shape": {
       "keys": [
@@ -92,25 +92,25 @@
       ],
       "sample_type_department": "maintenance",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "closed",
+        "name": "Closed",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 9,
+    "not_started": 5,
     "in_progress": 0,
     "completed": 10,
-    "issues": 1
+    "issues": 0
   },
-  "total_tasks": 20,
+  "total_tasks": 15,
   "properties": [
     {
       "name": "HB Sunflower Lodge WV26",
       "id": 1257495,
-      "total": 3,
-      "not_started": 1,
+      "total": 2,
+      "not_started": 0,
       "in_progress": 0,
       "completed": 2,
       "issues": 0,
@@ -125,19 +125,18 @@
           "finished_at": "2026-07-11T21:04:58",
           "scheduled_date": "2026-07-11",
           "paused": false,
-          "assignedTo": "Lee Kelly"
-        },
-        {
-          "id": 148103660,
-          "name": "Fit net curtain in master bedroom on receipt of spares.",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-11",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742
+          ],
+          "template_id": null
         },
         {
           "id": 152625050,
@@ -149,7 +148,18 @@
           "finished_at": "2026-07-11T21:04:55",
           "scheduled_date": "2026-07-11",
           "paused": false,
-          "assignedTo": "Lee Kelly"
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742
+          ],
+          "template_id": null
         }
       ]
     },
@@ -242,98 +252,6 @@
       ]
     },
     {
-      "name": "HB Poppy Meadow SM13",
-      "id": 1165393,
-      "total": 1,
-      "not_started": 0,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 1,
-      "tasks": [
-        {
-          "id": 154356189,
-          "name": "Twin room blind ripped ",
-          "classification": "issues",
-          "status_code": "in_progress",
-          "department": "maintenance",
-          "started_at": "2026-07-03T12:34:09",
-          "finished_at": null,
-          "scheduled_date": "2026-07-11",
-          "paused": true,
-          "assignedTo": "Lee Kelly"
-        }
-      ]
-    },
-    {
-      "name": "HB Kingfisher Lodge - ND25",
-      "id": 1152471,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 157291230,
-          "name": "Shower head won’t stay up ",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-11",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        }
-      ]
-    },
-    {
-      "name": "HB Cotswold Reach CR79",
-      "id": 1081812,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 155136334,
-          "name": "Lost property ",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-11",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        }
-      ]
-    },
-    {
-      "name": "HB Woodpecker Lodge HV63",
-      "id": 966831,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 154586782,
-          "name": "Check freezer as per Darren's comment ",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-11",
-          "paused": false,
-          "assignedTo": "Lee Kelly"
-        }
-      ]
-    },
-    {
       "name": "HB The Bathing House HV24",
       "id": 927225,
       "total": 2,
@@ -413,7 +331,34 @@
           "finished_at": "2026-07-10T07:53:55",
           "scheduled_date": "2026-07-11",
           "paused": false,
-          "assignedTo": "Tracey Kelly"
+          "assignedTo": "Tracey Kelly",
+          "assignedToList": [
+            "Tracey Kelly",
+            "Lee Kelly",
+            "Janet Smith",
+            "Kate Hammond",
+            "Melanie Thomson",
+            "Darren Smith",
+            "Ashley Smith",
+            "Rachel Gaazen",
+            "Karen Rand",
+            "Peter Milligan",
+            "Ryan Adams"
+          ],
+          "assigneeIds": [
+            85859,
+            89951,
+            149092,
+            204277,
+            272395,
+            274021,
+            299742,
+            310046,
+            324278,
+            330598,
+            450362
+          ],
+          "template_id": 61828
         }
       ]
     },
@@ -436,7 +381,20 @@
           "finished_at": null,
           "scheduled_date": "2026-07-11",
           "paused": false,
-          "assignedTo": "Tracey Kelly"
+          "assignedTo": "Tracey Kelly",
+          "assignedToList": [
+            "Tracey Kelly",
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen Rand"
+          ],
+          "assigneeIds": [
+            85859,
+            89951,
+            310046,
+            324278
+          ],
+          "template_id": 86878
         },
         {
           "id": 146939897,
@@ -448,7 +406,20 @@
           "finished_at": null,
           "scheduled_date": "2026-07-11",
           "paused": false,
-          "assignedTo": "Lee Kelly"
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Ryan Adams"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742,
+            450362
+          ],
+          "template_id": 540368
         }
       ]
     },
@@ -471,7 +442,20 @@
           "finished_at": null,
           "scheduled_date": "2026-07-11",
           "paused": false,
-          "assignedTo": "Tracey Kelly"
+          "assignedTo": "Tracey Kelly",
+          "assignedToList": [
+            "Tracey Kelly",
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen Rand"
+          ],
+          "assigneeIds": [
+            85859,
+            89951,
+            310046,
+            324278
+          ],
+          "template_id": 86878
         },
         {
           "id": 153000973,
@@ -483,7 +467,20 @@
           "finished_at": null,
           "scheduled_date": "2026-07-11",
           "paused": false,
-          "assignedTo": "Lee Kelly"
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Ryan Adams"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742,
+            450362
+          ],
+          "template_id": 540368
         }
       ]
     },
@@ -567,7 +564,20 @@
           "finished_at": null,
           "scheduled_date": "2026-07-11",
           "paused": false,
-          "assignedTo": "Lee Kelly"
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Ryan Adams"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742,
+            450362
+          ],
+          "template_id": null
         }
       ]
     }
