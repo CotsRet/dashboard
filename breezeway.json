@@ -1,13 +1,110 @@
 {
-  "_generated": "2026-07-11T15:18:49.343801",
+  "_generated": "2026-07-11T20:31:46.939Z",
+  "_source": "cron",
   "_date": "2026-07-11",
-  "summary": {
-    "not_started": 3,
-    "in_progress": 0,
-    "completed": 0,
-    "issues": 0
+  "_status": {
+    "last_run": "2026-07-11T20:31:46.939Z",
+    "ok": true,
+    "properties_polled": 103,
+    "properties_raw_total": 134,
+    "status_counts": {
+      "active": 72,
+      "inactive": 62
+    },
+    "api_count": null,
+    "page_debug": [
+      {
+        "page": 1,
+        "returned": 100,
+        "has_next": false
+      },
+      {
+        "page": 2,
+        "returned": 34,
+        "has_next": false
+      }
+    ],
+    "errors": [],
+    "stages_seen": {
+      "created": 16,
+      "finished": 4,
+      "in_progress": 1
+    },
+    "first_task_shape": {
+      "keys": [
+        "assignments",
+        "bill_to",
+        "costs",
+        "created_at",
+        "created_by",
+        "description",
+        "finished_at",
+        "home_id",
+        "id",
+        "linked_reservation",
+        "name",
+        "paused",
+        "photos",
+        "rate_paid",
+        "rate_type",
+        "reference_property_id",
+        "report_url",
+        "requested_by",
+        "scheduled_date",
+        "scheduled_time",
+        "started_at",
+        "summary",
+        "supplies",
+        "tags",
+        "task_tags",
+        "template_id",
+        "total_time",
+        "type_department",
+        "type_priority",
+        "type_task_status",
+        "updated_at"
+      ],
+      "sample_assignments": [
+        {
+          "assignee_id": 89951,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 198035100,
+          "name": "Lee Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 274021,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 198035099,
+          "name": "Darren Smith",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 299742,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 198035098,
+          "name": "Ashley Smith",
+          "type_task_user_status": "assigned"
+        }
+      ],
+      "sample_type_department": "maintenance",
+      "sample_status": {
+        "code": "created",
+        "name": "Created",
+        "stage": "new"
+      }
+    }
   },
-  "total_tasks": 3,
+  "summary": {
+    "not_started": 16,
+    "in_progress": 0,
+    "completed": 4,
+    "issues": 1
+  },
+  "total_tasks": 21,
   "properties": [
     {
       "name": "HB Sunflower Lodge WV26",
@@ -16,7 +113,382 @@
       "not_started": 3,
       "in_progress": 0,
       "completed": 0,
-      "issues": 0
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 145346000,
+          "name": "Missing boiler info ",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 148103660,
+          "name": "Fit net curtain in master bedroom on receipt of spares.",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 152625050,
+          "name": "Nest Controller to be Installed.",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Bunnys Burrow ST138",
+      "id": 1234148,
+      "total": 3,
+      "not_started": 2,
+      "in_progress": 0,
+      "completed": 1,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 148458461,
+          "name": "Guest Arrival check",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-07-11T09:37:59",
+          "finished_at": "2026-07-11T09:43:50",
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 148458470,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 148458496,
+          "name": "CHECK SOFA BED LINEN",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Poppy Meadow SM13",
+      "id": 1165393,
+      "total": 1,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 1,
+      "tasks": [
+        {
+          "id": 154356189,
+          "name": "Twin room blind ripped ",
+          "classification": "issues",
+          "status_code": "in_progress",
+          "department": "",
+          "started_at": "2026-07-03T12:34:09",
+          "finished_at": null,
+          "scheduled_date": "2026-07-11",
+          "paused": true,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Kingfisher Lodge - ND25",
+      "id": 1152471,
+      "total": 1,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 157291230,
+          "name": "Shower head won’t stay up ",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Cotswold Reach CR79",
+      "id": 1081812,
+      "total": 1,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 155136334,
+          "name": "Lost property ",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Woodpecker Lodge HV63",
+      "id": 966831,
+      "total": 1,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 154586782,
+          "name": "Check freezer as per Darren's comment ",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB The Bathing House HV24",
+      "id": 927225,
+      "total": 3,
+      "not_started": 2,
+      "in_progress": 0,
+      "completed": 1,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 149812868,
+          "name": "Guest Arrival check",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-07-11T10:01:30",
+          "finished_at": "2026-07-11T10:02:10",
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 149812882,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        },
+        {
+          "id": 150692482,
+          "name": "Fit net curtain on receipt of spares.",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "WR Somerford House WR15",
+      "id": 790224,
+      "total": 1,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 1,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 146939890,
+          "name": "Guest checked out",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-07-10T07:53:54",
+          "finished_at": "2026-07-10T07:53:55",
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        }
+      ]
+    },
+    {
+      "name": "WR Bourton WR49",
+      "id": 509635,
+      "total": 2,
+      "not_started": 2,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 146939888,
+          "name": "Guest Arrival check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 146939897,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "LP Oak Lodge LP11",
+      "id": 352654,
+      "total": 2,
+      "not_started": 2,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 153000952,
+          "name": "Guest Arrival check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 153000973,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "HB Lilly Pad ST83",
+      "id": 282420,
+      "total": 2,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 1,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 146939839,
+          "name": "Guest Arrival check",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "",
+          "started_at": "2026-07-11T09:29:20",
+          "finished_at": "2026-07-11T09:30:33",
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Tracey Kelly"
+        },
+        {
+          "id": 146939841,
+          "name": "External Inspection",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
+    },
+    {
+      "name": "WR Barnsley WR33",
+      "id": 282392,
+      "total": 1,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 157408136,
+          "name": "Add ant trap ",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-11",
+          "paused": false,
+          "assignedTo": "Lee Kelly"
+        }
+      ]
     }
   ],
   "bw_app_url": "https://app.breezeway.io"
