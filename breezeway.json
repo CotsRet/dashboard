@@ -1,16 +1,132 @@
 {
-  "_generated": "2026-07-12T10:01:29.968Z",
-  "_source": "webhook",
+  "_generated": "2026-07-12T10:02:24.404Z",
+  "_source": "cron",
   "_date": "2026-07-12",
   "_status": {
-    "last_run": "2026-07-12T09:45:44.614Z",
-    "ok": false,
-    "error": "BW auth failed: 429"
+    "last_run": "2026-07-12T10:02:24.404Z",
+    "ok": true,
+    "properties_polled": 103,
+    "properties_raw_total": 134,
+    "status_counts": {
+      "active": 72,
+      "inactive": 62
+    },
+    "api_count": null,
+    "page_debug": [
+      {
+        "page": 1,
+        "returned": 100,
+        "has_next": false
+      },
+      {
+        "page": 2,
+        "returned": 34,
+        "has_next": false
+      }
+    ],
+    "errors": [],
+    "stages_seen": {
+      "created": 128,
+      "in_progress": 3,
+      "finished": 14,
+      "closed": 17
+    },
+    "first_task_shape": {
+      "keys": [
+        "assignments",
+        "bill_to",
+        "costs",
+        "created_at",
+        "created_by",
+        "description",
+        "finished_at",
+        "home_id",
+        "id",
+        "linked_reservation",
+        "name",
+        "paused",
+        "photos",
+        "rate_paid",
+        "rate_type",
+        "reference_property_id",
+        "report_url",
+        "requested_by",
+        "scheduled_date",
+        "scheduled_time",
+        "started_at",
+        "summary",
+        "supplies",
+        "tags",
+        "task_tags",
+        "template_id",
+        "total_time",
+        "type_department",
+        "type_priority",
+        "type_task_status",
+        "updated_at"
+      ],
+      "sample_assignments": [
+        {
+          "assignee_id": 85859,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 208437214,
+          "name": "Tracey Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 89951,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 207580095,
+          "name": "Lee Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 149092,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 208437215,
+          "name": "Janet Smith",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 204277,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 208437216,
+          "name": "Kate Hammond",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 272395,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 208437217,
+          "name": "Melanie Thomson",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 310046,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 207580096,
+          "name": "Rachel Gaazen",
+          "type_task_user_status": "assigned"
+        }
+      ],
+      "sample_type_department": "housekeeping",
+      "sample_status": {
+        "code": "created",
+        "name": "Created",
+        "stage": "new"
+      }
+    }
   },
   "summary": {
-    "not_started": 129,
-    "in_progress": 3,
-    "completed": 29,
+    "not_started": 128,
+    "in_progress": 2,
+    "completed": 31,
     "issues": 1
   },
   "total_tasks": 162,
@@ -2931,8 +3047,8 @@
       "name": "HB Thumper Lodge SM9",
       "id": 282435,
       "total": 6,
-      "not_started": 3,
-      "in_progress": 0,
+      "not_started": 2,
+      "in_progress": 1,
       "completed": 3,
       "issues": 0,
       "tasks": [
@@ -2999,10 +3115,10 @@
         {
           "id": 147095016,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-07-12T09:51:58",
           "finished_at": null,
           "scheduled_date": "2026-07-12",
           "paused": false,
@@ -3099,8 +3215,8 @@
       "id": 282434,
       "total": 4,
       "not_started": 1,
-      "in_progress": 1,
-      "completed": 2,
+      "in_progress": 0,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -3166,11 +3282,11 @@
         {
           "id": 152172661,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
           "started_at": "2026-07-12T09:10:50",
-          "finished_at": null,
+          "finished_at": "2026-07-12T09:48:24",
           "scheduled_date": "2026-07-12",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -4107,8 +4223,8 @@
       "id": 282402,
       "total": 4,
       "not_started": 1,
-      "in_progress": 1,
-      "completed": 2,
+      "in_progress": 0,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -4174,11 +4290,11 @@
         {
           "id": 155612020,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
           "started_at": "2026-07-12T09:07:40",
-          "finished_at": null,
+          "finished_at": "2026-07-12T09:53:59",
           "scheduled_date": "2026-07-12",
           "paused": false,
           "assignedTo": "Lee Kelly",
