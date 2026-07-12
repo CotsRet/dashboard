@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-07-12T12:02:18.378Z",
-  "_source": "webhook",
+  "_generated": "2026-07-12T12:02:47.947Z",
+  "_source": "cron",
   "_date": "2026-07-12",
   "_status": {
-    "last_run": "2026-07-12T11:46:08.596Z",
+    "last_run": "2026-07-12T12:02:47.947Z",
     "ok": true,
     "properties_polled": 103,
     "properties_raw_total": 134,
@@ -26,10 +26,10 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 104,
-      "in_progress": 4,
-      "closed": 31,
-      "finished": 20
+      "created": 101,
+      "finished": 23,
+      "closed": 32,
+      "in_progress": 4
     },
     "first_task_shape": {
       "keys": [
@@ -124,20 +124,20 @@
     }
   },
   "summary": {
-    "not_started": 100,
-    "in_progress": 4,
-    "completed": 54,
+    "not_started": 101,
+    "in_progress": 3,
+    "completed": 55,
     "issues": 1
   },
-  "total_tasks": 159,
+  "total_tasks": 160,
   "properties": [
     {
       "name": "HB HV2 Cleaning  - HV2",
       "id": 1393779,
-      "total": 4,
-      "not_started": 3,
-      "in_progress": 1,
-      "completed": 0,
+      "total": 5,
+      "not_started": 4,
+      "in_progress": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
@@ -193,11 +193,11 @@
         {
           "id": 151730079,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
           "started_at": "2026-07-12T11:16:58",
-          "finished_at": null,
+          "finished_at": "2026-07-12T11:58:07",
           "scheduled_date": "2026-07-12",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -239,6 +239,29 @@
             324278
           ],
           "template_id": 103648
+        },
+        {
+          "id": 157622512,
+          "name": "Ants kitchen ",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "maintenance",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-12",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742
+          ],
+          "template_id": null
         }
       ]
     },
@@ -806,19 +829,19 @@
       "name": "WR Elouera, 21 Isis Lake IS21",
       "id": 1109167,
       "total": 5,
-      "not_started": 2,
+      "not_started": 4,
       "in_progress": 1,
-      "completed": 2,
+      "completed": 0,
       "issues": 0,
       "tasks": [
         {
           "id": 147095097,
           "name": "Guest checked out",
-          "classification": "completed",
-          "status_code": "closed",
+          "classification": "not_started",
+          "status_code": "created",
           "department": "housekeeping",
           "started_at": null,
-          "finished_at": "2026-07-12T12:02:07",
+          "finished_at": null,
           "scheduled_date": "2026-07-12",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -851,11 +874,11 @@
         {
           "id": 147095106,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "completed",
-          "status_code": "closed",
+          "classification": "not_started",
+          "status_code": "created",
           "department": "housekeeping",
           "started_at": null,
-          "finished_at": "2026-07-12T12:02:10",
+          "finished_at": null,
           "scheduled_date": "2026-07-12",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1326,11 +1349,15 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
+            "Becky Malgarin",
+            "Ella Curtis",
             "Rachel Gaazen",
             "Karen Rand"
           ],
           "assigneeIds": [
             89951,
+            303882,
+            308392,
             310046,
             324278
           ],
@@ -1605,9 +1632,9 @@
       "name": "HB The Cosy Cabin HV73",
       "id": 927230,
       "total": 4,
-      "not_started": 3,
+      "not_started": 2,
       "in_progress": 0,
-      "completed": 1,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
@@ -1650,11 +1677,11 @@
         {
           "id": 156781945,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-12T11:52:05",
+          "finished_at": "2026-07-12T11:52:07",
           "scheduled_date": "2026-07-12",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1683,11 +1710,15 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
+            "Becky Malgarin",
+            "Ella Curtis",
             "Rachel Gaazen",
             "Karen Rand"
           ],
           "assigneeIds": [
             89951,
+            303882,
+            308392,
             310046,
             324278
           ],
@@ -3275,8 +3306,8 @@
       "id": 282428,
       "total": 6,
       "not_started": 2,
-      "in_progress": 1,
-      "completed": 3,
+      "in_progress": 0,
+      "completed": 4,
       "issues": 0,
       "tasks": [
         {
@@ -3342,11 +3373,11 @@
         {
           "id": 147095015,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
           "started_at": "2026-07-12T10:46:00",
-          "finished_at": null,
+          "finished_at": "2026-07-12T11:46:35",
           "scheduled_date": "2026-07-12",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -3937,8 +3968,8 @@
       "name": "HB Cottontail SM2",
       "id": 282403,
       "total": 4,
-      "not_started": 2,
-      "in_progress": 0,
+      "not_started": 1,
+      "in_progress": 1,
       "completed": 2,
       "issues": 0,
       "tasks": [
@@ -4005,10 +4036,10 @@
         {
           "id": 147094996,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-07-12T11:53:57",
           "finished_at": null,
           "scheduled_date": "2026-07-12",
           "paused": false,
