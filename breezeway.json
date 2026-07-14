@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-07-14T01:21:39.404Z",
+  "_generated": "2026-07-14T01:36:20.583Z",
   "_source": "cron",
   "_date": "2026-07-14",
   "_status": {
-    "last_run": "2026-07-14T01:21:39.404Z",
+    "last_run": "2026-07-14T01:36:20.583Z",
     "ok": true,
     "properties_polled": 103,
     "properties_raw_total": 134,
@@ -26,39 +26,9 @@
     ],
     "errors": [
       {
-        "id": 1165393,
-        "name": "HB Poppy Meadow SM13",
+        "id": 1234148,
+        "name": "HB Bunnys Burrow ST138",
         "error": "HTTP 504"
-      },
-      {
-        "id": 1123641,
-        "name": "LME  Howells mere 113",
-        "error": "HTTP 504"
-      },
-      {
-        "id": 1038869,
-        "name": "HB Highland Lodge  HV62",
-        "error": "HTTP 503"
-      },
-      {
-        "id": 966831,
-        "name": "HB Woodpecker Lodge HV63",
-        "error": "HTTP 503"
-      },
-      {
-        "id": 963594,
-        "name": "Magnolia Cabin HV51",
-        "error": "HTTP 503"
-      },
-      {
-        "id": 954063,
-        "name": "The Lodge on the Lake - The Lodge on the Lake - HV19",
-        "error": "HTTP 503"
-      },
-      {
-        "id": 954062,
-        "name": "Hummingbird Lodge - Hummingbird Lodge - ST7",
-        "error": "HTTP 503"
       },
       {
         "id": 954053,
@@ -417,7 +387,8 @@
       }
     ],
     "stages_seen": {
-      "created": 30
+      "created": 33,
+      "in_progress": 1
     },
     "first_task_shape": {
       "keys": [
@@ -488,12 +459,12 @@
     }
   },
   "summary": {
-    "not_started": 30,
+    "not_started": 33,
     "in_progress": 0,
     "completed": 0,
-    "issues": 0
+    "issues": 1
   },
-  "total_tasks": 30,
+  "total_tasks": 34,
   "properties": [
     {
       "name": "LME Howells mere 71",
@@ -852,40 +823,6 @@
       ]
     },
     {
-      "name": "HB Bunnys Burrow ST138",
-      "id": 1234148,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 148458593,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-14",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen Rand"
-          ],
-          "assigneeIds": [
-            89951,
-            310046,
-            324278
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
       "name": "HB Charlie's Retreat CR28",
       "id": 1233969,
       "total": 1,
@@ -950,6 +887,44 @@
             324278
           ],
           "template_id": 103648
+        }
+      ]
+    },
+    {
+      "name": "HB Poppy Meadow SM13",
+      "id": 1165393,
+      "total": 1,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 1,
+      "tasks": [
+        {
+          "id": 154356189,
+          "name": "Twin room blind ripped ",
+          "classification": "issues",
+          "status_code": "in_progress",
+          "department": "maintenance",
+          "started_at": "2026-07-03T12:34:09",
+          "finished_at": null,
+          "scheduled_date": "2026-07-14",
+          "paused": true,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Peter Milligan",
+            "Ryan Adams"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742,
+            330598,
+            450362
+          ],
+          "template_id": null
         }
       ]
     },
@@ -1329,6 +1304,124 @@
             360679
           ],
           "template_id": 103648
+        }
+      ]
+    },
+    {
+      "name": "HB Highland Lodge  HV62",
+      "id": 1038869,
+      "total": 1,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 147257609,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "inspection",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen Rand"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            324278
+          ],
+          "template_id": 103648
+        }
+      ]
+    },
+    {
+      "name": "HB Woodpecker Lodge HV63",
+      "id": 966831,
+      "total": 3,
+      "not_started": 3,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 147257662,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "inspection",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen Rand"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            324278
+          ],
+          "template_id": 103648
+        },
+        {
+          "id": 154586782,
+          "name": "Check freezer as per Darren's comment ",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "maintenance",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Peter Milligan",
+            "Ryan Adams"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742,
+            330598,
+            450362
+          ],
+          "template_id": null
+        },
+        {
+          "id": 157787053,
+          "name": "broken corkscrew ",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "inspection",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen Rand"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            324278
+          ],
+          "template_id": null
         }
       ]
     }
