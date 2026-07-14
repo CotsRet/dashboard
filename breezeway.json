@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-07-14T07:32:13.594Z",
+  "_generated": "2026-07-14T07:49:06.745Z",
   "_source": "cron",
   "_date": "2026-07-14",
   "_status": {
-    "last_run": "2026-07-14T07:32:13.594Z",
+    "last_run": "2026-07-14T07:49:06.745Z",
     "ok": true,
     "properties_polled": 103,
     "properties_raw_total": 134,
@@ -26,59 +26,9 @@
     ],
     "errors": [
       {
-        "id": 1234295,
-        "name": "LME Daisy Chain CW26",
-        "error": "HTTP 503"
-      },
-      {
-        "id": 1234148,
-        "name": "HB Bunnys Burrow ST138",
-        "error": "HTTP 503"
-      },
-      {
         "id": 1233969,
         "name": "HB Charlie's Retreat CR28",
-        "error": "HTTP 503"
-      },
-      {
-        "id": 1233968,
-        "name": "HB Coconuts Retreat ST16",
-        "error": "HTTP 503"
-      },
-      {
-        "id": 1225826,
-        "name": "LME Howells mere 92 Wishbone  - HM92",
-        "error": "HTTP 503"
-      },
-      {
-        "id": 1165393,
-        "name": "HB Poppy Meadow SM13",
-        "error": "HTTP 503"
-      },
-      {
-        "id": 1163933,
-        "name": "LME Howells mere HM29",
-        "error": "HTTP 503"
-      },
-      {
-        "id": 1153368,
-        "name": "LME Mill Village - MV36",
-        "error": "HTTP 503"
-      },
-      {
-        "id": 1152471,
-        "name": "HB Kingfisher Lodge - ND25",
-        "error": "HTTP 503"
-      },
-      {
-        "id": 1130739,
-        "name": "LME Mill Village MV41",
-        "error": "HTTP 503"
-      },
-      {
-        "id": 1127222,
-        "name": "HB Duckling View - ST61",
-        "error": "HTTP 503"
+        "error": "HTTP 502"
       },
       {
         "id": 1123641,
@@ -497,7 +447,8 @@
       }
     ],
     "stages_seen": {
-      "created": 13
+      "created": 16,
+      "in_progress": 1
     },
     "first_task_shape": {
       "keys": [
@@ -568,12 +519,12 @@
     }
   },
   "summary": {
-    "not_started": 13,
+    "not_started": 16,
     "in_progress": 0,
     "completed": 0,
-    "issues": 0
+    "issues": 1
   },
-  "total_tasks": 13,
+  "total_tasks": 17,
   "properties": [
     {
       "name": "LME Howells mere 71",
@@ -928,6 +879,148 @@
             324278
           ],
           "template_id": 103648
+        }
+      ]
+    },
+    {
+      "name": "HB Bunnys Burrow ST138",
+      "id": 1234148,
+      "total": 1,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 148458593,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "inspection",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen Rand"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            324278
+          ],
+          "template_id": 103648
+        }
+      ]
+    },
+    {
+      "name": "HB Coconuts Retreat ST16",
+      "id": 1233968,
+      "total": 1,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 148144875,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "inspection",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen Rand"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            324278
+          ],
+          "template_id": 103648
+        }
+      ]
+    },
+    {
+      "name": "HB Poppy Meadow SM13",
+      "id": 1165393,
+      "total": 1,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 1,
+      "tasks": [
+        {
+          "id": 154356189,
+          "name": "Twin room blind ripped ",
+          "classification": "issues",
+          "status_code": "in_progress",
+          "department": "maintenance",
+          "started_at": "2026-07-03T12:34:09",
+          "finished_at": null,
+          "scheduled_date": "2026-07-14",
+          "paused": true,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Peter Milligan",
+            "Ryan Adams"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742,
+            330598,
+            450362
+          ],
+          "template_id": null
+        }
+      ]
+    },
+    {
+      "name": "HB Kingfisher Lodge - ND25",
+      "id": 1152471,
+      "total": 1,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 157291230,
+          "name": "Shower head won’t stay up ",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "maintenance",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-14",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Ryan Adams"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742,
+            450362
+          ],
+          "template_id": null
         }
       ]
     }
