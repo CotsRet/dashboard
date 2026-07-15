@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-07-15T12:59:47.246Z",
+  "_generated": "2026-07-15T13:02:10.954Z",
   "_source": "cron",
   "_date": "2026-07-15",
   "_status": {
-    "last_run": "2026-07-15T12:59:47.246Z",
+    "last_run": "2026-07-15T13:02:10.954Z",
     "ok": true,
     "properties_polled": 103,
     "properties_raw_total": 134,
@@ -24,27 +24,11 @@
         "has_next": false
       }
     ],
-    "errors": [
-      {
-        "id": 1419455,
-        "name": "LME Howells mere 71",
-        "error": "HTTP 504"
-      },
-      {
-        "id": 1328504,
-        "name": "HB Our Happy Place ND13",
-        "error": "HTTP 504"
-      },
-      {
-        "id": 1233968,
-        "name": "HB Coconuts Retreat ST16",
-        "error": "HTTP 504"
-      }
-    ],
+    "errors": [],
     "stages_seen": {
-      "finished": 34,
-      "created": 37,
-      "in_progress": 4
+      "created": 42,
+      "finished": 38,
+      "in_progress": 3
     },
     "first_task_shape": {
       "keys": [
@@ -55,7 +39,6 @@
         "created_by",
         "description",
         "finished_at",
-        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -83,70 +66,218 @@
       ],
       "sample_assignments": [
         {
-          "assignee_id": 85859,
-          "employee_code": null,
-          "expires_at": null,
-          "id": 213036954,
-          "name": "Tracey Kelly",
-          "type_task_user_status": "assigned"
-        },
-        {
           "assignee_id": 89951,
           "employee_code": null,
           "expires_at": null,
-          "id": 213036956,
+          "id": 215724047,
           "name": "Lee Kelly",
-          "type_task_user_status": "assigned"
-        },
-        {
-          "assignee_id": 149092,
-          "employee_code": null,
-          "expires_at": null,
-          "id": 213036957,
-          "name": "Janet Smith",
-          "type_task_user_status": "assigned"
-        },
-        {
-          "assignee_id": 204277,
-          "employee_code": null,
-          "expires_at": null,
-          "id": 213036958,
-          "name": "Kate Hammond",
-          "type_task_user_status": "assigned"
-        },
-        {
-          "assignee_id": 272395,
-          "employee_code": null,
-          "expires_at": null,
-          "id": 213036959,
-          "name": "Melanie Thomson",
           "type_task_user_status": "assigned"
         },
         {
           "assignee_id": 310046,
           "employee_code": null,
           "expires_at": null,
-          "id": 213036960,
+          "id": 215724048,
           "name": "Rachel Gaazen",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 324278,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 215724049,
+          "name": "Karen  Rand",
           "type_task_user_status": "assigned"
         }
       ],
-      "sample_type_department": "housekeeping",
+      "sample_type_department": "inspection",
       "sample_status": {
-        "code": "finished",
-        "name": "Finished",
-        "stage": "finished"
+        "code": "created",
+        "name": "Created",
+        "stage": "new"
       }
     }
   },
   "summary": {
-    "not_started": 37,
-    "in_progress": 3,
-    "completed": 34,
+    "not_started": 42,
+    "in_progress": 2,
+    "completed": 38,
     "issues": 1
   },
-  "total_tasks": 75,
+  "total_tasks": 83,
   "properties": [
+    {
+      "name": "LME Howells mere 71",
+      "id": 1419455,
+      "total": 7,
+      "not_started": 7,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 156970428,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "inspection",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-15",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen Rand"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            324278
+          ],
+          "template_id": 103648
+        },
+        {
+          "id": 158067391,
+          "name": "Guest checked out",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "housekeeping",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-15",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen Rand"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            324278
+          ],
+          "template_id": 61828
+        },
+        {
+          "id": 158067394,
+          "name": "Linen Pick Up /Drop Off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "housekeeping",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-15",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Kate Hammond",
+            "Ryan Adams"
+          ],
+          "assigneeIds": [
+            89951,
+            204277,
+            450362
+          ],
+          "template_id": 61381
+        },
+        {
+          "id": 158067395,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "housekeeping",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-15",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen Rand"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            324278
+          ],
+          "template_id": 55606
+        },
+        {
+          "id": 158067398,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "inspection",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-15",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen Rand"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            324278
+          ],
+          "template_id": 103648
+        },
+        {
+          "id": 158067400,
+          "name": "LOG BURNER CLEAN - DELETE TASK IF NOT USED",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "maintenance",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-15",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742
+          ],
+          "template_id": 516732
+        },
+        {
+          "id": 158067403,
+          "name": "Barbeque Clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "maintenance",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-15",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742
+          ],
+          "template_id": 55608
+        }
+      ]
+    },
     {
       "name": "HB HV2 Cleaning  - HV2",
       "id": 1393779,
@@ -382,22 +513,22 @@
       ]
     },
     {
-      "name": "LME - Minety Lake ML29",
-      "id": 1328503,
+      "name": "HB Our Happy Place ND13",
+      "id": 1328504,
       "total": 3,
-      "not_started": 3,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
-          "id": 150683637,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
+          "id": 151941924,
+          "name": "Guest Arrival check",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-15T11:42:51",
+          "finished_at": "2026-07-15T11:43:25",
           "scheduled_date": "2026-07-15",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -411,39 +542,41 @@
             310046,
             324278
           ],
-          "template_id": 103648
+          "template_id": 86878
         },
         {
-          "id": 157792089,
-          "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "id": 151941927,
+          "name": "External Inspection",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "maintenance",
+          "started_at": "2026-07-15T10:02:17",
+          "finished_at": "2026-07-15T10:02:18",
           "scheduled_date": "2026-07-15",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen Rand"
+            "Darren Smith",
+            "Ashley Smith",
+            "Ryan Adams"
           ],
           "assigneeIds": [
             89951,
-            310046,
-            324278
+            274021,
+            299742,
+            450362
           ],
-          "template_id": 55606
+          "template_id": 540368
         },
         {
-          "id": 157792092,
+          "id": 153147742,
           "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-15T11:31:17",
+          "finished_at": "2026-07-15T11:42:45",
           "scheduled_date": "2026-07-15",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -799,6 +932,40 @@
       "tasks": [
         {
           "id": 155822236,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "inspection",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-15",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen Rand"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            324278
+          ],
+          "template_id": 103648
+        }
+      ]
+    },
+    {
+      "name": "HB Coconuts Retreat ST16",
+      "id": 1233968,
+      "total": 1,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 148144875,
           "name": "Cleaning check",
           "classification": "not_started",
           "status_code": "created",
@@ -1361,18 +1528,18 @@
       "id": 930300,
       "total": 1,
       "not_started": 0,
-      "in_progress": 1,
-      "completed": 0,
+      "in_progress": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 156588420,
           "name": "Cleaning check",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "inspection",
           "started_at": "2026-07-15T12:42:26",
-          "finished_at": null,
+          "finished_at": "2026-07-15T12:59:04",
           "scheduled_date": "2026-07-15",
           "paused": false,
           "assignedTo": "Lee Kelly",
