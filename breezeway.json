@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-07-16T08:46:14.162Z",
+  "_generated": "2026-07-16T09:01:36.760Z",
   "_source": "cron",
   "_date": "2026-07-16",
   "_status": {
-    "last_run": "2026-07-16T08:46:14.162Z",
+    "last_run": "2026-07-16T09:01:36.760Z",
     "ok": true,
     "properties_polled": 103,
     "properties_raw_total": 134,
@@ -26,8 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 88,
-      "in_progress": 1
+      "created": 85,
+      "in_progress": 2,
+      "finished": 3
     },
     "first_task_shape": {
       "keys": [
@@ -98,12 +99,12 @@
     }
   },
   "summary": {
-    "not_started": 88,
-    "in_progress": 0,
-    "completed": 0,
+    "not_started": 85,
+    "in_progress": 1,
+    "completed": 3,
     "issues": 1
   },
-  "total_tasks": 89,
+  "total_tasks": 90,
   "properties": [
     {
       "name": "LME Howells mere 71",
@@ -1834,22 +1835,52 @@
       ]
     },
     {
+      "name": "LP Tufty LP9",
+      "id": 282436,
+      "total": 1,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 1,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 158311782,
+          "name": "Gas bottle",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "maintenance",
+          "started_at": "2026-07-16T08:56:45",
+          "finished_at": "2026-07-16T08:57:01",
+          "scheduled_date": "2026-07-16",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly"
+          ],
+          "assigneeIds": [
+            89951
+          ],
+          "template_id": null
+        }
+      ]
+    },
+    {
       "name": "HB Thumper Lodge SM9",
       "id": 282435,
       "total": 4,
-      "not_started": 4,
+      "not_started": 3,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 154029775,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-16T08:53:58",
+          "finished_at": "2026-07-16T08:53:58",
           "scheduled_date": "2026-07-16",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -1915,13 +1946,17 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
+            "Lydia Dilley",
             "Rachel Gaazen",
-            "Karen Rand"
+            "Karen Rand",
+            "Kian Dilley"
           ],
           "assigneeIds": [
             89951,
+            140390,
             310046,
-            324278
+            324278,
+            328298
           ],
           "template_id": 55606
         },
@@ -2352,9 +2387,9 @@
       "name": "HB Clearwater ND15",
       "id": 282401,
       "total": 6,
-      "not_started": 6,
-      "in_progress": 0,
-      "completed": 0,
+      "not_started": 4,
+      "in_progress": 1,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
@@ -2408,11 +2443,11 @@
         {
           "id": 157512627,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-16T08:53:51",
+          "finished_at": "2026-07-16T08:53:51",
           "scheduled_date": "2026-07-16",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -2445,10 +2480,10 @@
         {
           "id": 157512628,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-07-16T09:00:48",
           "finished_at": null,
           "scheduled_date": "2026-07-16",
           "paused": false,
@@ -2478,13 +2513,19 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
+            "Becky Malgarin",
+            "Ella Curtis",
             "Rachel Gaazen",
-            "Karen Rand"
+            "Karen Rand",
+            "Emily Curtis"
           ],
           "assigneeIds": [
             89951,
+            303882,
+            308392,
             310046,
-            324278
+            324278,
+            329690
           ],
           "template_id": 55606
         },
