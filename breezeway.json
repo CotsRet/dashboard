@@ -1,16 +1,129 @@
 {
-  "_generated": "2026-07-17T08:46:10.947Z",
+  "_generated": "2026-07-17T09:23:15.997Z",
   "_source": "cron",
   "_date": "2026-07-17",
   "_status": {
-    "last_run": "2026-07-17T09:02:09.485Z",
-    "ok": false,
-    "error": "BW property fetch failed: 520"
+    "last_run": "2026-07-17T09:23:15.997Z",
+    "ok": true,
+    "properties_polled": 104,
+    "properties_raw_total": 135,
+    "status_counts": {
+      "active": 73,
+      "inactive": 62
+    },
+    "api_count": null,
+    "page_debug": [
+      {
+        "page": 1,
+        "returned": 100,
+        "has_next": false
+      },
+      {
+        "page": 2,
+        "returned": 35,
+        "has_next": false
+      }
+    ],
+    "errors": [
+      {
+        "id": 1393779,
+        "name": "HB HV2 Cleaning  - HV2",
+        "error": "HTTP 520"
+      }
+    ],
+    "stages_seen": {
+      "created": 151,
+      "finished": 14,
+      "in_progress": 6
+    },
+    "first_task_shape": {
+      "keys": [
+        "assignments",
+        "bill_to",
+        "costs",
+        "created_at",
+        "created_by",
+        "description",
+        "finished_at",
+        "home_id",
+        "id",
+        "linked_reservation",
+        "name",
+        "paused",
+        "photos",
+        "rate_paid",
+        "rate_type",
+        "reference_property_id",
+        "report_url",
+        "requested_by",
+        "scheduled_date",
+        "scheduled_time",
+        "started_at",
+        "summary",
+        "supplies",
+        "tags",
+        "task_tags",
+        "template_id",
+        "total_time",
+        "type_department",
+        "type_priority",
+        "type_task_status",
+        "updated_at"
+      ],
+      "sample_assignments": [
+        {
+          "assignee_id": 89951,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 217882810,
+          "name": "Lee Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 204277,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 217916696,
+          "name": "Kate Hammond",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 310046,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 217882813,
+          "name": "Rachel Gaazen",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 324278,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 217882814,
+          "name": "Karen  Rand",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 450362,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 217916697,
+          "name": "Ryan Adams",
+          "type_task_user_status": "assigned"
+        }
+      ],
+      "sample_type_department": "housekeeping",
+      "sample_status": {
+        "code": "created",
+        "name": "Created",
+        "stage": "new"
+      }
+    }
   },
   "summary": {
-    "not_started": 162,
-    "in_progress": 1,
-    "completed": 6,
+    "not_started": 151,
+    "in_progress": 4,
+    "completed": 14,
     "issues": 2
   },
   "total_tasks": 171,
@@ -65,12 +178,16 @@
           "assignedToList": [
             "Lee Kelly",
             "Rachel Gaazen",
-            "Karen Rand"
+            "Karen Rand",
+            "Angie Brazil",
+            "Charlene Loveridge"
           ],
           "assigneeIds": [
             89951,
             310046,
-            324278
+            324278,
+            325669,
+            464077
           ],
           "template_id": 55606
         },
@@ -377,58 +494,22 @@
       ]
     },
     {
-      "name": "HB HV2 Cleaning  - HV2",
-      "id": 1393779,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 151746399,
-          "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-17",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Ryan Adams"
-          ],
-          "assigneeIds": [
-            89951,
-            274021,
-            299742,
-            450362
-          ],
-          "template_id": 540368
-        }
-      ]
-    },
-    {
       "name": "HB Bear's Cabin HV51",
       "id": 1343498,
       "total": 2,
-      "not_started": 2,
+      "not_started": 1,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 148207686,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-17T09:11:08",
+          "finished_at": "2026-07-17T09:18:29",
           "scheduled_date": "2026-07-17",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -475,9 +556,9 @@
       "name": "HB Our Happy Place ND13",
       "id": 1328504,
       "total": 6,
-      "not_started": 6,
+      "not_started": 5,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
@@ -531,11 +612,11 @@
         {
           "id": 151941933,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-17T09:11:17",
+          "finished_at": "2026-07-17T09:11:18",
           "scheduled_date": "2026-07-17",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -2145,8 +2226,8 @@
     {
       "name": "HB Paws Lodge WLM19",
       "id": 790813,
-      "total": 3,
-      "not_started": 3,
+      "total": 4,
+      "not_started": 4,
       "in_progress": 0,
       "completed": 0,
       "issues": 0,
@@ -2221,6 +2302,37 @@
             450362
           ],
           "template_id": 540368
+        },
+        {
+          "id": 158497688,
+          "name": "Early Check in (1pm)",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "housekeeping",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-17",
+          "paused": false,
+          "assignedTo": "Tracey Kelly",
+          "assignedToList": [
+            "Tracey Kelly",
+            "Lee Kelly",
+            "Janet Smith",
+            "Kate Hammond",
+            "Melanie Thomson",
+            "Rachel Gaazen",
+            "Karen Rand"
+          ],
+          "assigneeIds": [
+            85859,
+            89951,
+            149092,
+            204277,
+            272395,
+            310046,
+            324278
+          ],
+          "template_id": 154351
         }
       ]
     },
@@ -2324,19 +2436,19 @@
       "name": "HB Reeds View ST101",
       "id": 781943,
       "total": 4,
-      "not_started": 4,
+      "not_started": 3,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 147860113,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-17T08:57:08",
+          "finished_at": "2026-07-17T08:57:09",
           "scheduled_date": "2026-07-17",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -3270,8 +3382,8 @@
       "name": "HB Spring View WLM12",
       "id": 492638,
       "total": 6,
-      "not_started": 6,
-      "in_progress": 0,
+      "not_started": 5,
+      "in_progress": 1,
       "completed": 0,
       "issues": 0,
       "tasks": [
@@ -3315,10 +3427,10 @@
         {
           "id": 156608175,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-07-17T09:21:49",
           "finished_at": null,
           "scheduled_date": "2026-07-17",
           "paused": false,
@@ -3435,19 +3547,19 @@
       "name": "HB Wyndham Lodge WLM4",
       "id": 395494,
       "total": 6,
-      "not_started": 6,
+      "not_started": 4,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
           "id": 147860086,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-17T09:15:58",
+          "finished_at": "2026-07-17T09:15:59",
           "scheduled_date": "2026-07-17",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -3480,11 +3592,11 @@
         {
           "id": 147860107,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-17T09:16:04",
+          "finished_at": "2026-07-17T09:16:07",
           "scheduled_date": "2026-07-17",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -3514,12 +3626,16 @@
           "assignedToList": [
             "Lee Kelly",
             "Rachel Gaazen",
-            "Karen Rand"
+            "Karen Rand",
+            "Kian Dilley",
+            "Ismael Kanneh"
           ],
           "assigneeIds": [
             89951,
             310046,
-            324278
+            324278,
+            328298,
+            458080
           ],
           "template_id": 55606
         },
@@ -4441,19 +4557,19 @@
       "name": "HB Honeysuckle OM2",
       "id": 282410,
       "total": 7,
-      "not_started": 7,
-      "in_progress": 0,
-      "completed": 0,
+      "not_started": 2,
+      "in_progress": 2,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
           "id": 152155193,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-17T08:57:00",
+          "finished_at": "2026-07-17T08:57:01",
           "scheduled_date": "2026-07-17",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -4486,11 +4602,11 @@
         {
           "id": 152155194,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-17T09:17:25",
+          "finished_at": "2026-07-17T09:17:27",
           "scheduled_date": "2026-07-17",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -4509,10 +4625,10 @@
         {
           "id": 152155195,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-07-17T09:08:50",
           "finished_at": null,
           "scheduled_date": "2026-07-17",
           "paused": false,
@@ -4520,12 +4636,16 @@
           "assignedToList": [
             "Lee Kelly",
             "Rachel Gaazen",
-            "Karen Rand"
+            "Karen Rand",
+            "Lily Stirling",
+            "Kylie Scuter"
           ],
           "assigneeIds": [
             89951,
             310046,
-            324278
+            324278,
+            329342,
+            405936
           ],
           "template_id": 55606
         },
@@ -4555,11 +4675,11 @@
         {
           "id": 157626330,
           "name": "Remove Booster Seat",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-17T09:19:38",
+          "finished_at": "2026-07-17T09:19:38",
           "scheduled_date": "2026-07-17",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -4605,10 +4725,10 @@
         {
           "id": 158003114,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "maintenance",
-          "started_at": null,
+          "started_at": "2026-07-17T09:20:39",
           "finished_at": null,
           "scheduled_date": "2026-07-17",
           "paused": false,
