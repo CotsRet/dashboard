@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-07-18T08:51:12.123Z",
-  "_source": "webhook",
+  "_generated": "2026-07-18T09:01:52.247Z",
+  "_source": "cron",
   "_date": "2026-07-18",
   "_status": {
-    "last_run": "2026-07-18T08:46:27.587Z",
+    "last_run": "2026-07-18T09:01:52.247Z",
     "ok": true,
     "properties_polled": 104,
     "properties_raw_total": 135,
@@ -26,8 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 72,
-      "in_progress": 1
+      "created": 71,
+      "in_progress": 1,
+      "closed": 2
     },
     "first_task_shape": {
       "keys": [
@@ -100,10 +101,10 @@
   "summary": {
     "not_started": 71,
     "in_progress": 0,
-    "completed": 1,
+    "completed": 2,
     "issues": 1
   },
-  "total_tasks": 73,
+  "total_tasks": 74,
   "properties": [
     {
       "name": "HB The Happy Hideaway - ND46",
@@ -1291,9 +1292,9 @@
       "name": "HB Busy Bees BD3",
       "id": 927235,
       "total": 7,
-      "not_started": 6,
+      "not_started": 5,
       "in_progress": 0,
-      "completed": 1,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
@@ -1336,11 +1337,11 @@
         {
           "id": 148035281,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "closed",
           "department": "housekeeping",
           "started_at": null,
-          "finished_at": null,
+          "finished_at": "2026-07-18T08:51:11",
           "scheduled_date": "2026-07-18",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1658,12 +1659,35 @@
     {
       "name": "HB Reeds View ST101",
       "id": 781943,
-      "total": 2,
-      "not_started": 2,
+      "total": 3,
+      "not_started": 3,
       "in_progress": 0,
       "completed": 0,
       "issues": 0,
       "tasks": [
+        {
+          "id": 147860145,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "inspection",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-18",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen Rand"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            324278
+          ],
+          "template_id": 103648
+        },
         {
           "id": 152528022,
           "name": "Guest Arrival check",
