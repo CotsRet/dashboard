@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-07-24T10:15:39.942Z",
+  "_generated": "2026-07-24T10:31:54.890Z",
   "_source": "cron",
   "_date": "2026-07-24",
   "_status": {
-    "last_run": "2026-07-24T10:15:39.942Z",
+    "last_run": "2026-07-24T10:31:54.890Z",
     "ok": true,
     "properties_polled": 104,
     "properties_raw_total": 135,
@@ -26,10 +26,10 @@
     ],
     "errors": [],
     "stages_seen": {
-      "in_progress": 9,
-      "created": 133,
+      "finished": 61,
+      "created": 126,
       "closed": 12,
-      "finished": 53
+      "in_progress": 10
     },
     "first_task_shape": {
       "keys": [
@@ -40,6 +40,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -101,37 +102,37 @@
       ],
       "sample_type_department": "inspection",
       "sample_status": {
-        "code": "in_progress",
-        "name": "In Progress",
-        "stage": "in_progress"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 133,
-    "in_progress": 6,
-    "completed": 65,
-    "issues": 3
+    "not_started": 126,
+    "in_progress": 8,
+    "completed": 73,
+    "issues": 2
   },
-  "total_tasks": 207,
+  "total_tasks": 209,
   "properties": [
     {
       "name": "HB The Happy Hideaway - ND46",
       "id": 1451482,
       "total": 2,
       "not_started": 1,
-      "in_progress": 1,
-      "completed": 0,
+      "in_progress": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 158742954,
           "name": "Guest Arrival check",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "inspection",
           "started_at": "2026-07-24T10:13:36",
-          "finished_at": null,
+          "finished_at": "2026-07-24T10:21:44",
           "scheduled_date": "2026-07-24",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -183,8 +184,8 @@
       "id": 1419456,
       "total": 6,
       "not_started": 4,
-      "in_progress": 1,
-      "completed": 1,
+      "in_progress": 0,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
@@ -254,11 +255,11 @@
         {
           "id": 153358088,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
           "started_at": "2026-07-24T09:43:37",
-          "finished_at": null,
+          "finished_at": "2026-07-24T10:23:19",
           "scheduled_date": "2026-07-24",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1380,9 +1381,9 @@
       "name": "WR Elouera, 21 Isis Lake IS21",
       "id": 1109167,
       "total": 5,
-      "not_started": 3,
+      "not_started": 1,
       "in_progress": 0,
-      "completed": 2,
+      "completed": 4,
       "issues": 0,
       "tasks": [
         {
@@ -1438,11 +1439,11 @@
         {
           "id": 149019944,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-24T10:22:40",
+          "finished_at": "2026-07-24T10:29:32",
           "scheduled_date": "2026-07-24",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1465,11 +1466,11 @@
         {
           "id": 151448527,
           "name": "Add High chair",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-24T10:22:33",
+          "finished_at": "2026-07-24T10:22:34",
           "scheduled_date": "2026-07-24",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -2625,18 +2626,18 @@
       "name": "WR Somerford House WR15",
       "id": 790224,
       "total": 2,
-      "not_started": 2,
-      "in_progress": 0,
+      "not_started": 1,
+      "in_progress": 1,
       "completed": 0,
       "issues": 0,
       "tasks": [
         {
           "id": 152742180,
           "name": "Guest Arrival check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "inspection",
-          "started_at": null,
+          "started_at": "2026-07-24T10:27:19",
           "finished_at": null,
           "scheduled_date": "2026-07-24",
           "paused": false,
@@ -2688,8 +2689,8 @@
       "name": "HB Reeds View ST101",
       "id": 781943,
       "total": 4,
-      "not_started": 2,
-      "in_progress": 0,
+      "not_started": 1,
+      "in_progress": 1,
       "completed": 2,
       "issues": 0,
       "tasks": [
@@ -2760,10 +2761,10 @@
         {
           "id": 158530842,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-07-24T10:30:46",
           "finished_at": null,
           "scheduled_date": "2026-07-24",
           "paused": false,
@@ -2817,8 +2818,8 @@
       "name": "HB The Bee Hive WLM39",
       "id": 778191,
       "total": 6,
-      "not_started": 4,
-      "in_progress": 0,
+      "not_started": 3,
+      "in_progress": 1,
       "completed": 2,
       "issues": 0,
       "tasks": [
@@ -2941,10 +2942,10 @@
         {
           "id": 154175542,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-07-24T10:17:36",
           "finished_at": null,
           "scheduled_date": "2026-07-24",
           "paused": false,
@@ -3197,10 +3198,10 @@
     {
       "name": "HB Drakes View ST69",
       "id": 706122,
-      "total": 6,
-      "not_started": 3,
-      "in_progress": 1,
-      "completed": 2,
+      "total": 7,
+      "not_started": 4,
+      "in_progress": 0,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -3322,11 +3323,11 @@
         {
           "id": 156569579,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
           "started_at": "2026-07-24T09:45:26",
-          "finished_at": null,
+          "finished_at": "2026-07-24T10:21:15",
           "scheduled_date": "2026-07-24",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -3372,6 +3373,29 @@
             464141
           ],
           "template_id": 103648
+        },
+        {
+          "id": 159708522,
+          "name": "take one hand towel",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "maintenance",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-24",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Ryan Adams",
+            "Charlie Weeks"
+          ],
+          "assigneeIds": [
+            89951,
+            450362,
+            465981
+          ],
+          "template_id": null
         }
       ]
     },
@@ -3444,8 +3468,8 @@
       "name": "HB Bluebell RM6",
       "id": 641766,
       "total": 6,
-      "not_started": 3,
-      "in_progress": 0,
+      "not_started": 2,
+      "in_progress": 1,
       "completed": 3,
       "issues": 0,
       "tasks": [
@@ -3595,10 +3619,10 @@
         {
           "id": 149020001,
           "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "inspection",
-          "started_at": null,
+          "started_at": "2026-07-24T10:31:34",
           "finished_at": null,
           "scheduled_date": "2026-07-24",
           "paused": false,
@@ -3625,8 +3649,8 @@
       "total": 8,
       "not_started": 6,
       "in_progress": 0,
-      "completed": 1,
-      "issues": 1,
+      "completed": 2,
+      "issues": 0,
       "tasks": [
         {
           "id": 149019781,
@@ -3774,13 +3798,13 @@
         {
           "id": 152123044,
           "name": "External Inspection",
-          "classification": "issues",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
           "started_at": "2026-07-24T10:06:35",
-          "finished_at": null,
+          "finished_at": "2026-07-24T10:24:16",
           "scheduled_date": "2026-07-24",
-          "paused": true,
+          "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
@@ -3857,10 +3881,10 @@
     {
       "name": "WR Bourton WR49",
       "id": 509635,
-      "total": 4,
+      "total": 5,
       "not_started": 2,
       "in_progress": 0,
-      "completed": 2,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -3949,9 +3973,34 @@
         {
           "id": 153265561,
           "name": "Cleaning check",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "inspection",
+          "started_at": "2026-07-24T10:21:57",
+          "finished_at": "2026-07-24T10:22:02",
+          "scheduled_date": "2026-07-24",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Kate Hammond",
+            "Rachel Gaazen",
+            "Deberoh Bird"
+          ],
+          "assigneeIds": [
+            89951,
+            204277,
+            310046,
+            464141
+          ],
+          "template_id": 103648
+        },
+        {
+          "id": 159708215,
+          "name": "Decking raised trip issue 4 panels ",
           "classification": "not_started",
           "status_code": "created",
-          "department": "inspection",
+          "department": "maintenance",
           "started_at": null,
           "finished_at": null,
           "scheduled_date": "2026-07-24",
@@ -3959,17 +4008,19 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen Rand",
-            "Deberoh Bird"
+            "Darren Smith",
+            "Ashley Smith",
+            "Ryan Adams",
+            "Charlie Weeks"
           ],
           "assigneeIds": [
             89951,
-            310046,
-            324278,
-            464141
+            274021,
+            299742,
+            450362,
+            465981
           ],
-          "template_id": 103648
+          "template_id": null
         }
       ]
     },
@@ -3977,8 +4028,8 @@
       "name": "HB Spring View WLM12",
       "id": 492638,
       "total": 2,
-      "not_started": 1,
-      "in_progress": 0,
+      "not_started": 0,
+      "in_progress": 1,
       "completed": 1,
       "issues": 0,
       "tasks": [
@@ -4010,10 +4061,10 @@
         {
           "id": 150748239,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "maintenance",
-          "started_at": null,
+          "started_at": "2026-07-24T10:28:00",
           "finished_at": null,
           "scheduled_date": "2026-07-24",
           "paused": false,
@@ -4352,13 +4403,13 @@
           "assignedToList": [
             "Lee Kelly",
             "Rachel Gaazen",
-            "Karen Rand",
+            "Rafa spinato",
             "Deberoh Bird"
           ],
           "assigneeIds": [
             89951,
             310046,
-            324278,
+            324722,
             464141
           ],
           "template_id": 55606
@@ -4395,8 +4446,8 @@
       "id": 282435,
       "total": 3,
       "not_started": 1,
-      "in_progress": 1,
-      "completed": 1,
+      "in_progress": 0,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
@@ -4454,11 +4505,11 @@
         {
           "id": 159555763,
           "name": "Front door",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
           "started_at": "2026-07-24T09:53:04",
-          "finished_at": null,
+          "finished_at": "2026-07-24T10:17:02",
           "scheduled_date": "2026-07-24",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -4724,8 +4775,8 @@
       "name": "HB Puddleducks OM4",
       "id": 282426,
       "total": 6,
-      "not_started": 3,
-      "in_progress": 0,
+      "not_started": 2,
+      "in_progress": 1,
       "completed": 3,
       "issues": 0,
       "tasks": [
@@ -4848,10 +4899,10 @@
         {
           "id": 149019869,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-07-24T10:31:15",
           "finished_at": null,
           "scheduled_date": "2026-07-24",
           "paused": false,
@@ -4859,13 +4910,13 @@
           "assignedToList": [
             "Lee Kelly",
             "Rachel Gaazen",
-            "Karen Rand",
+            "Bobi Emily",
             "Deberoh Bird"
           ],
           "assigneeIds": [
             89951,
             310046,
-            324278,
+            431919,
             464141
           ],
           "template_id": 55606
