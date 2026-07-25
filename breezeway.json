@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-07-25T08:45:32.545Z",
+  "_generated": "2026-07-25T09:01:17.031Z",
   "_source": "cron",
   "_date": "2026-07-25",
   "_status": {
-    "last_run": "2026-07-25T08:45:32.545Z",
+    "last_run": "2026-07-25T09:01:17.031Z",
     "ok": true,
     "properties_polled": 104,
     "properties_raw_total": 135,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 58,
-      "in_progress": 1,
-      "finished": 4
+      "created": 57,
+      "in_progress": 2,
+      "finished": 5
     },
     "first_task_shape": {
       "keys": [
@@ -99,12 +99,12 @@
     }
   },
   "summary": {
-    "not_started": 58,
+    "not_started": 57,
     "in_progress": 0,
-    "completed": 4,
-    "issues": 1
+    "completed": 5,
+    "issues": 2
   },
-  "total_tasks": 63,
+  "total_tasks": 64,
   "properties": [
     {
       "name": "LME Howells mere HM108",
@@ -117,40 +117,6 @@
       "tasks": [
         {
           "id": 158530812,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-25",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen Rand"
-          ],
-          "assigneeIds": [
-            89951,
-            310046,
-            324278
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
-      "name": "Hareside - Hareside - 1",
-      "id": 1247443,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 155555780,
           "name": "Cleaning check",
           "classification": "not_started",
           "status_code": "created",
@@ -888,8 +854,8 @@
       "total": 6,
       "not_started": 5,
       "in_progress": 0,
-      "completed": 1,
-      "issues": 0,
+      "completed": 0,
+      "issues": 1,
       "tasks": [
         {
           "id": 152610788,
@@ -1006,13 +972,13 @@
         {
           "id": 159197298,
           "name": "Turn around clean",
-          "classification": "completed",
-          "status_code": "finished",
+          "classification": "issues",
+          "status_code": "in_progress",
           "department": "housekeeping",
           "started_at": "2026-07-23T09:51:08",
-          "finished_at": "2026-07-23T09:55:55",
+          "finished_at": null,
           "scheduled_date": "2026-07-25",
-          "paused": false,
+          "paused": true,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
@@ -1645,20 +1611,20 @@
     {
       "name": "HB Cottontail SM2",
       "id": 282403,
-      "total": 6,
-      "not_started": 6,
+      "total": 7,
+      "not_started": 5,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
           "id": 149188133,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-25T09:01:08",
+          "finished_at": "2026-07-25T09:01:09",
           "scheduled_date": "2026-07-25",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -1691,11 +1657,11 @@
         {
           "id": 149188139,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-25T08:57:58",
+          "finished_at": "2026-07-25T09:00:59",
           "scheduled_date": "2026-07-25",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1726,12 +1692,18 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
+            "Lydia Dilley",
             "Rachel Gaazen",
+            "Kian Dilley",
+            "Ismael Kanneh",
             "Deberoh Bird"
           ],
           "assigneeIds": [
             89951,
+            140390,
             310046,
+            328298,
+            458080,
             464141
           ],
           "template_id": 55606
@@ -1808,14 +1780,41 @@
             465981
           ],
           "template_id": 540368
+        },
+        {
+          "id": 159885039,
+          "name": "shower bracket fallen off",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "maintenance",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-25",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Ryan Adams",
+            "Charlie Weeks"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742,
+            450362,
+            465981
+          ],
+          "template_id": null
         }
       ]
     },
     {
       "name": "HB Hares Haven SM1",
       "id": 282395,
-      "total": 3,
-      "not_started": 3,
+      "total": 4,
+      "not_started": 4,
       "in_progress": 0,
       "completed": 0,
       "issues": 0,
@@ -1894,6 +1893,31 @@
             450362
           ],
           "template_id": 726249
+        },
+        {
+          "id": 151978175,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "inspection",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-25",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Karen Rand",
+            "Deberoh Bird"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            324278,
+            464141
+          ],
+          "template_id": 103648
         }
       ]
     },
