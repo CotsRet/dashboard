@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-07-25T09:45:36.743Z",
+  "_generated": "2026-07-25T10:01:08.557Z",
   "_source": "cron",
   "_date": "2026-07-25",
   "_status": {
-    "last_run": "2026-07-25T09:45:36.743Z",
+    "last_run": "2026-07-25T10:01:08.557Z",
     "ok": true,
     "properties_polled": 104,
     "properties_raw_total": 135,
@@ -26,9 +26,10 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 48,
+      "finished": 18,
       "in_progress": 3,
-      "finished": 12
+      "created": 39,
+      "closed": 1
     },
     "first_task_shape": {
       "keys": [
@@ -39,6 +40,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -92,37 +94,37 @@
       ],
       "sample_type_department": "inspection",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 48,
+    "not_started": 39,
     "in_progress": 1,
-    "completed": 12,
+    "completed": 19,
     "issues": 2
   },
-  "total_tasks": 63,
+  "total_tasks": 61,
   "properties": [
     {
       "name": "LME Howells mere HM108",
       "id": 1258934,
       "total": 1,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 158530812,
           "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-25T09:52:05",
+          "finished_at": "2026-07-25T09:52:07",
           "scheduled_date": "2026-07-25",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -203,19 +205,19 @@
       "name": "LME Mill Village - MV36",
       "id": 1153368,
       "total": 1,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 149019808,
           "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-25T09:52:20",
+          "finished_at": "2026-07-25T09:52:22",
           "scheduled_date": "2026-07-25",
           "paused": false,
           "assignedTo": "Rachel Gaazen",
@@ -527,76 +529,19 @@
       "name": "LME Lagoon Villa  CW03",
       "id": 1046360,
       "total": 1,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 148368087,
           "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-25",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen",
-          "assignedToList": [
-            "Rachel Gaazen",
-            "Karen Rand",
-            "Suus Paris"
-          ],
-          "assigneeIds": [
-            310046,
-            324278,
-            360679
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
-      "name": "LME Minety Dawn ML14",
-      "id": 1046353,
-      "total": 2,
-      "not_started": 2,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 147095045,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-25",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen",
-          "assignedToList": [
-            "Rachel Gaazen",
-            "Karen Rand",
-            "Suus Paris"
-          ],
-          "assigneeIds": [
-            310046,
-            324278,
-            360679
-          ],
-          "template_id": 103648
-        },
-        {
-          "id": 149019997,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-25T09:52:13",
+          "finished_at": "2026-07-25T09:52:15",
           "scheduled_date": "2026-07-25",
           "paused": false,
           "assignedTo": "Rachel Gaazen",
@@ -1025,9 +970,9 @@
       "name": "HB The Bathing House HV24",
       "id": 927225,
       "total": 2,
-      "not_started": 2,
+      "not_started": 1,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
@@ -1060,11 +1005,11 @@
         {
           "id": 159719627,
           "name": "Deliver fan",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "closed",
           "department": "maintenance",
           "started_at": null,
-          "finished_at": null,
+          "finished_at": "2026-07-25T09:45:53",
           "scheduled_date": "2026-07-25",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1251,9 +1196,9 @@
       "name": "HB The Waterfront ND3",
       "id": 719511,
       "total": 6,
-      "not_started": 5,
+      "not_started": 3,
       "in_progress": 0,
-      "completed": 1,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -1309,11 +1254,11 @@
         {
           "id": 149188130,
           "name": "CHECK SOFA BED LINEN",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-25T09:59:46",
+          "finished_at": "2026-07-25T09:59:53",
           "scheduled_date": "2026-07-25",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1334,11 +1279,11 @@
         {
           "id": 155258729,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-25T09:51:36",
+          "finished_at": "2026-07-25T09:51:37",
           "scheduled_date": "2026-07-25",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -1797,9 +1742,9 @@
       "name": "HB Hares Haven SM1",
       "id": 282395,
       "total": 4,
-      "not_started": 4,
+      "not_started": 3,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
@@ -1855,11 +1800,11 @@
         {
           "id": 149188095,
           "name": "CHECK SOFA BED LINEN",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-25T09:50:37",
+          "finished_at": "2026-07-25T09:50:39",
           "scheduled_date": "2026-07-25",
           "paused": false,
           "assignedTo": "Lee Kelly",
