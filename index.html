@@ -167,8 +167,48 @@ body{font-family:'Barlow',sans-serif;display:flex;flex-direction:column}
   border-left:2px solid #1a3a4a;margin:0 0 0 2px}
 .bw-prop-tasks.open{display:block}
 
+/* Task filter bar (department pills + name search) at the top of BW task panels */
+.bw-filter{padding:2px 0 12px 0;border-bottom:1px solid #1a1a30;margin-bottom:10px}
+.bw-filt-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.bw-filt-pill{background:rgba(255,255,255,.06);color:#bbb;border:1px solid #2a2a45;
+  border-radius:12px;padding:5px 12px;font-family:'DM Mono',monospace;font-size:12px;
+  letter-spacing:.5px;cursor:pointer;transition:background .12s,color .12s,border-color .12s}
+.bw-filt-pill:hover{background:rgba(255,255,255,.12);color:#e8e8e8}
+.bw-filt-pill.on{background:rgba(0,229,255,.18);color:#00e5ff;border-color:#00e5ff}
+.bw-filt-row{display:flex;align-items:center;gap:8px}
+.bw-filt-search{flex:1;min-width:0;background:rgba(255,255,255,.05);border:1px solid #2a2a45;
+  border-radius:8px;color:#e8e8e8;padding:7px 10px;font-family:'DM Mono',monospace;
+  font-size:13px;outline:none}
+.bw-filt-search:focus{border-color:#00e5ff}
+.bw-filt-search::placeholder{color:#666}
+.bw-filt-clear{background:none;border:1px solid #2a2a45;border-radius:8px;color:#999;
+  padding:7px 10px;font-family:'DM Mono',monospace;font-size:12px;cursor:pointer;white-space:nowrap}
+.bw-filt-clear:hover{color:#ff4466;border-color:#ff4466}
+.bw-filt-count{font-family:'DM Mono',monospace;font-size:11px;color:#999;
+  white-space:nowrap;letter-spacing:.5px}
+.bw-filt-grp{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:7px}
+.bw-filt-lab{font-family:'DM Mono',monospace;font-size:10px;color:#666;letter-spacing:1px;
+  text-transform:uppercase;min-width:52px;flex:0 0 auto}
+.bw-filt-mine{background:rgba(155,109,255,.15);color:#c9a3ff;border:1px solid rgba(155,109,255,.45);
+  border-radius:12px;padding:5px 14px;font-family:'DM Mono',monospace;font-size:12px;
+  font-weight:700;letter-spacing:.5px;cursor:pointer;transition:background .12s,color .12s}
+.bw-filt-mine:hover{background:rgba(155,109,255,.28)}
+.bw-filt-mine.on{background:#9b6dff;color:#fff;border-color:#9b6dff}
+.bw-filt-sel{background:rgba(255,255,255,.05);border:1px solid #2a2a45;border-radius:8px;
+  color:#e8e8e8;padding:7px 8px;font-family:'DM Mono',monospace;font-size:12px;
+  outline:none;max-width:200px;flex:0 1 auto}
+.bw-filt-sel:focus{border-color:#00e5ff}
+.bw-queue-badge{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);
+  background:rgba(255,170,0,.18);border:1px solid rgba(255,170,0,.55);color:#ffc457;
+  padding:9px 16px;border-radius:20px;font-family:'DM Mono',monospace;font-size:12px;
+  letter-spacing:.5px;z-index:9999;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.45)}
+.bw-queue-badge:hover{background:rgba(255,170,0,.3)}
+.bw-scope-note{display:flex;align-items:center;gap:8px;padding:8px 12px;margin-bottom:10px;
+  background:rgba(155,109,255,.12);border:1px solid rgba(155,109,255,.35);border-radius:8px;
+  color:#c9a3ff;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.5px}
+
 /* Task-detail row inside a panel — stacked two-line layout */
-.bw-task{padding:10px 0;border-bottom:1px solid #111;position:relative}
+.bw-task{padding:13px 0;border-bottom:1px solid rgba(255,255,255,.35);position:relative}
 .bw-done-btn{position:absolute;top:8px;right:0;background:rgba(0,230,118,.12);color:#00e676;
   border:1px solid rgba(0,230,118,.4);border-radius:6px;font-size:11px;font-weight:700;
   padding:4px 12px;cursor:pointer;font-family:inherit;letter-spacing:.5px}
@@ -230,6 +270,9 @@ body{font-family:'Barlow',sans-serif;display:flex;flex-direction:column}
   .t-num{font-size:60px}
 }
 @media(max-width:600px){
+  /* Detail popup goes full screen width on phones so the wording isn't squashed */
+  .overlay{padding:0}
+  .panel{max-width:none;border-radius:0}
   .wb{grid-template-columns:repeat(2,1fr);gap:3px;padding:3px}
   .section-bar{grid-column:span 2;height:22px}
   .section-bar-label{font-size:9px;letter-spacing:2px}
@@ -298,7 +341,6 @@ body{font-family:'Barlow',sans-serif;display:flex;flex-direction:column}
     </div>
     <div class="panel-action" id="panelAction" style="display:none">
       <a id="panelBwLink" href="#" target="_blank">Open in Breezeway ↗</a>
-      <a href="#" onclick="event.preventDefault(); bwForgetSecret();" style="margin-left:16px;opacity:.6;font-size:12px;">Forget passphrase</a>
     </div>
     <div class="panel-body" id="panelBody"></div>
   </div>
@@ -318,6 +360,23 @@ const BW_SECRET_KEY = 'bw_close_secret';
 let bwSecret = (function(){
   try { return localStorage.getItem(BW_SECRET_KEY) || null; } catch(e){ return null; }
 })();
+
+// --- CLOUDFLARE ACCESS IDENTITY ---
+// When this board is served behind Cloudflare Access (the protected cotsret-ops
+// URL), the logged-in person's verified email is available at this same-origin
+// endpoint. We use it to attribute closes to the real person with no passphrase.
+// On the old open board this request 404s, so bwAccessEmail stays null and the
+// passphrase path is used instead. One file works on both boards.
+let bwAccessEmail = null;
+async function detectAccessIdentity(){
+  try {
+    const r = await fetch('/cdn-cgi/access/get-identity', {credentials:'same-origin'});
+    if (r.ok) {
+      const d = await r.json();
+      if (d && d.email) bwAccessEmail = d.email;
+    }
+  } catch(e){ /* not behind Access */ }
+}
 
 function bwSaveSecret(s){
   bwSecret = s;
@@ -372,8 +431,106 @@ function bwOpeningUnlock(){
 
 // Close a Breezeway task via the Worker. Optimistic: grey the row immediately,
 // then refresh data after. Reverts visually on failure.
+// ── COMPLETION QUEUE ──────────────────────────────────────────────────
+// A close can fail transiently: Breezeway's auth endpoint is rate-limited (1/min), or the
+// signal drops on the parks mid-tap. Making staff read "Breezeway is busy" and remember to
+// tap again is a poor deal — they're carrying laundry. So instead we QUEUE the completion
+// and retry it quietly in the background until it lands.
+// SAFE TO RETRY: the Worker returns "already_closed" if the close actually went through, so
+// a duplicate attempt can't double-close or do harm.
+// The queue is kept in localStorage, so a completion tapped on a flaky connection survives a
+// page reload instead of being silently lost.
+const BW_QUEUE_KEY = 'bw_close_queue';
+const BW_QUEUE_MAX_TRIES = 30;          // ~10 min of retrying before we admit defeat
+let _bwQueue = [];
+let _bwQueueTimer = null;
+
+function bwQueueLoad(){
+  try { _bwQueue = JSON.parse(localStorage.getItem(BW_QUEUE_KEY) || '[]') || []; }
+  catch(e){ _bwQueue = []; }
+}
+function bwQueueSave(){
+  try { localStorage.setItem(BW_QUEUE_KEY, JSON.stringify(_bwQueue)); } catch(e){}
+}
+function bwQueued(taskId){ return _bwQueue.some(q => q.taskId === taskId); }
+
+function bwQueueAdd(item){
+  if (bwQueued(item.taskId)) return;
+  _bwQueue.push({...item, tries: 0});
+  bwQueueSave(); bwQueueBadge(); bwQueueStart();
+}
+function bwQueueRemove(taskId){
+  _bwQueue = _bwQueue.filter(q => q.taskId !== taskId);
+  bwQueueSave(); bwQueueBadge();
+}
+function bwQueueStart(){
+  if (_bwQueueTimer || !_bwQueue.length) return;
+  setTimeout(bwQueueFlush, 3000);                      // first retry soon
+  _bwQueueTimer = setInterval(bwQueueFlush, 20000);    // then every 20s
+}
+function bwQueueStop(){
+  if (_bwQueueTimer){ clearInterval(_bwQueueTimer); _bwQueueTimer = null; }
+}
+
+// Send the oldest queued completion. One at a time — gentle on the rate limit.
+async function bwQueueFlush(){
+  if (!_bwQueue.length){ bwQueueStop(); return; }
+  if (!bwAccessEmail) return;
+  const item = _bwQueue[0];
+  item.tries = (item.tries || 0) + 1;
+  bwQueueSave();
+  try {
+    const r = await fetch(BW_WORKER_URL, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({action:'close', taskId:item.taskId, propId:item.propId,
+                            propName:item.propName, taskName:item.taskName,
+                            accessEmail: bwAccessEmail})
+    });
+    const d = await r.json().catch(()=>({}));
+    if (d && (d.status === 'ok' || d.status === 'already_closed')){
+      bwQueueRemove(item.taskId);
+      bwApplyLocalClose(item.taskId);
+      if (!_bwQueue.length){ bwQueueStop(); setTimeout(fetchAll, 2000); }
+      return;
+    }
+    if (r.status === 401){
+      // Not authorised — retrying will never fix that. Drop it and say so plainly.
+      bwQueueRemove(item.taskId);
+      window.alert('Could not complete \u201c' + item.taskName + '\u201d \u2014 your login isn\u2019t authorised to close tasks.');
+      return;
+    }
+    // 429 / 5xx / anything else: leave it queued and try again on the next tick.
+  } catch(e){
+    // Offline or the request died — keep it queued.
+  }
+  if (item.tries >= BW_QUEUE_MAX_TRIES){
+    bwQueueRemove(item.taskId);
+    window.alert('Still couldn\u2019t complete \u201c' + item.taskName + '\u201d at ' + item.propName +
+                 ' after several attempts. Please close it in Breezeway.');
+  }
+  bwQueueBadge();
+}
+
+// Never let a queued completion be invisible — show a small badge. Tapping it retries now.
+function bwQueueBadge(){
+  let el = document.getElementById('bwQueueBadge');
+  if (!_bwQueue.length){ if (el) el.remove(); return; }
+  if (!el){
+    el = document.createElement('div');
+    el.id = 'bwQueueBadge';
+    el.className = 'bw-queue-badge';
+    el.title = 'Tap to retry now';
+    el.onclick = bwQueueFlush;
+    document.body.appendChild(el);
+  }
+  const n = _bwQueue.length;
+  el.textContent = '\u23F3 ' + n + ' completion' + (n === 1 ? '' : 's') + ' queued \u2014 retrying\u2026';
+}
+
 async function closeBwTask(taskId, propId, propName, taskName, btn){
-  if (!bwSecret && !bwUnlock()) return;            // need the passphrase first
+  // Access-only: the login IS the identity, so no passphrase.
+  if (!bwAccessEmail){ window.alert('Please sign in to close tasks.'); return; }
   if (!window.confirm('Close \u201c' + taskName + '\u201d at ' + propName + '?')) return;
 
   const taskEl = btn.closest('.bw-task');
@@ -384,14 +541,19 @@ async function closeBwTask(taskId, propId, propName, taskName, btn){
     const r = await fetch(BW_WORKER_URL, {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({action:'close', taskId, propId, propName, taskName, secret: bwSecret})
+      body: JSON.stringify({action:'close', taskId, propId, propName, taskName, accessEmail: bwAccessEmail})
     });
     const d = await r.json().catch(()=>({}));
     if (r.status === 401){
-      bwSaveSecret(null);                           // wrong/changed passphrase — clear stored & re-prompt next time
       if (taskEl){ taskEl.style.opacity = ''; }
       btn.disabled = false; btn.textContent = 'Completed';
-      window.alert('Passphrase rejected. Tap Completed again to re-enter it.');
+      if (bwAccessEmail){
+        // Logged in via Access, but this email isn't on the Worker's close list yet.
+        window.alert('Your login (' + bwAccessEmail + ') isn\u2019t authorised to close tasks yet. Ask Lee to add you.');
+      } else {
+        bwSaveSecret(null);                         // wrong/changed passphrase - clear stored & re-prompt next time
+        window.alert('Passphrase rejected. Tap Completed again to re-enter it.');
+      }
       return;
     }
     if (d && d.status === 'ok'){
@@ -406,20 +568,18 @@ async function closeBwTask(taskId, propId, propName, taskName, btn){
       bwApplyLocalClose(taskId);                    // drop it from this device too
       setTimeout(fetchAll, 2000);
     } else {
-      if (taskEl){ taskEl.style.opacity = ''; }
-      btn.disabled = false; btn.textContent = 'Completed';
-      const msg = (d && d.message) || ('HTTP ' + r.status);
-      if (/429/.test(msg)){
-        // Transient Breezeway token rate-limit — not a real failure, just busy.
-        window.alert('Breezeway is busy right now. Please wait a minute and tap Completed again.');
-      } else {
-        window.alert('Close failed: ' + msg);
-      }
+      // Transient failure (Breezeway rate-limited, or a wobble). Don't hand the person an
+      // error and ask them to remember to tap again — queue it and keep trying in the
+      // background. The badge tells them it's in hand.
+      btn.disabled = true; btn.textContent = '\u23F3 Queued';
+      if (taskEl){ taskEl.style.opacity = '0.6'; }
+      bwQueueAdd({taskId, propId, propName, taskName});
     }
   } catch(e){
-    if (taskEl){ taskEl.style.opacity = ''; }
-    btn.disabled = false; btn.textContent = 'Completed';
-    window.alert('Close failed: ' + e.message);
+    // Network dropped mid-tap (very common on the parks) — same treatment: queue it.
+    btn.disabled = true; btn.textContent = '\u23F3 Queued';
+    if (taskEl){ taskEl.style.opacity = '0.6'; }
+    bwQueueAdd({taskId, propId, propName, taskName});
   }
 }
 const SUPA_URL    = 'https://mqjbcxmxodsocxcachmo.supabase.co';
@@ -763,12 +923,25 @@ function updateBWTiles(){
   const s  = bw.summary;
   if(!s) return;
   const set = (id, val) => { const el=document.getElementById(id); if(el) el.textContent=val; };
-  set('bwNotStarted', s.not_started);
-  set('bwInProgress', s.in_progress);
-  set('bwCompleted',  s.completed);
-  set('bwIssues',     s.issues);
-  set('bwTotal',      bw.total_tasks || 0);
-  set('bwProps',      (bw.properties||[]).length + ' properties today');
+  // The tiles MUST agree with what the panels show. For a scoped user (staff, seeing
+  // only their own tasks) an estate-wide "16 Not Started" above a list of 3 looks
+  // broken and invites "I couldn't see it" — so count from the tasks THIS person sees.
+  // Lee (scope 'all') keeps the Worker's own summary, so nothing changes for him.
+  const mine = (_viewScope === 'mine' && _myBwId);
+  let c = null, propCount = 0, scopedTotal = 0;
+  if (mine){
+    const scoped = bwScopedTasks();
+    c = {not_started:0, in_progress:0, completed:0, issues:0};
+    scoped.forEach(t => { if (c[t.classification] !== undefined) c[t.classification]++; });
+    propCount = new Set(scoped.map(t => t.propertyId)).size;
+    scopedTotal = scoped.length;
+  }
+  set('bwNotStarted', mine ? c.not_started : s.not_started);
+  set('bwInProgress', mine ? c.in_progress : s.in_progress);
+  set('bwCompleted',  mine ? c.completed   : s.completed);
+  set('bwIssues',     mine ? c.issues      : s.issues);
+  set('bwTotal',      mine ? scopedTotal   : (bw.total_tasks || 0));
+  set('bwProps',      (mine ? propCount : (bw.properties||[]).length) + ' properties today');
   set('bwSource',     'LIVE · ' + (bw._date||''));
   // Today's Staff tile
   const staff = bwStaffSummary();
@@ -895,15 +1068,212 @@ function bwAllTasks(){
   return out;
 }
 
+// Tasks this person is allowed to see, BEFORE any ad-hoc filtering. Staff are scoped to
+// their own tasks; Lee sees everything. If we couldn't identify them in Breezeway we
+// deliberately show EVERYTHING rather than an empty board — an empty board looks broken
+// and would hide real work, which is far worse than showing too much.
+function bwScopeList(arr){
+  if (_viewScope !== 'mine' || !_myBwId) return arr;
+  return arr.filter(t => (t.assigneeIds || []).includes(_myBwId));
+}
+function bwScopedTasks(){ return bwScopeList(bwAllTasks()); }
+
 // Filter tasks by classification, sort by property name (alphabetical), then by task name
 function bwTasksByStatus(classification){
-  return bwAllTasks()
+  return bwScopedTasks()
     .filter(t => t.classification === classification)
     .sort((a, b) => {
       const np = (a.propertyName || '').localeCompare(b.propertyName || '');
       if (np !== 0) return np;
       return (a.name || '').localeCompare(b.name || '');
     });
+}
+
+// ── BW TASK FILTERS ──────────────────────────────────────────────────────────
+// Filter the BW task panels by DEPARTMENT and/or TASK NAME. Department pills are
+// built from the data itself (breezeway.json already carries `department` on every
+// task), so they always match what Breezeway actually returns and pick up any new
+// department automatically — nothing to hardcode or maintain.
+// Filters persist as you move between the task panels; the bar always shows what's
+// active, the match count, and a Clear button, so a filtered view is never a mystery.
+let _bwFiltDept = 'all';    // department code, or 'all'
+let _bwFiltText = '';       // free-text match on task name
+let _bwFiltMine = false;    // only tasks I'm assigned to
+let _bwFiltSrc  = 'all';    // 'all' | 'auto' (from a BW template) | 'staff' (hand-raised)
+let _bwFiltType = 'all';    // exact task name, or 'all'
+
+// Who am I, in Breezeway terms? The board knows my Access login email; the Worker maps
+// it to my BW person id (the email->person map lives only in the Worker). Needed for the
+// "My tasks" filter, which matches on BW person id rather than on names (names are
+// fragile: spacing, spelling, duplicates). If the email isn't mapped, _myBwId stays null
+// and the My-tasks pill is simply not offered.
+let _myBwId = null, _myName = null;
+
+// What THIS person sees. Set from the Worker (whoami) so it's configured in one place.
+//   _viewScope   'all'  = every task (Lee)   | 'mine' = only their own tasks (staff)
+//   _showFilters  true  = full filter bar    | false  = no filter UI at all
+// Safe defaults until whoami answers: show everything, no filters.
+let _viewScope   = 'all';
+let _showFilters = false;
+
+async function detectMe(){
+  if (!bwAccessEmail) return;
+  try {
+    const r = await fetch(BW_WORKER_URL, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({action:'whoami', accessEmail: bwAccessEmail})
+    });
+    if (!r.ok) return;
+    const d = await r.json();
+    if (d && d.bwId){ _myBwId = d.bwId; _myName = d.name || null; }
+    if (d && d.scope)   _viewScope   = d.scope;
+    if (d && d.filters) _showFilters = (d.filters === 'full');
+    // whoami answers after the first paint — re-render so the scope actually applies.
+    updateBWTiles();
+    if (_currentPanel) showPanel(_currentPanel);
+  } catch(e){ /* no scoping/filters; the board still works, showing everything */ }
+}
+
+function bwEsc(s){
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+// Distinct departments present in today's tasks, sorted.
+function bwDepartments(){
+  const set = new Set();
+  bwScopedTasks().forEach(t => { const d = (t.department || '').trim(); if (d) set.add(d); });
+  return [...set].sort((a,b) => a.localeCompare(b));
+}
+
+// "turnaround_clean" -> "Turnaround Clean"
+function bwDeptLabel(d){
+  return String(d).replace(/[_-]+/g,' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
+// Distinct task names ("task types"), most common first. The auto/template tasks repeat
+// (Guest Arrival check, External Inspection...), so a pick-list is quicker than typing;
+// staff-raised one-offs are better served by the search box.
+function bwTaskTypes(){
+  const c = {};
+  bwScopedTasks().forEach(t => { const n = (t.name || '').trim(); if (n) c[n] = (c[n]||0)+1; });
+  return Object.keys(c)
+    .sort((a,b) => (c[b]-c[a]) || a.localeCompare(b))
+    .map(n => ({name:n, count:c[n]}));
+}
+
+// Apply the active filters to an array of tasks. All filters COMBINE (AND).
+function bwApplyFilters(arr){
+  const q = _bwFiltText.trim().toLowerCase();
+  return arr.filter(t => {
+    // Mine: match on BW person id against EVERY assignee (a task often has several).
+    if (_bwFiltMine){
+      if (!_myBwId) return false;
+      const ids = t.assigneeIds || [];
+      if (!ids.includes(_myBwId)) return false;
+    }
+    if (_bwFiltDept !== 'all' && (t.department || '') !== _bwFiltDept) return false;
+    // Source: template_id set = generated from a BW template; null = raised by a person.
+    if (_bwFiltSrc === 'auto'  && !t.template_id) return false;
+    if (_bwFiltSrc === 'staff' &&  t.template_id) return false;
+    if (_bwFiltType !== 'all' && (t.name || '') !== _bwFiltType) return false;
+    if (q && !(t.name || '').toLowerCase().includes(q)) return false;
+    return true;
+  });
+}
+
+function bwFiltersActive(){
+  return _bwFiltMine || _bwFiltDept !== 'all' || _bwFiltSrc !== 'all'
+      || _bwFiltType !== 'all' || _bwFiltText.trim() !== '';
+}
+
+// The filter bar. Departments are passed by INDEX (not value) to sidestep any
+// quoting issues with odd department names.
+function bwFilterBar(shown, total){
+  // Staff see only their own tasks and get NO filter controls at all — nothing to
+  // misuse, nothing to explain, and no way to hide one of their own jobs behind a
+  // filter. Just a quiet note so a short list never looks like a broken board.
+  if (!_showFilters){
+    return (_viewScope === 'mine' && _myBwId)
+      ? `<div class="bw-scope-note">\u{1F464} Your tasks${_myName ? ' \u00b7 ' + bwEsc(_myName) : ''} \u2014 showing ${shown}</div>`
+      : '';
+  }
+  const depts = bwDepartments();
+  const deptPill = (val, label, idx) =>
+    `<button class="bw-filt-pill${_bwFiltDept === val ? ' on' : ''}" onclick="bwSetDeptIdx(${idx})">${bwEsc(label)}</button>`;
+  const deptPills = [deptPill('all','All',-1)]
+    .concat(depts.map((d,i) => deptPill(d, bwDeptLabel(d), i)))
+    .join('');
+
+  const srcPill = (val, label) =>
+    `<button class="bw-filt-pill${_bwFiltSrc === val ? ' on' : ''}" onclick="bwSetSrc('${val}')">${label}</button>`;
+  const srcPills = srcPill('all','All') + srcPill('auto','Auto') + srcPill('staff','Raised by staff');
+
+  // Only offer "My tasks" if we actually know who this person is in Breezeway.
+  const mine = _myBwId
+    ? `<button class="bw-filt-mine${_bwFiltMine ? ' on' : ''}" onclick="bwToggleMine()"
+        title="Show only tasks I'm assigned to">\u{1F464} My tasks${_myName ? ' \u00b7 ' + bwEsc(_myName) : ''}</button>`
+    : '';
+
+  const types = bwTaskTypes();
+  const typeSel = types.length
+    ? `<select class="bw-filt-sel" onchange="bwSetType(this.value)">
+         <option value="all"${_bwFiltType==='all'?' selected':''}>All task types</option>
+         ${types.map(t => `<option value="${bwEsc(t.name)}"${_bwFiltType===t.name?' selected':''}>${bwEsc(t.name)} (${t.count})</option>`).join('')}
+       </select>`
+    : '';
+
+  const clear = bwFiltersActive()
+    ? `<button class="bw-filt-clear" onclick="bwClearFilters()">Clear</button>` : '';
+
+  return `<div class="bw-filter">
+    ${mine ? `<div class="bw-filt-grp">${mine}</div>` : ''}
+    <div class="bw-filt-grp"><span class="bw-filt-lab">Dept</span>${deptPills}</div>
+    <div class="bw-filt-grp"><span class="bw-filt-lab">Source</span>${srcPills}</div>
+    <div class="bw-filt-row">
+      ${typeSel}
+      <input id="bwFiltText" class="bw-filt-search" type="text" placeholder="Search task name…"
+             value="${bwEsc(_bwFiltText)}" oninput="bwSetText(this.value)" autocomplete="off">
+      ${clear}
+      <span class="bw-filt-count">${shown} of ${total}</span>
+    </div>
+  </div>`;
+}
+
+// Re-render the open panel after a filter change. The panel body is rebuilt, so the
+// search box is recreated — put focus and caret back if the user was typing.
+function bwRepaintPanel(refocus){
+  if (!_currentPanel) return;
+  showPanel(_currentPanel);
+  if (refocus){
+    const el = document.getElementById('bwFiltText');
+    if (el){ el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+  }
+}
+function bwSetDeptIdx(i){
+  const depts = bwDepartments();
+  _bwFiltDept = (i < 0) ? 'all' : (depts[i] || 'all');
+  bwRepaintPanel(false);
+}
+function bwSetText(v){ _bwFiltText = v; bwRepaintPanel(true); }
+function bwSetSrc(v){ _bwFiltSrc = v; bwRepaintPanel(false); }
+function bwSetType(v){ _bwFiltType = v; bwRepaintPanel(false); }
+function bwToggleMine(){ _bwFiltMine = !_bwFiltMine; bwRepaintPanel(false); }
+function bwClearFilters(){
+  _bwFiltDept = 'all'; _bwFiltText = ''; _bwFiltMine = false;
+  _bwFiltSrc = 'all';  _bwFiltType = 'all';
+  bwRepaintPanel(false);
+}
+
+// Standard body for the four status panels: filter bar + rows (or the right empty state).
+function bwStatusPanelHTML(allTasks, mode, emptyHTML){
+  const tasks = bwApplyFilters(allTasks);
+  const body = tasks.length
+    ? tasks.map(t => bwTaskRow({...t, _propId:t.propertyId, _propName:t.propertyName}, mode)).join('')
+    : (allTasks.length === 0 ? emptyHTML : `<div class="p-empty">No tasks match this filter</div>`);
+  return bwFilterBar(tasks.length, allTasks.length) + body;
 }
 
 // Format a timestamp like "2026-05-18T13:54:46" → "13:54"
@@ -983,7 +1353,11 @@ function bwTaskRow(t, mode){
   let doneBtn = '';
   if (mode !== 'completed' && t._propId != null) {
     const esc = s => String(s == null ? '' : s).replace(/'/g, "\\'");
-    doneBtn = `<button class="bw-done-btn" onclick="event.stopPropagation(); closeBwTask(${t.id}, ${t._propId}, '${esc(t._propName)}', '${esc(name)}', this)">Completed</button>`;
+    doneBtn = bwQueued(t.id)
+      // Already queued (and the panel has since re-rendered) — show it honestly and don't
+      // let them tap it again.
+      ? `<button class="bw-done-btn" disabled style="opacity:.65">\u23F3 Queued</button>`
+      : `<button class="bw-done-btn" onclick="event.stopPropagation(); closeBwTask(${t.id}, ${t._propId}, '${esc(t._propName)}', '${esc(name)}', this)">Completed</button>`;
   }
 
   return `<div class="bw-task">
@@ -1056,74 +1430,79 @@ const ownerBadge = b.owner ? `<span style="background:rgba(180,120,255,.18);colo
     panel.style.borderTopColor = '#aaa';
     action.style.display = 'flex';
     bwLink.href = BW_APP_URL;
-    const tasks = bwTasksByStatus('not_started');
-    bo.innerHTML = tasks.length===0
-      ? `<div class="p-empty" style="color:#00e676">✓ All tasks started</div>`
-      : tasks.map(t => bwTaskRow({...t, _propId:t.propertyId, _propName:t.propertyName}, 'not_started')).join('');
+    bo.innerHTML = bwStatusPanelHTML(bwTasksByStatus('not_started'), 'not_started',
+      `<div class="p-empty" style="color:#00e676">✓ All tasks started</div>`);
   }
   else if(type==='bw-in-progress'){
     ti.textContent='In Progress — Today';
     panel.style.borderTopColor = '#f4a261';
     action.style.display = 'flex';
     bwLink.href = BW_APP_URL;
-    const tasks = bwTasksByStatus('in_progress');
-    bo.innerHTML = tasks.length===0
-      ? `<div class="p-empty">Nothing in progress right now</div>`
-      : tasks.map(t => bwTaskRow({...t, _propId:t.propertyId, _propName:t.propertyName}, 'in_progress')).join('');
+    bo.innerHTML = bwStatusPanelHTML(bwTasksByStatus('in_progress'), 'in_progress',
+      `<div class="p-empty">Nothing in progress right now</div>`);
   }
   else if(type==='bw-completed'){
     ti.textContent='Completed — Today';
     panel.style.borderTopColor = '#00e676';
     action.style.display = 'flex';
     bwLink.href = BW_APP_URL;
-    const tasks = bwTasksByStatus('completed');
-    bo.innerHTML = tasks.length===0
-      ? `<div class="p-empty">Nothing completed yet today</div>`
-      : tasks.map(t => bwTaskRow(t, 'completed')).join('');
+    bo.innerHTML = bwStatusPanelHTML(bwTasksByStatus('completed'), 'completed',
+      `<div class="p-empty">Nothing completed yet today</div>`);
   }
   else if(type==='bw-issues'){
     ti.textContent='Issues — Today';
     panel.style.borderTopColor = '#ff4466';
     action.style.display = 'flex';
     bwLink.href = BW_APP_URL;
-    const tasks = bwTasksByStatus('issues');
-    bo.innerHTML = tasks.length===0
-      ? `<div class="p-empty" style="color:#00e676">✓ No issues</div>`
-      : tasks.map(t => bwTaskRow({...t, _propId:t.propertyId, _propName:t.propertyName}, 'issues')).join('');
+    bo.innerHTML = bwStatusPanelHTML(bwTasksByStatus('issues'), 'issues',
+      `<div class="p-empty" style="color:#00e676">✓ No issues</div>`);
   }
   else if(type==='bw-total'){
     ti.textContent='All Properties — Today';
     panel.style.borderTopColor = '#00e5ff';
     action.style.display = 'flex';
     bwLink.href = BW_APP_URL;
-    // Keep this as a property-level overview (counts grid)
-    const props = (_bwData.properties || [])
+    // Property-level overview (counts grid), now filterable by department / task name.
+    const order = {issues:0, in_progress:1, not_started:2, completed:3};
+    const filtOn = bwFiltersActive();
+    let shownCount = 0, totalCount = 0;
+    const rows = [];
+    (_bwData.properties || [])
       .slice()
-      .sort((a,b) => (a.name || '').localeCompare(b.name || ''));
+      .sort((a,b) => (a.name || '').localeCompare(b.name || ''))
+      .forEach(p => {
+        const all = bwScopeList(p.tasks || []);   // staff only see their own tasks
+        totalCount += all.length;
+        const tasks = bwApplyFilters(all).slice().sort((a,b) => {
+          const oa = order[a.classification] ?? 9, ob = order[b.classification] ?? 9;
+          if (oa !== ob) return oa - ob;
+          return (a.name||'').localeCompare(b.name||'');
+        });
+        shownCount += tasks.length;
+        // When a filter is on, drop lodges with no matching task.
+        if (tasks.length || !filtOn) rows.push({p, tasks});
+      });
     const legend = `<div style="display:flex;gap:14px;padding:8px 0 12px 0;border-bottom:1px solid #1a1a30;margin-bottom:8px;font-family:'DM Mono',monospace;font-size:11px;color:#999;letter-spacing:1px">
       <span><span class="bw-count ns" style="display:inline-block">NS</span> Not Started</span>
       <span><span class="bw-count ip" style="display:inline-block">IP</span> In Progress</span>
       <span><span class="bw-count dn" style="display:inline-block">DN</span> Done</span>
       <span><span class="bw-count is" style="display:inline-block">IS</span> Issues</span>
     </div>`;
-    bo.innerHTML = props.length===0
-      ? `<div class="p-empty">No properties have tasks today</div>`
-      : legend + props.map((p, i) => {
-          const ns = p.not_started || 0;
-          const ip = p.in_progress || 0;
-          const dn = p.completed   || 0;
-          const is = p.issues      || 0;
-          // Tasks for this property, sorted: outstanding first, then by name
-          const order = {issues:0, in_progress:1, not_started:2, completed:3};
-          const tasks = (p.tasks || []).slice().sort((a,b) => {
-            const oa = order[a.classification] ?? 9, ob = order[b.classification] ?? 9;
-            if (oa !== ob) return oa - ob;
-            return (a.name||'').localeCompare(b.name||'');
-          });
+    bo.innerHTML = bwFilterBar(shownCount, totalCount) + (rows.length===0
+      ? `<div class="p-empty">${filtOn ? 'No tasks match this filter' : 'No properties have tasks today'}</div>`
+      : legend + rows.map(({p, tasks}, i) => {
+          // Counts are recomputed from the tasks actually SHOWN, so the grid always
+          // agrees with the rows beneath it (filtered or not).
+          const c = {not_started:0, in_progress:0, completed:0, issues:0};
+          tasks.forEach(t => { if (c[t.classification] !== undefined) c[t.classification]++; });
+          const ns = c.not_started, ip = c.in_progress, dn = c.completed, is = c.issues;
           const taskRows = tasks.length
             ? tasks.map(t => bwTaskRow({...t, propertyName:'', _propId:p.id, _propName:p.name}, t.classification)).join('')
             : `<div class="p-empty" style="padding:14px">No task detail</div>`;
-          return `<div class="bw-row expandable" id="bwprop-h-${i}" onclick="toggleProp(${i})">
+          // Filtering is a hunt — auto-expand the matches so you don't have to tap
+          // every lodge. Without a filter, keep the usual collapsed overview.
+          const op = filtOn ? ' open' : '';
+          return `<div class="bw-row expandable${op}" id="bwprop-h-${i}" onclick="toggleProp(${i})">
             <div class="bw-name"><span class="bw-caret" id="bwprop-c-${i}">›</span>${p.name || 'Unknown'}${(()=>{const kc=keyCodeForProperty(p.name);return kc?` <span class="bw-keycode" title="Key code">🔑 ${kc}</span>`:'';})()}</div>
             <div class="bw-counts">
               <div class="bw-count ${ns?'ns':'zero'}" title="Not Started">${ns}</div>
@@ -1132,8 +1511,8 @@ const ownerBadge = b.owner ? `<span style="background:rgba(180,120,255,.18);colo
               <div class="bw-count ${is?'is':'zero'}" title="Issues">${is}</div>
             </div>
           </div>
-          <div class="bw-prop-tasks" id="bwprop-t-${i}">${taskRows}</div>`;
-        }).join('');
+          <div class="bw-prop-tasks${op}" id="bwprop-t-${i}">${taskRows}</div>`;
+        }).join(''));
   }
   else if(type==='bw-staff'){
     ti.textContent='Today\u2019s Staff';
@@ -1309,7 +1688,12 @@ function toggleProp(i){
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 fetchAll();
-setTimeout(bwOpeningUnlock, 1200);   // offer one-time unlock shortly after load (dismissible)
+// Access-only: read the logged-in identity for close attribution, then resolve it to a
+// Breezeway person id so the "My tasks" filter can be offered.
+detectAccessIdentity().then(detectMe);
+// Pick up any completions left queued from a previous session (e.g. the app was closed on a
+// dead signal) and keep retrying them.
+bwQueueLoad(); bwQueueBadge(); bwQueueStart();
 setInterval(fetchAll, 10*60*1000); // full refresh every 10 mins
 setInterval(renderFromCache, 60*1000); // re-render every minute
 setInterval(updateFreshness, 30*1000); // keep the staleness indicator current between fetches
