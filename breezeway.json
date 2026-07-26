@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-07-26T12:48:18.453Z",
+  "_generated": "2026-07-26T13:04:40.676Z",
   "_source": "cron",
   "_date": "2026-07-26",
   "_status": {
-    "last_run": "2026-07-26T12:48:18.453Z",
+    "last_run": "2026-07-26T13:04:40.676Z",
     "ok": true,
     "properties_polled": 104,
     "properties_raw_total": 135,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 33,
-      "finished": 66,
-      "in_progress": 5,
+      "finished": 70,
+      "created": 32,
+      "in_progress": 3,
       "closed": 2
     },
     "first_task_shape": {
@@ -40,6 +40,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -77,37 +78,37 @@
       ],
       "sample_type_department": "housekeeping",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 33,
-    "in_progress": 4,
-    "completed": 68,
+    "not_started": 32,
+    "in_progress": 2,
+    "completed": 72,
     "issues": 1
   },
-  "total_tasks": 106,
+  "total_tasks": 107,
   "properties": [
     {
       "name": "Hareside - Hareside - 1",
       "id": 1247443,
       "total": 4,
-      "not_started": 2,
-      "in_progress": 1,
-      "completed": 1,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
           "id": 149374799,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-26T12:51:45",
+          "finished_at": "2026-07-26T12:51:46",
           "scheduled_date": "2026-07-26",
           "paused": false,
           "assignedTo": "Rachel Gaazen",
@@ -147,11 +148,11 @@
         {
           "id": 149374821,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
           "started_at": "2026-07-26T11:37:48",
-          "finished_at": null,
+          "finished_at": "2026-07-26T12:56:21",
           "scheduled_date": "2026-07-26",
           "paused": false,
           "assignedTo": "Nicola Biggs",
@@ -461,10 +462,10 @@
     {
       "name": "WR Elouera, 21 Isis Lake IS21",
       "id": 1109167,
-      "total": 9,
+      "total": 10,
       "not_started": 2,
-      "in_progress": 1,
-      "completed": 6,
+      "in_progress": 0,
+      "completed": 8,
       "issues": 0,
       "tasks": [
         {
@@ -557,11 +558,11 @@
         {
           "id": 149374870,
           "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-26T12:56:17",
+          "finished_at": "2026-07-26T12:56:19",
           "scheduled_date": "2026-07-26",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -663,11 +664,11 @@
         {
           "id": 159416628,
           "name": "Guest Arrival check",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "inspection",
           "started_at": "2026-07-26T12:45:52",
-          "finished_at": null,
+          "finished_at": "2026-07-26T12:56:12",
           "scheduled_date": "2026-07-26",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -711,6 +712,33 @@
             465981
           ],
           "template_id": 540368
+        },
+        {
+          "id": 160057384,
+          "name": "No blind cord or rope master bedroom ",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "maintenance",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-26",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Ryan Adams",
+            "Charlie Weeks"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742,
+            450362,
+            465981
+          ],
+          "template_id": null
         }
       ]
     },
