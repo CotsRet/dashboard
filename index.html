@@ -672,6 +672,39 @@ function keyCodeForProperty(name){
   return _keyCodes[last] || '';
 }
 
+// Reorder a clean board property name for DISPLAY only: park prefix stays first,
+// then the plot/pitch code, then the property name.
+//   "HB Cotswold Reach CR79"  ->  "HB CR79 Cotswold Reach"
+// Only names that start with a known park prefix AND end in a plot code (last
+// token containing a digit) are reordered; every other BW name is returned
+// unchanged so odd/duplicate names are never mangled. Display only — the RAW
+// name is still what we sort on and pass to keyCodeForProperty().
+const BW_PARK_PREFIXES = new Set(['HB','LP','LME','WR']);
+function bwDisplayName(name){
+  if (!name) return name;
+  const toks = String(name).replace(/\s+/g,' ').trim().split(' ');
+  if (toks.length < 3 || !BW_PARK_PREFIXES.has(toks[0]) || !/\d/.test(toks[toks.length-1])) return name;
+  const plot = toks[toks.length-1];
+  const middle = toks.slice(1,-1);
+  while (middle.length && /^[-–—]+$/.test(middle[middle.length-1])) middle.pop();
+  if (!middle.length) return name;
+  return toks[0] + ' ' + plot + ' ' + middle.join(' ');
+}
+
+// Ordering helpers: sort rows by plot code (natural: ST7 < ST16 < ST101) while
+// keeping parks grouped (prefix first). Non-park/duplicate names sort after parks.
+function bwPlotSortKey(name){
+  const toks = String(name||'').trim().split(/\s+/);
+  const prefix = BW_PARK_PREFIXES.has(toks[0]) ? toks[0] : '~' + (toks[0]||'');
+  const code = (toks[toks.length-1]||'').replace(/[^A-Za-z0-9]/g,'').toUpperCase();
+  const m = code.match(/^([A-Za-z]*)(\d*)/) || ['','',''];
+  return {prefix, alpha:m[1]||'', num:m[2]!==''?parseInt(m[2],10):Infinity, name:String(name||'')};
+}
+function bwPlotCompare(an, bn){
+  const a=bwPlotSortKey(an), b=bwPlotSortKey(bn);
+  return a.prefix.localeCompare(b.prefix) || a.alpha.localeCompare(b.alpha) || (a.num-b.num) || a.name.localeCompare(b.name);
+}
+
 function getDayData(dashData, offset){
   const date = isoDate(offset);
   const day = dashData.days && dashData.days[date];
@@ -1083,7 +1116,7 @@ function bwTasksByStatus(classification){
   return bwScopedTasks()
     .filter(t => t.classification === classification)
     .sort((a, b) => {
-      const np = (a.propertyName || '').localeCompare(b.propertyName || '');
+      const np = bwPlotCompare(a.propertyName, b.propertyName);
       if (np !== 0) return np;
       return (a.name || '').localeCompare(b.name || '');
     });
@@ -1362,7 +1395,7 @@ function bwTaskRow(t, mode){
 
   return `<div class="bw-task">
     <div class="bw-task-head">
-      <div class="bw-task-prop">${prop}${kcPill}</div>
+      <div class="bw-task-prop">${bwDisplayName(prop)}${kcPill}</div>
       <div class="bw-task-meta">${info}</div>
     </div>
     <div class="bw-task-body">${name}${who}</div>
@@ -1469,7 +1502,7 @@ const ownerBadge = b.owner ? `<span style="background:rgba(180,120,255,.18);colo
     const rows = [];
     (_bwData.properties || [])
       .slice()
-      .sort((a,b) => (a.name || '').localeCompare(b.name || ''))
+      .sort((a,b) => bwPlotCompare(a.name, b.name))
       .forEach(p => {
         const all = bwScopeList(p.tasks || []);   // staff only see their own tasks
         totalCount += all.length;
@@ -1503,7 +1536,7 @@ const ownerBadge = b.owner ? `<span style="background:rgba(180,120,255,.18);colo
           // every lodge. Without a filter, keep the usual collapsed overview.
           const op = filtOn ? ' open' : '';
           return `<div class="bw-row expandable${op}" id="bwprop-h-${i}" onclick="toggleProp(${i})">
-            <div class="bw-name"><span class="bw-caret" id="bwprop-c-${i}">›</span>${p.name || 'Unknown'}${(()=>{const kc=keyCodeForProperty(p.name);return kc?` <span class="bw-keycode" title="Key code">🔑 ${kc}</span>`:'';})()}</div>
+            <div class="bw-name"><span class="bw-caret" id="bwprop-c-${i}">›</span>${bwDisplayName(p.name || 'Unknown')}${(()=>{const kc=keyCodeForProperty(p.name);return kc?` <span class="bw-keycode" title="Key code">🔑 ${kc}</span>`:'';})()}</div>
             <div class="bw-counts">
               <div class="bw-count ${ns?'ns':'zero'}" title="Not Started">${ns}</div>
               <div class="bw-count ${ip?'ip':'zero'}" title="In Progress">${ip}</div>
@@ -1576,7 +1609,7 @@ const ownerBadge = b.owner ? `<span style="background:rgba(180,120,255,.18);colo
     // Filter properties belonging to this estate
     const props = (_bwData.properties || [])
       .filter(p => !BW_IGNORE_PROPERTY_NAMES.has(p.name) && bwEstateForProperty(p.name) === code)
-      .sort((a,b) => (a.name || '').localeCompare(b.name || ''));
+      .sort((a,b) => bwPlotCompare(a.name, b.name));
 
     if (props.length === 0) {
       bo.innerHTML = `<div class="p-empty">No tasks today for ${estLabel}</div>`;
@@ -1613,7 +1646,7 @@ const ownerBadge = b.owner ? `<span style="background:rgba(180,120,255,.18);colo
         const dn = p.completed   || 0;
         const is = p.issues      || 0;
         return `<div class="bw-row">
-          <div class="bw-name">${p.name || 'Unknown'}</div>
+          <div class="bw-name">${bwDisplayName(p.name || 'Unknown')}</div>
           <div class="bw-counts">
             <div class="bw-count ${ns?'ns':'zero'}" title="Not Started">${ns}</div>
             <div class="bw-count ${ip?'ip':'zero'}" title="In Progress">${ip}</div>
