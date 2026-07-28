@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-07-28T20:46:39.619Z",
+  "_generated": "2026-07-28T22:46:42.292Z",
   "_source": "cron",
   "_date": "2026-07-28",
   "_status": {
-    "last_run": "2026-07-28T20:46:39.619Z",
+    "last_run": "2026-07-28T22:46:42.292Z",
     "ok": true,
     "properties_polled": 104,
     "properties_raw_total": 135,
@@ -26,10 +26,10 @@
     ],
     "errors": [],
     "stages_seen": {
-      "in_progress": 4,
-      "created": 8,
       "finished": 47,
-      "closed": 23
+      "closed": 23,
+      "created": 1,
+      "in_progress": 1
     },
     "first_task_shape": {
       "keys": [
@@ -40,6 +40,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -67,127 +68,70 @@
       ],
       "sample_assignments": [
         {
+          "assignee_id": 85859,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 208437238,
+          "name": "Tracey Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
           "assignee_id": 89951,
           "employee_code": null,
           "expires_at": null,
-          "id": 220837406,
+          "id": 207580350,
           "name": "Lee Kelly",
           "type_task_user_status": "assigned"
         },
         {
-          "assignee_id": 274021,
+          "assignee_id": 149092,
           "employee_code": null,
           "expires_at": null,
-          "id": 220837405,
-          "name": "Darren Smith",
+          "id": 208437239,
+          "name": "Janet Smith",
           "type_task_user_status": "assigned"
         },
         {
-          "assignee_id": 299742,
+          "assignee_id": 204277,
           "employee_code": null,
           "expires_at": null,
-          "id": 220837403,
-          "name": "Ashley Smith",
+          "id": 208437240,
+          "name": "Kate Hammond",
           "type_task_user_status": "assigned"
         },
         {
-          "assignee_id": 450362,
+          "assignee_id": 272395,
           "employee_code": null,
           "expires_at": null,
-          "id": 220837407,
-          "name": "Ryan Adams",
+          "id": 208437241,
+          "name": "Melanie Thomson",
           "type_task_user_status": "assigned"
         },
         {
-          "assignee_id": 465981,
+          "assignee_id": 310046,
           "employee_code": null,
           "expires_at": null,
-          "id": 220837404,
-          "name": "Charlie  Weeks",
+          "id": 207580352,
+          "name": "Rachel Gaazen",
           "type_task_user_status": "assigned"
         }
       ],
-      "sample_type_department": "maintenance",
+      "sample_type_department": "housekeeping",
       "sample_status": {
-        "code": "in_progress",
-        "name": "In Progress",
-        "stage": "in_progress"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 8,
+    "not_started": 1,
     "in_progress": 0,
     "completed": 70,
-    "issues": 4
+    "issues": 1
   },
-  "total_tasks": 82,
+  "total_tasks": 72,
   "properties": [
-    {
-      "name": "HB Lakewood Lodge  ND2",
-      "id": 1419456,
-      "total": 2,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 1,
-      "tasks": [
-        {
-          "id": 160229139,
-          "name": "Ants",
-          "classification": "issues",
-          "status_code": "in_progress",
-          "department": "maintenance",
-          "started_at": "2026-07-28T11:12:47",
-          "finished_at": null,
-          "scheduled_date": "2026-07-28",
-          "paused": true,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Ryan Adams",
-            "Charlie Weeks"
-          ],
-          "assigneeIds": [
-            89951,
-            274021,
-            299742,
-            450362,
-            465981
-          ],
-          "template_id": null
-        },
-        {
-          "id": 160392870,
-          "name": "Net curtain",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-28",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Ryan Adams",
-            "Charlie Weeks"
-          ],
-          "assigneeIds": [
-            89951,
-            274021,
-            299742,
-            450362,
-            465981
-          ],
-          "template_id": null
-        }
-      ]
-    },
     {
       "name": "HB HV2 Cleaning  - HV2",
       "id": 1393779,
@@ -459,8 +403,8 @@
     {
       "name": "Hareside - Hareside - 1",
       "id": 1247443,
-      "total": 4,
-      "not_started": 1,
+      "total": 3,
+      "not_started": 0,
       "in_progress": 0,
       "completed": 3,
       "issues": 0,
@@ -531,154 +475,6 @@
             310046
           ],
           "template_id": 55606
-        },
-        {
-          "id": 154040976,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-28",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            310046
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
-      "name": "LME Howells mere 92 Wishbone  - HM92",
-      "id": 1225826,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 149551112,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-28",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen",
-          "assignedToList": [
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            310046
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
-      "name": "HB Poppy Meadow SM13",
-      "id": 1165393,
-      "total": 2,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 1,
-      "tasks": [
-        {
-          "id": 154356189,
-          "name": "Twin room blind ripped ",
-          "classification": "issues",
-          "status_code": "in_progress",
-          "department": "maintenance",
-          "started_at": "2026-07-03T12:34:09",
-          "finished_at": null,
-          "scheduled_date": "2026-07-28",
-          "paused": true,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Peter Milligan",
-            "Ryan Adams"
-          ],
-          "assigneeIds": [
-            89951,
-            274021,
-            299742,
-            330598,
-            450362
-          ],
-          "template_id": null
-        },
-        {
-          "id": 159358193,
-          "name": "broken curtain ",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-28",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Charlie Weeks"
-          ],
-          "assigneeIds": [
-            89951,
-            465981
-          ],
-          "template_id": null
-        }
-      ]
-    },
-    {
-      "name": "HB Duckling View - ST61",
-      "id": 1127222,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 160392283,
-          "name": "Broken parasol reported by guest",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-28",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Ryan Adams",
-            "Charlie Weeks"
-          ],
-          "assigneeIds": [
-            89951,
-            274021,
-            299742,
-            450362,
-            465981
-          ],
-          "template_id": null
         }
       ]
     },
@@ -941,37 +737,12 @@
     {
       "name": "HB Cotswold Reach CR79",
       "id": 1081812,
-      "total": 6,
-      "not_started": 1,
+      "total": 4,
+      "not_started": 0,
       "in_progress": 0,
       "completed": 4,
-      "issues": 1,
+      "issues": 0,
       "tasks": [
-        {
-          "id": 155136334,
-          "name": "Lost property ",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-07-28",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Karen Rand",
-            "Deberoh Bird"
-          ],
-          "assigneeIds": [
-            89951,
-            310046,
-            324278,
-            464141
-          ],
-          "template_id": null
-        },
         {
           "id": 160257579,
           "name": "Missed cleaning issues",
@@ -1034,33 +805,6 @@
           "finished_at": "2026-07-28T12:01:12",
           "scheduled_date": "2026-07-28",
           "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Ryan Adams",
-            "Charlie Weeks"
-          ],
-          "assigneeIds": [
-            89951,
-            274021,
-            299742,
-            450362,
-            465981
-          ],
-          "template_id": null
-        },
-        {
-          "id": 160384650,
-          "name": "Light out in the kitchen ",
-          "classification": "issues",
-          "status_code": "in_progress",
-          "department": "maintenance",
-          "started_at": "2026-07-28T12:48:51",
-          "finished_at": null,
-          "scheduled_date": "2026-07-28",
-          "paused": true,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
@@ -1548,8 +1292,8 @@
     {
       "name": "HB The Bathing House HV24",
       "id": 927225,
-      "total": 2,
-      "not_started": 1,
+      "total": 1,
+      "not_started": 0,
       "in_progress": 0,
       "completed": 1,
       "issues": 0,
@@ -1562,33 +1306,6 @@
           "department": "maintenance",
           "started_at": "2026-07-28T12:55:20",
           "finished_at": "2026-07-28T12:55:22",
-          "scheduled_date": "2026-07-28",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Ryan Adams",
-            "Charlie Weeks"
-          ],
-          "assigneeIds": [
-            89951,
-            274021,
-            299742,
-            450362,
-            465981
-          ],
-          "template_id": null
-        },
-        {
-          "id": 160391547,
-          "name": "Broken fan & hoover",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
           "scheduled_date": "2026-07-28",
           "paused": false,
           "assignedTo": "Lee Kelly",
