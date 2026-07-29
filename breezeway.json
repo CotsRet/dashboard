@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-07-29T12:16:22.362Z",
+  "_generated": "2026-07-29T12:31:34.196Z",
   "_source": "cron",
   "_date": "2026-07-29",
   "_status": {
-    "last_run": "2026-07-29T12:16:22.362Z",
+    "last_run": "2026-07-29T12:31:34.196Z",
     "ok": true,
     "properties_polled": 104,
     "properties_raw_total": 135,
@@ -26,10 +26,10 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 32,
+      "created": 31,
       "in_progress": 4,
       "closed": 21,
-      "finished": 12
+      "finished": 14
     },
     "first_task_shape": {
       "keys": [
@@ -100,12 +100,12 @@
     }
   },
   "summary": {
-    "not_started": 32,
+    "not_started": 31,
     "in_progress": 1,
-    "completed": 33,
+    "completed": 35,
     "issues": 3
   },
-  "total_tasks": 69,
+  "total_tasks": 70,
   "properties": [
     {
       "name": "HB The Happy Hideaway - ND46",
@@ -337,10 +337,10 @@
     {
       "name": "HB Bunnys Burrow ST138",
       "id": 1234148,
-      "total": 8,
+      "total": 9,
       "not_started": 2,
-      "in_progress": 1,
-      "completed": 5,
+      "in_progress": 0,
+      "completed": 7,
       "issues": 0,
       "tasks": [
         {
@@ -435,11 +435,11 @@
         {
           "id": 154460961,
           "name": "Cleaning check",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "inspection",
           "started_at": "2026-07-29T12:13:59",
-          "finished_at": null,
+          "finished_at": "2026-07-29T12:22:00",
           "scheduled_date": "2026-07-29",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -510,11 +510,11 @@
         {
           "id": 159700091,
           "name": "Guest Arrival check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-07-29T12:22:15",
+          "finished_at": "2026-07-29T12:23:09",
           "scheduled_date": "2026-07-29",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -533,6 +533,33 @@
         {
           "id": 160563840,
           "name": "Broken shelf en suite ",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "maintenance",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-29",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Ryan Adams",
+            "Charlie Weeks"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742,
+            450362,
+            465981
+          ],
+          "template_id": null
+        },
+        {
+          "id": 160571201,
+          "name": "En-suite shelf broken ",
           "classification": "not_started",
           "status_code": "created",
           "department": "maintenance",
@@ -1049,8 +1076,8 @@
       "name": "HB The Cosy Cabin HV73",
       "id": 927230,
       "total": 6,
-      "not_started": 3,
-      "in_progress": 0,
+      "not_started": 2,
+      "in_progress": 1,
       "completed": 3,
       "issues": 0,
       "tasks": [
@@ -1119,10 +1146,10 @@
         {
           "id": 152610800,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-07-29T12:20:00",
           "finished_at": null,
           "scheduled_date": "2026-07-29",
           "paused": false,
@@ -1130,11 +1157,15 @@
           "assignedToList": [
             "Lee Kelly",
             "Rachel Gaazen",
+            "Kian Dilley",
+            "Lily Stirling",
             "Deberoh Bird"
           ],
           "assigneeIds": [
             89951,
             310046,
+            328298,
+            329342,
             464141
           ],
           "template_id": 55606
