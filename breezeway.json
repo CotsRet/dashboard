@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-07-29T18:28:19.138Z",
+  "_generated": "2026-07-29T18:33:35.043Z",
   "_source": "cron",
   "_date": "2026-07-29",
   "_status": {
-    "last_run": "2026-07-29T18:28:19.138Z",
+    "last_run": "2026-07-29T18:33:35.043Z",
     "ok": true,
     "properties_polled": 104,
     "properties_raw_total": 135,
@@ -24,26 +24,10 @@
         "has_next": false
       }
     ],
-    "errors": [
-      {
-        "id": 1451482,
-        "name": "HB The Happy Hideaway - ND46",
-        "error": "HTTP 504"
-      },
-      {
-        "id": 1393779,
-        "name": "HB HV2 Cleaning  - HV2",
-        "error": "HTTP 504"
-      },
-      {
-        "id": 1328503,
-        "name": "LME - Minety Lake ML29",
-        "error": "HTTP 504"
-      }
-    ],
+    "errors": [],
     "stages_seen": {
+      "created": 14,
       "finished": 28,
-      "created": 13,
       "in_progress": 3,
       "closed": 23
     },
@@ -56,7 +40,6 @@
         "created_by",
         "description",
         "finished_at",
-        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -87,7 +70,7 @@
           "assignee_id": 89951,
           "employee_code": null,
           "expires_at": null,
-          "id": 212617529,
+          "id": 221347773,
           "name": "Lee Kelly",
           "type_task_user_status": "assigned"
         },
@@ -95,7 +78,7 @@
           "assignee_id": 310046,
           "employee_code": null,
           "expires_at": null,
-          "id": 212617530,
+          "id": 221347774,
           "name": "Rachel Gaazen",
           "type_task_user_status": "assigned"
         },
@@ -103,27 +86,61 @@
           "assignee_id": 464141,
           "employee_code": null,
           "expires_at": null,
-          "id": 221127494,
+          "id": 221347776,
           "name": "Deberoh Bird",
           "type_task_user_status": "assigned"
         }
       ],
       "sample_type_department": "inspection",
       "sample_status": {
-        "code": "finished",
-        "name": "Finished",
-        "stage": "finished"
+        "code": "created",
+        "name": "Created",
+        "stage": "new"
       }
     }
   },
   "summary": {
-    "not_started": 13,
+    "not_started": 14,
     "in_progress": 0,
     "completed": 51,
     "issues": 3
   },
-  "total_tasks": 67,
+  "total_tasks": 68,
   "properties": [
+    {
+      "name": "HB The Happy Hideaway - ND46",
+      "id": 1451482,
+      "total": 1,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 160557824,
+          "name": "Guest Arrival check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "inspection",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-07-29",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Deberoh Bird"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            464141
+          ],
+          "template_id": 86878
+        }
+      ]
+    },
     {
       "name": "HB Lakewood Lodge  ND2",
       "id": 1419456,
