@@ -712,7 +712,7 @@ function getDayData(dashData, offset){
   return {
     deps: (day.departures||[]).map(l=> typeof l==='string'
       ? {unitName:l, lateCheckout:''}
-      : {unitName:l.lodge, lateCheckout:l.late_checkout||'', owner:!!l.owner}),
+      : {unitName:l.lodge, lateCheckout:l.late_checkout||'', owner:!!l.owner, removals:l.removals||[]}),
     arrs: (day.arrivals||[]).map(l=> typeof l==='string'
       ? {unitName:l, earlyCheckin:'', extras:[]}
       : {unitName:l.lodge, earlyCheckin:l.early_checkin||'', extras:l.extras||[], owner:!!l.owner})
@@ -854,6 +854,7 @@ function render(){
   const arrs   = _arrs.length;
   const guests = _arrs.reduce((s,b)=>s+(b.numAdult||0)+(b.numChild||0),0);
   const extrasToday = _arrs.reduce((s,b)=>s+((b.extras&&b.extras.length)||0),0);
+  const removalsToday = _deps.reduce((s,b)=>s+((b.removals&&b.removals.length)||0),0);
   const extrasTmr   = _tmrArrs.reduce((s,b)=>s+((b.extras&&b.extras.length)||0),0);
   const alert  = glAlertStatus();
   const health = glStockHealth();
@@ -883,7 +884,7 @@ function render(){
     <div class="tile c-cyan" onclick="showPanel('deps')">
       <div class="t-label">Departures</div>
       <div class="t-num">${deps}</div>
-      <div class="t-sub">checkouts today · tap for list</div>
+      <div class="t-sub">${removalsToday?`${removalsToday} to remove · tap`:'checkouts today · tap for list'}</div>
     </div>
 
     <!-- Arrivals -->
@@ -1459,12 +1460,15 @@ const ownerBadge = b.owner ? `<span style="background:rgba(180,120,255,.18);colo
         const extras = (b.extras && b.extras.length)
           ? `<div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:6px">${b.extras.map(x=>`<span style="background:rgba(255,170,0,.15);color:#ffb733;padding:4px 10px;border-radius:10px;font-size:13px;font-weight:700;">🛎 ${x}</span>`).join('')}</div>`
           : '';
+        const removals = (b.removals && b.removals.length)
+          ? `<div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:6px">${b.removals.map(x=>`<span style="background:rgba(255,120,60,.16);color:#ff8a4c;padding:4px 10px;border-radius:10px;font-size:13px;font-weight:700;">↩️ Remove ${x}</span>`).join('')}</div>`
+          : '';
         return `<div class="p-row">
           <div style="flex:1">
             <div class="p-lodge">${b.unitName||b.propName||'Unknown'}</div>
             ${g ? `<div class="p-info">${g} guest${g!==1?'s':''}</div>` : ''}
             ${special}${ownerBadge}${b2bBadge}
-            ${extras}
+            ${extras}${removals}
           </div>
           <div class="p-status s-${status}"></div>
         </div>`;
