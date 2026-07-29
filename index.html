@@ -1310,17 +1310,25 @@ function bwStatusPanelHTML(allTasks, mode, emptyHTML){
 }
 
 // Format a timestamp like "2026-05-18T13:54:46" → "13:54"
+// Breezeway sends UTC timestamps with no zone marker (e.g. "2026-07-29T09:52:23").
+// Parse as UTC so times & durations render correctly in UK local time (BST/GMT auto).
+function bwParseTs(ts){
+  let s = String(ts == null ? '' : ts).trim();
+  if (s && !/[Zz]$|[+-]\d{2}:?\d{2}$/.test(s)) s += 'Z';
+  return new Date(s);
+}
+
 function fmtTaskTime(ts){
   if (!ts) return '';
-  // Match HH:MM in the timestamp string
-  const m = ts.match(/T(\d{2}:\d{2})/);
-  return m ? m[1] : '';
+  const d = bwParseTs(ts);
+  if (isNaN(d.getTime())) { const m = String(ts).match(/T(\d{2}:\d{2})/); return m ? m[1] : ''; }
+  return d.toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit', timeZone:'Europe/London'});
 }
 
 // Format duration since start, e.g. "for 1h 23m"
 function fmtElapsed(ts){
   if (!ts) return '';
-  const start = new Date(ts);
+  const start = bwParseTs(ts);
   if (isNaN(start.getTime())) return '';
   const now = new Date();
   const mins = Math.floor((now - start) / 60000);
