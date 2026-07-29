@@ -719,6 +719,30 @@ function getDayData(dashData, offset){
   };
 }
 
+// ── BACK-TO-BACK (B2B) ────────────────────────────────────────────────────────
+// A B2B = a lodge that checks OUT and IN on the same day. Beds24 lodge names in
+// dashboard.json ARE the pitch codes (e.g. "HV24"), so a departure that also
+// appears in that day's arrivals is a same-day turnaround.
+function b2bSetFor(deps, arrs){
+  const inArr = new Set((arrs||[]).map(x => (x.unitName||x.propName||'').trim()).filter(Boolean));
+  return new Set((deps||[]).map(x => (x.unitName||x.propName||'').trim()).filter(Boolean).filter(n => inArr.has(n)));
+}
+// Normalised pitch code from a Breezeway property name (last token) for matching a BW tile.
+function bwPitch(name){
+  const t = String(name||'').trim().split(/\s+/);
+  return t.length ? t[t.length-1].replace(/[^A-Za-z0-9]/g,'').toUpperCase() : '';
+}
+// Pitch codes that are back-to-back TODAY (the BW board is always "today").
+function bwTodayB2B(){
+  const day = _dashData && _dashData.days && _dashData.days[isoDate(0)];
+  const out = new Set();
+  if (!day) return out;
+  const norm = x => (typeof x==='string' ? x : (x&&x.lodge)||'').replace(/[^A-Za-z0-9]/g,'').toUpperCase();
+  const arr = new Set((day.arrivals||[]).map(norm).filter(Boolean));
+  (day.departures||[]).map(norm).filter(Boolean).forEach(p => { if (arr.has(p)) out.add(p); });
+  return out;
+}
+
 // ── SUPABASE ──────────────────────────────────────────────────────────────────
 async function fetchGL(){
   const r = await fetch(`${SUPA_URL}/rest/v1/gl_data?select=key,value`,{
@@ -1403,7 +1427,7 @@ function bwTaskRow(t, mode){
 
   return `<div class="bw-task">
     <div class="bw-task-head">
-      <div class="bw-task-prop">${bwDisplayName(prop)}${kcPill}</div>
+      <div class="bw-task-prop">${bwDisplayName(prop)}${kcPill}${t.propertyName && bwTodayB2B().has(bwPitch(t.propertyName)) ? ` <span title="Back-to-back today" style="color:#ff5b7a;font-weight:700;font-size:12px">🔁 B2B</span>` : ''}</div>
       <div class="bw-task-meta">${info}</div>
     </div>
     <div class="bw-task-body">${name}${who}</div>
@@ -1425,12 +1449,13 @@ function showPanel(type){
   panel.style.borderTopColor = '#00e5ff';
   action.style.display = 'none';
 
-  const lodgeList = (arr, status='none', timeField='') => arr.length===0
+  const lodgeList = (arr, status='none', timeField='', b2bSet=null) => arr.length===0
     ? `<div class="p-empty">No entries for this day</div>`
     : arr.map(b => {
         const g = (b.numAdult||0)+(b.numChild||0);
         const special = timeField && b[timeField] ? `<span style="background:rgba(0,229,255,.15);color:#00e5ff;padding:4px 10px;border-radius:10px;font-size:14px;font-weight:700;">${timeField==='lateCheckout'?'🕐 Late CO':'⏰ Early CI'}: ${b[timeField]}</span>` : '';
 const ownerBadge = b.owner ? `<span style="background:rgba(180,120,255,.18);color:#c9a3ff;padding:4px 10px;border-radius:10px;font-size:13px;font-weight:700;margin-left:6px;">👤 OWNER — thorough check</span>` : '';
+        const b2bBadge = (b2bSet && b2bSet.has((b.unitName||b.propName||'').trim())) ? `<span style="background:rgba(255,60,90,.16);color:#ff5b7a;padding:4px 10px;border-radius:10px;font-size:13px;font-weight:700;margin-left:6px;">🔁 B2B</span>` : '';
         const extras = (b.extras && b.extras.length)
           ? `<div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:6px">${b.extras.map(x=>`<span style="background:rgba(255,170,0,.15);color:#ffb733;padding:4px 10px;border-radius:10px;font-size:13px;font-weight:700;">🛎 ${x}</span>`).join('')}</div>`
           : '';
@@ -1438,7 +1463,7 @@ const ownerBadge = b.owner ? `<span style="background:rgba(180,120,255,.18);colo
           <div style="flex:1">
             <div class="p-lodge">${b.unitName||b.propName||'Unknown'}</div>
             ${g ? `<div class="p-info">${g} guest${g!==1?'s':''}</div>` : ''}
-            ${special}${ownerBadge}
+            ${special}${ownerBadge}${b2bBadge}
             ${extras}
           </div>
           <div class="p-status s-${status}"></div>
@@ -1447,23 +1472,23 @@ const ownerBadge = b.owner ? `<span style="background:rgba(180,120,255,.18);colo
 
   if(type==='deps'){
     ti.textContent=`Departures — ${fmtShort(dayOff)}`;
-    bo.innerHTML=lodgeList(_deps,'pending','lateCheckout');
+    bo.innerHTML=lodgeList(_deps,'pending','lateCheckout',b2bSetFor(_deps,_arrs));
   }
   else if(type==='arrs'){
     ti.textContent=`Arrivals — ${fmtShort(dayOff)}`;
-    bo.innerHTML=lodgeList(_arrs,'none','earlyCheckin');
+    bo.innerHTML=lodgeList(_arrs,'none','earlyCheckin',b2bSetFor(_deps,_arrs));
   }
   else if(type==='tmr-deps'){
     ti.textContent=`Tomorrow Departures — ${fmtShort(dayOff+1)}`;
     bo.innerHTML=_tmrDeps.length===0
       ?`<div class="p-empty">Loading...</div>`
-      :lodgeList(_tmrDeps,'pending','lateCheckout');
+      :lodgeList(_tmrDeps,'pending','lateCheckout',b2bSetFor(_tmrDeps,_tmrArrs));
   }
   else if(type==='tmr-arrs'){
     ti.textContent=`Tomorrow Arrivals — ${fmtShort(dayOff+1)}`;
     bo.innerHTML=_tmrArrs.length===0
       ?`<div class="p-empty">Loading...</div>`
-      :lodgeList(_tmrArrs,'none','earlyCheckin');
+      :lodgeList(_tmrArrs,'none','earlyCheckin',b2bSetFor(_tmrDeps,_tmrArrs));
   }
   // ── BW DRILL-DOWN PANELS ─────────────────────────────────────────────
   else if(type==='bw-not-started'){
@@ -1544,7 +1569,7 @@ const ownerBadge = b.owner ? `<span style="background:rgba(180,120,255,.18);colo
           // every lodge. Without a filter, keep the usual collapsed overview.
           const op = filtOn ? ' open' : '';
           return `<div class="bw-row expandable${op}" id="bwprop-h-${i}" onclick="toggleProp(${i})">
-            <div class="bw-name"><span class="bw-caret" id="bwprop-c-${i}">›</span>${bwDisplayName(p.name || 'Unknown')}${(()=>{const kc=keyCodeForProperty(p.name);return kc?` <span class="bw-keycode" title="Key code">🔑 ${kc}</span>`:'';})()}</div>
+            <div class="bw-name"><span class="bw-caret" id="bwprop-c-${i}">›</span>${bwDisplayName(p.name || 'Unknown')}${bwTodayB2B().has(bwPitch(p.name)) ? ' <span title="Back-to-back today" style="color:#ff5b7a;font-weight:700;font-size:12px">🔁 B2B</span>' : ''}${(()=>{const kc=keyCodeForProperty(p.name);return kc?` <span class="bw-keycode" title="Key code">🔑 ${kc}</span>`:'';})()}</div>
             <div class="bw-counts">
               <div class="bw-count ${ns?'ns':'zero'}" title="Not Started">${ns}</div>
               <div class="bw-count ${ip?'ip':'zero'}" title="In Progress">${ip}</div>
@@ -1654,7 +1679,7 @@ const ownerBadge = b.owner ? `<span style="background:rgba(180,120,255,.18);colo
         const dn = p.completed   || 0;
         const is = p.issues      || 0;
         return `<div class="bw-row">
-          <div class="bw-name">${bwDisplayName(p.name || 'Unknown')}</div>
+          <div class="bw-name">${bwDisplayName(p.name || 'Unknown')}${bwTodayB2B().has(bwPitch(p.name)) ? ' <span title="Back-to-back today" style="color:#ff5b7a;font-weight:700;font-size:12px">🔁 B2B</span>' : ''}</div>
           <div class="bw-counts">
             <div class="bw-count ${ns?'ns':'zero'}" title="Not Started">${ns}</div>
             <div class="bw-count ${ip?'ip':'zero'}" title="In Progress">${ip}</div>
