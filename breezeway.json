@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-08-01T10:01:17.871Z",
+  "_generated": "2026-08-01T10:15:41.632Z",
   "_source": "cron",
   "_date": "2026-08-01",
   "_status": {
-    "last_run": "2026-08-01T10:01:17.871Z",
+    "last_run": "2026-08-01T10:15:41.632Z",
     "ok": true,
     "properties_polled": 105,
     "properties_raw_total": 136,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "in_progress": 4,
-      "created": 87,
-      "finished": 6,
+      "finished": 7,
+      "created": 81,
+      "in_progress": 3,
       "closed": 8
     },
     "first_task_shape": {
@@ -40,6 +40,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -93,37 +94,37 @@
       ],
       "sample_type_department": "housekeeping",
       "sample_status": {
-        "code": "in_progress",
-        "name": "In Progress",
-        "stage": "in_progress"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 87,
-    "in_progress": 3,
-    "completed": 14,
+    "not_started": 81,
+    "in_progress": 2,
+    "completed": 15,
     "issues": 1
   },
-  "total_tasks": 105,
+  "total_tasks": 99,
   "properties": [
     {
       "name": "HB - Heron Hideaway HV18",
       "id": 1463537,
       "total": 1,
       "not_started": 0,
-      "in_progress": 1,
-      "completed": 0,
+      "in_progress": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 160920608,
           "name": "Make beds",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
           "started_at": "2026-08-01T09:40:07",
-          "finished_at": null,
+          "finished_at": "2026-08-01T10:08:16",
           "scheduled_date": "2026-08-01",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -222,70 +223,6 @@
       "tasks": [
         {
           "id": 151730429,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-08-01",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            310046
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
-      "name": "LME - Minety Lake ML29",
-      "id": 1328503,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 150683177,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-08-01",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            310046
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
-      "name": "LME Howells mere HM108",
-      "id": 1258934,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 150225613,
           "name": "Cleaning check",
           "classification": "not_started",
           "status_code": "created",
@@ -606,36 +543,6 @@
       ]
     },
     {
-      "name": "LME Howells mere 92 Wishbone  - HM92",
-      "id": 1225826,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 149551112,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-08-01",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen",
-          "assignedToList": [
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            310046
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
       "name": "HB Poppy Meadow SM13",
       "id": 1165393,
       "total": 1,
@@ -668,97 +575,14 @@
       ]
     },
     {
-      "name": "LME Mill Village - MV36",
-      "id": 1153368,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 150225472,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-08-01",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen",
-          "assignedToList": [
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            310046
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
-      "name": "LME Mill Village MV41",
-      "id": 1130739,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 149915268,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-08-01",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen",
-          "assignedToList": [
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            310046
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
       "name": "LME Chiff Chaff - CW72",
       "id": 1123640,
-      "total": 5,
-      "not_started": 5,
+      "total": 4,
+      "not_started": 4,
       "in_progress": 0,
       "completed": 0,
       "issues": 0,
       "tasks": [
-        {
-          "id": 150420868,
-          "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-08-01",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Suus Paris"
-          ],
-          "assigneeIds": [
-            89951,
-            310046,
-            360679
-          ],
-          "template_id": 61828
-        },
         {
           "id": 150420870,
           "name": "Linen Pick Up /Drop Off",
@@ -795,11 +619,13 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
+            "Nicola Biggs",
             "Rachel Gaazen",
             "Suus Paris"
           ],
           "assigneeIds": [
             89951,
+            309594,
             310046,
             360679
           ],
