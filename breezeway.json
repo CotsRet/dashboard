@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-08-01T09:42:08.077Z",
-  "_source": "webhook",
+  "_generated": "2026-08-01T09:45:42.281Z",
+  "_source": "cron",
   "_date": "2026-08-01",
   "_status": {
-    "last_run": "2026-08-01T09:30:43.927Z",
+    "last_run": "2026-08-01T09:45:42.281Z",
     "ok": true,
     "properties_polled": 105,
     "properties_raw_total": 136,
@@ -26,10 +26,10 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 91,
+      "in_progress": 4,
+      "created": 88,
       "finished": 4,
-      "in_progress": 3,
-      "closed": 6
+      "closed": 8
     },
     "first_task_shape": {
       "keys": [
@@ -93,15 +93,15 @@
       ],
       "sample_type_department": "housekeeping",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "in_progress",
+        "name": "In Progress",
+        "stage": "in_progress"
       }
     }
   },
   "summary": {
-    "not_started": 89,
-    "in_progress": 2,
+    "not_started": 88,
+    "in_progress": 3,
     "completed": 12,
     "issues": 1
   },
@@ -111,18 +111,18 @@
       "name": "HB - Heron Hideaway HV18",
       "id": 1463537,
       "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
+      "not_started": 0,
+      "in_progress": 1,
       "completed": 0,
       "issues": 0,
       "tasks": [
         {
           "id": 160920608,
           "name": "Make beds",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-08-01T09:40:07",
           "finished_at": null,
           "scheduled_date": "2026-08-01",
           "paused": false,
@@ -2545,11 +2545,13 @@
           "assignedToList": [
             "Lee Kelly",
             "Rachel Gaazen",
+            "Lopes Cleaning Services",
             "Deberoh Bird"
           ],
           "assigneeIds": [
             89951,
             310046,
+            439559,
             464141
           ],
           "template_id": 55606
