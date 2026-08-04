@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roll-Forward Decisions</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:#0d0d1a;color:#fff;font-family:'Barlow',sans-serif;min-height:100%}
+body{padding:16px 14px 40px;max-width:640px;margin:0 auto}
+.hdr{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:4px}
+.logo{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;
+  letter-spacing:2px;text-transform:uppercase}
+.logo span{color:#00e5ff}
+.date{font-family:'DM Mono',monospace;font-size:12px;color:#888}
+.sub{font-family:'Barlow',sans-serif;font-size:13px;color:#9aa;margin-bottom:16px;line-height:1.4}
+.msg{padding:22px 16px;text-align:center;font-size:15px;color:#9aa;line-height:1.5}
+.card{background:#14142a;border:1px solid #24243e;border-radius:12px;
+  padding:14px 15px;margin-bottom:12px}
+.card.done{opacity:.62}
+.job{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:800;
+  letter-spacing:.3px;line-height:1.15;margin-bottom:3px}
+.where{font-size:13.5px;color:#00e5ff;margin-bottom:2px}
+.meta{font-family:'DM Mono',monospace;font-size:11.5px;color:#7a7a94;margin-bottom:12px}
+.meta b{color:#c9c9e0;font-weight:500}
+.btns{display:flex;gap:10px}
+.btn{flex:1;padding:13px 8px;border:none;border-radius:9px;cursor:pointer;
+  font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;
+  letter-spacing:1.2px;text-transform:uppercase;transition:filter .12s,transform .06s}
+.btn:active{transform:scale(.97)}
+.btn.move{background:#00e5ff;color:#03212a}
+.btn.leave{background:#23233c;color:#cfcfe6}
+.btn.sel{outline:2px solid #fff;filter:brightness(1.05)}
+.btn.dim{opacity:.4}
+.state{margin-top:10px;font-family:'DM Mono',monospace;font-size:12px;
+  display:flex;align-items:center;gap:7px}
+.state.move{color:#00e5ff}.state.leave{color:#9aa}
+.dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+.foot{margin-top:22px;text-align:center;font-family:'DM Mono',monospace;
+  font-size:11px;color:#555;line-height:1.6}
+.spin{width:26px;height:26px;border:3px solid #24243e;border-top-color:#00e5ff;
+  border-radius:50%;animation:sp 1s linear infinite;margin:26px auto}
+@keyframes sp{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="logo">COTSWOLD<span>·</span>DECISIONS</div>
+  <div class="date" id="date"></div>
+</div>
+<div class="sub">Jobs whose unit is occupied tomorrow. <b>Move</b> = defer to the next free day.
+  <b>Leave</b> = keep it as-is (done while occupied, or whenever the team gets to it).
+  Untouched jobs are left and come back tomorrow.</div>
+<div id="list"><div class="spin"></div></div>
+<div class="foot" id="foot"></div>
+
+<script>
+const WORKER = 'https://bw-webhook.quiet-rice-2699.workers.dev/';
+const token = new URLSearchParams(location.search).get('t') || '';
+const listEl = document.getElementById('list');
+const footEl = document.getElementById('foot');
+
+async function worker(body){
+  const r = await fetch(WORKER, {method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(Object.assign({token}, body))});
+  return r.json().catch(()=>({status:'error'}));
+}
+
+function msg(t){ listEl.innerHTML = '<div class="msg">'+t+'</div>'; }
+
+function render(items){
+  if(!items || !items.length){ msg('Nothing needs a decision. \uD83C\uDF89'); return; }
+  listEl.innerHTML = '';
+  for(const it of items){
+    const card = document.createElement('div');
+    card.className = 'card' + (it.choice ? ' done' : '');
+    card.innerHTML =
+      '<div class="job"></div>' +
+      '<div class="where"></div>' +
+      '<div class="meta">open since <b>'+ (it.from||'?') +'</b> \u00b7 next free <b>'+ (it.suggested||'?') +'</b></div>' +
+      '<div class="btns">' +
+        '<button class="btn move">Move</button>' +
+        '<button class="btn leave">Leave</button>' +
+      '</div>' +
+      '<div class="state" style="display:none"><span class="dot"></span><span class="lbl"></span></div>';
+    card.querySelector('.job').textContent = it.name || '(task)';
+    card.querySelector('.where').textContent = it.home || '';
+    const mv = card.querySelector('.move'), lv = card.querySelector('.leave');
+    const st = card.querySelector('.state'), lbl = card.querySelector('.lbl');
+    function paint(choice){
+      mv.classList.toggle('sel', choice==='move');
+      lv.classList.toggle('sel', choice==='leave');
+      mv.classList.toggle('dim', choice && choice!=='move');
+      lv.classList.toggle('dim', choice && choice!=='leave');
+      if(choice){
+        st.style.display='flex';
+        st.className = 'state ' + choice;
+        lbl.textContent = choice==='move' ? ('Will move to '+(it.suggested||'next free day')) : 'Left in place';
+        card.classList.add('done');
+      }
+    }
+    async function choose(choice){
+      const prev = it.choice; it.choice = choice; paint(choice);
+      const res = await worker({action:'decide', task_id: it.task_id, choice});
+      if(!res || res.status!=='ok'){ it.choice = prev; paint(prev);
+        lbl.textContent='Tap failed \u2014 try again'; st.style.display='flex'; st.className='state leave'; }
+    }
+    mv.onclick = ()=>choose('move');
+    lv.onclick = ()=>choose('leave');
+    if(it.choice) paint(it.choice);
+    listEl.appendChild(card);
+  }
+}
+
+async function load(){
+  if(!token){ msg('This link is missing its access token.'); return; }
+  const res = await worker({action:'decisions'});
+  if(!res || res.status==='unauthorized'){ msg('This link is not valid or has expired.'); return; }
+  if(res.status!=='ok'){ msg('Could not load the list. Please try again shortly.'); return; }
+  document.getElementById('date').textContent = res.date || '';
+  render(res.items);
+  footEl.textContent = 'Your choices are saved as you tap. The overnight run acts at 22:07.';
+}
+load();
+</script>
+</body>
+</html>
