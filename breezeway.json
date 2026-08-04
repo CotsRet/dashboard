@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-08-04T12:02:07.735Z",
+  "_generated": "2026-08-04T12:16:14.409Z",
   "_source": "cron",
   "_date": "2026-08-04",
   "_status": {
-    "last_run": "2026-08-04T12:02:07.735Z",
+    "last_run": "2026-08-04T12:16:14.409Z",
     "ok": true,
     "properties_polled": 105,
     "properties_raw_total": 136,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "finished": 25,
       "created": 26,
-      "in_progress": 6,
+      "finished": 26,
+      "in_progress": 5,
       "closed": 2
     },
     "first_task_shape": {
@@ -40,7 +40,6 @@
         "created_by",
         "description",
         "finished_at",
-        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -68,54 +67,70 @@
       ],
       "sample_assignments": [
         {
-          "assignee_id": 89951,
+          "assignee_id": 328298,
           "employee_code": null,
           "expires_at": null,
-          "id": 218871942,
-          "name": "Lee Kelly",
+          "id": 223172439,
+          "name": "Kian Dilley",
           "type_task_user_status": "assigned"
         },
         {
-          "assignee_id": 310046,
+          "assignee_id": 458080,
           "employee_code": null,
           "expires_at": null,
-          "id": 218871943,
-          "name": "Rachel Gaazen",
-          "type_task_user_status": "assigned"
-        },
-        {
-          "assignee_id": 464141,
-          "employee_code": null,
-          "expires_at": null,
-          "id": 219457295,
-          "name": "Deberoh Bird",
-          "type_task_user_status": "assigned"
-        },
-        {
-          "assignee_id": 468397,
-          "employee_code": null,
-          "expires_at": null,
-          "id": 222824300,
-          "name": "Isabella Edmonds",
+          "id": 223172440,
+          "name": "Ismael  Kanneh",
           "type_task_user_status": "assigned"
         }
       ],
-      "sample_type_department": "inspection",
+      "sample_type_department": "housekeeping",
       "sample_status": {
-        "code": "finished",
-        "name": "Finished",
-        "stage": "finished"
+        "code": "created",
+        "name": "Created",
+        "stage": "new"
       }
     }
   },
   "summary": {
     "not_started": 26,
-    "in_progress": 3,
-    "completed": 27,
+    "in_progress": 2,
+    "completed": 28,
     "issues": 3
   },
   "total_tasks": 59,
   "properties": [
+    {
+      "name": "HB - Heron Hideaway HV18",
+      "id": 1463537,
+      "total": 1,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 0,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 161646249,
+          "name": "Turn around clean",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "housekeeping",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-08-04",
+          "paused": false,
+          "assignedTo": "Kian Dilley",
+          "assignedToList": [
+            "Kian Dilley",
+            "Ismael Kanneh"
+          ],
+          "assigneeIds": [
+            328298,
+            458080
+          ],
+          "template_id": 55606
+        }
+      ]
+    },
     {
       "name": "HB The Happy Hideaway - ND46",
       "id": 1451482,
@@ -209,8 +224,8 @@
     {
       "name": "HB Lakewood Lodge  ND2",
       "id": 1419456,
-      "total": 2,
-      "not_started": 2,
+      "total": 1,
+      "not_started": 1,
       "in_progress": 0,
       "completed": 0,
       "issues": 0,
@@ -237,35 +252,6 @@
             468397
           ],
           "template_id": 103648
-        },
-        {
-          "id": 160392870,
-          "name": "Net curtain",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-08-04",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Ryan Adams",
-            "Charlie Weeks",
-            "Beau Gradner"
-          ],
-          "assigneeIds": [
-            89951,
-            274021,
-            299742,
-            450362,
-            465981,
-            471362
-          ],
-          "template_id": null
         }
       ]
     },
@@ -308,8 +294,8 @@
       "id": 1393779,
       "total": 4,
       "not_started": 1,
-      "in_progress": 1,
-      "completed": 2,
+      "in_progress": 0,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -371,11 +357,11 @@
         {
           "id": 151730559,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
           "started_at": "2026-08-04T11:04:02",
-          "finished_at": null,
+          "finished_at": "2026-08-04T12:05:15",
           "scheduled_date": "2026-08-04",
           "paused": false,
           "assignedTo": "Lee Kelly",
