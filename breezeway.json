@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-08-04T11:30:52.656Z",
+  "_generated": "2026-08-04T11:45:47.730Z",
   "_source": "cron",
   "_date": "2026-08-04",
   "_status": {
-    "last_run": "2026-08-04T11:30:52.656Z",
+    "last_run": "2026-08-04T11:45:47.730Z",
     "ok": true,
     "properties_polled": 105,
     "properties_raw_total": 136,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "in_progress": 6,
-      "created": 28,
-      "finished": 23,
+      "finished": 25,
+      "created": 27,
+      "in_progress": 5,
       "closed": 2
     },
     "first_task_shape": {
@@ -40,6 +40,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -101,16 +102,16 @@
       ],
       "sample_type_department": "inspection",
       "sample_status": {
-        "code": "in_progress",
-        "name": "In Progress",
-        "stage": "in_progress"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 28,
-    "in_progress": 3,
-    "completed": 25,
+    "not_started": 27,
+    "in_progress": 2,
+    "completed": 27,
     "issues": 3
   },
   "total_tasks": 59,
@@ -119,19 +120,19 @@
       "name": "HB The Happy Hideaway - ND46",
       "id": 1451482,
       "total": 3,
-      "not_started": 1,
-      "in_progress": 1,
-      "completed": 1,
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
           "id": 158996415,
           "name": "Cleaning check",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "inspection",
           "started_at": "2026-08-04T11:26:21",
-          "finished_at": null,
+          "finished_at": "2026-08-04T11:43:27",
           "scheduled_date": "2026-08-04",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -152,11 +153,11 @@
         {
           "id": 159416652,
           "name": "Guest Arrival check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-04T11:43:36",
+          "finished_at": "2026-08-04T11:44:02",
           "scheduled_date": "2026-08-04",
           "paused": false,
           "assignedTo": "Lee Kelly",
