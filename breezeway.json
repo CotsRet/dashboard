@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-08-04T09:15:53.851Z",
+  "_generated": "2026-08-04T09:30:56.630Z",
   "_source": "cron",
   "_date": "2026-08-04",
   "_status": {
-    "last_run": "2026-08-04T09:15:53.851Z",
+    "last_run": "2026-08-04T09:30:56.630Z",
     "ok": true,
     "properties_polled": 105,
     "properties_raw_total": 136,
@@ -26,9 +26,10 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 51,
+      "created": 49,
       "in_progress": 3,
-      "finished": 3
+      "closed": 2,
+      "finished": 6
     },
     "first_task_shape": {
       "keys": [
@@ -64,7 +65,32 @@
         "type_task_status",
         "updated_at"
       ],
-      "sample_assignments": [],
+      "sample_assignments": [
+        {
+          "assignee_id": 310046,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 223152290,
+          "name": "Rachel Gaazen",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 328298,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 223152283,
+          "name": "Kian Dilley",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 458080,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 223152300,
+          "name": "Ismael  Kanneh",
+          "type_task_user_status": "assigned"
+        }
+      ],
       "sample_type_department": "housekeeping",
       "sample_status": {
         "code": "created",
@@ -74,12 +100,12 @@
     }
   },
   "summary": {
-    "not_started": 51,
+    "not_started": 49,
     "in_progress": 0,
-    "completed": 3,
+    "completed": 8,
     "issues": 3
   },
-  "total_tasks": 57,
+  "total_tasks": 60,
   "properties": [
     {
       "name": "HB - Heron Hideaway HV18",
@@ -100,9 +126,17 @@
           "finished_at": null,
           "scheduled_date": "2026-08-04",
           "paused": false,
-          "assignedTo": null,
-          "assignedToList": [],
-          "assigneeIds": [],
+          "assignedTo": "Rachel Gaazen",
+          "assignedToList": [
+            "Rachel Gaazen",
+            "Kian Dilley",
+            "Ismael Kanneh"
+          ],
+          "assigneeIds": [
+            310046,
+            328298,
+            458080
+          ],
           "template_id": 756989
         }
       ]
@@ -905,9 +939,9 @@
       "name": "HB Busy Bees BD3",
       "id": 927235,
       "total": 8,
-      "not_started": 6,
+      "not_started": 4,
       "in_progress": 0,
-      "completed": 2,
+      "completed": 4,
       "issues": 0,
       "tasks": [
         {
@@ -983,11 +1017,11 @@
         {
           "id": 154807074,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "closed",
           "department": "housekeeping",
           "started_at": null,
-          "finished_at": null,
+          "finished_at": "2026-08-04T09:26:41",
           "scheduled_date": "2026-08-04",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1010,24 +1044,28 @@
         {
           "id": 154807077,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "closed",
           "department": "housekeeping",
           "started_at": null,
-          "finished_at": null,
+          "finished_at": "2026-08-04T09:27:42",
           "scheduled_date": "2026-08-04",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
             "Rachel Gaazen",
+            "Lily Stirling",
             "Deberoh Bird",
+            "Jake Kirton",
             "Isabella Edmonds"
           ],
           "assigneeIds": [
             89951,
             310046,
+            329342,
             464141,
+            466563,
             468397
           ],
           "template_id": 55606
@@ -1267,9 +1305,9 @@
       "name": "HB The Bee Hive WLM39",
       "id": 778191,
       "total": 6,
-      "not_started": 6,
+      "not_started": 3,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -1300,11 +1338,11 @@
         {
           "id": 150964264,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-04T09:25:17",
+          "finished_at": "2026-08-04T09:27:46",
           "scheduled_date": "2026-08-04",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1329,11 +1367,11 @@
         {
           "id": 152644246,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-04T09:25:09",
+          "finished_at": "2026-08-04T09:25:10",
           "scheduled_date": "2026-08-04",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -1370,11 +1408,11 @@
         {
           "id": 152644247,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-04T09:24:58",
+          "finished_at": "2026-08-04T09:25:02",
           "scheduled_date": "2026-08-04",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1408,12 +1446,16 @@
           "assignedToList": [
             "Lee Kelly",
             "Rachel Gaazen",
+            "Kian Dilley",
+            "Ismael Kanneh",
             "Deberoh Bird",
             "Isabella Edmonds"
           ],
           "assigneeIds": [
             89951,
             310046,
+            328298,
+            458080,
             464141,
             468397
           ],
@@ -1661,12 +1703,37 @@
     {
       "name": "HB Honeysuckle OM2",
       "id": 282410,
-      "total": 2,
-      "not_started": 2,
+      "total": 3,
+      "not_started": 3,
       "in_progress": 0,
       "completed": 0,
       "issues": 0,
       "tasks": [
+        {
+          "id": 150610078,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "inspection",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-08-04",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Deberoh Bird",
+            "Isabella Edmonds"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            464141,
+            468397
+          ],
+          "template_id": 103648
+        },
         {
           "id": 153424133,
           "name": "Guest Arrival check Hot Tub",
@@ -1726,12 +1793,37 @@
     {
       "name": "HB Clearwater ND15",
       "id": 282401,
-      "total": 2,
-      "not_started": 1,
+      "total": 3,
+      "not_started": 2,
       "in_progress": 0,
       "completed": 1,
       "issues": 0,
       "tasks": [
+        {
+          "id": 158364356,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "inspection",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-08-04",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Deberoh Bird",
+            "Isabella Edmonds"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            464141,
+            468397
+          ],
+          "template_id": 103648
+        },
         {
           "id": 158530850,
           "name": "Guest Arrival check",
@@ -1791,8 +1883,8 @@
     {
       "name": "HB Cotswold WV47",
       "id": 282402,
-      "total": 2,
-      "not_started": 2,
+      "total": 3,
+      "not_started": 3,
       "in_progress": 0,
       "completed": 0,
       "issues": 0,
@@ -1850,6 +1942,31 @@
             471362
           ],
           "template_id": 540368
+        },
+        {
+          "id": 156254329,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "inspection",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-08-04",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Deberoh Bird",
+            "Isabella Edmonds"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            464141,
+            468397
+          ],
+          "template_id": 103648
         }
       ]
     }
