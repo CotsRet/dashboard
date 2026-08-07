@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-08-07T10:00:58.221Z",
-  "_source": "webhook",
+  "_generated": "2026-08-07T10:02:32.461Z",
+  "_source": "cron",
   "_date": "2026-08-07",
   "_status": {
-    "last_run": "2026-08-07T09:46:40.852Z",
+    "last_run": "2026-08-07T10:02:32.461Z",
     "ok": true,
     "properties_polled": 105,
     "properties_raw_total": 136,
@@ -26,10 +26,10 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 188,
-      "finished": 38,
-      "in_progress": 9,
-      "closed": 5
+      "finished": 43,
+      "closed": 8,
+      "created": 179,
+      "in_progress": 9
     },
     "first_task_shape": {
       "keys": [
@@ -40,6 +40,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -93,37 +94,37 @@
       ],
       "sample_type_department": "inspection",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 185,
+    "not_started": 179,
     "in_progress": 8,
-    "completed": 46,
+    "completed": 51,
     "issues": 1
   },
-  "total_tasks": 240,
+  "total_tasks": 239,
   "properties": [
     {
       "name": "HB - Heron Hideaway HV18",
       "id": 1463537,
       "total": 2,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 1,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
           "id": 161641633,
           "name": "Guest Arrival check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-07T09:46:58",
+          "finished_at": "2026-08-07T09:55:23",
           "scheduled_date": "2026-08-07",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -751,12 +752,16 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
+            "Lydia Dilley",
             "Rachel Gaazen",
+            "Kian Dilley",
             "Deberoh Bird"
           ],
           "assigneeIds": [
             89951,
+            140390,
             310046,
+            328298,
             464141
           ],
           "template_id": 55606
@@ -1058,38 +1063,6 @@
             299742
           ],
           "template_id": 516732
-        }
-      ]
-    },
-    {
-      "name": "Hareside - Hareside - 1",
-      "id": 1247443,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 151311080,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-08-07",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            310046
-          ],
-          "template_id": 103648
         }
       ]
     },
@@ -4035,8 +4008,8 @@
       "id": 540019,
       "total": 9,
       "not_started": 6,
-      "in_progress": 1,
-      "completed": 2,
+      "in_progress": 0,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -4108,11 +4081,11 @@
         {
           "id": 151458167,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
           "started_at": "2026-08-07T09:10:21",
-          "finished_at": null,
+          "finished_at": "2026-08-07T09:54:07",
           "scheduled_date": "2026-08-07",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -4143,11 +4116,13 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
+            "Kate Hammond",
             "Rachel Gaazen",
             "Deberoh Bird"
           ],
           "assigneeIds": [
             89951,
+            204277,
             310046,
             464141
           ],
@@ -4220,11 +4195,13 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
+            "Kate Hammond",
             "Rachel Gaazen",
             "Deberoh Bird"
           ],
           "assigneeIds": [
             89951,
+            204277,
             310046,
             464141
           ],
@@ -4877,8 +4854,8 @@
       "name": "HB Wildflower WLM11",
       "id": 282437,
       "total": 6,
-      "not_started": 3,
-      "in_progress": 1,
+      "not_started": 2,
+      "in_progress": 2,
       "completed": 2,
       "issues": 0,
       "tasks": [
@@ -5022,10 +4999,10 @@
         {
           "id": 159707508,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "maintenance",
-          "started_at": null,
+          "started_at": "2026-08-07T09:53:20",
           "finished_at": null,
           "scheduled_date": "2026-08-07",
           "paused": false,
@@ -5055,8 +5032,8 @@
       "id": 282434,
       "total": 7,
       "not_started": 5,
-      "in_progress": 1,
-      "completed": 1,
+      "in_progress": 0,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
@@ -5101,11 +5078,11 @@
         {
           "id": 151458144,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
           "started_at": "2026-08-07T09:42:22",
-          "finished_at": null,
+          "finished_at": "2026-08-07T09:46:37",
           "scheduled_date": "2026-08-07",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -5139,11 +5116,13 @@
           "assignedToList": [
             "Lee Kelly",
             "Rachel Gaazen",
+            "Rafa spinato",
             "Deberoh Bird"
           ],
           "assigneeIds": [
             89951,
             310046,
+            324722,
             464141
           ],
           "template_id": 55606
@@ -5258,9 +5237,9 @@
       "name": "HB Puddleducks OM4",
       "id": 282426,
       "total": 6,
-      "not_started": 6,
+      "not_started": 5,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
@@ -5291,11 +5270,11 @@
         {
           "id": 151458377,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-07T09:47:31",
+          "finished_at": "2026-08-07T09:50:15",
           "scheduled_date": "2026-08-07",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -6434,11 +6413,15 @@
           "assignedToList": [
             "Lee Kelly",
             "Rachel Gaazen",
+            "Kael Hicks",
+            "Debbie Hicks",
             "Deberoh Bird"
           ],
           "assigneeIds": [
             89951,
             310046,
+            431885,
+            443738,
             464141
           ],
           "template_id": 55606
@@ -6524,9 +6507,9 @@
       "name": "HB Burford WLM17",
       "id": 282398,
       "total": 8,
-      "not_started": 7,
-      "in_progress": 0,
-      "completed": 1,
+      "not_started": 5,
+      "in_progress": 1,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
@@ -6571,11 +6554,11 @@
         {
           "id": 151458123,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-07T09:53:46",
+          "finished_at": "2026-08-07T09:59:10",
           "scheduled_date": "2026-08-07",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -6598,10 +6581,10 @@
         {
           "id": 151458129,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-08-07T10:01:08",
           "finished_at": null,
           "scheduled_date": "2026-08-07",
           "paused": false,
@@ -6609,11 +6592,13 @@
           "assignedToList": [
             "Lee Kelly",
             "Rachel Gaazen",
+            "Lopes Cleaning Services",
             "Deberoh Bird"
           ],
           "assigneeIds": [
             89951,
             310046,
+            439559,
             464141
           ],
           "template_id": 55606
