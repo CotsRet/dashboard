@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-08-08T12:31:21.327Z",
-  "_source": "webhook",
+  "_generated": "2026-08-08T12:45:56.687Z",
+  "_source": "cron",
   "_date": "2026-08-08",
   "_status": {
-    "last_run": "2026-08-08T12:30:59.915Z",
+    "last_run": "2026-08-08T12:45:56.687Z",
     "ok": true,
     "properties_polled": 105,
     "properties_raw_total": 136,
@@ -26,10 +26,10 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 35,
-      "closed": 7,
-      "finished": 23,
-      "in_progress": 1
+      "in_progress": 2,
+      "finished": 24,
+      "closed": 8,
+      "created": 33
     },
     "first_task_shape": {
       "keys": [
@@ -101,36 +101,36 @@
       ],
       "sample_type_department": "inspection",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "in_progress",
+        "name": "In Progress",
+        "stage": "in_progress"
       }
     }
   },
   "summary": {
-    "not_started": 34,
-    "in_progress": 1,
-    "completed": 31,
+    "not_started": 33,
+    "in_progress": 2,
+    "completed": 32,
     "issues": 0
   },
-  "total_tasks": 66,
+  "total_tasks": 67,
   "properties": [
     {
       "name": "HB The Happy Hideaway - ND46",
       "id": 1451482,
-      "total": 4,
-      "not_started": 3,
-      "in_progress": 0,
-      "completed": 1,
+      "total": 5,
+      "not_started": 2,
+      "in_progress": 1,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
           "id": 159416670,
           "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "inspection",
-          "started_at": null,
+          "started_at": "2026-08-08T12:41:58",
           "finished_at": null,
           "scheduled_date": "2026-08-08",
           "paused": false,
@@ -152,11 +152,11 @@
         {
           "id": 160819808,
           "name": "Guest Arrival check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-08T12:42:15",
+          "finished_at": "2026-08-08T12:43:14",
           "scheduled_date": "2026-08-08",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -222,6 +222,33 @@
           "assigneeIds": [
             89951,
             310046,
+            464141
+          ],
+          "template_id": null
+        },
+        {
+          "id": 162324146,
+          "name": "Clean mugs and spray with air freshener",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "housekeeping",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-08-08",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Kael Hicks",
+            "Debbie Hicks",
+            "Deberoh Bird"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            431885,
+            443738,
             464141
           ],
           "template_id": null
