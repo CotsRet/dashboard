@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-08-10T09:03:56.670Z",
-  "_source": "webhook",
+  "_generated": "2026-08-10T09:15:41.113Z",
+  "_source": "cron",
   "_date": "2026-08-10",
   "_status": {
-    "last_run": "2026-08-10T09:01:37.774Z",
+    "last_run": "2026-08-10T09:15:41.113Z",
     "ok": true,
     "properties_polled": 105,
     "properties_raw_total": 137,
@@ -26,9 +26,10 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 175,
-      "in_progress": 4,
-      "finished": 8
+      "created": 165,
+      "in_progress": 8,
+      "finished": 16,
+      "closed": 1
     },
     "first_task_shape": {
       "keys": [
@@ -74,12 +75,12 @@
     }
   },
   "summary": {
-    "not_started": 174,
-    "in_progress": 4,
-    "completed": 9,
-    "issues": 0
+    "not_started": 165,
+    "in_progress": 7,
+    "completed": 17,
+    "issues": 1
   },
-  "total_tasks": 187,
+  "total_tasks": 190,
   "properties": [
     {
       "name": "HB Goosewing ND18",
@@ -143,18 +144,18 @@
       "name": "HB The Happy Hideaway - ND46",
       "id": 1451482,
       "total": 7,
-      "not_started": 7,
-      "in_progress": 0,
+      "not_started": 6,
+      "in_progress": 1,
       "completed": 0,
       "issues": 0,
       "tasks": [
         {
           "id": 158371112,
           "name": "Check gas bottle status",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "maintenance",
-          "started_at": null,
+          "started_at": "2026-08-10T09:13:31",
           "finished_at": null,
           "scheduled_date": "2026-08-10",
           "paused": false,
@@ -512,10 +513,10 @@
     {
       "name": "HB HV2 Cleaning  - HV2",
       "id": 1393779,
-      "total": 3,
+      "total": 4,
       "not_started": 1,
-      "in_progress": 2,
-      "completed": 0,
+      "in_progress": 1,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
@@ -565,11 +566,11 @@
         {
           "id": 152030370,
           "name": "External Inspection",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
           "started_at": "2026-08-10T08:50:57",
-          "finished_at": null,
+          "finished_at": "2026-08-10T09:02:11",
           "scheduled_date": "2026-08-10",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -586,6 +587,25 @@
             450362
           ],
           "template_id": 540368
+        },
+        {
+          "id": 162616337,
+          "name": "Spider spray ",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "maintenance",
+          "started_at": null,
+          "finished_at": "2026-08-10T09:06:19",
+          "scheduled_date": "2026-08-10",
+          "paused": false,
+          "assignedTo": "Ashley Smith",
+          "assignedToList": [
+            "Ashley Smith"
+          ],
+          "assigneeIds": [
+            299742
+          ],
+          "template_id": null
         }
       ]
     },
@@ -593,9 +613,9 @@
       "name": "HB Our Happy Place ND13",
       "id": 1328504,
       "total": 5,
-      "not_started": 4,
+      "not_started": 3,
       "in_progress": 0,
-      "completed": 1,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
@@ -711,11 +731,11 @@
         {
           "id": 152030325,
           "name": "Check gas bottle status",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-10T09:10:04",
+          "finished_at": "2026-08-10T09:10:05",
           "scheduled_date": "2026-08-10",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1210,21 +1230,21 @@
       "name": "HB Coconuts Retreat ST16",
       "id": 1233968,
       "total": 1,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
       "completed": 0,
-      "issues": 0,
+      "issues": 1,
       "tasks": [
         {
           "id": 152030332,
           "name": "Check gas bottle status",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "issues",
+          "status_code": "in_progress",
           "department": "maintenance",
-          "started_at": null,
+          "started_at": "2026-08-10T09:10:19",
           "finished_at": null,
           "scheduled_date": "2026-08-10",
-          "paused": false,
+          "paused": true,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
@@ -1594,7 +1614,6 @@
             "Darren Smith",
             "Ashley Smith",
             "Ryan Adams",
-            "Charlie Weeks",
             "Beau Gradner"
           ],
           "assigneeIds": [
@@ -1602,7 +1621,6 @@
             274021,
             299742,
             450362,
-            465981,
             471362
           ],
           "template_id": 540368
@@ -1623,7 +1641,6 @@
             "Darren Smith",
             "Ashley Smith",
             "Ryan Adams",
-            "Charlie Weeks",
             "Beau Gradner"
           ],
           "assigneeIds": [
@@ -1631,7 +1648,6 @@
             274021,
             299742,
             450362,
-            465981,
             471362
           ],
           "template_id": 106872
@@ -1734,7 +1750,6 @@
             "Darren Smith",
             "Ashley Smith",
             "Ryan Adams",
-            "Charlie Weeks",
             "Beau Gradner"
           ],
           "assigneeIds": [
@@ -1742,7 +1757,6 @@
             274021,
             299742,
             450362,
-            465981,
             471362
           ],
           "template_id": 540368
@@ -1797,7 +1811,6 @@
             "Darren Smith",
             "Ashley Smith",
             "Ryan Adams",
-            "Charlie Weeks",
             "Beau Gradner"
           ],
           "assigneeIds": [
@@ -1805,7 +1818,6 @@
             274021,
             299742,
             450362,
-            465981,
             471362
           ],
           "template_id": 540368
@@ -1864,14 +1876,12 @@
             "Lee Kelly",
             "Kate Hammond",
             "Ryan Adams",
-            "Charlie Weeks",
             "Beau Gradner"
           ],
           "assigneeIds": [
             89951,
             204277,
             450362,
-            465981,
             471362
           ],
           "template_id": 61381
@@ -1999,7 +2009,6 @@
             "Darren Smith",
             "Ashley Smith",
             "Ryan Adams",
-            "Charlie Weeks",
             "Beau Gradner"
           ],
           "assigneeIds": [
@@ -2007,7 +2016,6 @@
             274021,
             299742,
             450362,
-            465981,
             471362
           ],
           "template_id": 540368
@@ -2031,7 +2039,6 @@
             "Melanie Thomson",
             "Rachel Gaazen",
             "Ryan Adams",
-            "Charlie Weeks",
             "Isabella Edmonds",
             "Abigail Jordan",
             "Beau Gradner"
@@ -2044,7 +2051,6 @@
             272395,
             310046,
             450362,
-            465981,
             468397,
             470856,
             471362
@@ -2066,14 +2072,12 @@
             "Lee Kelly",
             "Kate Hammond",
             "Ryan Adams",
-            "Charlie Weeks",
             "Beau Gradner"
           ],
           "assigneeIds": [
             89951,
             204277,
             450362,
-            465981,
             471362
           ],
           "template_id": 61381
@@ -2130,19 +2134,19 @@
       "name": "HB Sunset Lodge ND21",
       "id": 942947,
       "total": 1,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 152030221,
           "name": "Check gas bottle status",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-10T09:02:12",
+          "finished_at": "2026-08-10T09:05:29",
           "scheduled_date": "2026-08-10",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -2151,7 +2155,6 @@
             "Darren Smith",
             "Ashley Smith",
             "Ryan Adams",
-            "Charlie Weeks",
             "Beau Gradner"
           ],
           "assigneeIds": [
@@ -2159,7 +2162,6 @@
             274021,
             299742,
             450362,
-            465981,
             471362
           ],
           "template_id": 106872
@@ -2375,8 +2377,8 @@
       "name": "HB The Bathing House HV24",
       "id": 927225,
       "total": 6,
-      "not_started": 5,
-      "in_progress": 0,
+      "not_started": 4,
+      "in_progress": 1,
       "completed": 1,
       "issues": 0,
       "tasks": [
@@ -2406,10 +2408,10 @@
         {
           "id": 152030249,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "maintenance",
-          "started_at": null,
+          "started_at": "2026-08-10T09:10:09",
           "finished_at": null,
           "scheduled_date": "2026-08-10",
           "paused": false,
@@ -2765,8 +2767,8 @@
       "name": "WR Somerford House WR15",
       "id": 790224,
       "total": 3,
-      "not_started": 3,
-      "in_progress": 0,
+      "not_started": 2,
+      "in_progress": 1,
       "completed": 0,
       "issues": 0,
       "tasks": [
@@ -2825,10 +2827,10 @@
         {
           "id": 160913622,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-08-10T09:09:07",
           "finished_at": null,
           "scheduled_date": "2026-08-10",
           "paused": false,
@@ -2892,8 +2894,8 @@
     {
       "name": "HB The Bee Hive WLM39",
       "id": 778191,
-      "total": 4,
-      "not_started": 4,
+      "total": 6,
+      "not_started": 6,
       "in_progress": 0,
       "completed": 0,
       "issues": 0,
@@ -2953,6 +2955,29 @@
           "template_id": 55606
         },
         {
+          "id": 151855092,
+          "name": "Cleaning check",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "inspection",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-08-10",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Deberoh Bird"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            464141
+          ],
+          "template_id": 103648
+        },
+        {
           "id": 152030213,
           "name": "Guest Arrival check Hot Tub",
           "classification": "not_started",
@@ -3003,6 +3028,35 @@
             471362
           ],
           "template_id": 540368
+        },
+        {
+          "id": 162616263,
+          "name": "Check parasol is working",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "maintenance",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-08-10",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Ryan Adams",
+            "Charlie Weeks",
+            "Beau Gradner"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742,
+            450362,
+            465981,
+            471362
+          ],
+          "template_id": null
         }
       ]
     },
@@ -3158,19 +3212,19 @@
       "name": "HB The Waterfront ND3",
       "id": 719511,
       "total": 1,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 152030273,
           "name": "Check gas bottle status",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-10T09:11:37",
+          "finished_at": "2026-08-10T09:13:21",
           "scheduled_date": "2026-08-10",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -3975,9 +4029,9 @@
       "name": "HB Thumper Lodge SM9",
       "id": 282435,
       "total": 7,
-      "not_started": 7,
+      "not_started": 6,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
@@ -4035,11 +4089,11 @@
         {
           "id": 152030257,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-10T09:10:15",
+          "finished_at": "2026-08-10T09:10:16",
           "scheduled_date": "2026-08-10",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -4173,9 +4227,9 @@
       "name": "HB Spring Lodge SM12",
       "id": 282428,
       "total": 6,
-      "not_started": 6,
-      "in_progress": 0,
-      "completed": 0,
+      "not_started": 4,
+      "in_progress": 1,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
@@ -4233,11 +4287,11 @@
         {
           "id": 152030256,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-10T09:15:04",
+          "finished_at": "2026-08-10T09:15:05",
           "scheduled_date": "2026-08-10",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -4272,10 +4326,10 @@
         {
           "id": 152030272,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-08-10T09:15:11",
           "finished_at": null,
           "scheduled_date": "2026-08-10",
           "paused": false,
@@ -4878,19 +4932,19 @@
       "name": "HB Clearwater ND15",
       "id": 282401,
       "total": 1,
-      "not_started": 1,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 152030218,
           "name": "Check gas bottle status",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-10T09:06:55",
+          "finished_at": "2026-08-10T09:09:51",
           "scheduled_date": "2026-08-10",
           "paused": false,
           "assignedTo": "Lee Kelly",
