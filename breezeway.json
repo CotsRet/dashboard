@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-08-12T09:01:31.178Z",
+  "_generated": "2026-08-12T09:15:50.185Z",
   "_source": "cron",
   "_date": "2026-08-12",
   "_status": {
-    "last_run": "2026-08-12T09:01:31.178Z",
+    "last_run": "2026-08-12T09:15:50.185Z",
     "ok": true,
     "properties_polled": 106,
     "properties_raw_total": 138,
@@ -26,8 +26,8 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 49,
-      "finished": 1
+      "finished": 4,
+      "created": 46
     },
     "first_task_shape": {
       "keys": [
@@ -38,6 +38,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -147,16 +148,16 @@
       ],
       "sample_type_department": "housekeeping",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 49,
+    "not_started": 46,
     "in_progress": 0,
-    "completed": 1,
+    "completed": 4,
     "issues": 0
   },
   "total_tasks": 50,
@@ -165,19 +166,19 @@
       "name": "HB Lakewood Lodge  ND2",
       "id": 1419456,
       "total": 7,
-      "not_started": 7,
+      "not_started": 6,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 157847873,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-12T09:11:18",
+          "finished_at": "2026-08-12T09:11:19",
           "scheduled_date": "2026-08-12",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -245,11 +246,15 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
-            "Rachel Gaazen"
+            "Rachel Gaazen",
+            "Lily Stirling",
+            "Jake Kirton"
           ],
           "assigneeIds": [
             89951,
-            310046
+            310046,
+            329342,
+            466563
           ],
           "template_id": 55606
         },
@@ -708,9 +713,9 @@
       "name": "HB The Boat House WLM20",
       "id": 641768,
       "total": 6,
-      "not_started": 6,
+      "not_started": 4,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
@@ -764,11 +769,11 @@
         {
           "id": 157691873,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-12T09:01:42",
+          "finished_at": "2026-08-12T09:01:43",
           "scheduled_date": "2026-08-12",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -801,11 +806,11 @@
         {
           "id": 157691877,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-12T09:02:12",
+          "finished_at": "2026-08-12T09:02:14",
           "scheduled_date": "2026-08-12",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -836,11 +841,15 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
-            "Rachel Gaazen"
+            "Rachel Gaazen",
+            "Angie Brazil",
+            "Charlene Loveridge"
           ],
           "assigneeIds": [
             89951,
-            310046
+            310046,
+            325669,
+            464077
           ],
           "template_id": 55606
         },
