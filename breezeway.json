@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-08-17T09:27:48.654Z",
-  "_source": "webhook",
+  "_generated": "2026-08-17T09:30:53.539Z",
+  "_source": "cron",
   "_date": "2026-08-17",
   "_status": {
-    "last_run": "2026-08-17T09:15:55.456Z",
+    "last_run": "2026-08-17T09:30:53.539Z",
     "ok": true,
     "properties_polled": 106,
     "properties_raw_total": 138,
@@ -26,9 +26,10 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 142,
-      "finished": 26,
-      "in_progress": 6
+      "created": 134,
+      "finished": 31,
+      "in_progress": 9,
+      "closed": 1
     },
     "first_task_shape": {
       "keys": [
@@ -74,12 +75,12 @@
     }
   },
   "summary": {
-    "not_started": 141,
-    "in_progress": 6,
-    "completed": 27,
+    "not_started": 134,
+    "in_progress": 9,
+    "completed": 32,
     "issues": 0
   },
-  "total_tasks": 174,
+  "total_tasks": 175,
   "properties": [
     {
       "name": "HB Goosewing ND18",
@@ -421,10 +422,10 @@
     {
       "name": "HB Bear's Cabin HV51",
       "id": 1343498,
-      "total": 3,
-      "not_started": 0,
-      "in_progress": 1,
-      "completed": 2,
+      "total": 4,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -453,11 +454,11 @@
         {
           "id": 155176677,
           "name": "Guest Arrival check",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "inspection",
           "started_at": "2026-08-17T09:14:50",
-          "finished_at": null,
+          "finished_at": "2026-08-17T09:16:42",
           "scheduled_date": "2026-08-17",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -499,6 +500,33 @@
             471362
           ],
           "template_id": 540368
+        },
+        {
+          "id": 163736292,
+          "name": "Lightbulb in hallway",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "maintenance",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-08-17",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Ryan Adams",
+            "Beau Gradner"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742,
+            450362,
+            471362
+          ],
+          "template_id": null
         }
       ]
     },
@@ -544,8 +572,8 @@
       "name": "LME Howells mere HM108",
       "id": 1258934,
       "total": 3,
-      "not_started": 3,
-      "in_progress": 0,
+      "not_started": 2,
+      "in_progress": 1,
       "completed": 0,
       "issues": 0,
       "tasks": [
@@ -596,10 +624,10 @@
         {
           "id": 153444870,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-08-17T09:24:59",
           "finished_at": null,
           "scheduled_date": "2026-08-17",
           "paused": false,
@@ -1571,12 +1599,18 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
+            "Becky Malgarin",
+            "Ella Curtis",
             "Rachel Gaazen",
+            "Emily Curtis",
             "Suus Paris"
           ],
           "assigneeIds": [
             89951,
+            303882,
+            308392,
             310046,
+            329690,
             360679
           ],
           "template_id": 55606
@@ -1610,8 +1644,8 @@
       "name": "HB Highland Lodge  HV62",
       "id": 1038869,
       "total": 3,
-      "not_started": 2,
-      "in_progress": 0,
+      "not_started": 1,
+      "in_progress": 1,
       "completed": 1,
       "issues": 0,
       "tasks": [
@@ -1641,10 +1675,10 @@
         {
           "id": 153444810,
           "name": "Guest Arrival check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "inspection",
-          "started_at": null,
+          "started_at": "2026-08-17T09:25:02",
           "finished_at": null,
           "scheduled_date": "2026-08-17",
           "paused": false,
@@ -1694,19 +1728,19 @@
       "name": "HB Sunset Lodge ND21",
       "id": 942947,
       "total": 6,
-      "not_started": 6,
+      "not_started": 5,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 153444808,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-17T09:29:15",
+          "finished_at": "2026-08-17T09:29:16",
           "scheduled_date": "2026-08-17",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -2378,9 +2412,9 @@
       "name": "HB Wine Down Retreat WLM38",
       "id": 801256,
       "total": 5,
-      "not_started": 5,
+      "not_started": 4,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
@@ -2450,11 +2484,11 @@
         {
           "id": 153255467,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-17T09:25:09",
+          "finished_at": "2026-08-17T09:28:47",
           "scheduled_date": "2026-08-17",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -2485,11 +2519,13 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
-            "Rachel Gaazen"
+            "Rachel Gaazen",
+            "Lopes Cleaning Services"
           ],
           "assigneeIds": [
             89951,
-            310046
+            310046,
+            439559
           ],
           "template_id": 55606
         },
@@ -2522,8 +2558,8 @@
       "name": "HB Paws Lodge WLM19",
       "id": 790813,
       "total": 5,
-      "not_started": 4,
-      "in_progress": 0,
+      "not_started": 2,
+      "in_progress": 2,
       "completed": 1,
       "issues": 0,
       "tasks": [
@@ -2592,10 +2628,10 @@
         {
           "id": 153255456,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-08-17T09:20:38",
           "finished_at": null,
           "scheduled_date": "2026-08-17",
           "paused": false,
@@ -2615,10 +2651,10 @@
         {
           "id": 157622521,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "maintenance",
-          "started_at": null,
+          "started_at": "2026-08-17T09:27:28",
           "finished_at": null,
           "scheduled_date": "2026-08-17",
           "paused": false,
@@ -3372,11 +3408,13 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
-            "Rachel Gaazen"
+            "Rachel Gaazen",
+            "Rafa spinato"
           ],
           "assigneeIds": [
             89951,
-            310046
+            310046,
+            324722
           ],
           "template_id": 55606
         },
@@ -4219,8 +4257,8 @@
       "id": 282410,
       "total": 4,
       "not_started": 3,
-      "in_progress": 1,
-      "completed": 0,
+      "in_progress": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
@@ -4247,11 +4285,11 @@
         {
           "id": 153255410,
           "name": "External Inspection",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
           "started_at": "2026-08-17T09:14:12",
-          "finished_at": null,
+          "finished_at": "2026-08-17T09:17:16",
           "scheduled_date": "2026-08-17",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -4641,9 +4679,9 @@
       "name": "HB Burford WLM17",
       "id": 282398,
       "total": 6,
-      "not_started": 4,
-      "in_progress": 0,
-      "completed": 2,
+      "not_started": 2,
+      "in_progress": 1,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -4711,10 +4749,10 @@
         {
           "id": 153255396,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-08-17T09:16:58",
           "finished_at": null,
           "scheduled_date": "2026-08-17",
           "paused": false,
@@ -4736,11 +4774,11 @@
         {
           "id": 159230996,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-17T09:21:34",
+          "finished_at": "2026-08-17T09:25:08",
           "scheduled_date": "2026-08-17",
           "paused": false,
           "assignedTo": "Lee Kelly",
