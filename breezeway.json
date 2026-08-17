@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-08-17T11:10:53.574Z",
-  "_source": "webhook",
+  "_generated": "2026-08-17T11:15:57.114Z",
+  "_source": "cron",
   "_date": "2026-08-17",
   "_status": {
-    "last_run": "2026-08-17T11:01:07.976Z",
+    "last_run": "2026-08-17T11:15:57.114Z",
     "ok": true,
     "properties_polled": 106,
     "properties_raw_total": 138,
@@ -26,10 +26,10 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 85,
-      "finished": 61,
-      "closed": 25,
-      "in_progress": 9
+      "closed": 30,
+      "finished": 65,
+      "created": 75,
+      "in_progress": 10
     },
     "first_task_shape": {
       "keys": [
@@ -68,16 +68,16 @@
       "sample_assignments": [],
       "sample_type_department": "maintenance",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "closed",
+        "name": "Closed",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 80,
-    "in_progress": 8,
-    "completed": 91,
+    "not_started": 75,
+    "in_progress": 9,
+    "completed": 95,
     "issues": 1
   },
   "total_tasks": 180,
@@ -906,11 +906,15 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
-            "Rachel Gaazen"
+            "Rachel Gaazen",
+            "Lily Stirling",
+            "Jake Kirton"
           ],
           "assigneeIds": [
             89951,
-            310046
+            310046,
+            329342,
+            466563
           ],
           "template_id": 55606
         },
@@ -1174,8 +1178,8 @@
       "name": "HB Poppy Meadow SM13",
       "id": 1165393,
       "total": 6,
-      "not_started": 1,
-      "in_progress": 0,
+      "not_started": 0,
+      "in_progress": 1,
       "completed": 5,
       "issues": 0,
       "tasks": [
@@ -1323,10 +1327,10 @@
         {
           "id": 163127106,
           "name": "Back to back cleaning check and arrival check Hot tub",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "inspection",
-          "started_at": null,
+          "started_at": "2026-08-17T11:14:23",
           "finished_at": null,
           "scheduled_date": "2026-08-17",
           "paused": false,
@@ -1811,8 +1815,8 @@
       "name": "HB Sunset Lodge ND21",
       "id": 942947,
       "total": 6,
-      "not_started": 3,
-      "in_progress": 0,
+      "not_started": 2,
+      "in_progress": 1,
       "completed": 3,
       "issues": 0,
       "tasks": [
@@ -1881,20 +1885,22 @@
         {
           "id": 153444815,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-08-17T11:06:46",
           "finished_at": null,
           "scheduled_date": "2026-08-17",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
+            "Nicola Biggs",
             "Rachel Gaazen"
           ],
           "assigneeIds": [
             89951,
+            309594,
             310046
           ],
           "template_id": 55606
@@ -2155,8 +2161,8 @@
       "name": "HB Lake Retreat ST39",
       "id": 927282,
       "total": 7,
-      "not_started": 3,
-      "in_progress": 0,
+      "not_started": 2,
+      "in_progress": 1,
       "completed": 4,
       "issues": 0,
       "tasks": [
@@ -2275,10 +2281,10 @@
         {
           "id": 158705177,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "maintenance",
-          "started_at": null,
+          "started_at": "2026-08-17T11:10:43",
           "finished_at": null,
           "scheduled_date": "2026-08-17",
           "paused": false,
@@ -2650,8 +2656,8 @@
       "id": 790813,
       "total": 5,
       "not_started": 2,
-      "in_progress": 1,
-      "completed": 2,
+      "in_progress": 0,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -2719,11 +2725,11 @@
         {
           "id": 153255456,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
           "started_at": "2026-08-17T09:20:38",
-          "finished_at": null,
+          "finished_at": "2026-08-17T11:02:05",
           "scheduled_date": "2026-08-17",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -2997,10 +3003,12 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
+            "Lynn Claridge",
             "Rachel Gaazen"
           ],
           "assigneeIds": [
             89951,
+            135559,
             310046
           ],
           "template_id": 55606
@@ -3073,8 +3081,8 @@
       "id": 706122,
       "total": 5,
       "not_started": 2,
-      "in_progress": 1,
-      "completed": 2,
+      "in_progress": 0,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -3153,11 +3161,11 @@
         {
           "id": 153255441,
           "name": "External Inspection",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
           "started_at": "2026-08-17T10:58:47",
-          "finished_at": null,
+          "finished_at": "2026-08-17T11:03:40",
           "scheduled_date": "2026-08-17",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -3770,8 +3778,8 @@
       "id": 282435,
       "total": 5,
       "not_started": 0,
-      "in_progress": 1,
-      "completed": 4,
+      "in_progress": 0,
+      "completed": 5,
       "issues": 0,
       "tasks": [
         {
@@ -3889,11 +3897,11 @@
         {
           "id": 163127081,
           "name": "Back to back cleaning check and arrival check Hot tub",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "inspection",
           "started_at": "2026-08-17T10:44:03",
-          "finished_at": null,
+          "finished_at": "2026-08-17T11:03:53",
           "scheduled_date": "2026-08-17",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -4106,8 +4114,8 @@
       "name": "HB Lilly Pad ST83",
       "id": 282420,
       "total": 5,
-      "not_started": 2,
-      "in_progress": 0,
+      "not_started": 1,
+      "in_progress": 1,
       "completed": 3,
       "issues": 0,
       "tasks": [
@@ -4187,10 +4195,10 @@
         {
           "id": 159715312,
           "name": "Guest Arrival check",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "inspection",
-          "started_at": null,
+          "started_at": "2026-08-17T11:11:50",
           "finished_at": null,
           "scheduled_date": "2026-08-17",
           "paused": false,
@@ -4240,19 +4248,19 @@
       "name": "HB Lavender ST59",
       "id": 282418,
       "total": 5,
-      "not_started": 2,
+      "not_started": 1,
       "in_progress": 1,
-      "completed": 2,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
           "id": 153255408,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-17T11:05:36",
+          "finished_at": "2026-08-17T11:08:57",
           "scheduled_date": "2026-08-17",
           "paused": false,
           "assignedTo": "Lee Kelly",
