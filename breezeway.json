@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-08-18T15:15:55.303Z",
+  "_generated": "2026-08-18T15:30:57.578Z",
   "_source": "cron",
   "_date": "2026-08-18",
   "_status": {
-    "last_run": "2026-08-18T15:15:55.303Z",
+    "last_run": "2026-08-18T15:30:57.578Z",
     "ok": true,
     "properties_polled": 106,
     "properties_raw_total": 138,
@@ -24,11 +24,17 @@
         "has_next": false
       }
     ],
-    "errors": [],
+    "errors": [
+      {
+        "id": 282392,
+        "name": "WR Barnsley WR33",
+        "error": "HTTP 429"
+      }
+    ],
     "stages_seen": {
-      "created": 13,
-      "finished": 28,
-      "closed": 2
+      "created": 11,
+      "finished": 24,
+      "closed": 1
     },
     "first_task_shape": {
       "keys": [
@@ -99,12 +105,12 @@
     }
   },
   "summary": {
-    "not_started": 13,
+    "not_started": 11,
     "in_progress": 0,
-    "completed": 30,
+    "completed": 25,
     "issues": 0
   },
-  "total_tasks": 43,
+  "total_tasks": 36,
   "properties": [
     {
       "name": "LME Howells mere 71",
@@ -1144,206 +1150,6 @@
           "department": "inspection",
           "started_at": "2026-08-18T12:22:58",
           "finished_at": "2026-08-18T12:32:23",
-          "scheduled_date": "2026-08-18",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Isabella Edmonds"
-          ],
-          "assigneeIds": [
-            89951,
-            310046,
-            468397
-          ],
-          "template_id": 848820
-        }
-      ]
-    },
-    {
-      "name": "WR Barnsley WR33",
-      "id": 282392,
-      "total": 7,
-      "not_started": 2,
-      "in_progress": 0,
-      "completed": 5,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 153444806,
-          "name": "Guest checked out",
-          "classification": "completed",
-          "status_code": "closed",
-          "department": "housekeeping",
-          "started_at": null,
-          "finished_at": "2026-08-18T10:17:33",
-          "scheduled_date": "2026-08-18",
-          "paused": false,
-          "assignedTo": "Tracey Kelly",
-          "assignedToList": [
-            "Tracey Kelly",
-            "Lee Kelly",
-            "Janet Smith",
-            "Kate Hammond",
-            "Melanie Thomson",
-            "Rachel Gaazen",
-            "Ryan Adams",
-            "Isabella Edmonds",
-            "Abigail Jordan",
-            "Beau Gradner"
-          ],
-          "assigneeIds": [
-            85859,
-            89951,
-            149092,
-            204277,
-            272395,
-            310046,
-            450362,
-            468397,
-            470856,
-            471362
-          ],
-          "template_id": 61828
-        },
-        {
-          "id": 153444819,
-          "name": "Linen Pick Up /Drop Off",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "housekeeping",
-          "started_at": "2026-08-18T09:41:24",
-          "finished_at": "2026-08-18T09:53:44",
-          "scheduled_date": "2026-08-18",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Kate Hammond",
-            "Ryan Adams",
-            "Beau Gradner"
-          ],
-          "assigneeIds": [
-            89951,
-            204277,
-            450362,
-            471362
-          ],
-          "template_id": 61381
-        },
-        {
-          "id": 153444829,
-          "name": "Turn around clean",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "housekeeping",
-          "started_at": "2026-08-18T10:31:47",
-          "finished_at": "2026-08-18T12:16:36",
-          "scheduled_date": "2026-08-18",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Nicola Biggs",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            309594,
-            310046
-          ],
-          "template_id": 55606
-        },
-        {
-          "id": 153444856,
-          "name": "Barbeque Clean",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-08-18",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Ryan Adams",
-            "Beau Gradner"
-          ],
-          "assigneeIds": [
-            89951,
-            274021,
-            299742,
-            450362,
-            471362
-          ],
-          "template_id": 55608
-        },
-        {
-          "id": 153444883,
-          "name": "External Inspection",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "maintenance",
-          "started_at": "2026-08-18T10:07:23",
-          "finished_at": "2026-08-18T10:11:21",
-          "scheduled_date": "2026-08-18",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Ryan Adams",
-            "Beau Gradner"
-          ],
-          "assigneeIds": [
-            89951,
-            274021,
-            299742,
-            450362,
-            471362
-          ],
-          "template_id": 540368
-        },
-        {
-          "id": 158706423,
-          "name": "Check BBQ gas bottle for level",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-08-18",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Ryan Adams",
-            "Beau Gradner"
-          ],
-          "assigneeIds": [
-            89951,
-            274021,
-            299742,
-            450362,
-            471362
-          ],
-          "template_id": 821476
-        },
-        {
-          "id": 163127331,
-          "name": "Back to back cleaning check and arrival check",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "inspection",
-          "started_at": "2026-08-18T13:39:24",
-          "finished_at": "2026-08-18T13:48:07",
           "scheduled_date": "2026-08-18",
           "paused": false,
           "assignedTo": "Lee Kelly",
