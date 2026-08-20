@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-08-20T12:45:53.808Z",
+  "_generated": "2026-08-20T13:02:15.889Z",
   "_source": "cron",
   "_date": "2026-08-20",
   "_status": {
-    "last_run": "2026-08-20T12:45:53.808Z",
+    "last_run": "2026-08-20T13:02:15.889Z",
     "ok": true,
     "properties_polled": 106,
     "properties_raw_total": 138,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "finished": 48,
-      "created": 37,
-      "in_progress": 3
+      "finished": 52,
+      "created": 32,
+      "in_progress": 4
     },
     "first_task_shape": {
       "keys": [
@@ -93,10 +93,10 @@
     }
   },
   "summary": {
-    "not_started": 37,
+    "not_started": 32,
     "in_progress": 2,
-    "completed": 48,
-    "issues": 1
+    "completed": 52,
+    "issues": 2
   },
   "total_tasks": 88,
   "properties": [
@@ -618,21 +618,21 @@
       "name": "HB Busy Bees BD3",
       "id": 927235,
       "total": 7,
-      "not_started": 3,
+      "not_started": 2,
       "in_progress": 0,
       "completed": 4,
-      "issues": 0,
+      "issues": 1,
       "tasks": [
         {
           "id": 153784595,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "issues",
+          "status_code": "in_progress",
           "department": "maintenance",
-          "started_at": null,
+          "started_at": "2026-08-20T12:59:03",
           "finished_at": null,
           "scheduled_date": "2026-08-20",
-          "paused": false,
+          "paused": true,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
@@ -1170,8 +1170,8 @@
       "name": "WR Bourton WR49",
       "id": 509635,
       "total": 7,
-      "not_started": 4,
-      "in_progress": 0,
+      "not_started": 3,
+      "in_progress": 1,
       "completed": 2,
       "issues": 1,
       "tasks": [
@@ -1263,10 +1263,10 @@
         {
           "id": 153784540,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-08-20T12:45:56",
           "finished_at": null,
           "scheduled_date": "2026-08-20",
           "paused": false,
@@ -1555,11 +1555,17 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
-            "Rachel Gaazen"
+            "Rachel Gaazen",
+            "Kian Dilley",
+            "Lily Stirling",
+            "Jake Kirton"
           ],
           "assigneeIds": [
             89951,
-            310046
+            310046,
+            328298,
+            329342,
+            466563
           ],
           "template_id": 55606
         },
@@ -1759,19 +1765,19 @@
       "name": "HB The Warren SM21",
       "id": 282434,
       "total": 5,
-      "not_started": 2,
+      "not_started": 1,
       "in_progress": 0,
-      "completed": 3,
+      "completed": 4,
       "issues": 0,
       "tasks": [
         {
           "id": 158706851,
           "name": "External Inspection",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-20T12:51:34",
+          "finished_at": "2026-08-20T12:55:56",
           "scheduled_date": "2026-08-20",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -1902,8 +1908,8 @@
       "id": 282422,
       "total": 6,
       "not_started": 4,
-      "in_progress": 1,
-      "completed": 1,
+      "in_progress": 0,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
@@ -1963,11 +1969,11 @@
         {
           "id": 163206182,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
           "started_at": "2026-08-20T12:01:58",
-          "finished_at": null,
+          "finished_at": "2026-08-20T12:57:24",
           "scheduled_date": "2026-08-20",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -2223,9 +2229,9 @@
       "name": "HB Honeysuckle OM2",
       "id": 282410,
       "total": 3,
-      "not_started": 2,
+      "not_started": 0,
       "in_progress": 0,
-      "completed": 1,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -2254,11 +2260,11 @@
         {
           "id": 164245893,
           "name": "Dishwasher",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-20T12:53:12",
+          "finished_at": "2026-08-20T12:53:13",
           "scheduled_date": "2026-08-20",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -2281,11 +2287,11 @@
         {
           "id": 164246723,
           "name": "TV lounge and 2nd bed",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-20T12:53:19",
+          "finished_at": "2026-08-20T12:53:19",
           "scheduled_date": "2026-08-20",
           "paused": false,
           "assignedTo": "Lee Kelly",
