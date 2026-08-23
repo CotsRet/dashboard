@@ -1,11 +1,110 @@
 {
-  "_generated": "2026-08-23T03:01:28.108Z",
+  "_generated": "2026-08-23T03:30:42.877Z",
   "_source": "cron",
   "_date": "2026-08-23",
   "_status": {
-    "last_run": "2026-08-23T03:15:10.209Z",
-    "ok": false,
-    "error": "BW property fetch failed: 401"
+    "last_run": "2026-08-23T03:30:42.877Z",
+    "ok": true,
+    "properties_polled": 106,
+    "properties_raw_total": 138,
+    "status_counts": {
+      "inactive": 63,
+      "active": 75
+    },
+    "api_count": null,
+    "page_debug": [
+      {
+        "page": 1,
+        "returned": 100,
+        "has_next": false
+      },
+      {
+        "page": 2,
+        "returned": 38,
+        "has_next": false
+      }
+    ],
+    "errors": [],
+    "stages_seen": {
+      "created": 85,
+      "finished": 1
+    },
+    "first_task_shape": {
+      "keys": [
+        "assignments",
+        "bill_to",
+        "costs",
+        "created_at",
+        "created_by",
+        "description",
+        "finished_at",
+        "home_id",
+        "id",
+        "linked_reservation",
+        "name",
+        "paused",
+        "photos",
+        "rate_paid",
+        "rate_type",
+        "reference_property_id",
+        "report_url",
+        "reported_issue",
+        "requested_by",
+        "scheduled_date",
+        "scheduled_time",
+        "started_at",
+        "summary",
+        "supplies",
+        "tags",
+        "task_tags",
+        "template_id",
+        "total_time",
+        "type_department",
+        "type_priority",
+        "type_task_status",
+        "updated_at"
+      ],
+      "sample_assignments": [
+        {
+          "assignee_id": 89951,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 223583383,
+          "name": "Lee Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 274021,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 223583384,
+          "name": "Darren Smith",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 299742,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 223583385,
+          "name": "Ashley Smith",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 471362,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 223583389,
+          "name": "Beau Gradner",
+          "type_task_user_status": "assigned"
+        }
+      ],
+      "sample_type_department": "maintenance",
+      "sample_status": {
+        "code": "created",
+        "name": "Created",
+        "stage": "new"
+      }
+    }
   },
   "summary": {
     "not_started": 85,
