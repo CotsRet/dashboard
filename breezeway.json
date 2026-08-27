@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-08-27T09:01:51.613Z",
+  "_generated": "2026-08-27T09:16:05.101Z",
   "_source": "cron",
   "_date": "2026-08-27",
   "_status": {
-    "last_run": "2026-08-27T09:01:51.613Z",
+    "last_run": "2026-08-27T09:16:05.101Z",
     "ok": true,
     "properties_polled": 106,
     "properties_raw_total": 138,
@@ -26,8 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 64,
-      "finished": 5
+      "finished": 7,
+      "created": 61,
+      "in_progress": 1
     },
     "first_task_shape": {
       "keys": [
@@ -38,6 +39,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -140,16 +142,16 @@
       ],
       "sample_type_department": "housekeeping",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 64,
-    "in_progress": 0,
-    "completed": 5,
+    "not_started": 61,
+    "in_progress": 1,
+    "completed": 7,
     "issues": 0
   },
   "total_tasks": 69,
@@ -158,19 +160,19 @@
       "name": "HB Lakewood Lodge  ND2",
       "id": 1419456,
       "total": 4,
-      "not_started": 4,
+      "not_started": 3,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 157505391,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-27T09:12:10",
+          "finished_at": "2026-08-27T09:12:11",
           "scheduled_date": "2026-08-27",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -524,9 +526,9 @@
       "name": "HB Sunflower Lodge WV26",
       "id": 1257495,
       "total": 6,
-      "not_started": 5,
-      "in_progress": 0,
-      "completed": 1,
+      "not_started": 3,
+      "in_progress": 1,
+      "completed": 2,
       "issues": 0,
       "tasks": [
         {
@@ -565,11 +567,11 @@
         {
           "id": 155045499,
           "name": "Linen Pick Up /Drop Off",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-08-27T09:04:31",
+          "finished_at": "2026-08-27T09:11:24",
           "scheduled_date": "2026-08-27",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -588,21 +590,23 @@
         {
           "id": 155045507,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-08-27T09:08:25",
           "finished_at": null,
           "scheduled_date": "2026-08-27",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
-            "Rachel Gaazen"
+            "Rachel Gaazen",
+            "Kirsty benfield"
           ],
           "assigneeIds": [
             89951,
-            310046
+            310046,
+            473987
           ],
           "template_id": 55606
         },
@@ -1726,6 +1730,7 @@
             "Kate Hammond",
             "Melanie Thomson",
             "Rachel Gaazen",
+            "Abigail Jordan",
             "Beau Gradner"
           ],
           "assigneeIds": [
@@ -1735,6 +1740,7 @@
             204277,
             272395,
             310046,
+            470856,
             471362
           ],
           "template_id": 61828
@@ -1775,11 +1781,15 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
-            "Rachel Gaazen"
+            "Rachel Gaazen",
+            "Kael Hicks",
+            "Debbie Hicks"
           ],
           "assigneeIds": [
             89951,
-            310046
+            310046,
+            431885,
+            443738
           ],
           "template_id": 55606
         }
