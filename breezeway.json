@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-08-28T20:46:14.118Z",
+  "_generated": "2026-08-28T22:46:07.591Z",
   "_source": "cron",
   "_date": "2026-08-28",
   "_status": {
-    "last_run": "2026-08-28T20:46:14.118Z",
+    "last_run": "2026-08-28T22:46:07.591Z",
     "ok": true,
     "properties_polled": 106,
     "properties_raw_total": 138,
@@ -26,8 +26,8 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 54,
       "finished": 159,
+      "created": 51,
       "in_progress": 2
     },
     "first_task_shape": {
@@ -39,6 +39,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -65,49 +66,56 @@
         "type_task_status",
         "updated_at"
       ],
-      "sample_assignments": [],
+      "sample_assignments": [
+        {
+          "assignee_id": 89951,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 222160602,
+          "name": "Lee Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 274021,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 222160603,
+          "name": "Darren Smith",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 299742,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 222160604,
+          "name": "Ashley Smith",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 471362,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 222831303,
+          "name": "Beau Gradner",
+          "type_task_user_status": "assigned"
+        }
+      ],
       "sample_type_department": "maintenance",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 54,
+    "not_started": 51,
     "in_progress": 1,
     "completed": 159,
     "issues": 1
   },
-  "total_tasks": 215,
+  "total_tasks": 212,
   "properties": [
-    {
-      "name": "HB Goosewing ND18",
-      "id": 1472289,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 162564827,
-          "name": "Check Fire Alarms",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-08-28",
-          "paused": false,
-          "assignedTo": null,
-          "assignedToList": [],
-          "assigneeIds": [],
-          "template_id": 71642
-        }
-      ]
-    },
     {
       "name": "HB The Happy Hideaway - ND46",
       "id": 1451482,
@@ -800,8 +808,8 @@
     {
       "name": "Hareside - Hareside - 1",
       "id": 1247443,
-      "total": 5,
-      "not_started": 4,
+      "total": 3,
+      "not_started": 2,
       "in_progress": 0,
       "completed": 1,
       "issues": 0,
@@ -872,48 +880,6 @@
             325669
           ],
           "template_id": 55606
-        },
-        {
-          "id": 155210924,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-08-28",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            310046
-          ],
-          "template_id": 103648
-        },
-        {
-          "id": 165058757,
-          "name": "Udhdb",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-08-28",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Wayne Preece"
-          ],
-          "assigneeIds": [
-            89951,
-            479208
-          ],
-          "template_id": null
         }
       ]
     },
