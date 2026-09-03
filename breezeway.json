@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-09-03T15:30:53.756Z",
+  "_generated": "2026-09-03T15:45:47.719Z",
   "_source": "cron",
   "_date": "2026-09-03",
   "_status": {
-    "last_run": "2026-09-03T15:30:53.756Z",
+    "last_run": "2026-09-03T15:45:47.719Z",
     "ok": true,
     "properties_polled": 105,
     "properties_raw_total": 137,
@@ -24,23 +24,12 @@
         "has_next": false
       }
     ],
-    "errors": [
-      {
-        "id": 282395,
-        "name": "HB Hares Haven SM1",
-        "error": "HTTP 429"
-      },
-      {
-        "id": 282392,
-        "name": "WR Barnsley WR33",
-        "error": "HTTP 429"
-      }
-    ],
+    "errors": [],
     "stages_seen": {
-      "created": 53,
+      "created": 54,
       "in_progress": 2,
-      "finished": 37,
-      "closed": 8
+      "finished": 39,
+      "closed": 9
     },
     "first_task_shape": {
       "keys": [
@@ -87,12 +76,12 @@
     }
   },
   "summary": {
-    "not_started": 53,
+    "not_started": 54,
     "in_progress": 1,
-    "completed": 45,
+    "completed": 48,
     "issues": 1
   },
-  "total_tasks": 100,
+  "total_tasks": 104,
   "properties": [
     {
       "name": "HB Goosewing ND18",
@@ -2924,6 +2913,115 @@
             470856
           ],
           "template_id": 103648
+        }
+      ]
+    },
+    {
+      "name": "HB Hares Haven SM1",
+      "id": 282395,
+      "total": 4,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 3,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 160570249,
+          "name": "Guest Arrival check",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "inspection",
+          "started_at": "2026-09-02T12:59:28",
+          "finished_at": "2026-09-02T13:00:03",
+          "scheduled_date": "2026-09-03",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen",
+            "Isabella Edmonds"
+          ],
+          "assigneeIds": [
+            89951,
+            310046,
+            468397
+          ],
+          "template_id": 86878
+        },
+        {
+          "id": 160570250,
+          "name": "External Inspection",
+          "classification": "completed",
+          "status_code": "closed",
+          "department": "maintenance",
+          "started_at": "2026-08-31T12:26:43",
+          "finished_at": "2026-09-03T13:48:03",
+          "scheduled_date": "2026-09-03",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Beau Gradner"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742,
+            471362
+          ],
+          "template_id": 540368
+        },
+        {
+          "id": 160570252,
+          "name": "CHECK SOFA BED LINEN",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "housekeeping",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-09-03",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Kate Hammond",
+            "Rachel Gaazen"
+          ],
+          "assigneeIds": [
+            89951,
+            204277,
+            310046
+          ],
+          "template_id": 726249
+        },
+        {
+          "id": 166158397,
+          "name": "Push twin beds together",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "maintenance",
+          "started_at": "2026-09-03T13:46:30",
+          "finished_at": "2026-09-03T13:46:31",
+          "scheduled_date": "2026-09-03",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Melanie Thomson",
+            "Darren Smith",
+            "Ashley Smith",
+            "Beau Gradner"
+          ],
+          "assigneeIds": [
+            89951,
+            272395,
+            274021,
+            299742,
+            471362
+          ],
+          "template_id": null
         }
       ]
     }
