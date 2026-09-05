@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-09-05T08:46:18.754Z",
+  "_generated": "2026-09-05T09:01:23.582Z",
   "_source": "cron",
   "_date": "2026-09-05",
   "_status": {
-    "last_run": "2026-09-05T08:46:18.754Z",
+    "last_run": "2026-09-05T09:01:23.582Z",
     "ok": true,
     "properties_polled": 105,
     "properties_raw_total": 137,
@@ -26,9 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "in_progress": 1,
-      "created": 55,
-      "finished": 5
+      "finished": 6,
+      "created": 54,
+      "in_progress": 1
     },
     "first_task_shape": {
       "keys": [
@@ -39,6 +39,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -93,16 +94,16 @@
       ],
       "sample_type_department": "housekeeping",
       "sample_status": {
-        "code": "in_progress",
-        "name": "In Progress",
-        "stage": "in_progress"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 55,
+    "not_started": 54,
     "in_progress": 1,
-    "completed": 5,
+    "completed": 6,
     "issues": 0
   },
   "total_tasks": 61,
@@ -112,18 +113,18 @@
       "id": 1463537,
       "total": 4,
       "not_started": 3,
-      "in_progress": 1,
-      "completed": 0,
+      "in_progress": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 164240068,
           "name": "Turn around clean",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
           "started_at": "2026-09-05T08:04:58",
-          "finished_at": null,
+          "finished_at": "2026-09-05T08:45:51",
           "scheduled_date": "2026-09-05",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -271,11 +272,15 @@
           "finished_at": null,
           "scheduled_date": "2026-09-05",
           "paused": false,
-          "assignedTo": "Rachel Gaazen",
+          "assignedTo": "Becky Malgarin",
           "assignedToList": [
+            "Becky Malgarin",
+            "Ella Curtis",
             "Rachel Gaazen"
           ],
           "assigneeIds": [
+            303882,
+            308392,
             310046
           ],
           "template_id": 55606
@@ -1112,8 +1117,8 @@
       "name": "HB Wyndham Lodge WLM4",
       "id": 395494,
       "total": 6,
-      "not_started": 5,
-      "in_progress": 0,
+      "not_started": 4,
+      "in_progress": 1,
       "completed": 1,
       "issues": 0,
       "tasks": [
@@ -1201,21 +1206,23 @@
         {
           "id": 161186288,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-09-05T08:58:17",
           "finished_at": null,
           "scheduled_date": "2026-09-05",
           "paused": false,
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
-            "Rachel Gaazen"
+            "Rachel Gaazen",
+            "Lopes Cleaning Services"
           ],
           "assigneeIds": [
             89951,
-            310046
+            310046,
+            439559
           ],
           "template_id": 55606
         },
@@ -1708,10 +1715,14 @@
           "assignedTo": "Lee Kelly",
           "assignedToList": [
             "Lee Kelly",
+            "Becky Malgarin",
+            "Ella Curtis",
             "Rachel Gaazen"
           ],
           "assigneeIds": [
             89951,
+            303882,
+            308392,
             310046
           ],
           "template_id": 55606
