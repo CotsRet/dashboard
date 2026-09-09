@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-09-09T08:31:27.897Z",
+  "_generated": "2026-09-09T08:46:22.094Z",
   "_source": "cron",
   "_date": "2026-09-09",
   "_status": {
-    "last_run": "2026-09-09T08:31:27.897Z",
+    "last_run": "2026-09-09T08:46:22.094Z",
     "ok": true,
     "properties_polled": 105,
     "properties_raw_total": 137,
@@ -26,8 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 63,
-      "in_progress": 3
+      "created": 60,
+      "in_progress": 4,
+      "finished": 1
     },
     "first_task_shape": {
       "keys": [
@@ -74,12 +75,12 @@
     }
   },
   "summary": {
-    "not_started": 63,
-    "in_progress": 2,
-    "completed": 0,
+    "not_started": 60,
+    "in_progress": 3,
+    "completed": 1,
     "issues": 1
   },
-  "total_tasks": 66,
+  "total_tasks": 65,
   "properties": [
     {
       "name": "HB Goosewing ND18",
@@ -971,31 +972,12 @@
     {
       "name": "LME Mill Village MV41",
       "id": 1130739,
-      "total": 3,
-      "not_started": 3,
+      "total": 2,
+      "not_started": 2,
       "in_progress": 0,
       "completed": 0,
       "issues": 0,
       "tasks": [
-        {
-          "id": 156996614,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-09",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen",
-          "assignedToList": [
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            310046
-          ],
-          "template_id": 103648
-        },
         {
           "id": 161637595,
           "name": "Oven glove ",
@@ -1127,18 +1109,18 @@
       "name": "HB Highland Lodge  HV62",
       "id": 1038869,
       "total": 2,
-      "not_started": 2,
-      "in_progress": 0,
+      "not_started": 1,
+      "in_progress": 1,
       "completed": 0,
       "issues": 0,
       "tasks": [
         {
           "id": 165955159,
           "name": "Turn around clean",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "in_progress",
+          "status_code": "in_progress",
           "department": "housekeeping",
-          "started_at": null,
+          "started_at": "2026-09-09T08:33:47",
           "finished_at": null,
           "scheduled_date": "2026-09-09",
           "paused": false,
@@ -1398,19 +1380,19 @@
       "name": "HB Lake Retreat ST39",
       "id": 927282,
       "total": 4,
-      "not_started": 4,
+      "not_started": 3,
       "in_progress": 0,
-      "completed": 0,
+      "completed": 1,
       "issues": 0,
       "tasks": [
         {
           "id": 166373258,
           "name": "Guest checked out",
-          "classification": "not_started",
-          "status_code": "created",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
+          "started_at": "2026-09-09T08:34:43",
+          "finished_at": "2026-09-09T08:34:45",
           "scheduled_date": "2026-09-09",
           "paused": false,
           "assignedTo": "Tracey Kelly",
@@ -1421,6 +1403,7 @@
             "Kate Hammond",
             "Melanie Thomson",
             "Rachel Gaazen",
+            "Abigail Jordan",
             "Beau Gradner"
           ],
           "assigneeIds": [
@@ -1430,6 +1413,7 @@
             204277,
             272395,
             310046,
+            470856,
             471362
           ],
           "template_id": 61828
@@ -1663,6 +1647,7 @@
             "Kate Hammond",
             "Melanie Thomson",
             "Rachel Gaazen",
+            "Abigail Jordan",
             "Beau Gradner"
           ],
           "assigneeIds": [
@@ -1672,6 +1657,7 @@
             204277,
             272395,
             310046,
+            470856,
             471362
           ],
           "template_id": 61828
