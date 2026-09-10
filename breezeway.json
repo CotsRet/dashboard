@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-09-10T20:46:23.825Z",
+  "_generated": "2026-09-10T22:46:30.894Z",
   "_source": "cron",
   "_date": "2026-09-10",
   "_status": {
-    "last_run": "2026-09-10T20:46:23.825Z",
+    "last_run": "2026-09-10T22:46:30.894Z",
     "ok": true,
     "properties_polled": 105,
     "properties_raw_total": 137,
@@ -26,10 +26,9 @@
     ],
     "errors": [],
     "stages_seen": {
-      "created": 28,
       "finished": 39,
-      "in_progress": 2,
-      "closed": 2
+      "closed": 2,
+      "created": 6
     },
     "first_task_shape": {
       "keys": [
@@ -40,6 +39,7 @@
         "created_by",
         "description",
         "finished_at",
+        "finished_by",
         "home_id",
         "id",
         "linked_reservation",
@@ -66,49 +66,40 @@
         "type_task_status",
         "updated_at"
       ],
-      "sample_assignments": [],
-      "sample_type_department": "maintenance",
+      "sample_assignments": [
+        {
+          "assignee_id": 89951,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 230522763,
+          "name": "Lee Kelly",
+          "type_task_user_status": "assigned"
+        },
+        {
+          "assignee_id": 310046,
+          "employee_code": null,
+          "expires_at": null,
+          "id": 230522764,
+          "name": "Rachel Gaazen",
+          "type_task_user_status": "assigned"
+        }
+      ],
+      "sample_type_department": "inspection",
       "sample_status": {
-        "code": "created",
-        "name": "Created",
-        "stage": "new"
+        "code": "finished",
+        "name": "Finished",
+        "stage": "finished"
       }
     }
   },
   "summary": {
-    "not_started": 28,
-    "in_progress": 1,
+    "not_started": 6,
+    "in_progress": 0,
     "completed": 41,
-    "issues": 1
+    "issues": 0
   },
-  "total_tasks": 71,
+  "total_tasks": 47,
   "properties": [
-    {
-      "name": "HB Goosewing ND18",
-      "id": 1472289,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 162564827,
-          "name": "Check Fire Alarms",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": null,
-          "assignedToList": [],
-          "assigneeIds": [],
-          "template_id": 71642
-        }
-      ]
-    },
     {
       "name": "HB - Heron Hideaway HV18",
       "id": 1463537,
@@ -188,68 +179,11 @@
       ]
     },
     {
-      "name": "HB The Happy Hideaway - ND46",
-      "id": 1451482,
-      "total": 2,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 1,
-      "tasks": [
-        {
-          "id": 162631027,
-          "name": "Ripped net curtain master bedroom ",
-          "classification": "issues",
-          "status_code": "in_progress",
-          "department": "maintenance",
-          "started_at": "2026-08-31T12:41:54",
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": true,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Beau Gradner"
-          ],
-          "assigneeIds": [
-            89951,
-            274021,
-            299742,
-            471362
-          ],
-          "template_id": null
-        },
-        {
-          "id": 166558606,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            310046
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
       "name": "HB Lakewood Lodge  ND2",
       "id": 1419456,
-      "total": 5,
+      "total": 4,
       "not_started": 0,
-      "in_progress": 1,
+      "in_progress": 0,
       "completed": 4,
       "issues": 0,
       "tasks": [
@@ -325,31 +259,6 @@
           "template_id": null
         },
         {
-          "id": 165389647,
-          "name": "Reseal splashback",
-          "classification": "in_progress",
-          "status_code": "in_progress",
-          "department": "maintenance",
-          "started_at": "2026-08-28T09:15:09",
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Beau Gradner"
-          ],
-          "assigneeIds": [
-            89951,
-            274021,
-            299742,
-            471362
-          ],
-          "template_id": null
-        },
-        {
           "id": 165418453,
           "name": "Cleaning check",
           "classification": "completed",
@@ -357,125 +266,6 @@
           "department": "inspection",
           "started_at": "2026-09-10T10:19:32",
           "finished_at": "2026-09-10T10:44:29",
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            310046
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
-      "name": "LME Howells mere 71",
-      "id": 1419455,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 161820035,
-          "name": "Return oven glove ",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen",
-            "Beau Gradner"
-          ],
-          "assigneeIds": [
-            89951,
-            310046,
-            471362
-          ],
-          "template_id": null
-        }
-      ]
-    },
-    {
-      "name": "HB Bear's Cabin HV51",
-      "id": 1343498,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 164321021,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            310046
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
-      "name": "LME - Minety Lake ML29",
-      "id": 1328503,
-      "total": 2,
-      "not_started": 2,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 161977693,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            310046
-          ],
-          "template_id": 103648
-        },
-        {
-          "id": 165041527,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
           "scheduled_date": "2026-09-10",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -524,80 +314,14 @@
       ]
     },
     {
-      "name": "LME Howells mere 92 Wishbone  - HM92",
-      "id": 1225826,
+      "name": "HB Poppy Meadow SM13",
+      "id": 1165393,
       "total": 1,
       "not_started": 1,
       "in_progress": 0,
       "completed": 0,
       "issues": 0,
       "tasks": [
-        {
-          "id": 155045523,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen",
-          "assignedToList": [
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            310046
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
-      "name": "HB Poppy Meadow SM13",
-      "id": 1165393,
-      "total": 3,
-      "not_started": 3,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 164435633,
-          "name": "Chair leg very wobbly ",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": null,
-          "assignedToList": [],
-          "assigneeIds": [],
-          "template_id": null
-        },
-        {
-          "id": 166186953,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            310046
-          ],
-          "template_id": 103648
-        },
         {
           "id": 166186965,
           "name": "Dust and Check",
@@ -624,58 +348,12 @@
     {
       "name": "HB Kingfisher Lodge - ND25",
       "id": 1152471,
-      "total": 3,
-      "not_started": 2,
+      "total": 1,
+      "not_started": 0,
       "in_progress": 0,
       "completed": 1,
       "issues": 0,
       "tasks": [
-        {
-          "id": 156996534,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            310046
-          ],
-          "template_id": 103648
-        },
-        {
-          "id": 163146786,
-          "name": "Measure net curtain",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Beau Gradner"
-          ],
-          "assigneeIds": [
-            89951,
-            274021,
-            299742,
-            471362
-          ],
-          "template_id": null
-        },
         {
           "id": 167432815,
           "name": "Carpet clean ",
@@ -700,110 +378,6 @@
             310046
           ],
           "template_id": null
-        }
-      ]
-    },
-    {
-      "name": "LME Mill Village MV41",
-      "id": 1130739,
-      "total": 2,
-      "not_started": 2,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 161637595,
-          "name": "Oven glove ",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "housekeeping",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            310046
-          ],
-          "template_id": null
-        },
-        {
-          "id": 165711001,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen",
-          "assignedToList": [
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            310046
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
-      "name": "LME Chiff Chaff - CW72",
-      "id": 1123640,
-      "total": 2,
-      "not_started": 2,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 154088365,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen",
-          "assignedToList": [
-            "Rachel Gaazen",
-            "Suus Paris"
-          ],
-          "assigneeIds": [
-            310046,
-            360679
-          ],
-          "template_id": 103648
-        },
-        {
-          "id": 164320996,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen",
-          "assignedToList": [
-            "Rachel Gaazen",
-            "Suus Paris"
-          ],
-          "assigneeIds": [
-            310046,
-            360679
-          ],
-          "template_id": 103648
         }
       ]
     },
@@ -992,106 +566,10 @@
       ]
     },
     {
-      "name": "LME Minety Dawn ML14",
-      "id": 1046353,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 156664434,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Rachel Gaazen",
-          "assignedToList": [
-            "Rachel Gaazen",
-            "Suus Paris"
-          ],
-          "assigneeIds": [
-            310046,
-            360679
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
-      "name": "HB Highland Lodge  HV62",
-      "id": 1038869,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 165955160,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            310046
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
-      "name": "HB Sunset Lodge ND21",
-      "id": 942947,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 162538268,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            310046
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
       "name": "HB Wide Water Lodge HV15",
       "id": 930300,
-      "total": 2,
-      "not_started": 1,
+      "total": 1,
+      "not_started": 0,
       "in_progress": 0,
       "completed": 1,
       "issues": 0,
@@ -1118,60 +596,18 @@
             439559
           ],
           "template_id": 55606
-        },
-        {
-          "id": 157792111,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            310046
-          ],
-          "template_id": 103648
         }
       ]
     },
     {
       "name": "HB Lemon Tree Lodge WV2",
       "id": 930299,
-      "total": 3,
-      "not_started": 2,
+      "total": 1,
+      "not_started": 0,
       "in_progress": 0,
       "completed": 1,
       "issues": 0,
       "tasks": [
-        {
-          "id": 155992089,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            310046
-          ],
-          "template_id": 103648
-        },
         {
           "id": 161297757,
           "name": "Carpet clean lounge",
@@ -1194,31 +630,6 @@
             303882,
             308392,
             310046
-          ],
-          "template_id": null
-        },
-        {
-          "id": 163317834,
-          "name": "Stack beds in smaller twin",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Beau Gradner"
-          ],
-          "assigneeIds": [
-            89951,
-            274021,
-            299742,
-            471362
           ],
           "template_id": null
         }
@@ -1287,38 +698,6 @@
           "department": "inspection",
           "started_at": "2026-09-10T11:12:42",
           "finished_at": "2026-09-10T11:24:34",
-          "scheduled_date": "2026-09-10",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            310046
-          ],
-          "template_id": 103648
-        }
-      ]
-    },
-    {
-      "name": "HB The Cosy Cabin HV73",
-      "id": 927230,
-      "total": 1,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 0,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 155783119,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
           "scheduled_date": "2026-09-10",
           "paused": false,
           "assignedTo": "Lee Kelly",
