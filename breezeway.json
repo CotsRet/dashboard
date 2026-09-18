@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-09-18T12:37:15.844Z",
+  "_generated": "2026-09-18T12:46:09.130Z",
   "_source": "cron",
   "_date": "2026-09-18",
   "_status": {
-    "last_run": "2026-09-18T12:37:15.844Z",
+    "last_run": "2026-09-18T12:46:09.130Z",
     "ok": true,
     "properties_polled": 105,
     "properties_raw_total": 136,
@@ -24,17 +24,11 @@
         "has_next": false
       }
     ],
-    "errors": [
-      {
-        "id": 1257495,
-        "name": "HB Sunflower Lodge WV26",
-        "error": "HTTP 504"
-      }
-    ],
+    "errors": [],
     "stages_seen": {
       "created": 35,
-      "finished": 73,
-      "in_progress": 5
+      "finished": 78,
+      "in_progress": 3
     },
     "first_task_shape": {
       "keys": [
@@ -82,11 +76,11 @@
   },
   "summary": {
     "not_started": 35,
-    "in_progress": 4,
-    "completed": 73,
+    "in_progress": 2,
+    "completed": 78,
     "issues": 1
   },
-  "total_tasks": 113,
+  "total_tasks": 116,
   "properties": [
     {
       "name": "HB Goosewing ND18",
@@ -329,8 +323,8 @@
       "id": 1393779,
       "total": 5,
       "not_started": 0,
-      "in_progress": 1,
-      "completed": 4,
+      "in_progress": 0,
+      "completed": 5,
       "issues": 0,
       "tasks": [
         {
@@ -384,11 +378,11 @@
         {
           "id": 158939742,
           "name": "Cleaning check",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "inspection",
           "started_at": "2026-09-18T12:29:01",
-          "finished_at": null,
+          "finished_at": "2026-09-18T12:41:01",
           "scheduled_date": "2026-09-18",
           "paused": false,
           "assignedTo": "Lee Kelly",
@@ -455,8 +449,8 @@
     {
       "name": "LME Howells mere HM108",
       "id": 1258934,
-      "total": 5,
-      "not_started": 5,
+      "total": 4,
+      "not_started": 4,
       "in_progress": 0,
       "completed": 0,
       "issues": 0,
@@ -529,27 +523,6 @@
           "template_id": 55606
         },
         {
-          "id": 164879505,
-          "name": "Cleaning check",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "inspection",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-18",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            310046
-          ],
-          "template_id": 103648
-        },
-        {
           "id": 166339820,
           "name": "Cleaning check",
           "classification": "not_started",
@@ -569,6 +542,109 @@
             310046
           ],
           "template_id": 103648
+        }
+      ]
+    },
+    {
+      "name": "HB Sunflower Lodge WV26",
+      "id": 1257495,
+      "total": 4,
+      "not_started": 1,
+      "in_progress": 0,
+      "completed": 3,
+      "issues": 0,
+      "tasks": [
+        {
+          "id": 160745730,
+          "name": "Stiff shower door ",
+          "classification": "not_started",
+          "status_code": "created",
+          "department": "maintenance",
+          "started_at": null,
+          "finished_at": null,
+          "scheduled_date": "2026-09-18",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Beau Gradner"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742,
+            471362
+          ],
+          "template_id": null
+        },
+        {
+          "id": 164240072,
+          "name": "Cleaning check",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "inspection",
+          "started_at": "2026-09-18T10:24:45",
+          "finished_at": "2026-09-18T10:42:04",
+          "scheduled_date": "2026-09-18",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen"
+          ],
+          "assigneeIds": [
+            89951,
+            310046
+          ],
+          "template_id": 103648
+        },
+        {
+          "id": 167153808,
+          "name": "Guest Arrival check",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "inspection",
+          "started_at": "2026-09-18T10:42:10",
+          "finished_at": "2026-09-18T10:42:31",
+          "scheduled_date": "2026-09-18",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Rachel Gaazen"
+          ],
+          "assigneeIds": [
+            89951,
+            310046
+          ],
+          "template_id": 86878
+        },
+        {
+          "id": 167153809,
+          "name": "External Inspection",
+          "classification": "completed",
+          "status_code": "finished",
+          "department": "maintenance",
+          "started_at": "2026-09-18T11:58:02",
+          "finished_at": "2026-09-18T12:07:32",
+          "scheduled_date": "2026-09-18",
+          "paused": false,
+          "assignedTo": "Lee Kelly",
+          "assignedToList": [
+            "Lee Kelly",
+            "Darren Smith",
+            "Ashley Smith",
+            "Beau Gradner"
+          ],
+          "assigneeIds": [
+            89951,
+            274021,
+            299742,
+            471362
+          ],
+          "template_id": 540368
         }
       ]
     },
@@ -2321,8 +2397,8 @@
       "id": 282428,
       "total": 3,
       "not_started": 0,
-      "in_progress": 1,
-      "completed": 2,
+      "in_progress": 0,
+      "completed": 3,
       "issues": 0,
       "tasks": [
         {
@@ -2349,11 +2425,11 @@
         {
           "id": 165104334,
           "name": "External Inspection",
-          "classification": "in_progress",
-          "status_code": "in_progress",
+          "classification": "completed",
+          "status_code": "finished",
           "department": "maintenance",
           "started_at": "2026-09-18T12:32:12",
-          "finished_at": null,
+          "finished_at": "2026-09-18T12:42:29",
           "scheduled_date": "2026-09-18",
           "paused": false,
           "assignedTo": "Lee Kelly",
