@@ -234,6 +234,9 @@
 
   function classify(taskName){
     var n = taskName || "";
+    // Check-in/out upsells first (their own BW tasks, e.g. "Late Check-out 1pm ...").
+    if(/\blate\s*check[\s-]?out\b/i.test(n)) return "lateout";
+    if(/\bearly\s*check[\s-]?in\b/i.test(n)) return "earlyin";
     var isRemove = REMOVE_RE.test(n);
     var isAdd    = ADD_RE.test(n);
     // Upsell = an add/remove verb AND an upsell item (keeps repairs out).
@@ -241,6 +244,10 @@
       return isRemove ? "remove" : "add";
     }
     return "maint"; // unusual / one-off / repair
+  }
+  function extractTime(s){
+    var m = String(s||"").match(/(\d{1,2}(?::\d{2})?\s?(?:am|pm)|\d{1,2}:\d{2})/i);
+    return m ? m[1].replace(/\s+/g,"") : null;
   }
   function statusOf(t){
     var c = (t.classification||"").toLowerCase();
@@ -274,15 +281,26 @@
   // ---- build the combined item list (BW tasks + Beds24 early/late/extras) ----
   function buildItems(){
     var items = [];
+    var bwEvent = {};   // "code|earlyin" / "code|lateout" already covered by a BW task
     if(bwData){
       bwUrl = bwData.bw_app_url || bwUrl;
       specialTasks(bwData).forEach(function(x){
-        var t=x.t, st=statusOf(t), k=classify(t.name);
-        var kind = (k==="add"||k==="remove") ? k : (st.k==="issue-status" ? "issue" : "maint");
+        var t=x.t, st=statusOf(t), k=classify(t.name), code=lodgeCode(x.prop);
+        var kind, col, title=t.name, time=null, note=null;
+        if(k==="earlyin"||k==="lateout"){
+          kind=k; col="upsell";
+          title = k==="lateout" ? "Late check-out" : "Early check-in";
+          time = extractTime(t.name); note = t.name;
+          bwEvent[code+"|"+kind] = true;
+        } else if(k==="add"||k==="remove"){
+          kind=k; col="upsell";
+        } else {
+          kind = (st.k==="issue-status") ? "issue" : "maint"; col="maint";
+        }
         items.push({
-          key:"bw|"+x.propId+"|"+t.id, col:(kind==="add"||kind==="remove")?"upsell":"maint",
-          kind:kind, code:lodgeCode(x.prop), place:lodgeName(x.prop), title:t.name,
-          status:st, time:null, owner:false, who:assignee(t),
+          key:"bw|"+x.propId+"|"+t.id, col:col, kind:kind, code:code,
+          place:lodgeName(x.prop), title:title, note:note,
+          status:st, time:time, owner:false, who:assignee(t),
           dept:t.department||"", scheduled:t.scheduled_date||"", src:"Breezeway"
         });
       });
@@ -293,9 +311,9 @@
       if(day){
         (day.arrivals||[]).forEach(function(a){
           var tm=(a.early_checkin||"").trim();
-          if(tm) items.push({key:"in|"+a.lodge, col:"upsell", kind:"earlyin", code:a.lodge,
-            place:"", title:"Early check-in", status:null, time:tm, owner:!!a.owner,
-            who:"", dept:"", scheduled:td, src:"Beds24"});
+          if(tm && !bwEvent[a.lodge+"|earlyin"]) items.push({key:"in|"+a.lodge, col:"upsell",
+            kind:"earlyin", code:a.lodge, place:"", title:"Early check-in", status:null,
+            time:tm, owner:!!a.owner, who:"", dept:"", scheduled:td, src:"Beds24"});
           (a.extras||[]).forEach(function(ex,ix){
             var label = typeof ex==="string" ? ex : (ex && (ex.name||ex.title||ex.description)) || "";
             if(label) items.push({key:"ex|"+a.lodge+"|"+ix, col:"upsell", kind:"add", code:a.lodge,
@@ -305,9 +323,9 @@
         });
         (day.departures||[]).forEach(function(dp){
           var tm=(dp.late_checkout||"").trim();
-          if(tm) items.push({key:"out|"+dp.lodge, col:"upsell", kind:"lateout", code:dp.lodge,
-            place:"", title:"Late check-out", status:null, time:tm, owner:!!dp.owner,
-            who:"", dept:"", scheduled:td, src:"Beds24"});
+          if(tm && !bwEvent[dp.lodge+"|lateout"]) items.push({key:"out|"+dp.lodge, col:"upsell",
+            kind:"lateout", code:dp.lodge, place:"", title:"Late check-out", status:null,
+            time:tm, owner:!!dp.owner, who:"", dept:"", scheduled:td, src:"Beds24"});
         });
       }
     }
@@ -330,9 +348,9 @@
   }
   function rightFor(it){
     var out="";
+    if(it.time){ out += '<span class="pill time">'+esc(it.time)+'</span>'; }
     if(it.status){ var pc = it.status.k==="issue-status" ? "issue" : it.status.k;
       out += '<span class="pill '+pc+'">'+esc(it.status.label)+'</span>'; }
-    else if(it.time){ out += '<span class="pill time">'+esc(it.time)+'</span>'; }
     if(it.owner) out += '<span class="owner">👤 Owner</span>';
     if(it.who)   out += '<span class="who">'+esc(it.who)+'</span>';
     return out;
@@ -385,6 +403,7 @@
       +   (it.dept ? '<div class="chip"><b>Department</b>'+esc(it.dept)+'</div>' : '')
       +   (it.time ? '<div class="chip"><b>Time</b>'+esc(it.time)+'</div>' : '')
       +   '<div class="chip"><b>Source</b>'+esc(it.src)+'</div>'
+      +   (it.note ? '<div class="chip" style="flex-basis:100%"><b>Task</b>'+esc(it.note)+'</div>' : '')
       + '</div>'
       + '<div class="actions">'+link+'<button class="btn ghost" type="button" id="closeSheet">Close</button></div>';
     document.getElementById("overlay").classList.add("on");
