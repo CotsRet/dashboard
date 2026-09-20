@@ -100,6 +100,10 @@
   .kind.maint{background:var(--maint-bg);color:var(--maint)}
   .kind.earlyin{background:var(--early-bg);color:var(--early)}
   .kind.lateout{background:var(--late-bg);color:var(--late)}
+  .card.special{border-left-color:var(--maint)}
+  .card.ownerin,.card.ownerout{border-left-color:#b8860b}
+  .kind.special{background:var(--maint-bg);color:var(--maint)}
+  .kind.ownerin,.kind.ownerout{background:#fdf3d3;color:#8a6a00}
   .owner{display:inline-flex;align-items:center;gap:5px;font-family:var(--cond);font-weight:800;
     font-size:clamp(11px,.9vw,15px);letter-spacing:.5px;text-transform:uppercase;
     padding:3px 10px;border-radius:20px;background:#fdf3d3;color:#8a6a00;border:1px solid #ecd98f}
@@ -182,10 +186,10 @@
 
     <section class="col maint">
       <div class="col-hd">
-        <span class="ic">🔧</span>
+        <span class="ic">📋</span>
         <div>
-          <h2>Unusual &amp; Maintenance</h2>
-          <div class="sub">One-off jobs, repairs and faults — not part of the clean</div>
+          <h2>Special Requests</h2>
+          <div class="sub">Owner arrivals &amp; departures + special jobs for the laundry team</div>
         </div>
         <span class="count" id="maintCount">0</span>
       </div>
@@ -193,7 +197,7 @@
     </section>
   </main>
 
-  <footer id="foot">Routine cleans aren't shown here — this board is only the extra jobs staff need to spot.</footer>
+  <footer id="foot">Routine cleans and general maintenance aren't shown — only upsells and special requests the laundry team needs.</footer>
 
   <div class="overlay" id="overlay">
     <div class="sheet" id="sheet"></div>
@@ -231,6 +235,10 @@
   var ADD_RE    = /\b(add|fit|install|set\s?up|deliver|drop\s?off|provide|extra)\b/i;
   var REMOVE_RE = /\b(remove|collect|take\s?down|dismantle|pick\s?up|take\s?away)\b/i;
   var UPSELL_NOUN = /\b(cot|crib|booster|high\s?chair|highchair|bed\s?guard|bedguard|z[\s-]?bed|z[\s-]?bed|travel\s?cot|guard|stair\s?gate|stairgate|blackout|fan|heater)\b/i;
+  // General maintenance / repairs the laundry team should NOT see. If a non-upsell
+  // task matches this, it's hidden from the board; anything else non-routine shows
+  // as a Special Request (bed stacking, throws, owner prep, etc.).
+  var MAINT_RE = /\b(leak|rip|torn|broke|repair|replace|mirror|batter|bulb|light|lamp|alarm|smoke|paint|toilet|sink|tap|drain|door|window|lock|handle|hinge|heat|boiler|radiator|damp|mou?ld|crack|block|fault|fix|wifi|aerial|remote|fire|curtain|blind|shower|socket|plug|switch|tile|grout|seal)\w*/i;
 
   function classify(taskName){
     var n = taskName || "";
@@ -295,7 +303,9 @@
         } else if(k==="add"||k==="remove"){
           kind=k; col="upsell";
         } else {
-          kind = (st.k==="issue-status") ? "issue" : "maint"; col="maint";
+          // Special Requests: laundry-relevant one-offs only. Hide general maintenance/repairs.
+          if(MAINT_RE.test(t.name)) return;
+          kind="special"; col="maint";
         }
         items.push({
           key:"bw|"+x.propId+"|"+t.id, col:col, kind:kind, code:code,
@@ -314,6 +324,10 @@
           if(tm && !bwEvent[a.lodge+"|earlyin"]) items.push({key:"in|"+a.lodge, col:"upsell",
             kind:"earlyin", code:a.lodge, place:"", title:"Early check-in", status:null,
             time:tm, owner:!!a.owner, who:"", dept:"", scheduled:td, src:"Beds24"});
+          if(a.owner) items.push({key:"own-in|"+a.lodge, col:"maint", kind:"ownerin", code:a.lodge,
+            place:"", title:"Owner arriving", status:null, time:tm||null, owner:true, who:"",
+            dept:"", scheduled:td, src:"Beds24",
+            note:"Owner arrival — check Beds24 for any special requests before they arrive."});
           (a.extras||[]).forEach(function(ex,ix){
             var label = typeof ex==="string" ? ex : (ex && (ex.name||ex.title||ex.description)) || "";
             if(label) items.push({key:"ex|"+a.lodge+"|"+ix, col:"upsell", kind:"add", code:a.lodge,
@@ -326,13 +340,17 @@
           if(tm && !bwEvent[dp.lodge+"|lateout"]) items.push({key:"out|"+dp.lodge, col:"upsell",
             kind:"lateout", code:dp.lodge, place:"", title:"Late check-out", status:null,
             time:tm, owner:!!dp.owner, who:"", dept:"", scheduled:td, src:"Beds24"});
+          if(dp.owner) items.push({key:"own-out|"+dp.lodge, col:"maint", kind:"ownerout", code:dp.lodge,
+            place:"", title:"Owner leaving", status:null, time:tm||null, owner:true, who:"",
+            dept:"", scheduled:td, src:"Beds24",
+            note:"Owner departure — they may use their own bedding & clean before leaving; query with admin if unsure."});
         });
       }
     }
     return items;
   }
   function rankOf(it){
-    if(it.kind==="earlyin"||it.kind==="lateout") return 0;      // time-sensitive, top
+    if(it.kind==="earlyin"||it.kind==="lateout"||it.kind==="ownerin"||it.kind==="ownerout") return 0;
     var k = it.status ? it.status.k : "ns";
     return k==="done" ? 3 : k==="ip" ? 2 : 1;
   }
@@ -344,7 +362,9 @@
       : kind==="issue"  ? '<span class="kind issue">⚠ Fault</span>'
       : kind==="earlyin"? '<span class="kind earlyin">🕓 Early in</span>'
       : kind==="lateout"? '<span class="kind lateout">🕓 Late out</span>'
-      : '<span class="kind maint">🔧 One-off</span>';
+      : kind==="ownerin"? '<span class="kind ownerin">👤 Owner in</span>'
+      : kind==="ownerout"? '<span class="kind ownerout">👤 Owner out</span>'
+      : '<span class="kind special">📋 Special</span>';
   }
   function rightFor(it){
     var out="";
@@ -375,7 +395,7 @@
     document.getElementById("upsellList").innerHTML = up.length
       ? up.map(cardHTML).join("") : emptyHTML("✓","No upsells today");
     document.getElementById("maintList").innerHTML = mn.length
-      ? mn.map(cardHTML).join("") : emptyHTML("✓","No unusual jobs — all clear");
+      ? mn.map(cardHTML).join("") : emptyHTML("✓","No special requests today");
     var map={}; items.forEach(function(i){ map[i.key]=i; }); render._items=map;
     document.querySelectorAll(".card").forEach(function(el){
       el.addEventListener("click", function(){ openDetail(el.getAttribute("data-key")); });
@@ -387,7 +407,8 @@
     if(!it) return;
     var statusLabel = it.status ? it.status.label : (it.time ? ("At "+it.time) : "—");
     var typeLabel = {add:"Fit / add (upsell)",remove:"Remove / collect (upsell)",
-      issue:"Fault / issue",maint:"One-off job",earlyin:"Early check-in",lateout:"Late check-out"}[it.kind]||it.kind;
+      special:"Special job",earlyin:"Early check-in",lateout:"Late check-out",
+      ownerin:"Owner arriving",ownerout:"Owner leaving"}[it.kind]||it.kind;
     var link = (bwUrl && it.src==="Breezeway")
       ? '<a class="btn primary" href="'+esc(bwUrl)+'" target="_blank" rel="noopener">Open in Breezeway ↗</a>' : "";
     var sheet = document.getElementById("sheet");
