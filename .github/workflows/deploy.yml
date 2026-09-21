@@ -9,6 +9,14 @@ permissions:
   pages: write
   id-token: write
 
+# Allow only one Pages deployment at a time, and let an in-progress one finish
+# rather than cancelling it — so concurrent pushes (e.g. the 15-minute
+# breezeway.json updates and manual changes) queue instead of colliding and
+# failing the deploy.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   deploy:
     environment:
