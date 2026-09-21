@@ -68,13 +68,23 @@
     color:#fff;border-radius:12px;padding:6px 14px}
   .col.upsell .count{background:var(--remove)}
   .col.maint  .count{background:var(--maint)}
-  .list{flex:1;overflow-y:auto;padding:clamp(10px,1.1vw,18px);display:flex;
-    flex-direction:column;gap:clamp(9px,1vw,14px)}
+  /* Auto-fit: density tiers set by JS so every card fits with no scrolling. */
+  .list{flex:1;overflow-y:auto;padding:clamp(8px,1vw,16px);display:flex;
+    flex-direction:column;gap:var(--gap);
+    --gap:clamp(9px,1vw,14px);--cpad-v:clamp(12px,1.2vw,18px);--cpad-h:clamp(14px,1.4vw,22px);
+    --cgap:clamp(12px,1.3vw,20px);--code-fs:clamp(30px,3vw,58px);--job-fs:clamp(17px,1.55vw,28px);
+    --kind-fs:clamp(12px,1vw,17px);--msg-fs:clamp(13.5px,1.05vw,18px);--msg-lines:5;--who-lines:6}
+  .list[data-d="2"]{--gap:9px;--cpad-v:11px;--cpad-h:17px;--cgap:16px;--code-fs:clamp(24px,2.4vw,44px);
+    --job-fs:clamp(15px,1.35vw,23px);--kind-fs:clamp(11px,.9vw,15px);--msg-fs:clamp(13px,1vw,16px);--msg-lines:3;--who-lines:3}
+  .list[data-d="3"]{--gap:7px;--cpad-v:8px;--cpad-h:14px;--cgap:12px;--code-fs:clamp(20px,2vw,34px);
+    --job-fs:clamp(14px,1.15vw,19px);--kind-fs:11px;--msg-fs:12.5px;--msg-lines:2;--who-lines:2}
+  .list[data-d="4"]{--gap:5px;--cpad-v:6px;--cpad-h:11px;--cgap:9px;--code-fs:clamp(17px,1.7vw,27px);
+    --job-fs:13px;--kind-fs:10px;--msg-fs:12px;--msg-lines:1;--who-lines:1}
 
   /* ---------- job card ---------- */
-  .card{display:flex;align-items:stretch;gap:clamp(12px,1.3vw,20px);
+  .card{display:flex;align-items:stretch;gap:var(--cgap);
     background:var(--panel2);border:1px solid var(--line);border-left-width:8px;
-    border-radius:12px;padding:clamp(12px,1.2vw,18px) clamp(14px,1.4vw,22px);
+    border-radius:12px;padding:var(--cpad-v) var(--cpad-h);
     cursor:pointer;transition:transform .08s ease, box-shadow .08s ease}
   .card:active{transform:scale(.995)}
   .card.add{border-left-color:var(--add)}
@@ -83,16 +93,16 @@
   .card.maint{border-left-color:var(--maint)}
   .card.earlyin{border-left-color:var(--early)}
   .card.lateout{border-left-color:var(--late)}
-  .code{font-family:var(--cond);font-weight:800;font-size:clamp(30px,3vw,58px);
+  .code{font-family:var(--cond);font-weight:800;font-size:var(--code-fs);
     line-height:.95;letter-spacing:.5px;flex:none;min-width:2.4em}
   .code small{display:block;font-family:var(--sans);font-weight:500;
     font-size:clamp(11px,.82vw,15px);color:var(--ink3);letter-spacing:0;margin-top:5px;
     max-width:10em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .mid{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:7px}
-  .job{font-weight:700;font-size:clamp(17px,1.55vw,28px);line-height:1.15;
+  .job{font-weight:700;font-size:var(--job-fs);line-height:1.15;
     text-wrap:balance}
   .kind{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;
-    font-family:var(--cond);font-weight:800;font-size:clamp(12px,1vw,17px);
+    font-family:var(--cond);font-weight:800;font-size:var(--kind-fs);
     letter-spacing:.6px;text-transform:uppercase;padding:3px 11px;border-radius:20px}
   .kind.add{background:var(--add-bg);color:var(--add)}
   .kind.remove{background:var(--remove-bg);color:var(--remove)}
@@ -110,8 +120,9 @@
   .pill.time{background:var(--panel);border:1px solid var(--line);color:var(--ink)}
   .pill.when{background:#ffe6c2;color:#8a4b00;border:1px solid #f0c98a;font-weight:700}
   .card.note,.card.check{border-left-color:var(--maint)}
-  .cmsg{font-size:clamp(13.5px,1.05vw,18px);color:var(--ink2);line-height:1.32;margin-top:5px;
-    font-weight:500;max-width:52ch}
+  .cmsg{font-size:var(--msg-fs);color:var(--ink2);line-height:1.32;margin-top:5px;
+    font-weight:500;max-width:52ch;display:-webkit-box;-webkit-line-clamp:var(--msg-lines);
+    -webkit-box-orient:vertical;overflow:hidden}
   .right{flex:none;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:8px;text-align:right}
   .pill{font-family:var(--cond);font-weight:700;font-size:clamp(12px,1vw,17px);
     letter-spacing:.4px;text-transform:uppercase;padding:5px 12px;border-radius:8px;white-space:nowrap}
@@ -120,7 +131,8 @@
   .pill.done{background:var(--done-bg);color:var(--done)}
   .pill.issue{background:var(--issue-bg);color:var(--issue)}
   .who{font-size:clamp(12px,.88vw,15px);color:var(--ink2);font-weight:500;max-width:13em;
-    text-align:right;line-height:1.25}
+    text-align:right;line-height:1.25;display:-webkit-box;-webkit-line-clamp:var(--who-lines);
+    -webkit-box-orient:vertical;overflow:hidden}
 
   .empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
     gap:12px;color:var(--ink3);text-align:center;padding:24px}
@@ -470,6 +482,12 @@
     return '<div class="empty"><div class="big">'+icon+'</div><div class="msg">'+msg+'</div></div>';
   }
 
+  // Shrink a column's cards (density tier 1→4) until they all fit with no scroll.
+  function fitList(el){
+    if(!el) return;
+    var d=1; el.setAttribute("data-d","1");
+    while(el.scrollHeight > el.clientHeight + 1 && d < 4){ d++; el.setAttribute("data-d", String(d)); }
+  }
   function render(){
     var items = buildItems();
     // Hide anything already marked Done — the board is a to-do glance, not a log.
@@ -486,6 +504,8 @@
     document.querySelectorAll(".card").forEach(function(el){
       el.addEventListener("click", function(){ openDetail(el.getAttribute("data-key")); });
     });
+    fitList(document.getElementById("upsellList"));
+    fitList(document.getElementById("maintList"));
   }
 
   function openDetail(key){
@@ -570,6 +590,9 @@
   }
 
   document.getElementById("refreshBtn").addEventListener("click", load);
+  var reflowT;
+  window.addEventListener("resize", function(){ clearTimeout(reflowT); reflowT=setTimeout(render,150); });
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ render(); }); }
   tickClock(); setInterval(tickClock,1000);
   setInterval(setFreshness,30000);
   load(); setInterval(load,REFRESH_MS);
