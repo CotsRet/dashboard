@@ -433,8 +433,10 @@
 
   function render(){
     var items = buildItems();
-    var up = items.filter(function(i){return i.col==="upsell";}).sort(function(a,b){return rankOf(a)-rankOf(b);});
-    var mn = items.filter(function(i){return i.col==="maint";}).sort(function(a,b){return rankOf(a)-rankOf(b);});
+    // Hide anything already marked Done — the board is a to-do glance, not a log.
+    function notDone(i){ return !(i.status && i.status.k==="done"); }
+    var up = items.filter(function(i){return i.col==="upsell" && notDone(i);}).sort(function(a,b){return rankOf(a)-rankOf(b);});
+    var mn = items.filter(function(i){return i.col==="maint" && notDone(i);}).sort(function(a,b){return rankOf(a)-rankOf(b);});
     document.getElementById("upsellCount").textContent = up.length;
     document.getElementById("maintCount").textContent = mn.length;
     document.getElementById("upsellList").innerHTML = up.length
