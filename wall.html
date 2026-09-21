@@ -108,6 +108,10 @@
     font-size:clamp(11px,.9vw,15px);letter-spacing:.5px;text-transform:uppercase;
     padding:3px 10px;border-radius:20px;background:#fdf3d3;color:#8a6a00;border:1px solid #ecd98f}
   .pill.time{background:var(--panel);border:1px solid var(--line);color:var(--ink)}
+  .pill.when{background:#ffe6c2;color:#8a4b00;border:1px solid #f0c98a;font-weight:700}
+  .card.note,.card.check{border-left-color:var(--maint)}
+  .cmsg{font-size:clamp(13.5px,1.05vw,18px);color:var(--ink2);line-height:1.32;margin-top:5px;
+    font-weight:500;max-width:52ch}
   .right{flex:none;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:8px;text-align:right}
   .pill{font-family:var(--cond);font-weight:700;font-size:clamp(12px,1vw,17px);
     letter-spacing:.4px;text-transform:uppercase;padding:5px 12px;border-radius:8px;white-space:nowrap}
@@ -214,8 +218,12 @@
     "dashboard.json",
     "https://raw.githubusercontent.com/CotsRet/dashboard/main/dashboard.json"
   ];
+  var NOTES_SOURCES = [
+    "notes.json",
+    "https://raw.githubusercontent.com/CotsRet/dashboard/main/notes.json"
+  ];
   var REFRESH_MS = 90000;
-  var bwData = null, dashData = null, lastFetch = 0, bwUrl = "https://app.breezeway.io";
+  var bwData = null, dashData = null, notesData = null, lastFetch = 0, bwUrl = "https://app.breezeway.io";
   // Last-resort snapshot so a preview (where live fetch is blocked) still shows
   // real jobs. The live feed always overrides this when reachable.
   var FALLBACK_DATA = {"_generated":"2026-09-20T10:31:57.180Z","_fallback":true,"bw_app_url":"https://app.breezeway.io","properties":[{"name":"HB The Happy Hideaway - ND46","id":1451482,"tasks":[{"id":162631027,"name":"Ripped net curtain master bedroom ","classification":"issues","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null}]},{"name":"HB Cotswold Reach CR79","id":1081812,"tasks":[{"id":165043575,"name":"Toilet seat in main bath","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":null,"assignedToList":[],"template_id":null}]},{"name":"HB Busy Bees BD3","id":927235,"tasks":[{"id":164881024,"name":"Sink leaking ","classification":"issues","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null}]},{"name":"HB The Warren SM21","id":282434,"tasks":[{"id":166479949,"name":"Remove Booster Seat","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Kate Hammond","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null},{"id":166479961,"name":"Remove travel cot","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Kate Hammond","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null}]},{"name":"HB Clearwater ND15","id":282401,"tasks":[{"id":167574917,"name":"Re-hang mirror in lounge","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Abigail Jordan","Beau Gradner"],"template_id":null},{"id":167743005,"name":"Replace battery in Clock ","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Abigail Jordan","Beau Gradner"],"template_id":null}]}]};
@@ -257,6 +265,17 @@
     var m = String(s||"").match(/(\d{1,2}(?::\d{2})?\s?(?:am|pm)|\d{1,2}:\d{2})/i);
     return m ? m[1].replace(/\s+/g,"") : null;
   }
+  function dayLabel(ds){
+    if(!ds) return "";
+    var today = new Date(); today.setHours(0,0,0,0);
+    var d = new Date(ds+"T00:00:00");
+    var diff = Math.round((d-today)/86400000);
+    if(diff===0) return "Today";
+    if(diff===1) return "Tomorrow";
+    if(diff===-1) return "Yesterday";
+    if(diff>1 && diff<7) return d.toLocaleDateString("en-GB",{weekday:"long"});
+    return d.toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short"});
+  }
   function statusOf(t){
     var c = (t.classification||"").toLowerCase();
     if(c==="completed") return {k:"done",label:"Done"};
@@ -290,6 +309,18 @@
   function buildItems(){
     var items = [];
     var bwEvent = {};   // "code|earlyin" / "code|lateout" already covered by a BW task
+    // Manual notes (comments) whose date window includes today.
+    var noteCover = {}, activeNotes = [];
+    if(notesData && notesData.notes){
+      var tdn = new Date().toISOString().slice(0,10);
+      notesData.notes.forEach(function(nz){
+        var from = nz.from || tdn, to = nz.to || nz.from || tdn;
+        if(tdn < from || tdn > to) return;
+        activeNotes.push(nz);
+        var k = nz.kind || "note";
+        if(k==="ownerin"||k==="ownerout") noteCover[(nz.lodge||"")+"|"+k] = true;
+      });
+    }
     if(bwData){
       bwUrl = bwData.bw_app_url || bwUrl;
       specialTasks(bwData).forEach(function(x){
@@ -324,9 +355,9 @@
           if(tm && !bwEvent[a.lodge+"|earlyin"]) items.push({key:"in|"+a.lodge, col:"upsell",
             kind:"earlyin", code:a.lodge, place:"", title:"Early check-in", status:null,
             time:tm, owner:!!a.owner, who:"", dept:"", scheduled:td, src:"Beds24"});
-          if(a.owner) items.push({key:"own-in|"+a.lodge, col:"maint", kind:"ownerin", code:a.lodge,
-            place:"", title:"Owner arriving", status:null, time:tm||null, owner:true, who:"",
-            dept:"", scheduled:td, src:"Beds24",
+          if(a.owner && !noteCover[a.lodge+"|ownerin"]) items.push({key:"own-in|"+a.lodge, col:"maint",
+            kind:"ownerin", code:a.lodge, place:"", title:"Owner arriving", status:null, time:tm||null,
+            owner:true, who:"", dept:"", scheduled:td, src:"Beds24",
             note:"Owner arrival — check Beds24 for any special requests before they arrive."});
           (a.extras||[]).forEach(function(ex,ix){
             var label = typeof ex==="string" ? ex : (ex && (ex.name||ex.title||ex.description)) || "";
@@ -340,13 +371,24 @@
           if(tm && !bwEvent[dp.lodge+"|lateout"]) items.push({key:"out|"+dp.lodge, col:"upsell",
             kind:"lateout", code:dp.lodge, place:"", title:"Late check-out", status:null,
             time:tm, owner:!!dp.owner, who:"", dept:"", scheduled:td, src:"Beds24"});
-          if(dp.owner) items.push({key:"own-out|"+dp.lodge, col:"maint", kind:"ownerout", code:dp.lodge,
-            place:"", title:"Owner leaving", status:null, time:tm||null, owner:true, who:"",
-            dept:"", scheduled:td, src:"Beds24",
+          if(dp.owner && !noteCover[dp.lodge+"|ownerout"]) items.push({key:"own-out|"+dp.lodge, col:"maint",
+            kind:"ownerout", code:dp.lodge, place:"", title:"Owner leaving", status:null, time:tm||null,
+            owner:true, who:"", dept:"", scheduled:td, src:"Beds24",
             note:"Owner departure — they may use their own bedding & clean before leaving; query with admin if unsure."});
         });
       }
     }
+    // Manual note cards (owner prep, special checks, etc.)
+    activeNotes.forEach(function(nz){
+      var kind = nz.kind || "note";
+      var col = (kind==="add"||kind==="remove"||kind==="earlyin"||kind==="lateout") ? "upsell" : "maint";
+      var isOwner = (kind==="ownerin"||kind==="ownerout");
+      items.push({key:"note|"+(nz.id||(nz.lodge||"x")+"|"+kind), col:col, kind:kind,
+        code:nz.lodge||"★", place:nz.place||"", title:nz.title||"Special request",
+        message:nz.message||"", status:null, time:null, when:nz.when||null,
+        owner:isOwner, who:"", dept:"", scheduled:new Date().toISOString().slice(0,10),
+        src:"Note", note:null});
+    });
     return items;
   }
   function rankOf(it){
@@ -368,6 +410,7 @@
   }
   function rightFor(it){
     var out="";
+    if(it.when){ out += '<span class="pill when">'+esc(dayLabel(it.when))+'</span>'; }
     if(it.time){ out += '<span class="pill time">'+esc(it.time)+'</span>'; }
     if(it.status){ var pc = it.status.k==="issue-status" ? "issue" : it.status.k;
       out += '<span class="pill '+pc+'">'+esc(it.status.label)+'</span>'; }
@@ -378,7 +421,9 @@
   function cardHTML(it){
     return '<div class="card '+it.kind+'" data-key="'+esc(it.key)+'">'
       + '<div class="code">'+esc(it.code)+(it.place?'<small>'+esc(it.place)+'</small>':'')+'</div>'
-      + '<div class="mid">'+tagFor(it.kind)+'<div class="job">'+esc(it.title)+'</div></div>'
+      + '<div class="mid">'+tagFor(it.kind)+'<div class="job">'+esc(it.title)+'</div>'
+        + (it.message ? '<div class="cmsg">'+esc(it.message)+'</div>' : '')
+        + '</div>'
       + '<div class="right">'+rightFor(it)+'</div>'
       + '</div>';
   }
@@ -408,7 +453,8 @@
     var statusLabel = it.status ? it.status.label : (it.time ? ("At "+it.time) : "—");
     var typeLabel = {add:"Fit / add (upsell)",remove:"Remove / collect (upsell)",
       special:"Special job",earlyin:"Early check-in",lateout:"Late check-out",
-      ownerin:"Owner arriving",ownerout:"Owner leaving"}[it.kind]||it.kind;
+      ownerin:"Owner arriving",ownerout:"Owner leaving",
+      note:"Special request",check:"Special check"}[it.kind]||it.kind;
     var link = (bwUrl && it.src==="Breezeway")
       ? '<a class="btn primary" href="'+esc(bwUrl)+'" target="_blank" rel="noopener">Open in Breezeway ↗</a>' : "";
     var sheet = document.getElementById("sheet");
@@ -423,7 +469,9 @@
       +   (it.who ? '<div class="chip"><b>Assigned to</b>'+esc(it.who)+'</div>' : '')
       +   (it.dept ? '<div class="chip"><b>Department</b>'+esc(it.dept)+'</div>' : '')
       +   (it.time ? '<div class="chip"><b>Time</b>'+esc(it.time)+'</div>' : '')
+      +   (it.when ? '<div class="chip"><b>When</b>'+esc(dayLabel(it.when))+'</div>' : '')
       +   '<div class="chip"><b>Source</b>'+esc(it.src)+'</div>'
+      +   (it.message ? '<div class="chip" style="flex-basis:100%"><b>Note</b>'+esc(it.message)+'</div>' : '')
       +   (it.note ? '<div class="chip" style="flex-basis:100%"><b>Task</b>'+esc(it.note)+'</div>' : '')
       + '</div>'
       + '<div class="actions">'+link+'<button class="btn ghost" type="button" id="closeSheet">Close</button></div>';
@@ -472,6 +520,9 @@
     fetchChain(DASH_SOURCES,
       function(j){ dashData=j; render(); },
       function(){ /* no dashboard fallback in preview */ });
+    fetchChain(NOTES_SOURCES,
+      function(j){ notesData=j; render(); },
+      function(){ /* notes optional */ });
   }
 
   document.getElementById("refreshBtn").addEventListener("click", load);
