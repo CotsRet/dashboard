@@ -294,7 +294,7 @@
   }
   var ADD_RE    = /\b(add|fit|install|set\s?up|deliver|drop\s?off|provide|extra)\b/i;
   var REMOVE_RE = /\b(remove|collect|take\s?down|dismantle|pick\s?up|take\s?away)\b/i;
-  var UPSELL_NOUN = /\b(cot|crib|booster|high\s?chair|highchair|bed\s?guard|bedguard|z[\s-]?bed|z[\s-]?bed|travel\s?cot|guard|stair\s?gate|stairgate|blackout|fan|heater)\b/i;
+  var UPSELL_NOUN = /\b(cot|crib|booster|high\s?chair|highchair|bed\s?guard|bedguard|z[\s-]?bed|z[\s-]?bed|travel\s?cot|guard|stair\s?gate|stairgate|blackout|fan|heater|welcome\s?pack|dog\s?welcome)\b/i;
   // General maintenance / repairs the laundry team should NOT see. If a non-upsell
   // task matches this, it's hidden from the board; anything else non-routine shows
   // as a Special Request (bed stacking, throws, owner prep, etc.).
@@ -347,6 +347,14 @@
     return "";
   }
 
+  // Normalise an upsell name to significant word-tokens, so a Breezeway "Add Travel
+  // Cot" task and a Beds24 "Travel Cot" sale extra can be matched and de-duplicated.
+  function upsellTokens(s){
+    return String(s||"").toLowerCase().replace(/[^a-z0-9 ]/g," ")
+      .split(/\s+/)
+      .filter(function(w){ return w && !/^(add|fit|remove|collect|the|a|an|of|for|please|x|and|to|out|put)$/.test(w); });
+  }
+
   // ---- extract the special (non-template) tasks ----
   function specialTasks(data){
     var out = [];
@@ -370,6 +378,7 @@
     var bw = off===0 ? bwData : bwTmrData;
     var items = [];
     var bwEvent = {};   // "code|earlyin" / "code|lateout" already covered by a BW task
+    var bwAdd = {};     // lodge -> [token-sets] of BW "add/fit" tasks, to dedupe Beds24 extras
     var ownerOutShown = {};   // lodges already carded as owner-departing that day
     // Manual notes (comments) whose date window includes the target day.
     var noteCover = {}, activeNotes = [];
@@ -387,6 +396,9 @@
       bwUrl = bw.bw_app_url || bwUrl;
       specialTasks(bw).forEach(function(x){
         var t=x.t, st=statusOf(t), k=classify(t.name), code=lodgeCode(x.prop);
+        // Record any BW "Add/Fit" task (whatever column it lands in) so a matching
+        // Beds24 sale extra is de-duplicated against it.
+        if(/^\s*(add|fit)\b/i.test(t.name)){ (bwAdd[code]=bwAdd[code]||[]).push(upsellTokens(t.name)); }
         var kind, col, title=t.name, time=null, note=null;
         if(k==="earlyin"||k==="lateout"){
           kind=k; col="upsell";
@@ -423,7 +435,16 @@
             note:"Owner arrival — check Beds24 for any special requests before they arrive."});
           (a.extras||[]).forEach(function(ex,ix){
             var label = typeof ex==="string" ? ex : (ex && (ex.name||ex.title||ex.description)) || "";
-            if(label) items.push({key:"ex|"+a.lodge+"|"+ix, col:"upsell", kind:"add", code:a.lodge,
+            if(!label) return;
+            // Skip if a Breezeway "Add/Fit" task at this lodge already covers this sale
+            // (that card is richer — it has status + assignee). Match when the sale's
+            // tokens are all contained in the BW task's tokens.
+            var toks = upsellTokens(label);
+            var dup = toks.length && (bwAdd[a.lodge]||[]).some(function(bt){
+              return toks.every(function(w){ return bt.indexOf(w) > -1; });
+            });
+            if(dup) return;
+            items.push({key:"ex|"+a.lodge+"|"+ix, col:"upsell", kind:"add", code:a.lodge,
               place:"", title:"Fit: "+label, status:null, time:null, owner:!!a.owner,
               who:"", dept:"", scheduled:td, src:"Beds24"});
           });
