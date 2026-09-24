@@ -1,9 +1,9 @@
 {
-  "_generated": "2026-09-24T15:16:06.259Z",
+  "_generated": "2026-09-24T15:31:04.274Z",
   "_source": "cron",
   "_date": "2026-09-24",
   "_status": {
-    "last_run": "2026-09-24T15:16:06.259Z",
+    "last_run": "2026-09-24T15:31:04.274Z",
     "ok": true,
     "properties_polled": 105,
     "properties_raw_total": 136,
@@ -24,10 +24,41 @@
         "has_next": false
       }
     ],
-    "errors": [],
+    "errors": [
+      {
+        "id": 282403,
+        "name": "HB Cottontail SM2",
+        "error": "HTTP 429"
+      },
+      {
+        "id": 282401,
+        "name": "HB Clearwater ND15",
+        "error": "HTTP 429"
+      },
+      {
+        "id": 282402,
+        "name": "HB Cotswold WV47",
+        "error": "HTTP 429"
+      },
+      {
+        "id": 282398,
+        "name": "HB Burford WLM17",
+        "error": "HTTP 429"
+      },
+      {
+        "id": 282395,
+        "name": "HB Hares Haven SM1",
+        "error": "HTTP 429"
+      },
+      {
+        "id": 282392,
+        "name": "WR Barnsley WR33",
+        "error": "HTTP 429"
+      }
+    ],
     "stages_seen": {
-      "created": 27,
-      "finished": 44,
+      "created": 26,
+      "finished": 43,
       "in_progress": 2,
       "closed": 2
     },
@@ -77,12 +108,12 @@
     "auto_closed": 0
   },
   "summary": {
-    "not_started": 27,
+    "not_started": 26,
     "in_progress": 1,
-    "completed": 46,
+    "completed": 45,
     "issues": 1
   },
-  "total_tasks": 75,
+  "total_tasks": 73,
   "properties": [
     {
       "name": "HB Goosewing ND18",
@@ -2172,65 +2203,6 @@
             310046
           ],
           "template_id": 103648
-        }
-      ]
-    },
-    {
-      "name": "HB Burford WLM17",
-      "id": 282398,
-      "total": 2,
-      "not_started": 1,
-      "in_progress": 0,
-      "completed": 1,
-      "issues": 0,
-      "tasks": [
-        {
-          "id": 168218179,
-          "name": "Cleaning check",
-          "classification": "completed",
-          "status_code": "finished",
-          "department": "inspection",
-          "started_at": "2026-09-24T12:16:45",
-          "finished_at": "2026-09-24T12:20:18",
-          "scheduled_date": "2026-09-24",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Kate Hammond",
-            "Rachel Gaazen"
-          ],
-          "assigneeIds": [
-            89951,
-            204277,
-            310046
-          ],
-          "template_id": 103648
-        },
-        {
-          "id": 169699209,
-          "name": "Gate needs repairing",
-          "classification": "not_started",
-          "status_code": "created",
-          "department": "maintenance",
-          "started_at": null,
-          "finished_at": null,
-          "scheduled_date": "2026-09-24",
-          "paused": false,
-          "assignedTo": "Lee Kelly",
-          "assignedToList": [
-            "Lee Kelly",
-            "Darren Smith",
-            "Ashley Smith",
-            "Beau Gradner"
-          ],
-          "assigneeIds": [
-            89951,
-            274021,
-            299742,
-            471362
-          ],
-          "template_id": null
         }
       ]
     }
