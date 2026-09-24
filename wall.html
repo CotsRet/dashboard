@@ -169,13 +169,36 @@
     main{grid-template-columns:1fr;overflow:visible}
     .col{min-height:340px}
   }
+
+  /* ---------- Today / Tomorrow toggle ---------- */
+  .dayToggle{display:flex;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-left:6px}
+  .dayToggle button{font-family:var(--cond);font-weight:800;font-size:clamp(13px,1vw,18px);
+    text-transform:uppercase;letter-spacing:1px;padding:9px 18px;border:none;background:var(--panel2);
+    color:var(--ink2);cursor:pointer;line-height:1}
+  .dayToggle button.on{background:var(--ink);color:#fff}
+  body.tomorrow .dayToggle button.on{background:var(--maint);color:#fff}
+
+  /* ---------- Tomorrow look-ahead banner + framing (unmistakably NOT today) ---------- */
+  .tmr-banner{display:none}
+  body.tomorrow .tmr-banner{display:flex;align-items:center;justify-content:center;gap:16px;
+    background:var(--maint);color:#fff;font-family:var(--cond);font-weight:800;
+    font-size:clamp(15px,1.7vw,28px);letter-spacing:1.5px;text-transform:uppercase;
+    padding:10px 20px;text-align:center;flex:none}
+  body.tomorrow{--bg:#fbf3e9}
+  body.tomorrow header{border-bottom:3px solid var(--maint)}
+  body.tomorrow .col-hd{background:#fbeede;border-bottom-color:#f0d9b8}
+  body.tomorrow main{outline:3px solid var(--maint);outline-offset:-3px}
 </style>
 </head>
 <body>
   <header>
     <div class="brand">
       <h1>Warehouse Board</h1>
-      <div class="tag">Cotswold Retreats · today's extra jobs — fit, remove &amp; one-offs</div>
+      <div class="tag">Cotswold Retreats · fit, remove &amp; one-offs</div>
+    </div>
+    <div class="dayToggle" id="dayToggle">
+      <button type="button" data-day="0" class="on">Today</button>
+      <button type="button" data-day="1">Tomorrow</button>
     </div>
     <div class="clock">
       <div class="time" id="clock">--:--</div>
@@ -186,6 +209,11 @@
       <button class="refresh" id="refreshBtn" type="button">↻ Refresh</button>
     </div>
   </header>
+
+  <div class="tmr-banner" id="tmrBanner">
+    <span>👀 TOMORROW · <span id="tmrDate">—</span></span>
+    <span style="font-weight:600;letter-spacing:.5px;text-transform:none;opacity:.9">look-ahead — reverts to today shortly</span>
+  </div>
 
   <main>
     <section class="col upsell">
@@ -238,9 +266,16 @@
     "lodge_rules.json",
     "https://raw.githubusercontent.com/CotsRet/dashboard/main/lodge_rules.json"
   ];
+  var BW_TMR_SOURCES = [
+    "breezeway_tomorrow.json",
+    "https://raw.githubusercontent.com/CotsRet/dashboard/main/breezeway_tomorrow.json"
+  ];
   var OWNER_LOOKAHEAD_DAYS = 1;   // warn this many days before an owner departure at a rule lodge
   var REFRESH_MS = 90000;
-  var bwData = null, dashData = null, notesData = null, rulesData = null, lastFetch = 0, bwUrl = "https://app.breezeway.io";
+  var REVERT_MS = 60000;          // Tomorrow view auto-reverts to Today after this idle time
+  var viewDay = 0;                // 0 = today, 1 = tomorrow
+  var revertT = null;
+  var bwData = null, bwTmrData = null, dashData = null, notesData = null, rulesData = null, lastFetch = 0, bwUrl = "https://app.breezeway.io";
   // Last-resort snapshot so a preview (where live fetch is blocked) still shows
   // real jobs. The live feed always overrides this when reachable.
   var FALLBACK_DATA = {"_generated":"2026-09-20T10:31:57.180Z","_fallback":true,"bw_app_url":"https://app.breezeway.io","properties":[{"name":"HB The Happy Hideaway - ND46","id":1451482,"tasks":[{"id":162631027,"name":"Ripped net curtain master bedroom ","classification":"issues","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null}]},{"name":"HB Cotswold Reach CR79","id":1081812,"tasks":[{"id":165043575,"name":"Toilet seat in main bath","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":null,"assignedToList":[],"template_id":null}]},{"name":"HB Busy Bees BD3","id":927235,"tasks":[{"id":164881024,"name":"Sink leaking ","classification":"issues","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null}]},{"name":"HB The Warren SM21","id":282434,"tasks":[{"id":166479949,"name":"Remove Booster Seat","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Kate Hammond","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null},{"id":166479961,"name":"Remove travel cot","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Kate Hammond","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null}]},{"name":"HB Clearwater ND15","id":282401,"tasks":[{"id":167574917,"name":"Re-hang mirror in lounge","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Abigail Jordan","Beau Gradner"],"template_id":null},{"id":167743005,"name":"Replace battery in Clock ","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Abigail Jordan","Beau Gradner"],"template_id":null}]}]};
@@ -327,14 +362,19 @@
   }
 
   // ---- build the combined item list (BW tasks + Beds24 early/late/extras) ----
-  function buildItems(){
+  function buildItems(offset){
+    var off = offset ? 1 : 0;
+    // Target date for this view (today or tomorrow), as a YYYY-MM-DD key.
+    var tKey = (function(){ var d=new Date(); d.setUTCDate(d.getUTCDate()+off); return d.toISOString().slice(0,10); })();
+    // BW tasks: today's live feed, or the next-day look-ahead feed for Tomorrow.
+    var bw = off===0 ? bwData : bwTmrData;
     var items = [];
     var bwEvent = {};   // "code|earlyin" / "code|lateout" already covered by a BW task
-    var ownerOutShown = {};   // lodges already carded as owner-departing today
-    // Manual notes (comments) whose date window includes today.
+    var ownerOutShown = {};   // lodges already carded as owner-departing that day
+    // Manual notes (comments) whose date window includes the target day.
     var noteCover = {}, activeNotes = [];
     if(notesData && notesData.notes){
-      var tdn = new Date().toISOString().slice(0,10);
+      var tdn = tKey;
       notesData.notes.forEach(function(nz){
         var from = nz.from || tdn, to = nz.to || nz.from || tdn;
         if(tdn < from || tdn > to) return;
@@ -343,9 +383,9 @@
         if(k==="ownerin"||k==="ownerout") noteCover[(nz.lodge||"")+"|"+k] = true;
       });
     }
-    if(bwData){
-      bwUrl = bwData.bw_app_url || bwUrl;
-      specialTasks(bwData).forEach(function(x){
+    if(bw){
+      bwUrl = bw.bw_app_url || bwUrl;
+      specialTasks(bw).forEach(function(x){
         var t=x.t, st=statusOf(t), k=classify(t.name), code=lodgeCode(x.prop);
         var kind, col, title=t.name, time=null, note=null;
         if(k==="earlyin"||k==="lateout"){
@@ -369,8 +409,8 @@
       });
     }
     if(dashData && dashData.days){
-      var td = new Date().toISOString().slice(0,10);
-      var day = dashData.days[td] || dashData.days[Object.keys(dashData.days).sort()[0]];
+      var td = tKey;
+      var day = dashData.days[td] || null;
       if(day){
         (day.arrivals||[]).forEach(function(a){
           var tm=(a.early_checkin||"").trim();
@@ -406,8 +446,8 @@
     }
     // Standing rule: warn AHEAD of an owner departure at owner-self-clean lodges,
     // so a card appears before the day (recurs automatically, no manual note).
-    if(dashData && dashData.days && rulesData && rulesData.lodges){
-      var td0 = new Date().toISOString().slice(0,10);
+    if(off===0 && dashData && dashData.days && rulesData && rulesData.lodges){
+      var td0 = tKey;
       var dates = Object.keys(dashData.days).sort();
       Object.keys(rulesData.lodges).forEach(function(L){
         if(!ruleMsg(L,"owner_departure")) return;
@@ -437,7 +477,7 @@
       items.push({key:"note|"+(nz.id||(nz.lodge||"x")+"|"+kind), col:col, kind:kind,
         code:nz.lodge||"★", place:nz.place||"", title:nz.title||"Special request",
         message:nz.message||"", status:null, time:null, when:nz.when||null,
-        owner:isOwner, who:"", dept:"", scheduled:new Date().toISOString().slice(0,10),
+        owner:isOwner, who:"", dept:"", scheduled:tKey,
         src:"Note", note:null});
     });
     return items;
@@ -489,7 +529,8 @@
     while(el.scrollHeight > el.clientHeight + 1 && d < 4){ d++; el.setAttribute("data-d", String(d)); }
   }
   function render(){
-    var items = buildItems();
+    var items = buildItems(viewDay);
+    var dayWord = viewDay===1 ? "tomorrow" : "today";
     // Hide anything already marked Done — the board is a to-do glance, not a log.
     function notDone(i){ return !(i.status && i.status.k==="done"); }
     var up = items.filter(function(i){return i.col==="upsell" && notDone(i);}).sort(function(a,b){return rankOf(a)-rankOf(b);});
@@ -497,9 +538,9 @@
     document.getElementById("upsellCount").textContent = up.length;
     document.getElementById("maintCount").textContent = mn.length;
     document.getElementById("upsellList").innerHTML = up.length
-      ? up.map(cardHTML).join("") : emptyHTML("✓","No upsells today");
+      ? up.map(cardHTML).join("") : emptyHTML("✓","No upsells "+dayWord);
     document.getElementById("maintList").innerHTML = mn.length
-      ? mn.map(cardHTML).join("") : emptyHTML("✓","No special requests today");
+      ? mn.map(cardHTML).join("") : emptyHTML("✓","No special requests "+dayWord);
     var map={}; items.forEach(function(i){ map[i.key]=i; }); render._items=map;
     document.querySelectorAll(".card").forEach(function(el){
       el.addEventListener("click", function(){ openDetail(el.getAttribute("data-key")); });
@@ -538,11 +579,32 @@
       + '<div class="actions">'+link+'<button class="btn ghost" type="button" id="closeSheet">Close</button></div>';
     document.getElementById("overlay").classList.add("on");
     document.getElementById("closeSheet").addEventListener("click", closeDetail);
+    armRevert();   // interacting keeps the Tomorrow view up (resets the auto-revert)
   }
   function closeDetail(){ document.getElementById("overlay").classList.remove("on"); }
   document.getElementById("overlay").addEventListener("click", function(e){
     if(e.target===this) closeDetail();
   });
+
+  // ---- Today / Tomorrow view ----
+  function updateTmrBanner(){
+    var d = new Date(); d.setDate(d.getDate()+1);
+    var el = document.getElementById("tmrDate");
+    if(el) el.textContent = d.toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"}).toUpperCase();
+  }
+  function armRevert(){
+    clearTimeout(revertT);
+    if(viewDay===1){ revertT = setTimeout(function(){ setView(0); }, REVERT_MS); }
+  }
+  function setView(day){
+    viewDay = day ? 1 : 0;
+    document.body.classList.toggle("tomorrow", viewDay===1);
+    var btns = document.querySelectorAll("#dayToggle button");
+    for(var i=0;i<btns.length;i++){ btns[i].classList.toggle("on", (+btns[i].getAttribute("data-day"))===viewDay); }
+    if(viewDay===1){ updateTmrBanner(); if(!bwTmrData) loadTomorrow(); }
+    render();
+    armRevert();
+  }
 
   // ---- clock ----
   function tickClock(){
@@ -574,6 +636,11 @@
         .catch(function(){ next(); });
     })();
   }
+  function loadTomorrow(){
+    fetchChain(BW_TMR_SOURCES,
+      function(j){ bwTmrData=j; if(viewDay===1) render(); },
+      function(){ /* tomorrow BW optional — only needed on the Tomorrow tab */ });
+  }
   function load(){
     fetchChain(BW_SOURCES,
       function(j){ bwData=j; lastFetch=Date.now(); render(); setFreshness(); },
@@ -587,9 +654,14 @@
     fetchChain(RULES_SOURCES,
       function(j){ rulesData=j; render(); },
       function(){ /* rules optional */ });
+    loadTomorrow();
   }
 
   document.getElementById("refreshBtn").addEventListener("click", load);
+  var dtBtns = document.querySelectorAll("#dayToggle button");
+  for(var _i=0;_i<dtBtns.length;_i++){
+    dtBtns[_i].addEventListener("click", function(){ setView(+this.getAttribute("data-day")); });
+  }
   var reflowT;
   window.addEventListener("resize", function(){ clearTimeout(reflowT); reflowT=setTimeout(render,150); });
   if(document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ render(); }); }
