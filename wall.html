@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Warehouse Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#eef1f5; --panel:#ffffff; --panel2:#f7f9fb;
+    --ink:#121820; --ink2:#4b5765; --ink3:#7a8695;
+    --line:#dde3ea;
+    --add:#0f7a4d; --add-bg:#e2f4ea;           /* fit / add */
+    --remove:#5b3fd6; --remove-bg:#ece8fc;      /* remove / collect */
+    --issue:#c42a24; --issue-bg:#fbe6e4;        /* fault / issue */
+    --maint:#b4590a; --maint-bg:#fbeede;        /* maintenance one-off */
+    --ns:#b4590a; --ns-bg:#fbeede;              /* not started (amber) */
+    --ip:#1257c9; --ip-bg:#e2ecfb;             /* in progress (blue) */
+    --done:#0f7a4d; --done-bg:#e2f4ea;         /* completed (green) */
+    --early:#0e7490; --early-bg:#d9eff4;        /* early check-in (teal) */
+    --late:#b21e63; --late-bg:#fbe3ee;          /* late check-out (rose) */
+    --shadow:0 1px 2px rgba(18,30,45,.05),0 6px 20px rgba(18,30,45,.07);
+    --sans:"Barlow",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    --cond:"Barlow Semi Condensed",var(--sans);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:clamp(16px,1.15vw,22px);line-height:1.35;-webkit-text-size-adjust:100%;
+    display:flex;flex-direction:column;overflow:hidden}
+
+  /* ---------- top bar ---------- */
+  header{display:flex;align-items:center;gap:20px;padding:14px clamp(16px,2vw,32px);
+    background:var(--panel);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .brand{display:flex;flex-direction:column;min-width:0}
+  .brand h1{font-family:var(--cond);font-weight:800;font-size:clamp(22px,2.2vw,40px);
+    margin:0;letter-spacing:.3px;line-height:1;text-transform:uppercase}
+  .brand .tag{font-size:clamp(11px,.85vw,15px);color:var(--ink3);font-weight:500;margin-top:3px;letter-spacing:.2px}
+  .clock{margin-left:auto;text-align:right;line-height:1.05}
+  .clock .time{font-family:var(--cond);font-weight:700;font-size:clamp(26px,2.6vw,48px);
+    font-variant-numeric:tabular-nums;letter-spacing:.5px}
+  .clock .date{font-size:clamp(12px,1vw,18px);color:var(--ink2);font-weight:500}
+  .status{display:flex;align-items:center;gap:8px;font-size:clamp(11px,.85vw,15px);
+    color:var(--ink3);font-weight:500;white-space:nowrap}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--done);flex:none;
+    box-shadow:0 0 0 3px var(--done-bg)}
+  .dot.stale{background:var(--issue);box-shadow:0 0 0 3px var(--issue-bg)}
+  .refresh{border:1px solid var(--line);background:var(--panel2);color:var(--ink2);
+    font-family:var(--sans);font-weight:600;font-size:clamp(12px,.9vw,16px);
+    border-radius:10px;padding:9px 14px;cursor:pointer;min-height:44px}
+  .refresh:active{background:var(--line)}
+
+  /* ---------- columns ---------- */
+  main{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.4vw,22px);
+    padding:clamp(12px,1.4vw,22px);min-height:0}
+  .col{background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:0;overflow:hidden}
+  .col-hd{display:flex;align-items:center;gap:12px;padding:16px clamp(14px,1.4vw,24px);
+    border-bottom:1px solid var(--line)}
+  .col-hd .ic{font-size:clamp(22px,1.9vw,32px);line-height:1}
+  .col-hd h2{font-family:var(--cond);font-weight:800;font-size:clamp(18px,1.7vw,30px);
+    margin:0;text-transform:uppercase;letter-spacing:.4px}
+  .col-hd .sub{font-size:clamp(11px,.8vw,14px);color:var(--ink3);font-weight:500;margin-top:1px}
+  .count{margin-left:auto;font-family:var(--cond);font-weight:800;
+    font-size:clamp(26px,2.4vw,44px);line-height:1;min-width:1.4em;text-align:center;
+    color:#fff;border-radius:12px;padding:6px 14px}
+  .col.upsell .count{background:var(--remove)}
+  .col.maint  .count{background:var(--maint)}
+  /* Auto-fit: density tiers set by JS so every card fits with no scrolling. */
+  .list{flex:1;overflow-y:auto;padding:clamp(8px,1vw,16px);display:flex;
+    flex-direction:column;gap:var(--gap);
+    --gap:clamp(9px,1vw,14px);--cpad-v:clamp(12px,1.2vw,18px);--cpad-h:clamp(14px,1.4vw,22px);
+    --cgap:clamp(12px,1.3vw,20px);--code-fs:clamp(30px,3vw,58px);--job-fs:clamp(17px,1.55vw,28px);
+    --kind-fs:clamp(12px,1vw,17px);--msg-fs:clamp(13.5px,1.05vw,18px);--msg-lines:5;--who-lines:6}
+  .list[data-d="2"]{--gap:9px;--cpad-v:11px;--cpad-h:17px;--cgap:16px;--code-fs:clamp(24px,2.4vw,44px);
+    --job-fs:clamp(15px,1.35vw,23px);--kind-fs:clamp(11px,.9vw,15px);--msg-fs:clamp(13px,1vw,16px);--msg-lines:3;--who-lines:3}
+  .list[data-d="3"]{--gap:7px;--cpad-v:8px;--cpad-h:14px;--cgap:12px;--code-fs:clamp(20px,2vw,34px);
+    --job-fs:clamp(14px,1.15vw,19px);--kind-fs:11px;--msg-fs:12.5px;--msg-lines:2;--who-lines:2}
+  .list[data-d="4"]{--gap:5px;--cpad-v:6px;--cpad-h:11px;--cgap:9px;--code-fs:clamp(17px,1.7vw,27px);
+    --job-fs:13px;--kind-fs:10px;--msg-fs:12px;--msg-lines:1;--who-lines:1}
+
+  /* ---------- job card ---------- */
+  .card{display:flex;align-items:stretch;gap:var(--cgap);
+    background:var(--panel2);border:1px solid var(--line);border-left-width:8px;
+    border-radius:12px;padding:var(--cpad-v) var(--cpad-h);
+    cursor:pointer;transition:transform .08s ease, box-shadow .08s ease}
+  .card:active{transform:scale(.995)}
+  .card.add{border-left-color:var(--add)}
+  .card.remove{border-left-color:var(--remove)}
+  .card.issue{border-left-color:var(--issue)}
+  .card.maint{border-left-color:var(--maint)}
+  .card.earlyin{border-left-color:var(--early)}
+  .card.lateout{border-left-color:var(--late)}
+  .code{font-family:var(--cond);font-weight:800;font-size:var(--code-fs);
+    line-height:.95;letter-spacing:.5px;flex:none;min-width:2.4em}
+  .code small{display:block;font-family:var(--sans);font-weight:500;
+    font-size:clamp(11px,.82vw,15px);color:var(--ink3);letter-spacing:0;margin-top:5px;
+    max-width:10em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mid{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:7px}
+  .job{font-weight:700;font-size:var(--job-fs);line-height:1.15;
+    text-wrap:balance}
+  .kind{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;
+    font-family:var(--cond);font-weight:800;font-size:var(--kind-fs);
+    letter-spacing:.6px;text-transform:uppercase;padding:3px 11px;border-radius:20px}
+  .kind.add{background:var(--add-bg);color:var(--add)}
+  .kind.remove{background:var(--remove-bg);color:var(--remove)}
+  .kind.issue{background:var(--issue-bg);color:var(--issue)}
+  .kind.maint{background:var(--maint-bg);color:var(--maint)}
+  .kind.earlyin{background:var(--early-bg);color:var(--early)}
+  .kind.lateout{background:var(--late-bg);color:var(--late)}
+  .card.special{border-left-color:var(--maint)}
+  .card.ownerin,.card.ownerout{border-left-color:#b8860b}
+  .kind.special{background:var(--maint-bg);color:var(--maint)}
+  .kind.ownerin,.kind.ownerout{background:#fdf3d3;color:#8a6a00}
+  .owner{display:inline-flex;align-items:center;gap:5px;font-family:var(--cond);font-weight:800;
+    font-size:clamp(11px,.9vw,15px);letter-spacing:.5px;text-transform:uppercase;
+    padding:3px 10px;border-radius:20px;background:#fdf3d3;color:#8a6a00;border:1px solid #ecd98f}
+  .pill.time{background:var(--panel);border:1px solid var(--line);color:var(--ink)}
+  .pill.when{background:#ffe6c2;color:#8a4b00;border:1px solid #f0c98a;font-weight:700}
+  .card.note,.card.check{border-left-color:var(--maint)}
+  .cmsg{font-size:var(--msg-fs);color:var(--ink2);line-height:1.32;margin-top:5px;
+    font-weight:500;max-width:52ch;display:-webkit-box;-webkit-line-clamp:var(--msg-lines);
+    -webkit-box-orient:vertical;overflow:hidden}
+  .right{flex:none;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:8px;text-align:right}
+  .pill{font-family:var(--cond);font-weight:700;font-size:clamp(12px,1vw,17px);
+    letter-spacing:.4px;text-transform:uppercase;padding:5px 12px;border-radius:8px;white-space:nowrap}
+  .pill.ns{background:var(--ns-bg);color:var(--ns)}
+  .pill.ip{background:var(--ip-bg);color:var(--ip)}
+  .pill.done{background:var(--done-bg);color:var(--done)}
+  /* Completed upsells stay on the board (greyed + ticked) so they can't be missed. */
+  .card.is-done{opacity:.5}
+  .card.is-done .job::after{content:" ✓";color:var(--done);font-weight:800}
+  .pill.issue{background:var(--issue-bg);color:var(--issue)}
+  .who{font-size:clamp(12px,.88vw,15px);color:var(--ink2);font-weight:500;max-width:13em;
+    text-align:right;line-height:1.25;display:-webkit-box;-webkit-line-clamp:var(--who-lines);
+    -webkit-box-orient:vertical;overflow:hidden}
+
+  .empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:12px;color:var(--ink3);text-align:center;padding:24px}
+  .empty .big{font-size:clamp(40px,4vw,72px)}
+  .empty .msg{font-family:var(--cond);font-weight:700;font-size:clamp(18px,1.6vw,28px);
+    text-transform:uppercase;letter-spacing:.5px;color:var(--ink2)}
+
+  footer{padding:8px clamp(16px,2vw,32px);background:var(--panel);border-top:1px solid var(--line);
+    font-size:clamp(11px,.82vw,15px);color:var(--ink3);text-align:center;font-weight:500}
+
+  /* ---------- detail overlay ---------- */
+  .overlay{position:fixed;inset:0;background:rgba(18,24,32,.45);display:none;
+    align-items:center;justify-content:center;padding:24px;z-index:50}
+  .overlay.on{display:flex}
+  .sheet{background:var(--panel);border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.35);
+    width:min(560px,94vw);max-height:88vh;overflow:auto;padding:clamp(20px,2.5vw,34px)}
+  .sheet .scode{font-family:var(--cond);font-weight:800;font-size:clamp(40px,5vw,72px);line-height:.95}
+  .sheet .sname{font-size:clamp(14px,1.1vw,19px);color:var(--ink2);font-weight:500;margin-top:2px}
+  .sheet .sjob{font-weight:700;font-size:clamp(22px,2.2vw,34px);margin:18px 0 4px;text-wrap:balance}
+  .sheet .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  .sheet .chip{background:var(--panel2);border:1px solid var(--line);border-radius:10px;
+    padding:8px 13px;font-size:clamp(13px,1vw,17px)}
+  .sheet .chip b{color:var(--ink3);font-weight:600;font-size:.82em;text-transform:uppercase;
+    letter-spacing:.4px;display:block;margin-bottom:2px}
+  .sheet .actions{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+  .btn{flex:1;min-height:52px;border-radius:12px;font-family:var(--sans);font-weight:700;
+    font-size:clamp(15px,1.2vw,20px);cursor:pointer;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+  .btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .btn.ghost{background:var(--panel2);color:var(--ink2)}
+
+  @media (max-width:820px){
+    body{overflow:auto}
+    main{grid-template-columns:1fr;overflow:visible}
+    .col{min-height:340px}
+  }
+
+  /* ---------- Today / Tomorrow toggle ---------- */
+  .dayToggle{display:flex;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-left:6px}
+  .dayToggle button{font-family:var(--cond);font-weight:800;font-size:clamp(13px,1vw,18px);
+    text-transform:uppercase;letter-spacing:1px;padding:9px 18px;border:none;background:var(--panel2);
+    color:var(--ink2);cursor:pointer;line-height:1}
+  .dayToggle button.on{background:var(--ink);color:#fff}
+  body.tomorrow .dayToggle button.on{background:var(--maint);color:#fff}
+
+  /* ---------- Tomorrow look-ahead banner + framing (unmistakably NOT today) ---------- */
+  .tmr-banner{display:none}
+  body.tomorrow .tmr-banner{display:flex;align-items:center;justify-content:center;gap:16px;
+    background:var(--maint);color:#fff;font-family:var(--cond);font-weight:800;
+    font-size:clamp(15px,1.7vw,28px);letter-spacing:1.5px;text-transform:uppercase;
+    padding:10px 20px;text-align:center;flex:none}
+  body.tomorrow{--bg:#fbf3e9}
+  body.tomorrow header{border-bottom:3px solid var(--maint)}
+  body.tomorrow .col-hd{background:#fbeede;border-bottom-color:#f0d9b8}
+  body.tomorrow main{outline:3px solid var(--maint);outline-offset:-3px}
+</style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <h1>Warehouse Board</h1>
+      <div class="tag">Cotswold Retreats · fit, remove &amp; one-offs</div>
+    </div>
+    <div class="dayToggle" id="dayToggle">
+      <button type="button" data-day="0" class="on">Today</button>
+      <button type="button" data-day="1">Tomorrow</button>
+    </div>
+    <div class="clock">
+      <div class="time" id="clock">--:--</div>
+      <div class="date" id="date">—</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+      <div class="status"><span class="dot" id="dot"></span><span id="updated">loading…</span></div>
+      <button class="refresh" id="refreshBtn" type="button">↻ Refresh</button>
+    </div>
+  </header>
+
+  <div class="tmr-banner" id="tmrBanner">
+    <span>👀 TOMORROW · <span id="tmrDate">—</span></span>
+    <span style="font-weight:600;letter-spacing:.5px;text-transform:none;opacity:.9">look-ahead — reverts to today shortly</span>
+  </div>
+
+  <main>
+    <section class="col upsell">
+      <div class="col-hd">
+        <span class="ic">🛎️</span>
+        <div>
+          <h2>Upsells</h2>
+          <div class="sub">Fit &amp; remove, early check-ins &amp; late check-outs</div>
+        </div>
+        <span class="count" id="upsellCount">0</span>
+      </div>
+      <div class="list" id="upsellList"></div>
+    </section>
+
+    <section class="col maint">
+      <div class="col-hd">
+        <span class="ic">📋</span>
+        <div>
+          <h2>Special Requests</h2>
+          <div class="sub">Owner arrivals &amp; departures + special jobs for the laundry team</div>
+        </div>
+        <span class="count" id="maintCount">0</span>
+      </div>
+      <div class="list" id="maintList"></div>
+    </section>
+  </main>
+
+  <footer id="foot">Routine cleans and general maintenance aren't shown — only upsells and special requests the laundry team needs.</footer>
+
+  <div class="overlay" id="overlay">
+    <div class="sheet" id="sheet"></div>
+  </div>
+
+<script>
+(function(){
+  "use strict";
+  var BW_SOURCES = [
+    "breezeway.json",
+    "https://raw.githubusercontent.com/CotsRet/dashboard/main/breezeway.json"
+  ];
+  var DASH_SOURCES = [
+    "dashboard.json",
+    "https://raw.githubusercontent.com/CotsRet/dashboard/main/dashboard.json"
+  ];
+  var NOTES_SOURCES = [
+    "notes.json",
+    "https://raw.githubusercontent.com/CotsRet/dashboard/main/notes.json"
+  ];
+  var RULES_SOURCES = [
+    "lodge_rules.json",
+    "https://raw.githubusercontent.com/CotsRet/dashboard/main/lodge_rules.json"
+  ];
+  var BW_TMR_SOURCES = [
+    "breezeway_tomorrow.json",
+    "https://raw.githubusercontent.com/CotsRet/dashboard/main/breezeway_tomorrow.json"
+  ];
+  var OWNER_LOOKAHEAD_DAYS = 1;   // warn this many days before an owner departure at a rule lodge
+  var REFRESH_MS = 90000;
+  var REVERT_MS = 60000;          // Tomorrow view auto-reverts to Today after this idle time
+  var viewDay = 0;                // 0 = today, 1 = tomorrow
+  var revertT = null;
+  var bwData = null, bwTmrData = null, dashData = null, notesData = null, rulesData = null, lastFetch = 0, bwUrl = "https://app.breezeway.io";
+  // Last-resort snapshot so a preview (where live fetch is blocked) still shows
+  // real jobs. The live feed always overrides this when reachable.
+  var FALLBACK_DATA = {"_generated":"2026-09-20T10:31:57.180Z","_fallback":true,"bw_app_url":"https://app.breezeway.io","properties":[{"name":"HB The Happy Hideaway - ND46","id":1451482,"tasks":[{"id":162631027,"name":"Ripped net curtain master bedroom ","classification":"issues","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null}]},{"name":"HB Cotswold Reach CR79","id":1081812,"tasks":[{"id":165043575,"name":"Toilet seat in main bath","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":null,"assignedToList":[],"template_id":null}]},{"name":"HB Busy Bees BD3","id":927235,"tasks":[{"id":164881024,"name":"Sink leaking ","classification":"issues","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null}]},{"name":"HB The Warren SM21","id":282434,"tasks":[{"id":166479949,"name":"Remove Booster Seat","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Kate Hammond","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null},{"id":166479961,"name":"Remove travel cot","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Kate Hammond","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null}]},{"name":"HB Clearwater ND15","id":282401,"tasks":[{"id":167574917,"name":"Re-hang mirror in lounge","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Abigail Jordan","Beau Gradner"],"template_id":null},{"id":167743005,"name":"Replace battery in Clock ","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Abigail Jordan","Beau Gradner"],"template_id":null}]}]};
+
+  // ---- helpers ----
+  function lodgeCode(name){
+    if(!name) return "?";
+    var m = String(name).match(/([A-Z]{1,3}\s?\d+[A-Za-z]?)\s*$/);
+    if(m) return m[1].replace(/\s+/g,"");
+    var parts = String(name).trim().split(/\s+/);
+    return parts[parts.length-1];
+  }
+  function lodgeName(name){
+    var full = String(name||"").replace(/^HB\s+/,"");
+    return full.replace(/\s*[A-Z]{1,3}\s?\d+[A-Za-z]?\s*$/,"").trim() || full;
+  }
+  var ADD_RE    = /\b(add|fit|install|set\s?up|deliver|drop\s?off|provide|extra)\b/i;
+  var REMOVE_RE = /\b(remove|collect|take\s?down|dismantle|pick\s?up|take\s?away)\b/i;
+  var UPSELL_NOUN = /\b(cot|crib|booster|high\s?chair|highchair|bed\s?guard|bedguard|z[\s-]?bed|z[\s-]?bed|travel\s?cot|guard|stair\s?gate|stairgate|blackout|fan|heater|welcome\s?pack|dog\s?welcome)\b/i;
+  // General maintenance / repairs the laundry team should NOT see. If a non-upsell
+  // task matches this, it's hidden from the board; anything else non-routine shows
+  // as a Special Request (bed stacking, throws, owner prep, etc.).
+  var MAINT_RE = /\b(leak|rip|torn|broke|repair|replace|mirror|batter|bulb|light|lamp|alarm|smoke|paint|toilet|sink|tap|drain|door|window|lock|handle|hinge|heat|boiler|radiator|damp|mou?ld|crack|block|fault|fix|wifi|aerial|remote|fire|curtain|blind|shower|socket|plug|switch|tile|grout|seal)\w*/i;
+
+  function classify(taskName){
+    var n = taskName || "";
+    // Check-in/out upsells first (their own BW tasks, e.g. "Late Check-out 1pm ...").
+    if(/\blate\s*check[\s-]?out\b/i.test(n)) return "lateout";
+    if(/\bearly\s*check[\s-]?in\b/i.test(n)) return "earlyin";
+    var isRemove = REMOVE_RE.test(n);
+    var isAdd    = ADD_RE.test(n);
+    // Upsell = an add/remove verb AND an upsell item (keeps repairs out).
+    if((isRemove||isAdd) && UPSELL_NOUN.test(n)){
+      return isRemove ? "remove" : "add";
+    }
+    return "maint"; // unusual / one-off / repair
+  }
+  function extractTime(s){
+    var m = String(s||"").match(/(\d{1,2}(?::\d{2})?\s?(?:am|pm)|\d{1,2}:\d{2})/i);
+    return m ? m[1].replace(/\s+/g,"") : null;
+  }
+  function ruleMsg(lodge, key){
+    try{ return (rulesData && rulesData.lodges && rulesData.lodges[lodge] && rulesData.lodges[lodge][key]) || null; }
+    catch(e){ return null; }
+  }
+  function dayLabel(ds){
+    if(!ds) return "";
+    var today = new Date(); today.setHours(0,0,0,0);
+    var d = new Date(ds+"T00:00:00");
+    var diff = Math.round((d-today)/86400000);
+    if(diff===0) return "Today";
+    if(diff===1) return "Tomorrow";
+    if(diff===-1) return "Yesterday";
+    if(diff>1 && diff<7) return d.toLocaleDateString("en-GB",{weekday:"long"});
+    return d.toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short"});
+  }
+  function statusOf(t){
+    var c = (t.classification||"").toLowerCase();
+    if(c==="completed") return {k:"done",label:"Done"};
+    if(c==="in_progress") return {k:"ip",label:"In progress"};
+    if(c==="issues") return {k:"issue-status",label:"Issue"};
+    return {k:"ns",label:"To do"};
+  }
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];}); }
+  function assignee(t){
+    if(t.assignedToList && t.assignedToList.length) return t.assignedToList.join(", ");
+    if(t.assignedTo) return t.assignedTo;
+    return "";
+  }
+
+  // Normalise an upsell name to significant word-tokens, so a Breezeway "Add Travel
+  // Cot" task and a Beds24 "Travel Cot" sale extra can be matched and de-duplicated.
+  function upsellTokens(s){
+    return String(s||"").toLowerCase().replace(/[^a-z0-9 ]/g," ")
+      .split(/\s+/)
+      .filter(function(w){ return w && !/^(add|fit|remove|collect|the|a|an|of|for|please|x|and|to|out|put)$/.test(w); });
+  }
+
+  // ---- extract the special (non-template) tasks ----
+  function specialTasks(data){
+    var out = [];
+    (data.properties||[]).forEach(function(p){
+      (p.tasks||[]).forEach(function(t){
+        var tid = t.template_id;
+        if(tid===null || tid===undefined || tid==="" || tid===0){
+          out.push({prop:p.name, propId:p.id, t:t});
+        }
+      });
+    });
+    return out;
+  }
+
+  // ---- build the combined item list (BW tasks + Beds24 early/late/extras) ----
+  function buildItems(offset){
+    var off = offset ? 1 : 0;
+    // Target date for this view (today or tomorrow), as a YYYY-MM-DD key.
+    var tKey = (function(){ var d=new Date(); d.setUTCDate(d.getUTCDate()+off); return d.toISOString().slice(0,10); })();
+    // BW tasks: today's live feed, or the next-day look-ahead feed for Tomorrow.
+    var bw = off===0 ? bwData : bwTmrData;
+    var items = [];
+    var bwEvent = {};   // "code|earlyin" / "code|lateout" already covered by a BW task
+    var bwAdd = {};     // lodge -> [token-sets] of BW "add/fit" tasks, to dedupe Beds24 extras
+    var ownerOutShown = {};   // lodges already carded as owner-departing that day
+    // Manual notes (comments) whose date window includes the target day.
+    var noteCover = {}, activeNotes = [];
+    if(notesData && notesData.notes){
+      var tdn = tKey;
+      notesData.notes.forEach(function(nz){
+        var from = nz.from || tdn, to = nz.to || nz.from || tdn;
+        if(tdn < from || tdn > to) return;
+        activeNotes.push(nz);
+        var k = nz.kind || "note";
+        if(k==="ownerin"||k==="ownerout") noteCover[(nz.lodge||"")+"|"+k] = true;
+      });
+    }
+    if(bw){
+      bwUrl = bw.bw_app_url || bwUrl;
+      specialTasks(bw).forEach(function(x){
+        var t=x.t, st=statusOf(t), k=classify(t.name), code=lodgeCode(x.prop);
+        // Record any BW "Add/Fit" task (whatever column it lands in) so a matching
+        // Beds24 sale extra is de-duplicated against it.
+        if(/^\s*(add|fit)\b/i.test(t.name)){ (bwAdd[code]=bwAdd[code]||[]).push(upsellTokens(t.name)); }
+        var kind, col, title=t.name, time=null, note=null;
+        if(k==="earlyin"||k==="lateout"){
+          kind=k; col="upsell";
+          title = k==="lateout" ? "Late check-out" : "Early check-in";
+          time = extractTime(t.name); note = t.name;
+          bwEvent[code+"|"+kind] = true;
+        } else if(k==="add"||k==="remove"){
+          kind=k; col="upsell";
+        } else {
+          // Special Requests: laundry-relevant one-offs only. Hide general maintenance/repairs.
+          if(MAINT_RE.test(t.name)) return;
+          kind="special"; col="maint";
+        }
+        items.push({
+          key:"bw|"+x.propId+"|"+t.id, col:col, kind:kind, code:code,
+          place:lodgeName(x.prop), title:title, note:note,
+          status:st, time:time, owner:false, who:assignee(t),
+          dept:t.department||"", scheduled:t.scheduled_date||"", src:"Breezeway"
+        });
+      });
+    }
+    if(dashData && dashData.days){
+      var td = tKey;
+      var day = dashData.days[td] || null;
+      if(day){
+        (day.arrivals||[]).forEach(function(a){
+          var tm=(a.early_checkin||"").trim();
+          if(tm && !bwEvent[a.lodge+"|earlyin"]) items.push({key:"in|"+a.lodge, col:"upsell",
+            kind:"earlyin", code:a.lodge, place:"", title:"Early check-in", status:null,
+            time:tm, owner:!!a.owner, who:"", dept:"", scheduled:td, src:"Beds24"});
+          if(a.owner && !noteCover[a.lodge+"|ownerin"]) items.push({key:"own-in|"+a.lodge, col:"maint",
+            kind:"ownerin", code:a.lodge, place:"", title:"Owner arriving", status:null, time:tm||null,
+            owner:true, who:"", dept:"", scheduled:td, src:"Beds24",
+            note:"Owner arrival — check Beds24 for any special requests before they arrive."});
+          (a.extras||[]).forEach(function(ex,ix){
+            var label = typeof ex==="string" ? ex : (ex && (ex.name||ex.title||ex.description)) || "";
+            if(!label) return;
+            // Skip if a Breezeway "Add/Fit" task at this lodge already covers this sale
+            // (that card is richer — it has status + assignee). Match when the sale's
+            // tokens are all contained in the BW task's tokens.
+            var toks = upsellTokens(label);
+            var dup = toks.length && (bwAdd[a.lodge]||[]).some(function(bt){
+              return toks.every(function(w){ return bt.indexOf(w) > -1; });
+            });
+            if(dup) return;
+            items.push({key:"ex|"+a.lodge+"|"+ix, col:"upsell", kind:"add", code:a.lodge,
+              place:"", title:"Fit: "+label, status:null, time:null, owner:!!a.owner,
+              who:"", dept:"", scheduled:td, src:"Beds24"});
+          });
+        });
+        (day.departures||[]).forEach(function(dp){
+          var tm=(dp.late_checkout||"").trim();
+          if(tm && !bwEvent[dp.lodge+"|lateout"]) items.push({key:"out|"+dp.lodge, col:"upsell",
+            kind:"lateout", code:dp.lodge, place:"", title:"Late check-out", status:null,
+            time:tm, owner:!!dp.owner, who:"", dept:"", scheduled:td, src:"Beds24"});
+          if(dp.owner && !noteCover[dp.lodge+"|ownerout"]){
+            var rmsg = ruleMsg(dp.lodge, "owner_departure");
+            items.push({key:"own-out|"+dp.lodge, col:"maint", kind:"ownerout", code:dp.lodge,
+              place:"", title:rmsg?"Owner departing":"Owner leaving", message:rmsg||"", status:null,
+              time:tm||null, when:td, owner:true, who:"", dept:"", scheduled:td, src:"Beds24",
+              note:rmsg?null:"Owner departure — they may use their own bedding & clean before leaving; query with admin if unsure."});
+            ownerOutShown[dp.lodge]=true;
+          }
+        });
+      }
+    }
+    // Standing rule: warn AHEAD of an owner departure at owner-self-clean lodges,
+    // so a card appears before the day (recurs automatically, no manual note).
+    if(off===0 && dashData && dashData.days && rulesData && rulesData.lodges){
+      var td0 = tKey;
+      var dates = Object.keys(dashData.days).sort();
+      Object.keys(rulesData.lodges).forEach(function(L){
+        if(!ruleMsg(L,"owner_departure")) return;
+        if(ownerOutShown[L]) return;                // already shown as departing today
+        if(noteCover[L+"|ownerout"]) return;         // a manual note covers it
+        for(var i=0;i<dates.length;i++){
+          var d = dates[i];
+          if(d <= td0) continue;
+          var diff = Math.round((new Date(d+"T00:00:00") - new Date(td0+"T00:00:00"))/86400000);
+          if(diff > OWNER_LOOKAHEAD_DAYS) break;
+          var dep = ((dashData.days[d].departures)||[]).filter(function(x){ return x.lodge===L && x.owner; })[0];
+          if(dep){
+            items.push({key:"rule-out|"+L, col:"maint", kind:"ownerout", code:L, place:"",
+              title:"Owner departing", message:ruleMsg(L,"owner_departure"), status:null, time:null,
+              when:d, owner:true, who:"", dept:"", scheduled:td0, src:"Beds24"});
+            ownerOutShown[L]=true;
+            break;
+          }
+        }
+      });
+    }
+    // Manual note cards (owner prep, special checks, etc.)
+    activeNotes.forEach(function(nz){
+      var kind = nz.kind || "note";
+      var col = (kind==="add"||kind==="remove"||kind==="earlyin"||kind==="lateout") ? "upsell" : "maint";
+      var isOwner = (kind==="ownerin"||kind==="ownerout");
+      items.push({key:"note|"+(nz.id||(nz.lodge||"x")+"|"+kind), col:col, kind:kind,
+        code:nz.lodge||"★", place:nz.place||"", title:nz.title||"Special request",
+        message:nz.message||"", status:null, time:null, when:nz.when||null,
+        owner:isOwner, who:"", dept:"", scheduled:tKey,
+        src:"Note", note:null});
+    });
+    return items;
+  }
+  function rankOf(it){
+    if(it.kind==="earlyin"||it.kind==="lateout"||it.kind==="ownerin"||it.kind==="ownerout") return 0;
+    var k = it.status ? it.status.k : "ns";
+    return k==="done" ? 3 : k==="ip" ? 2 : 1;
+  }
+
+  // ---- render ----
+  function tagFor(kind){
+    return kind==="add" ? '<span class="kind add">＋ Fit</span>'
+      : kind==="remove" ? '<span class="kind remove">－ Remove</span>'
+      : kind==="issue"  ? '<span class="kind issue">⚠ Fault</span>'
+      : kind==="earlyin"? '<span class="kind earlyin">🕓 Early in</span>'
+      : kind==="lateout"? '<span class="kind lateout">🕓 Late out</span>'
+      : kind==="ownerin"? '<span class="kind ownerin">👤 Owner in</span>'
+      : kind==="ownerout"? '<span class="kind ownerout">👤 Owner out</span>'
+      : '<span class="kind special">📋 Special</span>';
+  }
+  function rightFor(it){
+    var out="";
+    if(it.when){ out += '<span class="pill when">'+esc(dayLabel(it.when))+'</span>'; }
+    if(it.time){ out += '<span class="pill time">'+esc(it.time)+'</span>'; }
+    if(it.status){ var pc = it.status.k==="issue-status" ? "issue" : it.status.k;
+      out += '<span class="pill '+pc+'">'+esc(it.status.label)+'</span>'; }
+    if(it.owner) out += '<span class="owner">👤 Owner</span>';
+    if(it.who)   out += '<span class="who">'+esc(it.who)+'</span>';
+    return out;
+  }
+  function cardHTML(it){
+    var done = it.status && it.status.k==="done";
+    return '<div class="card '+it.kind+(done?' is-done':'')+'" data-key="'+esc(it.key)+'">'
+      + '<div class="code">'+esc(it.code)+(it.place?'<small>'+esc(it.place)+'</small>':'')+'</div>'
+      + '<div class="mid">'+tagFor(it.kind)+'<div class="job">'+esc(it.title)+'</div>'
+        + (it.message ? '<div class="cmsg">'+esc(it.message)+'</div>' : '')
+        + '</div>'
+      + '<div class="right">'+rightFor(it)+'</div>'
+      + '</div>';
+  }
+  function emptyHTML(icon,msg){
+    return '<div class="empty"><div class="big">'+icon+'</div><div class="msg">'+msg+'</div></div>';
+  }
+
+  // Shrink a column's cards (density tier 1→4) until they all fit with no scroll.
+  function fitList(el){
+    if(!el) return;
+    var d=1; el.setAttribute("data-d","1");
+    while(el.scrollHeight > el.clientHeight + 1 && d < 4){ d++; el.setAttribute("data-d", String(d)); }
+  }
+  function render(){
+    var items = buildItems(viewDay);
+    var dayWord = viewDay===1 ? "tomorrow" : "today";
+    function notDone(i){ return !(i.status && i.status.k==="done"); }
+    // UPSELLS: keep completed ones visible for the day (greyed + ticked) so an upsell
+    // can't vanish before it's seen — even one closed seconds after it's raised.
+    // Done ones sort to the bottom (rankOf). SPECIAL REQUESTS still clear when done.
+    var up = items.filter(function(i){return i.col==="upsell";}).sort(function(a,b){return rankOf(a)-rankOf(b);});
+    var mn = items.filter(function(i){return i.col==="maint" && notDone(i);}).sort(function(a,b){return rankOf(a)-rankOf(b);});
+    // The badge counts OUTSTANDING upsells (the to-do number), not the completed ones.
+    document.getElementById("upsellCount").textContent = up.filter(notDone).length;
+    document.getElementById("maintCount").textContent = mn.length;
+    document.getElementById("upsellList").innerHTML = up.length
+      ? up.map(cardHTML).join("") : emptyHTML("✓","No upsells "+dayWord);
+    document.getElementById("maintList").innerHTML = mn.length
+      ? mn.map(cardHTML).join("") : emptyHTML("✓","No special requests "+dayWord);
+    var map={}; items.forEach(function(i){ map[i.key]=i; }); render._items=map;
+    document.querySelectorAll(".card").forEach(function(el){
+      el.addEventListener("click", function(){ openDetail(el.getAttribute("data-key")); });
+    });
+    fitList(document.getElementById("upsellList"));
+    fitList(document.getElementById("maintList"));
+  }
+
+  function openDetail(key){
+    var it = (render._items||{})[key];
+    if(!it) return;
+    var statusLabel = it.status ? it.status.label : (it.time ? ("At "+it.time) : "—");
+    var typeLabel = {add:"Fit / add (upsell)",remove:"Remove / collect (upsell)",
+      special:"Special job",earlyin:"Early check-in",lateout:"Late check-out",
+      ownerin:"Owner arriving",ownerout:"Owner leaving",
+      note:"Special request",check:"Special check"}[it.kind]||it.kind;
+    var link = (bwUrl && it.src==="Breezeway")
+      ? '<a class="btn primary" href="'+esc(bwUrl)+'" target="_blank" rel="noopener">Open in Breezeway ↗</a>' : "";
+    var sheet = document.getElementById("sheet");
+    sheet.innerHTML =
+      '<div class="scode">'+esc(it.code)+'</div>'
+      + (it.place ? '<div class="sname">'+esc(it.place)+'</div>' : '')
+      + '<div class="sjob">'+esc(it.title)+'</div>'
+      + (it.owner ? '<div style="margin-top:10px"><span class="owner">👤 Owner booking</span></div>' : '')
+      + '<div class="meta">'
+      +   '<div class="chip"><b>Type</b>'+esc(typeLabel)+'</div>'
+      +   '<div class="chip"><b>Status</b>'+esc(statusLabel)+'</div>'
+      +   (it.who ? '<div class="chip"><b>Assigned to</b>'+esc(it.who)+'</div>' : '')
+      +   (it.dept ? '<div class="chip"><b>Department</b>'+esc(it.dept)+'</div>' : '')
+      +   (it.time ? '<div class="chip"><b>Time</b>'+esc(it.time)+'</div>' : '')
+      +   (it.when ? '<div class="chip"><b>When</b>'+esc(dayLabel(it.when))+'</div>' : '')
+      +   '<div class="chip"><b>Source</b>'+esc(it.src)+'</div>'
+      +   (it.message ? '<div class="chip" style="flex-basis:100%"><b>Note</b>'+esc(it.message)+'</div>' : '')
+      +   (it.note ? '<div class="chip" style="flex-basis:100%"><b>Task</b>'+esc(it.note)+'</div>' : '')
+      + '</div>'
+      + '<div class="actions">'+link+'<button class="btn ghost" type="button" id="closeSheet">Close</button></div>';
+    document.getElementById("overlay").classList.add("on");
+    document.getElementById("closeSheet").addEventListener("click", closeDetail);
+    armRevert();   // interacting keeps the Tomorrow view up (resets the auto-revert)
+  }
+  function closeDetail(){ document.getElementById("overlay").classList.remove("on"); }
+  document.getElementById("overlay").addEventListener("click", function(e){
+    if(e.target===this) closeDetail();
+  });
+
+  // ---- Today / Tomorrow view ----
+  function updateTmrBanner(){
+    var d = new Date(); d.setDate(d.getDate()+1);
+    var el = document.getElementById("tmrDate");
+    if(el) el.textContent = d.toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"}).toUpperCase();
+  }
+  function armRevert(){
+    clearTimeout(revertT);
+    if(viewDay===1){ revertT = setTimeout(function(){ setView(0); }, REVERT_MS); }
+  }
+  function setView(day){
+    viewDay = day ? 1 : 0;
+    document.body.classList.toggle("tomorrow", viewDay===1);
+    var btns = document.querySelectorAll("#dayToggle button");
+    for(var i=0;i<btns.length;i++){ btns[i].classList.toggle("on", (+btns[i].getAttribute("data-day"))===viewDay); }
+    if(viewDay===1){ updateTmrBanner(); if(!bwTmrData) loadTomorrow(); }
+    render();
+    armRevert();
+  }
+
+  // ---- clock ----
+  function tickClock(){
+    var d = new Date();
+    document.getElementById("clock").textContent =
+      d.toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"});
+    document.getElementById("date").textContent =
+      d.toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"});
+  }
+
+  function setFreshness(){
+    var mins = Math.floor((Date.now()-lastFetch)/60000);
+    var dot = document.getElementById("dot"), up = document.getElementById("updated");
+    if(!lastFetch){ up.textContent="loading…"; return; }
+    up.textContent = mins<=0 ? "updated just now" : "updated "+mins+"m ago";
+    dot.className = "dot" + (mins>25 ? " stale" : "");   // BW feed refreshes ~15m
+  }
+
+  // ---- fetch ----
+  function fetchChain(sources, onOk, onFail){
+    var i=0;
+    (function next(){
+      if(i>=sources.length){ if(onFail) onFail(); return; }
+      var base=sources[i++];
+      var url=base+(base.indexOf("?")>-1?"&":"?")+"t="+Date.now();
+      fetch(url,{cache:"no-store"})
+        .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+        .then(function(j){ onOk(j); })
+        .catch(function(){ next(); });
+    })();
+  }
+  function loadTomorrow(){
+    fetchChain(BW_TMR_SOURCES,
+      function(j){ bwTmrData=j; if(viewDay===1) render(); },
+      function(){ /* tomorrow BW optional — only needed on the Tomorrow tab */ });
+  }
+  function load(){
+    fetchChain(BW_SOURCES,
+      function(j){ bwData=j; lastFetch=Date.now(); render(); setFreshness(); },
+      function(){ if(!bwData){ bwData=FALLBACK_DATA; render(); } setFreshness(); });
+    fetchChain(DASH_SOURCES,
+      function(j){ dashData=j; render(); },
+      function(){ /* no dashboard fallback in preview */ });
+    fetchChain(NOTES_SOURCES,
+      function(j){ notesData=j; render(); },
+      function(){ /* notes optional */ });
+    fetchChain(RULES_SOURCES,
+      function(j){ rulesData=j; render(); },
+      function(){ /* rules optional */ });
+    loadTomorrow();
+  }
+
+  document.getElementById("refreshBtn").addEventListener("click", load);
+  var dtBtns = document.querySelectorAll("#dayToggle button");
+  for(var _i=0;_i<dtBtns.length;_i++){
+    dtBtns[_i].addEventListener("click", function(){ setView(+this.getAttribute("data-day")); });
+  }
+  var reflowT;
+  window.addEventListener("resize", function(){ clearTimeout(reflowT); reflowT=setTimeout(render,150); });
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ render(); }); }
+  tickClock(); setInterval(tickClock,1000);
+  setInterval(setFreshness,30000);
+  load(); setInterval(load,REFRESH_MS);
+})();
+</script>
+</body>
+</html>
