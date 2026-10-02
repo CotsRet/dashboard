@@ -3,6 +3,15 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
+    # The worker commits breezeway.json / breezeway_tomorrow.json every 15 minutes.
+    # Each one used to request a new Pages deployment that cancelled the previous
+    # (still-running) one, so a full deploy never finished and the board froze.
+    # The wall board now reads these files live from raw.githubusercontent, so we
+    # no longer need to republish Pages when only the data changes — ignore them
+    # here. Real content changes (wall.html, index.html, etc.) still deploy.
+    paths-ignore:
+      - 'breezeway.json'
+      - 'breezeway_tomorrow.json'
 
 permissions:
   contents: read
@@ -10,9 +19,7 @@ permissions:
   id-token: write
 
 # Allow only one Pages deployment at a time, and let an in-progress one finish
-# rather than cancelling it — so concurrent pushes (e.g. the 15-minute
-# breezeway.json updates and manual changes) queue instead of colliding and
-# failing the deploy.
+# rather than cancelling it.
 concurrency:
   group: "pages"
   cancel-in-progress: false
