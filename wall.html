@@ -253,25 +253,28 @@
 <script>
 (function(){
   "use strict";
+  // Data files are fetched from raw.githubusercontent FIRST (always live, updated
+  // by the worker every 15 min) with the Pages copy as a fallback. This keeps the
+  // board current even when GitHub Pages publishing is delayed.
   var BW_SOURCES = [
-    "breezeway.json",
-    "https://raw.githubusercontent.com/CotsRet/dashboard/main/breezeway.json"
+    "https://raw.githubusercontent.com/CotsRet/dashboard/main/breezeway.json",
+    "breezeway.json"
   ];
   var DASH_SOURCES = [
-    "dashboard.json",
-    "https://raw.githubusercontent.com/CotsRet/dashboard/main/dashboard.json"
+    "https://raw.githubusercontent.com/CotsRet/dashboard/main/dashboard.json",
+    "dashboard.json"
   ];
   var NOTES_SOURCES = [
-    "notes.json",
-    "https://raw.githubusercontent.com/CotsRet/dashboard/main/notes.json"
+    "https://raw.githubusercontent.com/CotsRet/dashboard/main/notes.json",
+    "notes.json"
   ];
   var RULES_SOURCES = [
-    "lodge_rules.json",
-    "https://raw.githubusercontent.com/CotsRet/dashboard/main/lodge_rules.json"
+    "https://raw.githubusercontent.com/CotsRet/dashboard/main/lodge_rules.json",
+    "lodge_rules.json"
   ];
   var BW_TMR_SOURCES = [
-    "breezeway_tomorrow.json",
-    "https://raw.githubusercontent.com/CotsRet/dashboard/main/breezeway_tomorrow.json"
+    "https://raw.githubusercontent.com/CotsRet/dashboard/main/breezeway_tomorrow.json",
+    "breezeway_tomorrow.json"
   ];
   var OWNER_LOOKAHEAD_DAYS = 1;   // warn this many days before an owner departure at a rule lodge
   var REFRESH_MS = 90000;
