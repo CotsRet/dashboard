@@ -129,6 +129,9 @@
   .pill.ns{background:var(--ns-bg);color:var(--ns)}
   .pill.ip{background:var(--ip-bg);color:var(--ip)}
   .pill.done{background:var(--done-bg);color:var(--done)}
+  /* Completed upsells stay on the board (greyed + ticked) so they can't be missed. */
+  .card.is-done{opacity:.5}
+  .card.is-done .job::after{content:" ✓";color:var(--done);font-weight:800}
   .pill.issue{background:var(--issue-bg);color:var(--issue)}
   .who{font-size:clamp(12px,.88vw,15px);color:var(--ink2);font-weight:500;max-width:13em;
     text-align:right;line-height:1.25;display:-webkit-box;-webkit-line-clamp:var(--who-lines);
@@ -531,7 +534,8 @@
     return out;
   }
   function cardHTML(it){
-    return '<div class="card '+it.kind+'" data-key="'+esc(it.key)+'">'
+    var done = it.status && it.status.k==="done";
+    return '<div class="card '+it.kind+(done?' is-done':'')+'" data-key="'+esc(it.key)+'">'
       + '<div class="code">'+esc(it.code)+(it.place?'<small>'+esc(it.place)+'</small>':'')+'</div>'
       + '<div class="mid">'+tagFor(it.kind)+'<div class="job">'+esc(it.title)+'</div>'
         + (it.message ? '<div class="cmsg">'+esc(it.message)+'</div>' : '')
@@ -552,11 +556,14 @@
   function render(){
     var items = buildItems(viewDay);
     var dayWord = viewDay===1 ? "tomorrow" : "today";
-    // Hide anything already marked Done — the board is a to-do glance, not a log.
     function notDone(i){ return !(i.status && i.status.k==="done"); }
-    var up = items.filter(function(i){return i.col==="upsell" && notDone(i);}).sort(function(a,b){return rankOf(a)-rankOf(b);});
+    // UPSELLS: keep completed ones visible for the day (greyed + ticked) so an upsell
+    // can't vanish before it's seen — even one closed seconds after it's raised.
+    // Done ones sort to the bottom (rankOf). SPECIAL REQUESTS still clear when done.
+    var up = items.filter(function(i){return i.col==="upsell";}).sort(function(a,b){return rankOf(a)-rankOf(b);});
     var mn = items.filter(function(i){return i.col==="maint" && notDone(i);}).sort(function(a,b){return rankOf(a)-rankOf(b);});
-    document.getElementById("upsellCount").textContent = up.length;
+    // The badge counts OUTSTANDING upsells (the to-do number), not the completed ones.
+    document.getElementById("upsellCount").textContent = up.filter(notDone).length;
     document.getElementById("maintCount").textContent = mn.length;
     document.getElementById("upsellList").innerHTML = up.length
       ? up.map(cardHTML).join("") : emptyHTML("✓","No upsells "+dayWord);
