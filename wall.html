@@ -361,13 +361,26 @@
       .filter(function(w){ return w && !/^(add|fit|remove|collect|the|a|an|of|for|please|x|and|to|out|put)$/.test(w); });
   }
 
-  // ---- extract the special (non-template) tasks ----
+  // Is this task a recognised upsell / booking extra (Add/Remove an upsell item, or an
+  // early check-in / late check-out)? Used so upsells set up as Breezeway TEMPLATES
+  // (e.g. "Add Dog Welcome pack") still reach the board, while routine templates
+  // (cleaning/inspection checks, linen pickups, turnaround cleans) stay hidden.
+  function isUpsellTask(name){
+    var k = classify(name);
+    return k==="add" || k==="remove" || k==="earlyin" || k==="lateout";
+  }
+
+  // ---- extract the tasks the board should show ----
+  // One-off (non-template) tasks as before, PLUS any template task that is a genuine
+  // upsell — so a templated upsell (e.g. a recurring Dog Welcome pack) isn't dropped
+  // along with the routine template tasks.
   function specialTasks(data){
     var out = [];
     (data.properties||[]).forEach(function(p){
       (p.tasks||[]).forEach(function(t){
         var tid = t.template_id;
-        if(tid===null || tid===undefined || tid==="" || tid===0){
+        var oneOff = (tid===null || tid===undefined || tid==="" || tid===0);
+        if(oneOff || isUpsellTask(t.name)){
           out.push({prop:p.name, propId:p.id, t:t});
         }
       });
