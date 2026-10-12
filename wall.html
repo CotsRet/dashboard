@@ -486,8 +486,12 @@
           }
         });
         // Phantom bookings — Airbnb 'not available' blocks (from the pipeline). Shown as a
-        // bold safety-net card in case the task-removal script misses them.
+        // bold safety-net card in case the task-removal script misses them. One card per
+        // lodge, even if a lodge has more than one block covering the day.
+        var phSeen = {};
         (day.phantom||[]).forEach(function(ph){
+          if(phSeen[ph.lodge]) return;
+          phSeen[ph.lodge] = true;
           items.push({key:"phantom|"+ph.lodge, col:"maint", kind:"phantom", code:ph.lodge,
             place:"", title:"Phantom booking", message:"Airbnb ‘not available’ — check Beds24; remove any tasks it created",
             status:null, time:null, owner:false, who:"", dept:"", scheduled:td, src:"Beds24"});
