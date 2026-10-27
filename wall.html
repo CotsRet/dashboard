@@ -132,6 +132,10 @@
     border:2px solid var(--phantom);border-radius:12px;padding:6px 14px}
   .phantom-chip .ptag{background:var(--phantom);color:#fff;font-family:var(--sans);font-weight:800;
     font-size:clamp(10px,.8vw,13px);padding:3px 9px;border-radius:999px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+  .phantom-chip .pwhat{font-family:var(--sans);font-weight:800;font-size:clamp(12px,1vw,16px);
+    text-transform:uppercase;letter-spacing:.5px;color:var(--phantom)}
+  .phantom-chip .preal{font-family:var(--sans);font-weight:800;font-size:clamp(12px,1vw,16px);
+    background:var(--done-bg);color:var(--done);border-radius:8px;padding:4px 10px;white-space:nowrap}
   .phantom-chip .pcode{font-family:var(--cond);font-weight:900;font-size:clamp(22px,2vw,38px);
     color:var(--ink);letter-spacing:1px;line-height:1}
   .kind.ownerin,.kind.ownerout{background:#fdf3d3;color:#8a6a00}
@@ -291,7 +295,7 @@
     <div class="phantom-hd">
       <span class="ic">⚠️</span>
       <h2>Phantom Bookings</h2>
-      <span class="sub">Airbnb &lsquo;not available&rsquo; blocks — check Beds24 &amp; remove any tasks they created</span>
+      <span class="sub">Airbnb &lsquo;not available&rsquo; blocks — ignore the fake booking &amp; remove any tasks it made. A fake arrival does NOT cancel a genuine check-out.</span>
     </div>
     <div class="phantom-items" id="phantomList"></div>
   </section>
@@ -661,7 +665,15 @@
         (day.phantom||[]).forEach(function(ph){
           if(phSeen[ph.lodge]) return;
           phSeen[ph.lodge] = true;
+          // A phantom block spans arrival→departure. Work out what's fake TODAY, and
+          // whether a GENUINE check-out/arrival sits on the same lodge the same day
+          // (so a real check-out isn't mistaken for the phantom).
+          var pin  = ph.arrival   === td;   // fake booking STARTS today  → fake arrival
+          var pout = ph.departure === td;   // fake booking ENDS today    → fake check-out
+          var realOut = (day.departures||[]).some(function(x){ return x.lodge===ph.lodge; });
+          var realIn  = (day.arrivals  ||[]).some(function(x){ return x.lodge===ph.lodge; });
           items.push({key:"phantom|"+ph.lodge, col:"phantom", kind:"phantom", code:ph.lodge,
+            pin:pin, pout:pout, realOut:realOut, realIn:realIn,
             place:"", title:"Phantom booking", message:"Airbnb ‘not available’ — check Beds24; remove any tasks it created",
             status:null, time:null, owner:false, who:"", dept:"", scheduled:td, src:"Beds24"});
         });
@@ -774,7 +786,15 @@
     // Phantom bookings — their own red bar at the top, shown only when present.
     var ph = items.filter(function(i){return i.col==="phantom";});
     document.getElementById("phantomList").innerHTML = ph.map(function(it){
-      return '<div class="phantom-chip"><span class="ptag">⚠ Phantom</span><span class="pcode">'+esc(it.code)+'</span></div>';
+      var what = (it.pin && it.pout) ? "fake booking"
+               : it.pin  ? "fake arrival"
+               : it.pout ? "fake check-out" : "fake booking";
+      var real = (it.pin && it.realOut)  ? '<span class="preal">✓ real check-out today</span>'
+               : (it.pout && it.realIn)  ? '<span class="preal">✓ real arrival today</span>' : "";
+      return '<div class="phantom-chip"><span class="ptag">⚠ Phantom</span>'
+        + '<span class="pcode">'+esc(it.code)+'</span>'
+        + '<span class="pwhat">'+what+'</span>'
+        + real + '</div>';
     }).join("");
     document.getElementById("phantomBar").style.display = ph.length ? "flex" : "none";
     var map={}; items.forEach(function(i){ map[i.key]=i; }); render._items=map;
