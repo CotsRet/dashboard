@@ -210,7 +210,25 @@
     color:var(--ink2);cursor:pointer;min-height:48px}
   .fchip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
   .fhint{font-weight:600;color:var(--ink3);font-size:.85em;margin-left:4px}
-  #f_assignee .fchip.on::before{content:"✓ "}
+  /* Assign-to searchable multi-select */
+  .combo{position:relative}
+  .combo-tags{display:flex;flex-wrap:wrap;gap:6px}
+  .combo-tags:not(:empty){margin-bottom:8px}
+  .combo-tag{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;
+    border-radius:9px;padding:8px 10px 8px 12px;font-weight:700;font-size:clamp(13px,1vw,16px)}
+  .combo-tag button{background:none;border:none;color:#fff;font-size:1.25em;line-height:1;
+    cursor:pointer;padding:0;opacity:.85}
+  .combo-tag button:hover{opacity:1}
+  .combo-menu{position:absolute;left:0;right:0;top:100%;z-index:20;background:var(--panel);
+    border:1.5px solid var(--line);border-radius:10px;margin-top:4px;max-height:240px;overflow:auto;
+    box-shadow:0 12px 32px rgba(18,30,45,.18);display:none}
+  .combo-menu.on{display:block}
+  .combo-opt{padding:12px 14px;cursor:pointer;font-weight:600;font-size:clamp(14px,1.05vw,17px);
+    border-bottom:1px solid var(--line)}
+  .combo-opt:last-child{border-bottom:none}
+  .combo-opt.active,.combo-opt:hover{background:var(--panel2)}
+  .combo-opt .addnew{color:var(--add);font-weight:700}
+  .combo-empty{padding:12px 14px;color:var(--ink3);font-size:clamp(13px,1vw,16px)}
   .fmsg{min-height:22px;font-weight:700;margin-top:2px;font-size:clamp(13px,1vw,16px)}
   .fmsg.err{color:var(--issue)}
   .fmsg.ok{color:var(--add)}
@@ -347,22 +365,12 @@
       </div>
 
       <div class="frow">
-        <label>Assign to <span class="fhint">tap all who apply — leave blank for anyone</span></label>
-        <div class="fchips" id="f_assignee">
-          <button type="button" class="fchip" data-n="Abigail Jordan">Abigail Jordan</button>
-          <button type="button" class="fchip" data-n="Ashley Smith">Ashley Smith</button>
-          <button type="button" class="fchip" data-n="Beau Gradner">Beau Gradner</button>
-          <button type="button" class="fchip" data-n="Charlene T Loveridge">Charlene T Loveridge</button>
-          <button type="button" class="fchip" data-n="Darren Smith">Darren Smith</button>
-          <button type="button" class="fchip" data-n="Janet Smith">Janet Smith</button>
-          <button type="button" class="fchip" data-n="Kate Hammond">Kate Hammond</button>
-          <button type="button" class="fchip" data-n="Lee Kelly">Lee Kelly</button>
-          <button type="button" class="fchip" data-n="Lydia Dilley">Lydia Dilley</button>
-          <button type="button" class="fchip" data-n="Melanie Thomson">Melanie Thomson</button>
-          <button type="button" class="fchip" data-n="Nicola Biggs">Nicola Biggs</button>
-          <button type="button" class="fchip" data-n="Rachel Gaazen">Rachel Gaazen</button>
-          <button type="button" class="fchip" data-n="Tracey Kelly">Tracey Kelly</button>
-          <button type="button" class="fchip" data-n="Ysanne Herbert">Ysanne Herbert</button>
+        <label>Assign to <span class="fhint">search &amp; tap names — type anyone not listed — blank = anyone</span></label>
+        <div class="combo" id="f_assignee">
+          <div class="combo-tags" id="asgTags"></div>
+          <input class="fin combo-input" id="asgInput" type="text" autocomplete="off"
+                 placeholder="Type a name to search…">
+          <div class="combo-menu" id="asgMenu"></div>
         </div>
       </div>
 
@@ -434,6 +442,12 @@
   var SUPA_HEADERS = {"Content-Type":"application/json","apikey":SUPA_KEY,"Authorization":"Bearer "+SUPA_KEY};
   var WALL_KEY = "wallnotes";   // gl_data row holding the manually-added cards
   var manualNotes = [];         // loaded from Supabase, merged with notes.json
+  // Team roster for the Assign-to search box. You can also type a name that's not
+  // here; to add someone permanently, just add them to this list.
+  var ROSTER = ["Abigail Jordan","Anne Vinall","Ashley Smith","Beau Gradner",
+    "Charlene T Loveridge","Darren Smith","Janet Smith","Kate Hammond","Lee Kelly",
+    "Lydia Dilley","Melanie Thomson","Nicola Biggs","Rachel Gaazen","Tracey Kelly","Ysanne Herbert"];
+  var selectedAssignees = [];   // names chosen in the Assign-to box for the card being added
   // Last-resort snapshot so a preview (where live fetch is blocked) still shows
   // real jobs. The live feed always overrides this when reachable.
   var FALLBACK_DATA = {"_generated":"2026-09-20T10:31:57.180Z","_fallback":true,"bw_app_url":"https://app.breezeway.io","properties":[{"name":"HB The Happy Hideaway - ND46","id":1451482,"tasks":[{"id":162631027,"name":"Ripped net curtain master bedroom ","classification":"issues","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null}]},{"name":"HB Cotswold Reach CR79","id":1081812,"tasks":[{"id":165043575,"name":"Toilet seat in main bath","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":null,"assignedToList":[],"template_id":null}]},{"name":"HB Busy Bees BD3","id":927235,"tasks":[{"id":164881024,"name":"Sink leaking ","classification":"issues","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null}]},{"name":"HB The Warren SM21","id":282434,"tasks":[{"id":166479949,"name":"Remove Booster Seat","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Kate Hammond","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null},{"id":166479961,"name":"Remove travel cot","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Kate Hammond","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null}]},{"name":"HB Clearwater ND15","id":282401,"tasks":[{"id":167574917,"name":"Re-hang mirror in lounge","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Abigail Jordan","Beau Gradner"],"template_id":null},{"id":167743005,"name":"Replace battery in Clock ","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Abigail Jordan","Beau Gradner"],"template_id":null}]}]};
@@ -864,7 +878,7 @@
     document.getElementById("f_title").value = "";
     document.getElementById("f_msg").value   = "";
     document.getElementById("f_by").value    = "";
-    var ab=document.querySelectorAll("#f_assignee .fchip"); for(var ai=0;ai<ab.length;ai++) ab[ai].classList.remove("on");
+    selectedAssignees = []; document.getElementById("asgInput").value = ""; renderTags(); hideMenu();
     setChips("f_kind","note"); setChips("f_src","Phone");
     feedback("","");
     document.getElementById("addSave").disabled = false;
@@ -885,7 +899,7 @@
       place:"", title:title,
       message:(document.getElementById("f_msg").value||"").trim(),
       from:from, to:to, when:from,
-      assignees:Array.prototype.map.call(document.querySelectorAll("#f_assignee .fchip.on"),function(b){return b.getAttribute("data-n");}),
+      assignees:selectedAssignees.slice(),
       source:chipVal("f_src")||"", by:(document.getElementById("f_by").value||"").trim(),
       ts:new Date().toISOString()
     };
@@ -1000,12 +1014,65 @@
       b.classList.add("on");
     });
   });
-  // Assignees: independent multi-select (tick any number)
+  // Assignees: searchable multi-select combobox
+  var asgInput=document.getElementById("asgInput"),
+      asgMenu=document.getElementById("asgMenu"),
+      asgTags=document.getElementById("asgTags");
+  function hideMenu(){ asgMenu.classList.remove("on"); asgMenu.innerHTML=""; }
+  function renderTags(){
+    asgTags.innerHTML = selectedAssignees.map(function(n){
+      return '<span class="combo-tag">'+esc(n)+'<button type="button" data-rm="'+esc(n)+'" aria-label="Remove">×</button></span>';
+    }).join("");
+  }
+  function addName(n){
+    n=(n||"").trim(); if(!n) return;
+    var exists=selectedAssignees.some(function(x){ return x.toLowerCase()===n.toLowerCase(); });
+    if(!exists) selectedAssignees.push(n);
+    asgInput.value=""; renderTags(); renderMenu(""); asgInput.focus();
+  }
+  function renderMenu(q){
+    q=(q||"").trim().toLowerCase();
+    var avail=ROSTER.filter(function(n){
+      if(selectedAssignees.some(function(x){ return x.toLowerCase()===n.toLowerCase(); })) return false;
+      return !q || n.toLowerCase().indexOf(q)>-1;
+    });
+    var html = avail.map(function(n){ return '<div class="combo-opt" data-add="'+esc(n)+'">'+esc(n)+'</div>'; }).join("");
+    // Offer to add a typed name only when nothing in the roster matches it
+    if(q && avail.length===0){
+      var inSel=selectedAssignees.some(function(n){ return n.toLowerCase()===q; });
+      if(!inSel){
+        var typed=asgInput.value.trim();
+        html += '<div class="combo-opt" data-add="'+esc(typed)+'"><span class="addnew">+ Add “'+esc(typed)+'”</span></div>';
+      }
+    }
+    if(!html) html='<div class="combo-empty">No matches</div>';
+    asgMenu.innerHTML=html; asgMenu.classList.add("on");
+  }
+  asgInput.addEventListener("focus", function(){ renderMenu(asgInput.value); });
+  asgInput.addEventListener("input", function(){ renderMenu(asgInput.value); });
+  asgInput.addEventListener("keydown", function(e){
+    if(e.key==="Enter"){ e.preventDefault();
+      var first=asgMenu.querySelector(".combo-opt"); if(first) addName(first.getAttribute("data-add"));
+    } else if(e.key==="Backspace" && !asgInput.value && selectedAssignees.length){
+      selectedAssignees.pop(); renderTags(); renderMenu("");
+    } else if(e.key==="Escape"){ hideMenu(); }
+  });
+  asgMenu.addEventListener("click", function(e){
+    var o=e.target; while(o && o!==asgMenu && !o.getAttribute("data-add")) o=o.parentNode;
+    if(o && o.getAttribute("data-add")) addName(o.getAttribute("data-add"));
+  });
+  asgTags.addEventListener("click", function(e){
+    var rm=e.target.getAttribute && e.target.getAttribute("data-rm");
+    if(!rm) return;
+    selectedAssignees=selectedAssignees.filter(function(x){ return x!==rm; });
+    renderTags();
+  });
   document.getElementById("f_assignee").addEventListener("click", function(e){
-    var g=this, b=e.target;
-    while(b && b!==g && !(b.className && (""+b.className).indexOf("fchip")>-1)) b=b.parentNode;
-    if(!b || b===g) return;
-    b.classList.toggle("on");
+    if(e.target===this) asgInput.focus();
+  });
+  document.addEventListener("click", function(e){
+    var box=document.getElementById("f_assignee");
+    if(box && !box.contains(e.target)) hideMenu();
   });
   var dtBtns = document.querySelectorAll("#dayToggle button");
   for(var _i=0;_i<dtBtns.length;_i++){
