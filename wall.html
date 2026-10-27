@@ -209,6 +209,8 @@
     padding:11px 14px;font-family:var(--sans);font-weight:700;font-size:clamp(13px,1vw,16px);
     color:var(--ink2);cursor:pointer;min-height:48px}
   .fchip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .fhint{font-weight:600;color:var(--ink3);font-size:.85em;margin-left:4px}
+  #f_assignee .fchip.on::before{content:"✓ "}
   .fmsg{min-height:22px;font-weight:700;margin-top:2px;font-size:clamp(13px,1vw,16px)}
   .fmsg.err{color:var(--issue)}
   .fmsg.ok{color:var(--add)}
@@ -345,24 +347,23 @@
       </div>
 
       <div class="frow">
-        <label>Assign to</label>
-        <select class="fsel" id="f_assignee">
-          <option value="">— Anyone / unassigned —</option>
-          <option>Abigail Jordan</option>
-          <option>Ashley Smith</option>
-          <option>Beau Gradner</option>
-          <option>Charlene T Loveridge</option>
-          <option>Darren Smith</option>
-          <option>Janet Smith</option>
-          <option>Kate Hammond</option>
-          <option>Lee Kelly</option>
-          <option>Lydia Dilley</option>
-          <option>Melanie Thomson</option>
-          <option>Nicola Biggs</option>
-          <option>Rachel Gaazen</option>
-          <option>Tracey Kelly</option>
-          <option>Ysanne Herbert</option>
-        </select>
+        <label>Assign to <span class="fhint">tap all who apply — leave blank for anyone</span></label>
+        <div class="fchips" id="f_assignee">
+          <button type="button" class="fchip" data-n="Abigail Jordan">Abigail Jordan</button>
+          <button type="button" class="fchip" data-n="Ashley Smith">Ashley Smith</button>
+          <button type="button" class="fchip" data-n="Beau Gradner">Beau Gradner</button>
+          <button type="button" class="fchip" data-n="Charlene T Loveridge">Charlene T Loveridge</button>
+          <button type="button" class="fchip" data-n="Darren Smith">Darren Smith</button>
+          <button type="button" class="fchip" data-n="Janet Smith">Janet Smith</button>
+          <button type="button" class="fchip" data-n="Kate Hammond">Kate Hammond</button>
+          <button type="button" class="fchip" data-n="Lee Kelly">Lee Kelly</button>
+          <button type="button" class="fchip" data-n="Lydia Dilley">Lydia Dilley</button>
+          <button type="button" class="fchip" data-n="Melanie Thomson">Melanie Thomson</button>
+          <button type="button" class="fchip" data-n="Nicola Biggs">Nicola Biggs</button>
+          <button type="button" class="fchip" data-n="Rachel Gaazen">Rachel Gaazen</button>
+          <button type="button" class="fchip" data-n="Tracey Kelly">Tracey Kelly</button>
+          <button type="button" class="fchip" data-n="Ysanne Herbert">Ysanne Herbert</button>
+        </div>
       </div>
 
       <div class="frow two">
@@ -685,7 +686,7 @@
       items.push({key:"note|"+(nz.id||(nz.lodge||"x")+"|"+kind), col:col, kind:kind,
         code:nz.lodge||"★", place:nz.place||"", title:nz.title||"Special request",
         message:nz.message||"", status:null, time:null, when:nz.when||null,
-        owner:isOwner, who:nz.assignee||"", dept:"", scheduled:tKey,
+        owner:isOwner, who:(nz.assignees&&nz.assignees.length?nz.assignees.join(", "):(nz.assignee||"")), dept:"", scheduled:tKey,
         src:nz._manual ? "Added by hand" : "Note", note:null,
         manualId:nz._manual ? (nz.id||null) : null, source:nz.source||"", by:nz.by||""});
     });
@@ -863,7 +864,7 @@
     document.getElementById("f_title").value = "";
     document.getElementById("f_msg").value   = "";
     document.getElementById("f_by").value    = "";
-    document.getElementById("f_assignee").value = "";
+    var ab=document.querySelectorAll("#f_assignee .fchip"); for(var ai=0;ai<ab.length;ai++) ab[ai].classList.remove("on");
     setChips("f_kind","note"); setChips("f_src","Phone");
     feedback("","");
     document.getElementById("addSave").disabled = false;
@@ -884,7 +885,7 @@
       place:"", title:title,
       message:(document.getElementById("f_msg").value||"").trim(),
       from:from, to:to, when:from,
-      assignee:(document.getElementById("f_assignee").value||"").trim(),
+      assignees:Array.prototype.map.call(document.querySelectorAll("#f_assignee .fchip.on"),function(b){return b.getAttribute("data-n");}),
       source:chipVal("f_src")||"", by:(document.getElementById("f_by").value||"").trim(),
       ts:new Date().toISOString()
     };
@@ -998,6 +999,13 @@
       for(var i=0;i<kids.length;i++) kids[i].classList.remove("on");
       b.classList.add("on");
     });
+  });
+  // Assignees: independent multi-select (tick any number)
+  document.getElementById("f_assignee").addEventListener("click", function(e){
+    var g=this, b=e.target;
+    while(b && b!==g && !(b.className && (""+b.className).indexOf("fchip")>-1)) b=b.parentNode;
+    if(!b || b===g) return;
+    b.classList.toggle("on");
   });
   var dtBtns = document.querySelectorAll("#dayToggle button");
   for(var _i=0;_i<dtBtns.length;_i++){
