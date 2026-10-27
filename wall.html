@@ -187,6 +187,31 @@
     display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
   .btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
   .btn.ghost{background:var(--panel2);color:var(--ink2)}
+  .btn.add{background:var(--add);color:#fff;border-color:var(--add)}
+  .btn.danger{background:var(--issue-bg);color:var(--issue);border-color:var(--issue)}
+  .addbtn{background:var(--add);color:#fff;border-color:var(--add);font-weight:700}
+  .addbtn:active{filter:brightness(.92)}
+  /* ── Add-to-board form ── */
+  .fsheet .fhd{font-family:var(--cond);font-weight:800;font-size:clamp(24px,2.4vw,36px);line-height:1;margin:0 0 4px}
+  .fsheet .fsub{color:var(--ink2);font-size:clamp(13px,1vw,16px);margin:0 0 18px}
+  .frow{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+  .frow.two{flex-direction:row;gap:12px}
+  .frow.two > .fcol{flex:1;display:flex;flex-direction:column;gap:6px;min-width:0}
+  .frow label,.fcol label{font-weight:700;font-size:clamp(13px,1vw,16px);color:var(--ink2)}
+  .frow label .req{color:var(--issue)}
+  .fin,.fsel,.fta{font-family:var(--sans);font-size:clamp(15px,1.15vw,19px);color:var(--ink);
+    border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--panel2);
+    width:100%;box-sizing:border-box;min-height:50px}
+  .fta{min-height:84px;resize:vertical}
+  .fin:focus,.fsel:focus,.fta:focus{outline:none;border-color:var(--ip);background:#fff}
+  .fchips{display:flex;flex-wrap:wrap;gap:8px}
+  .fchip{border:1.5px solid var(--line);background:var(--panel2);border-radius:10px;
+    padding:11px 14px;font-family:var(--sans);font-weight:700;font-size:clamp(13px,1vw,16px);
+    color:var(--ink2);cursor:pointer;min-height:48px}
+  .fchip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .fmsg{min-height:22px;font-weight:700;margin-top:2px;font-size:clamp(13px,1vw,16px)}
+  .fmsg.err{color:var(--issue)}
+  .fmsg.ok{color:var(--add)}
 
   @media (max-width:820px){
     body{overflow:auto}
@@ -230,7 +255,10 @@
     </div>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
       <div class="status"><span class="dot" id="dot"></span><span id="updated">loading…</span></div>
-      <button class="refresh" id="refreshBtn" type="button">↻ Refresh</button>
+      <div style="display:flex;gap:8px">
+        <button class="refresh addbtn" id="addBtn" type="button">＋ Add to board</button>
+        <button class="refresh" id="refreshBtn" type="button">↻ Refresh</button>
+      </div>
     </div>
   </header>
 
@@ -280,6 +308,71 @@
     <div class="sheet" id="sheet"></div>
   </div>
 
+  <div class="overlay" id="addOverlay">
+    <div class="sheet fsheet">
+      <div class="fhd">Add to the board</div>
+      <div class="fsub">For a job phoned or emailed in that isn&rsquo;t already on Breezeway or Beds24.</div>
+
+      <div class="frow">
+        <label>Lodge / property</label>
+        <input class="fin" id="f_lodge" type="text" maxlength="20" autocomplete="off"
+               placeholder="e.g. SM12 — leave blank if it&rsquo;s general">
+      </div>
+
+      <div class="frow">
+        <label>Type of job</label>
+        <div class="fchips" id="f_kind">
+          <button type="button" class="fchip on" data-k="note">📋 Special request</button>
+          <button type="button" class="fchip" data-k="add">＋ Fit / add an item</button>
+          <button type="button" class="fchip" data-k="remove">－ Remove / collect</button>
+          <button type="button" class="fchip" data-k="earlyin">🕓 Early check-in</button>
+          <button type="button" class="fchip" data-k="lateout">🕓 Late check-out</button>
+          <button type="button" class="fchip" data-k="ownerin">👤 Owner arriving</button>
+          <button type="button" class="fchip" data-k="ownerout">👤 Owner leaving</button>
+        </div>
+      </div>
+
+      <div class="frow">
+        <label>What&rsquo;s needed <span class="req">*</span></label>
+        <input class="fin" id="f_title" type="text" maxlength="80" autocomplete="off"
+               placeholder="Short summary — e.g. Extra travel cot">
+      </div>
+
+      <div class="frow">
+        <label>Details</label>
+        <textarea class="fta" id="f_msg" maxlength="400"
+                  placeholder="Anything the team needs to know"></textarea>
+      </div>
+
+      <div class="frow two">
+        <div class="fcol"><label>Show from</label><input class="fin" id="f_from" type="date"></div>
+        <div class="fcol"><label>Until (incl.)</label><input class="fin" id="f_to" type="date"></div>
+      </div>
+
+      <div class="frow">
+        <label>How it came in</label>
+        <div class="fchips" id="f_src">
+          <button type="button" class="fchip on" data-s="Phone">📞 Phone</button>
+          <button type="button" class="fchip" data-s="Email">✉ Email</button>
+          <button type="button" class="fchip" data-s="In person">🧍 In person</button>
+          <button type="button" class="fchip" data-s="Other">Other</button>
+        </div>
+      </div>
+
+      <div class="frow">
+        <label>Logged by</label>
+        <input class="fin" id="f_by" type="text" maxlength="40" autocomplete="off"
+               placeholder="Your name or initials">
+      </div>
+
+      <div class="fmsg" id="f_feedback"></div>
+      <div class="actions">
+        <button class="btn ghost" type="button" id="addCancel">Cancel</button>
+        <button class="btn add" type="button" id="addSave">Add to board</button>
+      </div>
+    </div>
+  </div>
+
 <script>
 (function(){
   "use strict";
@@ -312,6 +405,13 @@
   var viewDay = 0;                // 0 = today, 1 = tomorrow
   var revertT = null;
   var bwData = null, bwTmrData = null, dashData = null, notesData = null, rulesData = null, lastFetch = 0, bwUrl = "https://app.breezeway.io";
+  // Shared store for cards added by hand on the board (phoned / emailed-in jobs).
+  // Same Supabase backend the GL app uses; the anon key is a public client key.
+  var SUPA_URL = "https://mqjbcxmxodsocxcachmo.supabase.co";
+  var SUPA_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1xamJjeG14b2Rzb2N4Y2FjaG1vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcyMTQwNzYsImV4cCI6MjA5Mjc5MDA3Nn0.IUxftdqiTO4oc2p6_bosA2hccZQibfrOkyxCaoVF-yI";
+  var SUPA_HEADERS = {"Content-Type":"application/json","apikey":SUPA_KEY,"Authorization":"Bearer "+SUPA_KEY};
+  var WALL_KEY = "wallnotes";   // gl_data row holding the manually-added cards
+  var manualNotes = [];         // loaded from Supabase, merged with notes.json
   // Last-resort snapshot so a preview (where live fetch is blocked) still shows
   // real jobs. The live feed always overrides this when reachable.
   var FALLBACK_DATA = {"_generated":"2026-09-20T10:31:57.180Z","_fallback":true,"bw_app_url":"https://app.breezeway.io","properties":[{"name":"HB The Happy Hideaway - ND46","id":1451482,"tasks":[{"id":162631027,"name":"Ripped net curtain master bedroom ","classification":"issues","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null}]},{"name":"HB Cotswold Reach CR79","id":1081812,"tasks":[{"id":165043575,"name":"Toilet seat in main bath","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":null,"assignedToList":[],"template_id":null}]},{"name":"HB Busy Bees BD3","id":927235,"tasks":[{"id":164881024,"name":"Sink leaking ","classification":"issues","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null}]},{"name":"HB The Warren SM21","id":282434,"tasks":[{"id":166479949,"name":"Remove Booster Seat","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Kate Hammond","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null},{"id":166479961,"name":"Remove travel cot","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Kate Hammond","Darren Smith","Ashley Smith","Beau Gradner"],"template_id":null}]},{"name":"HB Clearwater ND15","id":282401,"tasks":[{"id":167574917,"name":"Re-hang mirror in lounge","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Abigail Jordan","Beau Gradner"],"template_id":null},{"id":167743005,"name":"Replace battery in Clock ","classification":"not_started","department":"maintenance","scheduled_date":"2026-09-20","assignedTo":"Lee Kelly","assignedToList":["Lee Kelly","Darren Smith","Ashley Smith","Abigail Jordan","Beau Gradner"],"template_id":null}]}]};
@@ -431,9 +531,15 @@
     var ownerOutShown = {};   // lodges already carded as owner-departing that day
     // Manual notes (comments) whose date window includes the target day.
     var noteCover = {}, activeNotes = [];
-    if(notesData && notesData.notes){
+    // notes.json (hand-committed one-offs) + manually-added board cards (Supabase).
+    var srcNotes = (notesData && notesData.notes) ? notesData.notes.slice() : [];
+    (manualNotes || []).forEach(function(m){
+      var mm = {}; for(var kk in m){ if(m.hasOwnProperty(kk)) mm[kk] = m[kk]; }
+      mm._manual = true; srcNotes.push(mm);
+    });
+    if(srcNotes.length){
       var tdn = tKey;
-      notesData.notes.forEach(function(nz){
+      srcNotes.forEach(function(nz){
         var from = nz.from || tdn, to = nz.to || nz.from || tdn;
         if(tdn < from || tdn > to) return;
         activeNotes.push(nz);
@@ -559,7 +665,8 @@
         code:nz.lodge||"★", place:nz.place||"", title:nz.title||"Special request",
         message:nz.message||"", status:null, time:null, when:nz.when||null,
         owner:isOwner, who:"", dept:"", scheduled:tKey,
-        src:"Note", note:null});
+        src:nz._manual ? "Added by hand" : "Note", note:null,
+        manualId:nz._manual ? (nz.id||null) : null, source:nz.source||"", by:nz.by||""});
     });
     return items;
   }
@@ -666,18 +773,121 @@
       +   (it.time ? '<div class="chip"><b>Time</b>'+esc(it.time)+'</div>' : '')
       +   (it.when ? '<div class="chip"><b>When</b>'+esc(dayLabel(it.when))+'</div>' : '')
       +   '<div class="chip"><b>Source</b>'+esc(it.src)+'</div>'
+      +   (it.by ? '<div class="chip"><b>Logged by</b>'+esc(it.by)+'</div>' : '')
+      +   (it.source ? '<div class="chip"><b>Came in via</b>'+esc(it.source)+'</div>' : '')
       +   (it.message ? '<div class="chip" style="flex-basis:100%"><b>Note</b>'+esc(it.message)+'</div>' : '')
       +   (it.note ? '<div class="chip" style="flex-basis:100%"><b>Task</b>'+esc(it.note)+'</div>' : '')
       + '</div>'
-      + '<div class="actions">'+link+'<button class="btn ghost" type="button" id="closeSheet">Close</button></div>';
+      + '<div class="actions">'+link
+        + (it.manualId ? '<button class="btn danger" type="button" id="removeManual">Remove from board</button>' : '')
+        + '<button class="btn ghost" type="button" id="closeSheet">Close</button></div>';
     document.getElementById("overlay").classList.add("on");
     document.getElementById("closeSheet").addEventListener("click", closeDetail);
+    var rmBtn = document.getElementById("removeManual");
+    if(rmBtn) rmBtn.addEventListener("click", function(){ removeManual(it.manualId); });
     armRevert();   // interacting keeps the Tomorrow view up (resets the auto-revert)
   }
   function closeDetail(){ document.getElementById("overlay").classList.remove("on"); }
   document.getElementById("overlay").addEventListener("click", function(e){
     if(e.target===this) closeDetail();
   });
+
+  // ---- Add to board (shared via Supabase) ----
+  function supaGet(key){
+    return fetch(SUPA_URL+"/rest/v1/gl_data?key=eq."+key+"&select=value",{headers:SUPA_HEADERS})
+      .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+      .then(function(rows){ return (rows && rows[0]) ? rows[0].value : null; });
+  }
+  function supaSet(key,value){
+    // PATCH first (row usually exists); POST to create it if PATCH hits 0 rows.
+    var h1 = {}; for(var k in SUPA_HEADERS) h1[k]=SUPA_HEADERS[k]; h1["Prefer"]="return=representation";
+    return fetch(SUPA_URL+"/rest/v1/gl_data?key=eq."+key,{method:"PATCH",headers:h1,
+        body:JSON.stringify({value:value,updated_at:new Date().toISOString()})})
+      .then(function(r){ if(!r.ok) throw 0; return r.text(); })
+      .then(function(t){ var a=[]; try{ a=JSON.parse(t); }catch(e){}
+        if(Array.isArray(a) && a.length===0){
+          var h2 = {}; for(var k in SUPA_HEADERS) h2[k]=SUPA_HEADERS[k]; h2["Prefer"]="return=minimal";
+          return fetch(SUPA_URL+"/rest/v1/gl_data",{method:"POST",headers:h2,
+              body:JSON.stringify({key:key,value:value,updated_at:new Date().toISOString()})})
+            .then(function(r2){ if(!r2.ok) throw 0; return true; });
+        }
+        return true;
+      });
+  }
+  function loadManual(){
+    supaGet(WALL_KEY).then(function(v){ manualNotes = Array.isArray(v)?v:[]; render(); })
+      .catch(function(){ /* store unreachable — the rest of the board still shows */ });
+  }
+  function isoFor(off){ var d=new Date(); d.setUTCDate(d.getUTCDate()+(off||0)); return d.toISOString().slice(0,10); }
+  function setChips(groupId,val){
+    var b=document.querySelectorAll("#"+groupId+" .fchip");
+    for(var i=0;i<b.length;i++){
+      var dv=b[i].getAttribute("data-k")||b[i].getAttribute("data-s");
+      b[i].classList.toggle("on", dv===val);
+    }
+  }
+  function chipVal(groupId){
+    var on=document.querySelector("#"+groupId+" .fchip.on");
+    return on ? (on.getAttribute("data-k")||on.getAttribute("data-s")) : "";
+  }
+  function feedback(msg,cls){
+    var el=document.getElementById("f_feedback");
+    el.textContent=msg||""; el.className="fmsg"+(cls?(" "+cls):"");
+  }
+  function openAdd(){
+    var base = isoFor(viewDay===1 ? 1 : 0);   // default to the day currently in view
+    document.getElementById("f_from").value = base;
+    document.getElementById("f_to").value   = base;
+    document.getElementById("f_lodge").value = "";
+    document.getElementById("f_title").value = "";
+    document.getElementById("f_msg").value   = "";
+    document.getElementById("f_by").value    = "";
+    setChips("f_kind","note"); setChips("f_src","Phone");
+    feedback("","");
+    document.getElementById("addSave").disabled = false;
+    document.getElementById("addOverlay").classList.add("on");
+    clearTimeout(revertT);   // don't let Tomorrow revert to Today while typing
+  }
+  function closeAdd(){ document.getElementById("addOverlay").classList.remove("on"); armRevert(); }
+  function saveManual(){
+    var title=(document.getElementById("f_title").value||"").trim();
+    if(!title){ feedback("Please say what’s needed.","err"); document.getElementById("f_title").focus(); return; }
+    var from=document.getElementById("f_from").value||isoFor(0);
+    var to=document.getElementById("f_to").value||from;
+    if(to<from){ var tmp=from; from=to; to=tmp; }   // swap if entered backwards
+    var rec={
+      id:"wn_"+Date.now()+"_"+Math.floor(Math.random()*1000),
+      kind:chipVal("f_kind")||"note",
+      lodge:(document.getElementById("f_lodge").value||"").trim().toUpperCase(),
+      place:"", title:title,
+      message:(document.getElementById("f_msg").value||"").trim(),
+      from:from, to:to, when:from,
+      source:chipVal("f_src")||"", by:(document.getElementById("f_by").value||"").trim(),
+      ts:new Date().toISOString()
+    };
+    var btn=document.getElementById("addSave"); btn.disabled=true;
+    feedback("Saving…","");
+    var cut=isoFor(-14);   // drop cards whose window ended more than 14 days ago
+    supaGet(WALL_KEY).then(function(v){
+      var list=(Array.isArray(v)?v:[]).filter(function(x){ return (x.to||x.from||"9999") >= cut; });
+      list.unshift(rec);
+      return supaSet(WALL_KEY,list).then(function(){
+        manualNotes=list; render();
+        feedback("Added to the board ✓","ok");
+        setTimeout(closeAdd,800);
+      });
+    }).catch(function(){
+      feedback("Couldn’t save — check the connection and try again.","err");
+      btn.disabled=false;
+    });
+  }
+  function removeManual(id){
+    if(!id) return;
+    supaGet(WALL_KEY).then(function(v){
+      var list=(Array.isArray(v)?v:[]).filter(function(x){ return x.id!==id; });
+      return supaSet(WALL_KEY,list).then(function(){ manualNotes=list; closeDetail(); render(); });
+    }).catch(function(){ /* leave as-is on failure */ });
+  }
 
   // ---- Today / Tomorrow view ----
   function updateTmrBanner(){
@@ -747,10 +957,25 @@
     fetchChain(RULES_SOURCES,
       function(j){ rulesData=j; render(); },
       function(){ /* rules optional */ });
+    loadManual();
     loadTomorrow();
   }
 
   document.getElementById("refreshBtn").addEventListener("click", load);
+  document.getElementById("addBtn").addEventListener("click", openAdd);
+  document.getElementById("addCancel").addEventListener("click", closeAdd);
+  document.getElementById("addSave").addEventListener("click", saveManual);
+  document.getElementById("addOverlay").addEventListener("click", function(e){ if(e.target===this) closeAdd(); });
+  ["f_kind","f_src"].forEach(function(gid){
+    var g=document.getElementById(gid);
+    g.addEventListener("click", function(e){
+      var b=e.target; while(b && b!==g && !(b.className && (""+b.className).indexOf("fchip")>-1)) b=b.parentNode;
+      if(!b || b===g) return;
+      var kids=g.querySelectorAll(".fchip");
+      for(var i=0;i<kids.length;i++) kids[i].classList.remove("on");
+      b.classList.add("on");
+    });
+  });
   var dtBtns = document.querySelectorAll("#dayToggle button");
   for(var _i=0;_i<dtBtns.length;_i++){
     dtBtns[_i].addEventListener("click", function(){ setView(+this.getAttribute("data-day")); });
