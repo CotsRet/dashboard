@@ -344,6 +344,27 @@
                   placeholder="Anything the team needs to know"></textarea>
       </div>
 
+      <div class="frow">
+        <label>Assign to</label>
+        <select class="fsel" id="f_assignee">
+          <option value="">— Anyone / unassigned —</option>
+          <option>Abigail Jordan</option>
+          <option>Ashley Smith</option>
+          <option>Beau Gradner</option>
+          <option>Charlene T Loveridge</option>
+          <option>Darren Smith</option>
+          <option>Janet Smith</option>
+          <option>Kate Hammond</option>
+          <option>Lee Kelly</option>
+          <option>Lydia Dilley</option>
+          <option>Melanie Thomson</option>
+          <option>Nicola Biggs</option>
+          <option>Rachel Gaazen</option>
+          <option>Tracey Kelly</option>
+          <option>Ysanne Herbert</option>
+        </select>
+      </div>
+
       <div class="frow two">
         <div class="fcol"><label>Show from</label><input class="fin" id="f_from" type="date"></div>
         <div class="fcol"><label>Until (incl.)</label><input class="fin" id="f_to" type="date"></div>
@@ -664,7 +685,7 @@
       items.push({key:"note|"+(nz.id||(nz.lodge||"x")+"|"+kind), col:col, kind:kind,
         code:nz.lodge||"★", place:nz.place||"", title:nz.title||"Special request",
         message:nz.message||"", status:null, time:null, when:nz.when||null,
-        owner:isOwner, who:"", dept:"", scheduled:tKey,
+        owner:isOwner, who:nz.assignee||"", dept:"", scheduled:tKey,
         src:nz._manual ? "Added by hand" : "Note", note:null,
         manualId:nz._manual ? (nz.id||null) : null, source:nz.source||"", by:nz.by||""});
     });
@@ -842,6 +863,7 @@
     document.getElementById("f_title").value = "";
     document.getElementById("f_msg").value   = "";
     document.getElementById("f_by").value    = "";
+    document.getElementById("f_assignee").value = "";
     setChips("f_kind","note"); setChips("f_src","Phone");
     feedback("","");
     document.getElementById("addSave").disabled = false;
@@ -862,6 +884,7 @@
       place:"", title:title,
       message:(document.getElementById("f_msg").value||"").trim(),
       from:from, to:to, when:from,
+      assignee:(document.getElementById("f_assignee").value||"").trim(),
       source:chipVal("f_src")||"", by:(document.getElementById("f_by").value||"").trim(),
       ts:new Date().toISOString()
     };
