@@ -640,7 +640,7 @@
             });
             if(dup) return;
             items.push({key:"ex|"+a.lodge+"|"+ix, col:"upsell", kind:"add", code:a.lodge,
-              place:"", title:"Fit: "+label, status:null, time:null, owner:!!a.owner,
+              place:"", title:(/dog treat bag/i.test(label) ? label : "Fit: "+label), status:null, time:null, owner:!!a.owner,
               who:"", dept:"", scheduled:td, src:"Beds24"});
           });
         });
