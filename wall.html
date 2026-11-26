@@ -540,6 +540,34 @@
     return k==="add" || k==="remove" || k==="earlyin" || k==="lateout";
   }
 
+  // BED CHANGE tasks (26 Nov 2026). "Beds24 owner booking import" creates one Breezeway
+  // task per changeover where the beds must be made up differently, e.g.
+  //   "BED CHANGE: SK -> Singles (HM80 Duckdown)"   (dated the changeover clean, unassigned)
+  // Always shown as a Special Request with a clean label, whatever else the name says.
+  // Match on the substring "BED CHANGE" only: that chat keeps it stable. A task it
+  // withdraws is renamed "NOT NEEDED - beds stay as they are (was ...)" and must never
+  // show (NOT_NEEDED_RE is applied to every task in specialTasks).
+  // The office board copies these rules: keep its copy matching.
+  var BED_CHANGE_RE = /BED CHANGE/i;
+  var NOT_NEEDED_RE = /^\s*NOT\s+NEEDED\b/i;
+  function bedChange(name, code){
+    var n = String(name||"");
+    if(!BED_CHANGE_RE.test(n) || NOT_NEEDED_RE.test(n)) return null;
+    var m = n.match(/BED CHANGE\s*:?\s*(.+?)\s*(?:-+>|→)\s*(.+?)\s*(?:\(|$)/i);
+    var from = m ? m[1].trim() : "", to = m ? m[2].trim() : "";
+    // Lodge name from the trailing "(HM80 Duckdown)", minus the plot code.
+    var place = "", pm = n.match(/\(([^()]*)\)\s*$/);
+    if(pm){
+      var c = String(code||"").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      place = pm[1].replace(new RegExp("^\\s*" + c + "\\b\\s*", "i"), "").trim();
+    }
+    return {
+      title: (from && to) ? ("Bed change: " + from + " → " + to) : n,
+      place: place,
+      note:  (from && to) ? ("Make up the beds as " + to + " (they were left as " + from + "). Office to allocate.") : n
+    };
+  }
+
   // ---- extract the tasks the board should show ----
   // One-off (non-template) tasks as before, PLUS any template task that is a genuine
   // upsell — so a templated upsell (e.g. a recurring Dog Welcome pack) isn't dropped
@@ -550,7 +578,8 @@
       (p.tasks||[]).forEach(function(t){
         var tid = t.template_id;
         var oneOff = (tid===null || tid===undefined || tid==="" || tid===0);
-        if(oneOff || isUpsellTask(t.name)){
+        if(NOT_NEEDED_RE.test(t.name||"")) return;   // withdrawn tasks never show
+        if(oneOff || isUpsellTask(t.name) || BED_CHANGE_RE.test(t.name||"")){
           out.push({prop:p.name, propId:p.id, t:t});
         }
       });
@@ -595,6 +624,16 @@
         // Beds24 sale extra is de-duplicated against it.
         if(/^\s*(add|fit)\b/i.test(t.name)){ (bwAdd[code]=bwAdd[code]||[]).push(upsellTokens(t.name)); }
         var kind, col, title=t.name, time=null, note=null;
+        var bc = bedChange(t.name, code);
+        if(bc){
+          items.push({
+            key:"bw|"+x.propId+"|"+t.id, col:"maint", kind:"special", code:code,
+            place:bc.place || lodgeName(x.prop), title:bc.title, note:bc.note,
+            status:st, time:null, owner:false, who:assignee(t),
+            dept:t.department||"", scheduled:t.scheduled_date||"", src:"Breezeway"
+          });
+          return;
+        }
         if(k==="earlyin"||k==="lateout"){
           kind=k; col="upsell";
           title = k==="lateout" ? "Late check-out" : "Early check-in";
