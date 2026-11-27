@@ -550,6 +550,12 @@
   // The office board copies these rules: keep its copy matching.
   var BED_CHANGE_RE = /BED CHANGE/i;
   var NOT_NEEDED_RE = /^\s*NOT\s+NEEDED\b/i;
+  // Owner portal office task (27 Nov 2026): "OWNER STAY: remove Charge Automation deposit
+  // reminder - <unit> <lodge>, <dates> (Beds24 <id>)", assigned to Operations Board. It's an
+  // office job, not a laundry one (Lee), so it never shows on this board. Match on the name
+  // START "OWNER STAY:", agreed with the office board. The owner's own "Owner arriving" /
+  // "Owner leaving" cards come from Beds24 (dashboard.json) and are not affected.
+  var OWNER_STAY_RE = /^\s*OWNER\s+STAY\s*:/i;
   function bedChange(name, code){
     var n = String(name||"");
     if(!BED_CHANGE_RE.test(n) || NOT_NEEDED_RE.test(n)) return null;
@@ -579,6 +585,7 @@
         var tid = t.template_id;
         var oneOff = (tid===null || tid===undefined || tid==="" || tid===0);
         if(NOT_NEEDED_RE.test(t.name||"")) return;   // withdrawn tasks never show
+        if(OWNER_STAY_RE.test(t.name||"")) return;   // owner-portal office task: office board only
         if(oneOff || isUpsellTask(t.name) || BED_CHANGE_RE.test(t.name||"")){
           out.push({prop:p.name, propId:p.id, t:t});
         }
